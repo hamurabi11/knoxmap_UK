@@ -89,12 +89,32 @@ class Routing(unittest.TestCase):
         self.assertEqual(tuple(graph["ways"]["10"]["geometry"][-1]), ring[9])   # off the tile corners
         self.assertEqual(tuple(graph["ways"]["11"]["geometry"][0]), ring[3])
 
+    def test_a_roundabout_mapped_as_arcs_is_one_ring(self):
+        # four quarter arcs; a road leaves straight out east from the eastern node (tile x
+        # is lon here): it must be free to (an arc's own middle once pointed it elsewhere)
+        ring = [(200 + 12 * math.sin(a), 200 + 12 * math.cos(a)) for a in np.linspace(0, 2 * math.pi, 17)]
+        ring[-1] = ring[0]
+        arcs = [osm.OSMFeature(20 + k, "way", {"highway": "primary", "junction": "roundabout"}, ring[4 * k:4 * k + 5])
+                for k in range(4)]
+        lat, lon = ring[0]
+        out = osm.OSMFeature(30, "way", {"highway": "primary"}, [ring[0], (lat, lon + 40), (lat, lon + 90)])
+        proj = plain_projection()
+        nodes, links, pins = network.build(arcs + [out], proj)
+        (n,) = [n for n in pins if n in (links[0].u, links[0].v)]
+        self.assertGreater(pins[n][0], 0.9)                             # outwards: +x
+        graph = route.route(arcs + [out], proj, "graph", log=lambda *a: None)
+        pts = [proj.to_px(*q) for q in graph["ways"]["30"]["geometry"]]
+        self.assertLessEqual(max(abs(y - pts[0][1]) for _x, y in pts), 2)    # straight out, no hook
+
     def test_a_dual_carriageway_is_one_road(self):
         a = osm.OSMFeature(1, "way", {"highway": "primary", "oneway": "yes"}, [(100, 20), (100, 380)])
         b = osm.OSMFeature(2, "way", {"highway": "primary", "oneway": "yes"}, [(110, 380), (110, 20)])
         nodes, links, _pins = network.build([a, b], plain_projection())
         self.assertEqual(len(links), 1)
         self.assertEqual(links[0].tags.get("dual_carriageway"), "yes")
+        graph = route.route([a, b], plain_projection(), "graph", log=lambda *a: None)
+        self.assertEqual(graph["ways"]["1"]["geometry"], graph["ways"]["2"]["geometry"][::-1])
+        self.assertNotIn("width", graph["ways"]["1"]["tags"])     # drawn as one ordinary road
 
     def test_a_width_in_metres_is_tiles_at_the_maps_scale(self):
         f = osm.OSMFeature(1, "way", {"highway": "residential", "width": "8"}, [(100, 20), (100, 380)])

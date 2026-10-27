@@ -121,10 +121,10 @@ def build(features: list, proj, shape: dict | None = None) -> tuple[dict, list[L
     # Nodes no link uses any more (merged away) go.
     used = {l.u for l in links} | {l.v for l in links}
     nodes = {k: v for k, v in nodes.items() if k in used}
-    for ring in rings:
-        px = [proj.to_px(la, lo) for la, lo in ring.geometry]
+    for ring in _whole_rings(rings):
+        px = [proj.to_px(la, lo) for la, lo in ring]
         cx, cy = sum(x for x, _y in px) / len(px), sum(y for _x, y in px) / len(px)
-        for lat, lon in ring.geometry:
+        for lat, lon in ring:
             n = node_of.get(_key(lat, lon))
             if n in nodes:
                 x, y = nodes[n]
@@ -199,6 +199,30 @@ def roundabouts(feats) -> list:
     """The roundabouts among the roads: left as drawn, as Knox County straight leaves them."""
     return [f for f in feats if f.kind == "way" and len(f.geometry) >= 2 and _is_roundabout(f)
             and (f.tags.get("highway") or "").lower() in CLASSES]
+
+
+def _whole_rings(ways) -> list:
+    """Each roundabout's nodes [(lat, lon)], once each: its ways joined where they share
+    a node (one is often mapped as several arcs, and an arc's own middle is not the
+    roundabout's)."""
+    parent = list(range(len(ways)))
+
+    def find(a):
+        while parent[a] != a:
+            parent[a] = parent[parent[a]]
+            a = parent[a]
+        return a
+    first: dict = {}
+    for k, f in enumerate(ways):
+        for lat, lon in f.geometry:
+            j = first.setdefault(_key(lat, lon), k)
+            parent[find(k)] = find(j)
+    rings: dict = {}
+    for k, f in enumerate(ways):
+        ring = rings.setdefault(find(k), {})
+        for lat, lon in f.geometry:
+            ring.setdefault(_key(lat, lon), (lat, lon))
+    return [list(r.values()) for r in rings.values()]
 
 
 def road_ways(feats) -> list:

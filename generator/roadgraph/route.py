@@ -85,7 +85,6 @@ def route(features: list, proj, mode: str = "graph", shape: dict | None = None, 
     log(f"roads routed ({mode}): {len(paths)} of {len(links)} links, {len(failed)} left as drawn")
     road = network.road_ways(features)
     real = {f.osm_id: [proj.to_px(la, lo) for la, lo in f.geometry] for f in road}
-    mpt = getattr(proj, "meters_per_tile", 1.0) or 1.0
     lines = network.way_lines(links, paths, real)
     # Each way cut to its corners, keeping every point another way ends on: a side
     # road's end is a node of the road it joins, as in OSM.
@@ -95,10 +94,9 @@ def route(features: list, proj, mode: str = "graph", shape: dict | None = None, 
         corners = set(raster.vertices(geo))
         keep = [p for k, p in enumerate(geo) if (p in corners or tuple(p) in ends)
                 and (k == 0 or p != geo[k - 1])]
-        tags = {}
-        if l.tags.get("dual_carriageway") == "yes":
-            tags["width"] = f"{l.width * mpt:g}"           # both carriageways and the gap: one road
-        ways[str(w)] = {"geometry": [list(proj.to_latlon(x, y)) for x, y in keep], "tags": tags}
+        # A dual carriageway's two ways share the one line and are drawn at their own
+        # width: one ordinary road, as vanilla draws most of its own.
+        ways[str(w)] = {"geometry": [list(proj.to_latlon(x, y)) for x, y in keep], "tags": {}}
     # Roundabouts as drawn; a road routed into one ends exactly on its node (the
     # route ends on the tile corner nearest it).
     ring_nodes = []
