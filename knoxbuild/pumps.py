@@ -12,9 +12,16 @@ forecourt and pumps where the point is.
 
 The pumps go into tile-only lots, one per map cell, like the fences and the
 bridges (see structures.py).
+
+KnoxMap UK (a map whose regional.json carries `fuel`: asset_creator/commercial_kit/
+petrol.py's tiles): a 1993 British forecourt in place of Knox County's - its own pumps
+(each with vanilla's pump's properties), a canopy over them on four columns with its
+brand's band round its edge (lettered on the south and east, the camera's sides) and
+a price sign on its pole at the forecourt's street corner.
 """
 from __future__ import annotations
 
+import json
 import os
 
 import numpy as np
@@ -42,6 +49,68 @@ ROAD = {C.MEDIUM_ASPHALT, C.DARKEST_ASPHALT, C.DARK_POTHOLE, C.LIGHT_POTHOLE}
 NOT_GROUND = {C.WATER}
 
 SIDES = {"N": (0, -1), "S": (0, 1), "W": (-1, 0), "E": (1, 0)}
+
+
+CANOPY_REACH = 2            # squares the canopy runs beyond its pumps, along the row and either side
+
+
+def _uk_fuel(out_dir: str) -> dict | None:
+    """The commercial kit's forecourt tiles, inlined in the map's regional.json (none
+    with the map's UK assets off: the game's own forecourt)."""
+    from .assets_uk import off
+    if off(out_dir):
+        return None
+    path = os.path.join(out_dir, "regional.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f).get("fuel")
+    except (OSError, ValueError):
+        return None
+
+
+def _uk_canopy(tiles, fuel, rect, pumps_at, along_x, street):
+    """A canopy over the pumps: its top a storey up (RoofTop), a column at each corner,
+    its band on each edge (Furniture2 north and south, Furniture3 east and west: a
+    corner holds two), the brand's name across the south and east bands' middles; and
+    the price sign at the forecourt's corner on the street (`rect`), facing S or E."""
+    parts = fuel["parts"]
+    x, y, w, h = rect
+    pts = [(t[0], t[1]) for t in pumps_at]
+    if along_x:
+        xa, xb = min(p[0] for p in pts) - CANOPY_REACH, max(p[0] for p in pts) + CANOPY_REACH
+        ya, yb = pts[0][1] - CANOPY_REACH, pts[0][1] + CANOPY_REACH
+    else:
+        ya, yb = min(p[1] for p in pts) - CANOPY_REACH, max(p[1] for p in pts) + CANOPY_REACH
+        xa, xb = pts[0][0] - CANOPY_REACH, pts[0][0] + CANOPY_REACH
+    xa, xb, ya, yb = max(xa, x), min(xb, x + w - 1), max(ya, y), min(yb, y + h - 1)
+    if xb - xa < 2 or yb - ya < 2:
+        return
+    taken = set(pts)
+    n = len(parts["band_S_letters"])
+    for cx in range(xa, xb + 1):
+        for cy in range(ya, yb + 1):
+            tiles.append((cx, cy, 1, "RoofTop", parts["roof"]))
+    for cx, cy in ((xa, ya), (xb, ya), (xa, yb), (xb, yb)):
+        if (cx, cy) not in taken:
+            tiles.append((cx, cy, 0, "Furniture", parts["column"]))
+            taken.add((cx, cy))
+    s0, e0 = (xa + xb + 1 - n) // 2, (ya + yb + 1 - n) // 2
+    for cx in range(xa, xb + 1):
+        k = cx - s0
+        tiles.append((cx, yb, 0, "Furniture2", parts["band_S_letters"][k] if 0 <= k < n else parts["band_S_plain"]))
+        tiles.append((cx, ya, 0, "Furniture2", parts["band_N_plain"]))
+    ne = len(parts["band_E_letters"])
+    e0 = (ya + yb + 1 - ne) // 2
+    for cy in range(ya, yb + 1):
+        k = cy - e0
+        tiles.append((xb, cy, 0, "Furniture3", parts["band_E_letters"][k] if 0 <= k < ne else parts["band_E_plain"]))
+        tiles.append((xa, cy, 0, "Furniture3", parts["band_W_plain"]))
+    # the price sign: the forecourt's street corner, clear of the canopy's squares
+    corner = {"S": (x, y + h - 1), "N": (x, y), "E": (x + w - 1, y), "W": (x, y)}.get(street, (x, y + h - 1))
+    if corner not in taken and not (xa <= corner[0] <= xb and ya <= corner[1] <= yb):
+        face = "price_e" if street in ("E", "W") else "price"   # (a W street's faces east too: only S and E are seen)
+        tiles.append((corner[0], corner[1], 0, "Furniture", parts[f"{face}_lo"]))
+        tiles.append((corner[0], corner[1], 1, "Furniture", parts[f"{face}_hi"]))
 
 
 def _forecourt(x0, y0, w, h, side, depth):
@@ -89,6 +158,7 @@ def place_pumps(out_dir: str, map_name: str, bdir: str, occupied: np.ndarray,
 
     tiles: list[tuple[int, int, int, str, str]] = []
     pumps = 0
+    uk = _uk_fuel(out_dir)
 
     paved = np.zeros((H, W), dtype=bool)
     for colour in ROAD | {C.PALE_CONCRETE, C.DARK_ASPHALT}:
@@ -118,7 +188,7 @@ def place_pumps(out_dir: str, map_name: str, bdir: str, occupied: np.ndarray,
                 y, h = (y, h + 1) if dy > 0 else (y - 1, h + 1)
         return None
 
-    def lay(x, y, w, h, brand, pumps_at=None):
+    def lay(x, y, w, h, brand, pumps_at=None, side=None):
         nonlocal pumps
         if forecourts is not None:
             forecourts.append((x, y, w, h))
@@ -134,11 +204,16 @@ def place_pumps(out_dir: str, map_name: str, bdir: str, occupied: np.ndarray,
         length = pw if along_x else ph
         count = max(1, min(MAX_PUMPS, (length - 2) // PUMP_SPACING))
         start = (length - (count - 1) * PUMP_SPACING) // 2
+        row = []
         for k in range(count):
             t = start + k * PUMP_SPACING
             px, py = (px0 + t, py0 + ph // 2) if along_x else (px0 + pw // 2, py0 + t)
-            tiles.append((px, py, 0, "Furniture", PUMPS[brand]["x" if along_x else "y"]))
+            pump = uk["parts"]["pump_x" if along_x else "pump_y"] if uk else PUMPS[brand]["x" if along_x else "y"]
+            tiles.append((px, py, 0, "Furniture", pump))
+            row.append((px, py))
             pumps += 1
+        if uk:
+            _uk_canopy(tiles, uk, (x, y, w, h), row, along_x, side)
 
     def brand_for(x, y):
         return "fossoil" if (x * 7 + y * 13) % 2 else "gas2go"
@@ -183,7 +258,8 @@ def place_pumps(out_dir: str, map_name: str, bdir: str, occupied: np.ndarray,
                 t = int(step * (k + 0.5))
                 xx, yy = (t, r) if along_x else (r, t)
                 if under[yy, xx]:
-                    tiles.append((x0 + xx, y0 + yy, 0, "Furniture", PUMPS[brand]["x" if along_x else "y"]))
+                    tiles.append((x0 + xx, y0 + yy, 0, "Furniture",
+                                  uk["parts"]["pump_x" if along_x else "pump_y"] if uk else PUMPS[brand]["x" if along_x else "y"]))
                     placed += 1
         pumps += placed
         blocked[y0:y1, x0:x1] |= under
@@ -205,7 +281,7 @@ def place_pumps(out_dir: str, map_name: str, bdir: str, occupied: np.ndarray,
             for s in order:
                 rect = _forecourt(x0, y0, w, h, s, depth)
                 if clear(*rect):
-                    lay(*(reach(*rect, s) or rect), brand_for(x0, y0), pumps_at=rect)
+                    lay(*(reach(*rect, s) or rect), brand_for(x0, y0), pumps_at=rect, side=s)
                     done = True
                     break
             if done:

@@ -16,7 +16,38 @@ class OctilinearRoadDefaults(unittest.TestCase):
         # this moved every time the renderer gained a knob, and said nothing
         # about straight roads when it did.
         straight = inspect.signature(renderer.render).parameters["straight_roads"]
-        self.assertIs(straight.default, True)
+        self.assertEqual(straight.default, 1)
+        # ...and its third choice, the grid where buildings are
+        self.assertEqual(Settings.from_dict({"straight_roads": 2}).straight_roads, 2)
+        self.assertEqual(Settings.from_dict({"straight_roads": 5}).straight_roads, 2)
+
+    def _diagonal_street(self, with_buildings: bool, grid_built: bool):
+        """A 45-degree street across a 160-tile square, a row of houses along it
+        or none: the drawn road's steps."""
+        projection = SimpleNamespace(width=160, height=160, to_px=lambda lat, lon: (lon, lat),
+                                     to_latlon=lambda x, y: (y, x))
+        road = osm.OSMFeature(1, "way", {"highway": "residential"}, [(10, 10), (150, 150)])
+        feats = [road]
+        if with_buildings:
+            for k in range(11):                     # houses along all of it
+                c = 16 + 12 * k
+                feats.append(osm.OSMFeature(100 + k, "way", {"building": "house"},
+                                            [(c + 4, c - 8), (c + 10, c - 2), (c + 6, c + 2), (c, c - 4), (c + 4, c - 8)]))
+        octilinear.straighten_roads(feats, projection, renderer.classify, renderer._is_polygon, grid_built=grid_built)
+        pts = road.geometry
+        return [(b[1] - a[1], b[0] - a[0]) for a, b in zip(pts, pts[1:])]
+
+    def test_grid_where_buildings_are(self):
+        # Knox County roads: the street is one diagonal
+        steps = self._diagonal_street(with_buildings=True, grid_built=False)
+        self.assertTrue(any(dx and dy for dx, dy in steps))
+        # grid where buildings are: along the tiles only, a stair of long runs
+        steps = self._diagonal_street(with_buildings=True, grid_built=True)
+        self.assertFalse(any(dx and dy for dx, dy in steps))
+        self.assertGreater(len(steps), 1)
+        # ...and with no buildings by it the diagonal stays
+        steps = self._diagonal_street(with_buildings=False, grid_built=True)
+        self.assertTrue(any(dx and dy for dx, dy in steps))
 
     def test_curves_become_straight_runs_and_keep_shared_junctions(self):
         projection = SimpleNamespace(

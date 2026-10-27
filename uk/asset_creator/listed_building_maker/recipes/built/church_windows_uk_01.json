@@ -1,0 +1,173 @@
+{
+ "sheet": "church_windows_uk_01",
+ "items": {
+  "perp3": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "church_windows_uk_01_0",
+     "N": "church_windows_uk_01_1"
+    },
+    {
+     "W": "church_windows_uk_01_2",
+     "N": "church_windows_uk_01_3"
+    }
+   ],
+   "shapes": [
+    2,
+    1
+   ],
+   "shapes_n": [
+    1,
+    2
+   ]
+  },
+  "perp3_stained": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "church_windows_uk_01_4",
+     "N": "church_windows_uk_01_5"
+    },
+    {
+     "W": "church_windows_uk_01_6",
+     "N": "church_windows_uk_01_7"
+    }
+   ],
+   "shapes": [
+    2,
+    1
+   ],
+   "shapes_n": [
+    1,
+    2
+   ]
+  },
+  "dec2": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "church_windows_uk_01_8",
+     "N": "church_windows_uk_01_9"
+    },
+    {
+     "W": "church_windows_uk_01_10",
+     "N": "church_windows_uk_01_11"
+    }
+   ],
+   "shapes": [
+    2,
+    1
+   ],
+   "shapes_n": [
+    1,
+    2
+   ]
+  },
+  "square3": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "church_windows_uk_01_12",
+     "N": "church_windows_uk_01_13"
+    }
+   ],
+   "shapes": [
+    13
+   ],
+   "shapes_n": [
+    13
+   ]
+  },
+  "bell_opening": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "church_windows_uk_01_14",
+     "N": "church_windows_uk_01_15"
+    }
+   ],
+   "shapes": [
+    10
+   ],
+   "shapes_n": [
+    10
+   ]
+  },
+  "big4_low": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "church_windows_uk_01_16",
+     "N": "church_windows_uk_01_17"
+    },
+    {
+     "W": "church_windows_uk_01_18",
+     "N": "church_windows_uk_01_19"
+    },
+    {
+     "W": "church_windows_uk_01_20",
+     "N": "church_windows_uk_01_21"
+    }
+   ],
+   "shapes": [
+    12,
+    8,
+    11
+   ],
+   "shapes_n": [
+    11,
+    8,
+    12
+   ]
+  },
+  "big4_high": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "church_windows_uk_01_22",
+     "N": "church_windows_uk_01_23"
+    },
+    {
+     "W": "church_windows_uk_01_24",
+     "N": "church_windows_uk_01_25"
+    },
+    {
+     "W": "church_windows_uk_01_26",
+     "N": "church_windows_uk_01_27"
+    }
+   ],
+   "shapes": [
+    12,
+    8,
+    11
+   ],
+   "shapes_n": [
+    11,
+    8,
+    12
+   ]
+  },
+  "bell_round2": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "church_windows_uk_01_28",
+     "N": "church_windows_uk_01_29"
+    },
+    {
+     "W": "church_windows_uk_01_30",
+     "N": "church_windows_uk_01_31"
+    }
+   ],
+   "shapes": [
+    2,
+    1
+   ],
+   "shapes_n": [
+    1,
+    2
+   ]
+  }
+ }
+}

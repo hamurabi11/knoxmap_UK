@@ -1,0 +1,167 @@
+{
+ "sheet": "gothic_revival_windows_uk_01",
+ "items": {
+  "perp_sq2_low": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "gothic_revival_windows_uk_01_0",
+     "N": "gothic_revival_windows_uk_01_1"
+    },
+    {
+     "W": "gothic_revival_windows_uk_01_2",
+     "N": "gothic_revival_windows_uk_01_3"
+    }
+   ],
+   "shapes": [
+    12,
+    11
+   ],
+   "shapes_n": [
+    11,
+    12
+   ]
+  },
+  "perp_sq2_high": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "gothic_revival_windows_uk_01_4",
+     "N": "gothic_revival_windows_uk_01_5"
+    },
+    {
+     "W": "gothic_revival_windows_uk_01_6",
+     "N": "gothic_revival_windows_uk_01_7"
+    }
+   ],
+   "shapes": [
+    12,
+    11
+   ],
+   "shapes_n": [
+    11,
+    12
+   ]
+  },
+  "perp_sq1_low": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "gothic_revival_windows_uk_01_8",
+     "N": "gothic_revival_windows_uk_01_9"
+    }
+   ],
+   "shapes": [
+    8
+   ],
+   "shapes_n": [
+    8
+   ]
+  },
+  "perp_sq1_high": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "gothic_revival_windows_uk_01_10",
+     "N": "gothic_revival_windows_uk_01_11"
+    }
+   ],
+   "shapes": [
+    8
+   ],
+   "shapes_n": [
+    8
+   ]
+  },
+  "perp_sq2": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "gothic_revival_windows_uk_01_12",
+     "N": "gothic_revival_windows_uk_01_13"
+    },
+    {
+     "W": "gothic_revival_windows_uk_01_14",
+     "N": "gothic_revival_windows_uk_01_15"
+    }
+   ],
+   "shapes": [
+    7,
+    6
+   ],
+   "shapes_n": [
+    6,
+    7
+   ]
+  },
+  "perp_sq1": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "gothic_revival_windows_uk_01_16",
+     "N": "gothic_revival_windows_uk_01_17"
+    }
+   ],
+   "shapes": [
+    5
+   ],
+   "shapes_n": [
+    5
+   ]
+  },
+  "tower_perp3_low": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "gothic_revival_windows_uk_01_18",
+     "N": "gothic_revival_windows_uk_01_19"
+    },
+    {
+     "W": "gothic_revival_windows_uk_01_20",
+     "N": "gothic_revival_windows_uk_01_21"
+    },
+    {
+     "W": "gothic_revival_windows_uk_01_22",
+     "N": "gothic_revival_windows_uk_01_23"
+    }
+   ],
+   "shapes": [
+    12,
+    8,
+    11
+   ],
+   "shapes_n": [
+    11,
+    8,
+    12
+   ]
+  },
+  "tower_perp3_high": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "gothic_revival_windows_uk_01_24",
+     "N": "gothic_revival_windows_uk_01_25"
+    },
+    {
+     "W": "gothic_revival_windows_uk_01_26",
+     "N": "gothic_revival_windows_uk_01_27"
+    },
+    {
+     "W": "gothic_revival_windows_uk_01_28",
+     "N": "gothic_revival_windows_uk_01_29"
+    }
+   ],
+   "shapes": [
+    12,
+    8,
+    11
+   ],
+   "shapes_n": [
+    11,
+    8,
+    12
+   ]
+  }
+ }
+}

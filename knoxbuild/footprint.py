@@ -377,7 +377,8 @@ def place(px: list[tuple[float, float]], occupied: np.ndarray,
           snap_degrees: float = SNAP_DEGREES,
           avoid: np.ndarray | None = None,
           lots: np.ndarray | None = None,
-          alignment: str = "smart"
+          alignment: str = "smart",
+          exact: bool = False
           ) -> tuple[Footprint | None, str]:
     """Rasterise a projected footprint, claiming its tiles in `occupied`.
 
@@ -393,6 +394,10 @@ def place(px: list[tuple[float, float]], occupied: np.ndarray,
     than by its tiles (_clear_box). Passed in, the footprint is cut back until
     its own rectangle stands clear of every other, and its rectangle is
     claimed there in turn.
+
+    `exact`: the outline was already laid on the tiles by a regional data
+    step (whole blocks, on tile edges) - drawn as it is, never squared up or
+    moved off the road.
     """
     map_h, map_w = occupied.shape
     poly = _polygon(px)
@@ -415,12 +420,19 @@ def place(px: list[tuple[float, float]], occupied: np.ndarray,
     point_rotation = 0.0
     if alignment not in BUILDING_ALIGNMENT_OPTIONS:
         alignment = "smart"
-    box_alignment = alignment == "rectangle" or (
+    # An outline already square to the grid (stood upright before the build)
+    # is drawn as it is: replacing it with a rectangle would fill in its
+    # wings and yards, and there is no staircase to straighten. One laid on
+    # the tiles by a regional step (`exact`) is never reshaped either.
+    upright = angle < 1.0 and not rectangular
+    keep_shape = exact or (alignment == "smart" and upright)
+    box_alignment = not keep_shape and (alignment == "rectangle" or (
         alignment == "smart" and angle <= snap_degrees
-        and (rectangular or snap_degrees >= 30))
-    rectilinear_alignment = (alignment == "rectilinear"
-                             or (alignment == "smart" and not box_alignment
-                                 and angle <= snap_degrees and not rectangular))
+        and (rectangular or snap_degrees >= 30)))
+    rectilinear_alignment = not keep_shape and (
+        alignment == "rectilinear"
+        or (alignment == "smart" and not box_alignment
+            and angle <= snap_degrees and not rectangular))
     if rectilinear_alignment:
         point_rotation = _orthogonal_rotation(poly, rect)
         poly = rectilinearize_polygon(poly)
@@ -450,10 +462,13 @@ def place(px: list[tuple[float, float]], occupied: np.ndarray,
         mask = shapely.contains_xy(poly, xs, ys)
 
     before_nudge = (x0, y0)
-    if avoid is not None:
+    if avoid is not None and not exact:
         x0, y0 = _clear_of(mask, x0, y0, avoid, occupied)
     point_offset = (x0 - before_nudge[0], y0 - before_nudge[1])
-    if avoid is not None:
+    # An outline a regional step laid on the tiles (`exact`: KnoxMap UK places
+    # buildings from the LiDAR and keeps them off the streets itself) stands
+    # where it was measured: neither refused nor cut by a road drawn over it.
+    if avoid is not None and not exact:
         if _road_share(mask, x0, y0, avoid) > ROAD_SHARE_MAX:
             return None, "road"
         # What little is left on the road is cut away: no room stands on the carriageway.

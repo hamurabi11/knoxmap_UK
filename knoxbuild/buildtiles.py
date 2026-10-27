@@ -107,6 +107,15 @@ def window_locked(tile: str) -> bool:
 
 _WINDOW_FAMILIES = ("white", "metal", "wood", "church")
 _SPECIAL_WINDOWS = {40: 17, 42: 17, 48: 17, 50: 17, 41: 18, 43: 18, 49: 18, 51: 18}
+# KnoxMap UK: the WindowShape of each window on the UK sheets, by its place
+# (two sprites a window: listed_building_maker/makers/window_kit.py WINDOWS,
+# asset_creator/housing_kit WINDOWS, seven a sheet). A wall's numbered Window
+# variant is its window-shaped piece with that shape's hole; with none (variant
+# 0) the plain window piece's smaller hole sat behind a tall window, and the
+# window's frame hid the wall's arch or soldier course over it (2026-10-19).
+UK_WINDOW_SHAPES = {"fixtures_windows_uk_01": [9, 9, 13, 13, 13, 10],
+                    "fixtures_windows_uk_02": [9] * 7,
+                    "fixtures_windows_uk_03": [9] * 3}
 
 
 def _window_variant(window_tile: str) -> int:
@@ -116,6 +125,10 @@ def _window_variant(window_tile: str) -> int:
     legacy = re.match(r"^fixtures_windows_01_(\d+)$", window_tile)
     if legacy:
         return _SPECIAL_WINDOWS.get(int(legacy[1]), 0)
+    uk = re.match(r"^(fixtures_windows_uk_\d\d)_(\d+)$", window_tile)
+    if uk and uk[1] in UK_WINDOW_SHAPES:
+        shapes, k = UK_WINDOW_SHAPES[uk[1]], (int(uk[2]) % 32) // 2
+        return shapes[k] if k < len(shapes) else 0
     m = re.match(r"^fixtures_windows_(?:%s)_(\d+)$" % "|".join(_WINDOW_FAMILIES), window_tile)
     return int(m.group(1)) // 2 + 1 if m else 0
 
@@ -250,8 +263,10 @@ def level_layers(b: Building, z: int) -> dict[tuple[int, int], list[tuple[str, s
                     walls[(x, y)] = wall_tiles(x, y, kind)
             elif (x, y) not in wall_furniture and west(x, y - 1) and north(x - 1, y):
                 walls[(x, y)] = wall_tiles(x, y, "SouthEast")
+                kind_at[(x, y)] = "SouthEast"
             elif (x, y) in custom_ends:
                 walls[(x, y)] = wall_tiles(x, y, "SouthEast", end=True)
+                kind_at[(x, y)] = "SouthEast"
 
     for pos, items in wall_furniture.items():
         walls[pos] = walls.get(pos, []) + [tile for _, tile in items]
@@ -319,7 +334,9 @@ def level_layers(b: Building, z: int) -> dict[tuple[int, int], list[tuple[str, s
         win = _entry(b, o.get("Tile", b.attrs.get("Window", 0))).get(dname, "")
         v = _window_variant(win)
         variant = f"{dname}Window{v}" if v else dname + "Window"
-        if r > 0:
+        # KnoxMap UK: an outside wall laid as its own wall object (a church tower's brick,
+        # landmark_uk.py) keeps its own window piece, as a door in it does.
+        if r > 0 or (x, y, dname) in custom_walls:
             walls[(x, y)] = preserve_corner(wall_tiles(x, y, variant, fallback=dname + "Window"))
         else:
             kind = variant if ext.get(variant) else dname + "Window"
@@ -401,15 +418,20 @@ def level_layers(b: Building, z: int) -> dict[tuple[int, int], list[tuple[str, s
     # bottom to top: floor, rugs, walls, wall furniture (north/west), door frames, doors,
     # windows, ordinary furniture, curtains, wall furniture (east/south), roof furniture
     painted: dict[tuple[int, int], list[str]] = {}
-    for _layer, grid in floor.tile_layers:        # tiles painted on the floor, with the wall furniture
+    painted_roof: dict[tuple[int, int], list[str]] = {}
+    for layer, grid in floor.tile_layers:         # tiles painted on the floor, with the wall furniture
+        # KnoxMap UK: painted on a roof layer (a landmark's parapet, spire, a gable's
+        # tile-hanging: landmark_uk.py) - laid after the roof's own tiles.
+        into = painted_roof if layer.startswith("Roof") else painted
         for y, row in enumerate(grid):
             for x, tile in enumerate(row):
                 if tile:
-                    painted.setdefault((x, y), []).append(tile)
+                    into.setdefault((x, y), []).append(tile)
     groups = [("floor", floors), ("floor", upper_floor), ("floor_furniture", furn_floor),
               ("walls", walls), ("wall_furniture_nw", furn_before), ("painted", painted), ("openings", extra),
               ("curtains_nw", curtains_before), ("stairs", stair_tiles), ("furniture", furn_mid),
               ("curtains_se", curtains), ("wall_furniture_se", furn_after), ("roof", upper),
+              ("roof_painted", painted_roof),
               ("roof_furniture", furn_roof)]
     for pos in set().union(*(g for _, g in groups)):
         stack = []
@@ -422,7 +444,8 @@ def level_layers(b: Building, z: int) -> dict[tuple[int, int], list[tuple[str, s
                     # A west wall and a north wall are different walls: two buildings that
                     # meet at a corner each put one of them on the same square, and one
                     # channel between them kept only whichever was laid last.
-                    channel = {"West": "walls_west", "North": "walls_north"}.get(kind_at.get(pos), layer)
+                    channel = {"West": "walls_west", "North": "walls_north",
+                               "SouthEast": "walls_post"}.get(kind_at.get(pos), layer)
                     if tile in trim_names:
                         channel = "wall_trim_north" if tile in north_trim else "wall_trim_west"
                     elif tile in grime_names:
@@ -439,11 +462,18 @@ def level_tiles(b: Building, z: int) -> dict[tuple[int, int], list[str]]:
 
 
 # Which earlier wall channels a new wall takes the place of. A west wall and a north wall
-# on one square are two walls and both stay; anything else on the "walls" channel (a
-# corner piece, an end post) replaces what was there, as WorldEd's own output does.
-WALL_REPLACES = {"walls": {"walls", "walls_west", "walls_north"},
-                 "walls_west": {"walls", "walls_west"},
-                 "walls_north": {"walls", "walls_north"}}
+# on one square are two walls and both stay; a corner piece on the "walls" channel
+# replaces what was there, as WorldEd's own output does. An end post (the corner where a
+# building's east and south walls meet, on the square beyond it) replaces only a post:
+# on a square another building has a wall on - the next house's, at the corner of a
+# semi or a terrace - the wall stays and the post is not laid (KnoxMap UK, 2026-10-19:
+# WorldEd's rule took the wall away, a hole in the corner of a house with the room's
+# floor showing through; the George's corner square, LOG 2026-10-19 #L2).
+WALL_REPLACES = {"walls": {"walls", "walls_west", "walls_north", "walls_post"},
+                 "walls_west": {"walls", "walls_west", "walls_post"},
+                 "walls_north": {"walls", "walls_north", "walls_post"},
+                 "walls_post": {"walls_post"}}
+WALLED = {"walls", "walls_west", "walls_north"}
 
 
 # Walls, fences, gates, railings and hedges are structure: a later lot's piece on the same
@@ -486,6 +516,17 @@ def compose_lots(lots) -> dict[tuple[int, int, int], list[str]]:
                     old = world.get(pos, [])
                     if "floor" in channels:     # a floor tile (a flat roof is one) takes the square
                         old = []
+                    if "walls_post" in channels and any(layer in WALLED for layer, _ in old):
+                        new = [(layer, tile) for layer, tile in new if layer != "walls_post"]
+                        channels.discard("walls_post")
+                    if "roof" in channels and "floor" not in channels:
+                        # pitched roofs meet: two terraced houses each put a gable cap on their party
+                        # line, one with its first column of slope under it; the neighbour's cap laid
+                        # later wiped that slope (hidden by the cap from the camera, a hole once the
+                        # house is turned: KnoxMap UK turned_buildings LOG #D30). Both houses' roof tiles stay.
+                        had = {tile for layer, tile in old if layer == "roof"}
+                        new = [(layer, tile) for layer, tile in new if layer != "roof" or tile not in had]
+                        channels.discard("roof")
                     replaced = set().union(*(WALL_REPLACES.get(c, {c}) for c in channels)) if channels else set()
                     keep = [(layer, tile) for layer, tile in old if layer not in replaced or _structure(tile)]
                     world[pos] = keep + [item for item in new if item not in keep]

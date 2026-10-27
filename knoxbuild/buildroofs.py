@@ -13,6 +13,10 @@ half facing the camera, plus caps at the gable ends.
   Peak30WE / Peak30NS (30 degrees): slopes on both sides of a middle row (column) of peak
       tiles; caps the same way.
   Peak30Quad: rings of slope and corner tiles round a centre tile (a rectangle is cut from the square of its longer side).
+  SlopeS / SlopeE (lean-to, falling south / east; KnoxMap UK): `k` rows (columns) from the
+      high north (west) edge: SlopeSk..S1 (Ek..E1) on the roof's own level, nothing past
+      them. SlopeN / SlopeW, falling away from the camera, draw nothing (as the far half of
+      a peaked roof). From WorldEd's output for 632 lean-tos of the Odiham town map.
   FlatTop: the top tile on every square, on the level above the storey it is listed on.
   Ceilings: the ceiling tile goes on the level above a room wherever that level has no room.
 """
@@ -83,6 +87,15 @@ def roof_squares(entry, attrs: dict, o: dict) -> dict[tuple[int, int], list[str]
                 if depth == "Three":
                     for x in range(x0 + k, x0 + w - k):
                         cap(x, y, "CapGapS3")
+    elif kind in ("SlopeS", "SlopeE") and depth in ("One", "Two", "Three"):
+        k = _DEPTHS[depth][0]
+        for i in range(k):
+            if kind == "SlopeS":
+                for x in range(x0, x0 + w):
+                    slope(x, y0 + i, f"SlopeS{k - i}")
+            else:
+                for y in range(y0, y0 + h):
+                    slope(x0 + i, y, f"SlopeE{k - i}")
     elif kind == "Peak30WE":
         # WorldEd limits the cross-section to eleven squares, anchored at the north edge.
         h = min(h, 11)

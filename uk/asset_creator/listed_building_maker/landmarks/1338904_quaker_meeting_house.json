@@ -1,0 +1,128 @@
+{
+ "entry": 1338904,
+ "name": "Alton Quaker Meeting House",
+ "grade": "II*",
+ "osm_id": "497786326",
+ "join": ["497786319", "497786319p1"],
+ "footprint": [[556, 667, 25, 8], [577, 675, 4, 7]],
+ "origin": [556, 667],
+ "size": [25, 15],
+ "about": "A Quaker meeting house of 1672 on Church Street, with its two cottages in line to the north and the south-west wing that was its porch. On the map Church Street runs at 45 degrees to the grid: the range is laid straight along x inside its block (real north, the 1832 cottage, at x 0; the lobby at x 18-24), the wing on its south-east end towards the street; that side, which the camera sees, is map south.",
+ "evidence": [
+  "List entry 1338904 (OGL): 'Quaker meeting house, 1672. MATERIALS: the brick building is rendered to the west and north, leaving the brick plinth exposed; on the east elevation, and the west elevation of the south-west wing, the red brick remains visible ... The main roof (extended over the 1832 northern cottage) is hipped, and covered with handmade clay tiles, as is the roof of the hipped south-west wing, which has tile-hanging to the first floor.'",
+  "OSM maps it as 497786319 (the range, 'Quaker Meeting House', No 39) and 497786326 (the wing, No 37, where the listing's marker falls); the block step carried the range about 10 m onto Church Street and cut it in two (497786319, 497786319p1). The block step now lays a long building at an angle to the grid straight and whole inside its block, off the roads and other buildings (user, 2026-10-19: 'place it fully in the block at the expense of other plots'): 24 x 8 at (556, 667); its footprint makes it 25 long, the game hipping only an odd length (the listing: hipped). Its `footprint` is that, with the wing (the block step's own place for it was across the street side) on the range's south-east end.",
+  "Photos looked at, never copied (Commons: five CC0 by the NHLE code, July 2019; two CC BY-SA 4.0, Paul the Archivist; two geograph): a long low range, eaves about 3 m, white render, a big hipped clay-tile roof with small dormers over the cottages; one big six-over-six sash and the 'Quaker Meeting House' board; the wing on the street corner: brick below with a two-light casement, tile-hung above with a casement, under a hipped roof; a low flint and brick front wall with iron gates.",
+  "Storeys: the range is one storey under its roof (the LiDAR's 2 storeys would put the eaves at 6 m; the photos show about 3); the wing is two. Build's attic (rooms in the roof) needs 9 squares across and the range is 8, so the cottages' first floor is not built; the original cottage's two west dormers are pieces on the roof.",
+  "Inside, from the listing: the meeting room (x 8-17) with the ministers' stand on its dais at the north end, the 1960s openings either side of it into the original cottage's room; the two chamfered pilasters on the far wall; plain benches facing the stand; the 1960s woodblock floor (floor_parquet). The lobby (x 18-24) behind the gallery screen - two five-panel sections either side of double three-panel doors, painted on the lobby side - with the 1690 gallery's turned balustrade over it at 2.4 m. The wing: a reading room and a WC (its south-east corner) in the former porch, a room above; its stair (21, 10) is the game's - the listing reaches that room from the gallery.",
+  "Doors: the porch's double doors on its front (25, 10), east of its casement (25, 12); the cottages' doors under their bracketed hoods on the street side (2, 8) and (5, 8) - no path reaches them on the map, so Build's yards.py lays one.",
+  "Not built: the gallery as a floor (it is drawn as the screen and balustrade); the C17 roof timbers; the strongbox in the lobby wall; the cottages' flats upstairs; the C20 kitchen and lean-to on the far side; the gallery's stop-chamfered posts, the transverse beam and the niches; the east dormers and tripartite windows, the 1832 cottage's rear door; the north elevation's tripartite window and the window in the hip; the east single-storey block and its inserted door; the lobby's modern stair; the brick of the east elevation (the whole range is rendered); the burial ground walls and the front wall with its date stone (the map's own walls stand there)."
+ ],
+ "style": "uk_render_white__tile__casement_leaded",
+ "roof": [[556, 667, 25, 8, "WE", 1], [577, 675, 4, 7, "NS", 2]],
+ "hall": true,
+ "door": "oak_cottage",
+ "door_surround": null,
+ "walls": {
+  "interior": "walls_interior_house_03_020",
+  "parts": [
+   {"kit": "brick_flemish", "rects": [[21, 8, 24, 14]], "levels": [0]},
+   {"kit": "tile_hung", "rects": [[21, 8, 24, 14]], "levels": [1]}
+  ]
+ },
+ "open_levels": [0],
+ "rooms": [
+  {
+   "name": "WC",
+   "kind": "bathroom",
+   "levels": [0],
+   "rects": [[23, 8, 24, 9]],
+   "walled": true,
+   "furnish": true
+  },
+  {
+   "name": "reading room (the former porch)",
+   "kind": "office",
+   "levels": [0],
+   "rects": [[21, 8, 24, 14]],
+   "walled": true,
+   "furnish": true
+  },
+  {
+   "name": "1832 cottage (a flat)",
+   "kind": "livingroom",
+   "levels": [0],
+   "rects": [[0, 0, 3, 7]],
+   "walled": true,
+   "furnish": true
+  },
+  {
+   "name": "the original cottage's room",
+   "kind": "hall",
+   "levels": [0],
+   "rects": [[4, 0, 7, 7]],
+   "walled": true
+  },
+  {
+   "name": "meeting room",
+   "kind": "church",
+   "levels": [0],
+   "rects": [[8, 0, 17, 7]],
+   "floor": "floor_parquet"
+  },
+  {"name": "lobby", "kind": "hall", "levels": [0], "rects": [[18, 0, 24, 7]], "floor": "floor_parquet"},
+  {
+   "name": "room over the porch",
+   "kind": "office",
+   "levels": [1],
+   "rects": [[21, 8, 24, 14]],
+   "furnish": true
+  }
+ ],
+ "stairs": [[0, 21, 10, "N"]],
+ "doors": [
+  [0, 25, 10, "W"],
+  [0, 2, 8, "N"],
+  [0, 5, 8, "N"],
+  [0, 21, 8, "N"],
+  [0, 23, 9, "W"],
+  [0, 8, 1, "W"],
+  [0, 8, 5, "W"]
+ ],
+ "windows": [
+  [0, "uk:sash_georgian", 12, 8, "N"],
+  [0, "uk:sash_georgian", 12, 0, "N"],
+  [0, "uk:sash_georgian", 16, 0, "N"],
+  [0, "uk:casement_leaded", 0, 8, "N"],
+  [0, "uk:casement_leaded", 4, 8, "N"],
+  [0, "uk:casement_leaded", 25, 12, "W"],
+  [0, "uk:casement_leaded", 22, 15, "N"],
+  [1, "uk:casement_leaded", 22, 15, "N"]
+ ],
+ "pieces": [
+  [0, "gallery_screen", 18, 0, "W"],
+  [0, "gallery_screen", 18, 1, "W"],
+  [0, "gallery_screen", 18, 2, "W"],
+  [0, "gallery_screen_doors", 18, 3, "W"],
+  [0, "gallery_screen", 18, 5, "W"],
+  [0, "gallery_screen", 18, 6, "W"],
+  [0, "gallery_screen", 18, 7, "W"],
+  [0, "ministers_stand", 8, 2, "W"],
+  [0, "pilaster_chamfered", 10, 0, "N"],
+  [0, "pilaster_chamfered", 14, 0, "N"],
+  [0, "door_hood", 2, 8, "N"],
+  [0, "door_hood", 5, 8, "N"],
+  [0, "lettering", 14, 8, "N"],
+  [1, "dormer_small", 4, 7, "S"],
+  [1, "dormer_small", 6, 7, "S"]
+ ],
+ "furniture": [
+  [0, "bench_plain", 10, 1, "W"],
+  [0, "bench_plain", 10, 4, "W"],
+  [0, "bench_plain", 12, 1, "W"],
+  [0, "bench_plain", 12, 4, "W"],
+  [0, "bench_plain", 14, 1, "W"],
+  [0, "bench_plain", 14, 4, "W"],
+  [0, "bench_plain", 16, 1, "W"],
+  [0, "bench_plain", 16, 4, "W"]
+ ]
+}

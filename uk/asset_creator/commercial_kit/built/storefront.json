@@ -1,0 +1,213 @@
+{
+ "sheets": [
+  "storefront_uk_01"
+ ],
+ "layers": {
+  "top_x": [
+   "RoofTop",
+   1
+  ],
+  "top_y": [
+   "RoofTop",
+   1
+  ],
+  "top_end": [
+   "RoofTop",
+   1
+  ],
+  "column": [
+   "Furniture",
+   0
+  ],
+  "band_x": [
+   "Furniture2",
+   0
+  ],
+  "band_y": [
+   "Furniture3",
+   0
+  ],
+  "end_x": [
+   "Furniture3",
+   0
+  ],
+  "end_y": [
+   "Furniture2",
+   0
+  ],
+  "bollard": [
+   "Furniture",
+   0
+  ],
+  "posters": [
+   "WallFurniture",
+   0
+  ],
+  "cafe": [
+   "WallFurniture",
+   0
+  ]
+ },
+ "bollard": "street_furniture_uk_02_12",
+ "canopy": {
+  "lainburys": {
+   "top_x": [
+    "storefront_uk_01_0",
+    "storefront_uk_01_1",
+    "storefront_uk_01_2"
+   ],
+   "top_y": [
+    "storefront_uk_01_3",
+    "storefront_uk_01_4",
+    "storefront_uk_01_5"
+   ],
+   "column": "storefront_uk_01_6",
+   "band_x": "storefront_uk_01_7",
+   "band_y": "storefront_uk_01_8",
+   "end_x": {
+    "E": "storefront_uk_01_8"
+   },
+   "end_y": {
+    "S": "storefront_uk_01_7"
+   },
+   "top_end": {
+    "W": "storefront_uk_01_11",
+    "N": "storefront_uk_01_12",
+    "E": "storefront_uk_01_9",
+    "S": "storefront_uk_01_10"
+   }
+  },
+  "waitrows": {
+   "top_x": [
+    "storefront_uk_01_0",
+    "storefront_uk_01_1",
+    "storefront_uk_01_2"
+   ],
+   "top_y": [
+    "storefront_uk_01_3",
+    "storefront_uk_01_4",
+    "storefront_uk_01_5"
+   ],
+   "column": "storefront_uk_01_27",
+   "band_x": "storefront_uk_01_28",
+   "band_y": "storefront_uk_01_29",
+   "end_x": {
+    "E": "storefront_uk_01_29"
+   },
+   "end_y": {
+    "S": "storefront_uk_01_28"
+   },
+   "top_end": {
+    "W": "storefront_uk_01_32",
+    "N": "storefront_uk_01_33",
+    "E": "storefront_uk_01_30",
+    "S": "storefront_uk_01_31"
+   }
+  },
+  "generic": {
+   "top_x": [
+    "storefront_uk_01_0",
+    "storefront_uk_01_1",
+    "storefront_uk_01_2"
+   ],
+   "top_y": [
+    "storefront_uk_01_3",
+    "storefront_uk_01_4",
+    "storefront_uk_01_5"
+   ],
+   "column": "storefront_uk_01_48",
+   "band_x": "storefront_uk_01_49",
+   "band_y": "storefront_uk_01_50",
+   "end_x": {
+    "E": "storefront_uk_01_50"
+   },
+   "end_y": {
+    "S": "storefront_uk_01_49"
+   },
+   "top_end": {
+    "W": "storefront_uk_01_53",
+    "N": "storefront_uk_01_54",
+    "E": "storefront_uk_01_51",
+    "S": "storefront_uk_01_52"
+   }
+  }
+ },
+ "posters": {
+  "lainburys": {
+   "W": [
+    "storefront_uk_01_13",
+    "storefront_uk_01_15",
+    "storefront_uk_01_17",
+    "storefront_uk_01_19",
+    "storefront_uk_01_21",
+    "storefront_uk_01_23"
+   ],
+   "N": [
+    "storefront_uk_01_14",
+    "storefront_uk_01_16",
+    "storefront_uk_01_18",
+    "storefront_uk_01_20",
+    "storefront_uk_01_22",
+    "storefront_uk_01_24"
+   ]
+  },
+  "waitrows": {
+   "W": [
+    "storefront_uk_01_34",
+    "storefront_uk_01_36",
+    "storefront_uk_01_38",
+    "storefront_uk_01_40",
+    "storefront_uk_01_42",
+    "storefront_uk_01_44"
+   ],
+   "N": [
+    "storefront_uk_01_35",
+    "storefront_uk_01_37",
+    "storefront_uk_01_39",
+    "storefront_uk_01_41",
+    "storefront_uk_01_43",
+    "storefront_uk_01_45"
+   ]
+  },
+  "generic": {
+   "W": [
+    "storefront_uk_01_55",
+    "storefront_uk_01_57",
+    "storefront_uk_01_59",
+    "storefront_uk_01_61",
+    "storefront_uk_01_63",
+    "storefront_uk_01_65"
+   ],
+   "N": [
+    "storefront_uk_01_56",
+    "storefront_uk_01_58",
+    "storefront_uk_01_60",
+    "storefront_uk_01_62",
+    "storefront_uk_01_64",
+    "storefront_uk_01_66"
+   ]
+  }
+ },
+ "poster_text": [
+  "PRICE CHECK",
+  "2 FOR £3",
+  "FRESH FOR LESS",
+  "OPEN 8AM-10PM",
+  "NEW LOWER PRICES",
+  "HALF PRICE"
+ ],
+ "cafe": {
+  "lainburys": {
+   "W": "storefront_uk_01_25",
+   "N": "storefront_uk_01_26"
+  },
+  "waitrows": {
+   "W": "storefront_uk_01_46",
+   "N": "storefront_uk_01_47"
+  },
+  "generic": {
+   "W": "storefront_uk_01_67",
+   "N": "storefront_uk_01_68"
+  }
+ }
+}

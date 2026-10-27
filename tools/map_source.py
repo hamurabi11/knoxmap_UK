@@ -73,7 +73,7 @@ def _row(project: str, out: str, cy: int, band: list[tuple], placed, seed: int, 
     land_path = os.path.join(project, f"{name}.bmp")
     veg_path = os.path.join(project, f"{name}_veg.bmp")
     w, h = size
-    rules_file = rules_path()
+    rules_file = rules_path(project)
     rules = load_rules(rules_file)
     blends = load_blends(os.path.join(os.path.dirname(rules_file), "Blends.txt"))
     parsed = [(parse_tbx(open(os.path.join(project, "buildings", f"{t}.tbx"), encoding="utf-8").read()),
@@ -93,8 +93,9 @@ def _row(project: str, out: str, cy: int, band: list[tuple], placed, seed: int, 
     y_lo, y_hi = max(wy0 - 1, 0), min(wy0 + SIDE + 1, h)
     land_strip = bitmaps.read_rgb_rows(land_path, y_lo, y_hi, w)
     veg_strip = bitmaps.read_rgb_rows(veg_path, y_lo, y_hi, w)
-    for cx in range(ORIGIN_X // SIDE, (ORIGIN_X + w - 1) // SIDE + 1):
-        wx0 = cx * SIDE - ORIGIN_X
+    ox = origin_x(project)
+    for cx in range(ox // SIDE, (ox + w - 1) // SIDE + 1):
+        wx0 = cx * SIDE - ox
         win = SIDE + 2
         lw = np.zeros((win, win, 3), np.uint8)
         vg = np.zeros((win, win, 3), np.uint8)
@@ -145,13 +146,30 @@ def _row(project: str, out: str, cy: int, band: list[tuple], placed, seed: int, 
                     i = index[t] = len(names) + 1
                     names.append(t)
                 arrays[z][k][yy, xx] = i
-        rooms, buildings = cell_tables(cx, cy, placed)
+        rooms, buildings = cell_tables(cx, cy, placed, ox)
         room_tuples = [(r["name"], r["z"], [tuple(x) for x in r["rects"]], []) for r in rooms]
         data = cell_source(cx, cy, names, arrays, rooms=room_tuples, buildings=buildings)
         with open(os.path.join(out, f"cell_{cx}_{cy}.kcell"), "wb") as f:
             f.write(data)
         written += 1
     return written
+
+
+def origin_x(project: str) -> int:
+    """The map's west edge in lot-file tiles, from its .pzw (worldOrigin x
+    cells * 300). KnoxMap UK, 2026-10-13: the Rust path used ORIGIN_X (70,0)
+    for every map, so a map placed elsewhere (Alton at 80,0) was compiled
+    onto Odiham's cells. Only an origin with y 0 is handled, as before."""
+    import re
+    name = os.path.basename(os.path.normpath(project))
+    pzw = os.path.join(project, f"{name}.pzw")
+    if os.path.exists(pzw):
+        m = re.search(r'<worldOrigin origin="(-?\d+),(-?\d+)"', open(pzw, encoding="utf-8").read())
+        if m:
+            if int(m.group(2)) != 0:
+                raise ValueError(f"{name}: worldOrigin y {m.group(2)} - the lot source handles y 0 only")
+            return int(m.group(1)) * 300
+    return ORIGIN_X
 
 
 def make_map_source(project: str, out: str, seed: int = 1, seams: bool = False,
@@ -207,7 +225,7 @@ def make_map_source(project: str, out: str, seed: int = 1, seams: bool = False,
                 raise
     name = os.path.basename(os.path.normpath(project))
     spawn = f"{name}_ZombieSpawnMap.bmp"
-    lines = ["format = knoxlots-source 1", f"origin_x = {ORIGIN_X}", "origin_y = 0"]
+    lines = ["format = knoxlots-source 1", f"origin_x = {origin_x(project)}", "origin_y = 0"]
     if os.path.exists(os.path.join(project, spawn)):
         shutil.copy2(os.path.join(project, spawn), os.path.join(out, "spawn.bmp"))
         lines.append("spawn_map = spawn.bmp")

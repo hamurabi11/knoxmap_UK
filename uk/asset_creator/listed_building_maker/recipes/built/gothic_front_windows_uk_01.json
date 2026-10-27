@@ -1,0 +1,68 @@
+{
+ "sheet": "gothic_front_windows_uk_01",
+ "items": {
+  "front_win2": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "gothic_front_windows_uk_01_0",
+     "N": "gothic_front_windows_uk_01_1"
+    },
+    {
+     "W": "gothic_front_windows_uk_01_2",
+     "N": "gothic_front_windows_uk_01_3"
+    }
+   ],
+   "shapes": [
+    12,
+    11
+   ],
+   "shapes_n": [
+    11,
+    12
+   ]
+  },
+  "front_win2_low": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "gothic_front_windows_uk_01_4",
+     "N": "gothic_front_windows_uk_01_5"
+    },
+    {
+     "W": "gothic_front_windows_uk_01_6",
+     "N": "gothic_front_windows_uk_01_7"
+    }
+   ],
+   "shapes": [
+    12,
+    11
+   ],
+   "shapes_n": [
+    11,
+    12
+   ]
+  },
+  "front_win2_high": {
+   "kind": "window",
+   "squares": [
+    {
+     "W": "gothic_front_windows_uk_01_8",
+     "N": "gothic_front_windows_uk_01_9"
+    },
+    {
+     "W": "gothic_front_windows_uk_01_10",
+     "N": "gothic_front_windows_uk_01_11"
+    }
+   ],
+   "shapes": [
+    12,
+    11
+   ],
+   "shapes_n": [
+    11,
+    12
+   ]
+  }
+ }
+}

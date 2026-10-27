@@ -1,0 +1,97 @@
+{
+ "sheet": "church_furnishings_uk_02",
+ "about": "More for parish churches, first for St Lawrence, Alton (list entry 1338903, Grade I): a broach spire, a clock, Norman arches, a Saxon tub font.",
+ "evidence": [
+  "List text: 'Mainly C15, but base of the tower Norman. C19 spire. Original nave now the south aisle. Jacobean pulpit.'",
+  "Looked at, not copied (Commons): 'Spire of the Church of St Lawrence in Alton', 'Alton Church Tower' (geograph 2788724): a broach spire of grey shingles over a pale rendered tower, a blue clock dial with gilt numerals, louvred belfry openings; 'Anglo-saxon font': a plain round tub font on a round step; the VCH plan (1903): the central tower with round-arched openings west, east and north.",
+  "VCH plan (1903, looked at only): a round stair turret at the tower's south-west corner, against the south aisle wall; photos: flint, a conical tiled roof below the aisle's eaves."
+ ],
+ "items": [
+  {
+   "name": "spire",
+   "kind": "object",
+   "size": [6, 6],
+   "facings": ["S"],
+   "layer": "Furniture",
+   "parts": [
+    {"prism": {"c": [3, 3], "r": 4.45, "n": 4, "z": [0.0, 0.12], "rot": 45}, "mat": "oak_dark"},
+    {"pyramid": {"c": [3, 3], "r": 4.3, "n": 4, "z": [0.12, 6.0]}, "mat": "shingle"},
+    {"pyramid": {"c": [3, 3], "r": 3.25, "n": 8, "z": [0.12, 15.0], "rot": 22.5}, "mat": "shingle"},
+    {"cyl": {"c": [3, 3], "r": 0.04, "z": [14.6, 16.4]}, "mat": "iron"},
+    {"box": [2.94, 3.06, 2.4, 3.6, 16.0, 16.06], "mat": "iron"},
+    {"box": [2.97, 3.03, 2.75, 3.35, 16.1, 16.55], "mat": "gilt"},
+    {"box": [2.97, 3.03, 3.2, 3.42, 16.45, 16.7], "mat": "gilt"}
+   ]
+  },
+  {
+   "name": "clock",
+   "kind": "edge",
+   "length": 2,
+   "layer": "WallOverlay",
+   "parts": [{"panel": {"o": [0.04, 0.05, 2.95], "u": [0, 1.9, 0], "v": [0, 0, -1.9]}, "pattern": {"name": "clock"}}]
+  },
+  {
+   "name": "norman_arch",
+   "kind": "edge",
+   "length": 6,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "panel": {"o": [0.3, 0.0, 3.0], "u": [0, 6.0, 0], "v": [0, 0, -3.0]},
+     "pattern": {
+      "name": "arch",
+      "span": 3.4,
+      "spring": 1.3,
+      "shape": "round",
+      "mat": "plaster",
+      "trim": "ashlar",
+      "band": 0.26
+     }
+    }
+   ]
+  },
+  {
+   "name": "font_tub",
+   "kind": "object",
+   "size": [1, 1],
+   "facings": ["S"],
+   "like": "location_community_church_small_01_34",
+   "props": [["CustomName", "Font"]],
+   "parts": [
+    {"cyl": {"c": [0.5, 0.5], "r": 0.48, "z": [0.0, 0.12]}, "mat": {"name": "stone", "rgb": [150, 120, 100]}},
+    {"cyl": {"c": [0.5, 0.5], "r": 0.44, "z": [0.12, 0.26]}, "mat": {"name": "stone", "rgb": [120, 112, 104]}},
+    {
+     "cyl": {"c": [0.5, 0.5], "r": 0.36, "r_top": 0.38, "z": [0.26, 0.98]},
+     "mat": {"name": "stone", "rgb": [150, 146, 138]}
+    }
+   ]
+  },
+  {
+   "name": "stair_turret",
+   "kind": "object",
+   "size": [3, 3],
+   "facings": ["S"],
+   "layer": "Furniture",
+   "props": [["solid", ""], ["CustomName", "Stair Turret"]],
+   "parts": [
+    {"cyl": {"c": [1.2, 1.5], "r": 1.28, "z": [0.0, 0.4]}, "mat": "ashlar"},
+    {"cyl": {"c": [1.2, 1.5], "r": 1.2, "z": [0.4, 6.3], "n": 20}, "mat": {"name": "flint", "clunch": 0.1}},
+    {"cyl": {"c": [1.2, 1.5], "r": 1.3, "z": [6.3, 6.45], "n": 20}, "mat": "ashlar"},
+    {"pyramid": {"c": [1.2, 1.5], "r": 1.42, "n": 16, "z": [6.4, 8.4]}, "mat": "roof_tile"},
+    {"cyl": {"c": [1.2, 1.5], "r": 0.03, "z": [8.3, 8.9]}, "mat": "iron"},
+    {
+     "box": [2.189, 2.289, 2.05, 2.15, 1.6, 2.1500000000000004],
+     "mat": {"name": "paint", "rgb": [30, 28, 26]}
+    },
+    {"box": [2.189, 2.289, 2.05, 2.15, 3.6, 4.15], "mat": {"name": "paint", "rgb": [30, 28, 26]}},
+    {"box": [2.189, 2.289, 2.05, 2.15, 5.4, 5.95], "mat": {"name": "paint", "rgb": [30, 28, 26]}},
+    {
+     "box": [1.461, 1.561, 2.609, 2.709, 1.6, 2.1500000000000004],
+     "mat": {"name": "paint", "rgb": [30, 28, 26]}
+    },
+    {"box": [1.461, 1.561, 2.609, 2.709, 3.6, 4.15], "mat": {"name": "paint", "rgb": [30, 28, 26]}},
+    {"box": [1.461, 1.561, 2.609, 2.709, 5.4, 5.95], "mat": {"name": "paint", "rgb": [30, 28, 26]}}
+   ]
+  }
+ ]
+}

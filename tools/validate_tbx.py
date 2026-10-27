@@ -24,6 +24,7 @@ VALID_ORIENTS = {"W", "N", "E", "S"}
 # emitting an enum we never sourced.
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from knoxbuild import catalog as _C  # noqa: E402
+from knoxbuild.checks import empty_storeys  # noqa: E402,F401 - also for callers
 
 CATEGORY_ENUMS: dict[str, set[str]] = {}
 
@@ -49,7 +50,8 @@ MAX_BUILDING_DIMENSION = 300
 VALID_VERSIONS = {str(v) for v in range(1, 8)}
 
 VALID_ROOF_TYPES = {"FlatTop", "SlopeW", "SlopeN", "SlopeE", "SlopeS",
-                    "PeakWE", "PeakNS", "Peak30WE", "Peak30NS", "Peak30Quad"}
+                    "PeakWE", "PeakNS", "Peak30WE", "Peak30NS", "Peak30Quad",
+                    "DormerW", "DormerN", "DormerE", "DormerS"}
 VALID_ROOF_DEPTHS = {"Zero", "Point5", "One", "OnePoint5", "Two",
                      "TwoPoint5", "Three"}
 
@@ -122,6 +124,26 @@ def check(path: str) -> list[str]:
     if not floors:
         return errs + ["missing <floor>"]
 
+    # Each floor's rooms, for roofs over a lower part of a stepped building.
+    def rooms_grid(floor):
+        g = floor.find("rooms")
+        vals = [v for v in ((g.text if g is not None else "") or "").replace("\n", ",").split(",")
+                if v.strip() != ""]
+        return [int(v) for v in vals] if len(vals) == w * h else None
+    grids = [rooms_grid(f) for f in floors]
+
+    def lower_wing_roof(level: int, o) -> bool:
+        """A pitched roof over a lower part: no rooms under it on its own
+        floor, rooms under it on the floor below."""
+        if level < 1 or grids[level] is None or grids[level - 1] is None:
+            return False
+        x0, y0 = int(o.get("x", 0)), int(o.get("y", 0))
+        rw, rh = int(o.get("width", 0)), int(o.get("height", 0))
+        cells = [(x, y) for y in range(y0, min(h, y0 + rh)) for x in range(x0, min(w, x0 + rw))]
+        here = sum(1 for x, y in cells if grids[level][y * w + x])
+        below = sum(1 for x, y in cells if grids[level - 1][y * w + x])
+        return here == 0 and below > 0
+
     # Every storey, not just the first. A <floor> per level is how a building
     # gets more than one, and a fault on an upper floor rejects the whole file
     # just as surely as one on the ground.
@@ -162,9 +184,16 @@ def check(path: str) -> list[str]:
                 # Flat roofs sit on the top storey with Depth Three, and
                 # BuildingEd lays their tiles on the empty floor above it.
                 # Pitched ones go on the roof floor above it.
-                pitched = any(r.get("RoofType") != "FlatTop" for r in floors[-2].iter("object")
-                              if r.get("type") == "roof") if len(floors) >= 2 else False
-                top = len(floors) - (3 if pitched else 2)
+                # The top storey is the last floor with rooms on it. (Guessing
+                # it from where pitched roofs are misreads a lower wing's
+                # lean-to as the roof floor.)
+                with_rooms = [i for i, g in enumerate(grids) if g and any(g)]
+                if with_rooms:
+                    top = with_rooms[-1]
+                else:
+                    pitched = any(r.get("RoofType") != "FlatTop" for r in floors[-2].iter("object")
+                                  if r.get("type") == "roof") if len(floors) >= 2 else False
+                    top = len(floors) - (3 if pitched else 2)
                 # A flat roof may also cover the ledge where a tower steps back.
                 parapet = o.get("RoofType") == "FlatTop" and o.get("Depth") == "Point5"
                 if parapet:
@@ -173,7 +202,9 @@ def check(path: str) -> list[str]:
                 elif o.get("RoofType") == "FlatTop":
                     if level > top:
                         errs.append(f"{where}: flat roof on floor {level}, above the top storey {top}")
-                elif level != top + 1:
+                elif (o.get("RoofType") or "").startswith("Dormer") and level == top:
+                    pass        # an attic's dormer, over its pocket of room (KnoxMap UK)
+                elif level != top + 1 and not lower_wing_roof(level, o):
                     errs.append(f"{where}: {o.get('RoofType')} roof on floor {level}, expected {top + 1}")
                 if o.get("RoofType") == "FlatTop" and o.get("Depth") not in ("Three", "Point5"):
                     errs.append(f"{where}: flat roof Depth {o.get('Depth')!r} compiles to no roof - use Three")
@@ -257,6 +288,8 @@ def check(path: str) -> list[str]:
                         errs.append(f"{where}: furniture {t.get('name')} at ({fx},{fy}) "
                                     f"reaches outside its room")
                         break
+    # a storey with no rooms (knoxbuild/checks.py; Build runs it with each building's storeys)
+    errs += empty_storeys(path)
     return errs
 
 

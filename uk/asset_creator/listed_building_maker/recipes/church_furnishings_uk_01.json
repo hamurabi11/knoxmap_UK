@@ -1,0 +1,366 @@
+{
+ "sheet": "church_furnishings_uk_01",
+ "about": "An English parish church's furnishings and fittings, first for All Saints, Odiham (list entry 1092160, Grade I).",
+ "evidence": [
+  "List text: 'Within the church are a C17 pulpit, galleries of 1632, a series of small brasses, a Royal Coat of Arms of 1661, church warden's chest, and font of circa 1500.'",
+  "List text: 'a chancel of 2 arcades, a nave of 3 (north side C14) and 4 (south side of C13) arches'",
+  "Looked at, not copied (Commons, CC BY-SA): 'All Saints, Odiham, nave 01/02', 'pulpit', 'south aisle', 'Inside Odiham Church' (geograph 2924792): pale stone pointed arcades on slender piers with moulded capitals, white plastered walls, dark oak pews, a hexagonal pulpit of carved oak panels on a stone foot, herringbone woodblock floor, the west gallery on posts with the organ on it."
+ ],
+ "items": [
+  {
+   "name": "pew",
+   "kind": "object",
+   "size": [3, 1],
+   "facings": ["N", "S", "E", "W"],
+   "like": {
+    "S": {
+     "0,0": "location_community_church_small_01_51",
+     "1,0": "location_community_church_small_01_52",
+     "2,0": "location_community_church_small_01_53"
+    },
+    "N": {
+     "0,0": "location_community_church_small_01_56",
+     "1,0": "location_community_church_small_01_57",
+     "2,0": "location_community_church_small_01_58"
+    },
+    "E": {
+     "0,0": "location_community_church_small_01_50",
+     "0,1": "location_community_church_small_01_49",
+     "0,2": "location_community_church_small_01_48"
+    },
+    "W": {
+     "0,0": "location_community_church_small_01_61",
+     "0,1": "location_community_church_small_01_60",
+     "0,2": "location_community_church_small_01_59"
+    }
+   },
+   "parts": [
+    {"box": [0.06, 0.12, 0.2, 0.86, 0.0, 0.98], "mat": "oak_dark"},
+    {"box": [2.88, 2.94, 0.2, 0.86, 0.0, 0.98], "mat": "oak_dark"},
+    {"box": [0.04, 0.14, 0.18, 0.88, 0.98, 1.02], "mat": "oak_dark"},
+    {"box": [2.86, 2.96, 0.18, 0.88, 0.98, 1.02], "mat": "oak_dark"},
+    {"box": [0.12, 2.88, 0.36, 0.82, 0.42, 0.47], "mat": "oak_dark"},
+    {"box": [0.12, 2.88, 0.78, 0.82, 0.2, 0.42], "mat": "oak_dark"},
+    {"box": [0.12, 2.88, 0.24, 0.3, 0.47, 0.94], "mat": "oak_dark"},
+    {"box": [0.12, 2.88, 0.2, 0.33, 0.94, 0.98], "mat": "oak_dark"},
+    {"box": [0.12, 2.88, 0.12, 0.24, 0.8, 0.83], "mat": "oak_dark"},
+    {
+     "box": [0.3, 0.66, 0.4, 0.6, 0.47, 0.5],
+     "mat": {"name": "cloth", "rgb": [44, 60, 120]},
+     "repeat": {"n": 3, "step": [0.9, 0, 0]}
+    }
+   ]
+  },
+  {
+   "name": "altar",
+   "kind": "object",
+   "size": [2, 1],
+   "facings": ["S"],
+   "like": {"S": {"0,0": "location_community_church_small_01_40", "1,0": "location_community_church_small_01_41"}},
+   "parts": [
+    {"box": [0.15, 1.85, 0.2, 0.8, 0.0, 0.92], "mat": "oak"},
+    {"box": [0.18, 1.82, 0.78, 0.82, 0.1, 0.88], "mat": {"name": "cloth", "rgb": [42, 92, 52]}},
+    {"box": [0.16, 1.84, 0.8, 0.83, 0.7, 0.88], "mat": {"name": "gilt", "rgb": [196, 160, 80]}},
+    {"box": [0.12, 1.88, 0.16, 0.86, 0.92, 0.95], "mat": {"name": "paint", "rgb": [236, 234, 226]}},
+    {"box": [0.97, 1.03, 0.36, 0.42, 0.95, 1.4], "mat": "gilt"},
+    {"box": [0.88, 1.12, 0.36, 0.42, 1.26, 1.31], "mat": "gilt"},
+    {"cyl": {"c": [0.45, 0.42], "r": 0.04, "z": [0.95, 1.3]}, "mat": "brass"},
+    {"cyl": {"c": [1.55, 0.42], "r": 0.04, "z": [0.95, 1.3]}, "mat": "brass"},
+    {
+     "cyl": {"c": [0.45, 0.42], "r": 0.015, "z": [1.3, 1.44]},
+     "mat": {"name": "paint", "rgb": [240, 236, 220]}
+    },
+    {
+     "cyl": {"c": [1.55, 0.42], "r": 0.015, "z": [1.3, 1.44]},
+     "mat": {"name": "paint", "rgb": [240, 236, 220]}
+    }
+   ]
+  },
+  {
+   "name": "font",
+   "kind": "object",
+   "size": [1, 1],
+   "facings": ["S"],
+   "like": "location_community_church_small_01_34",
+   "props": [["CustomName", "Font"]],
+   "parts": [
+    {"prism": {"c": [0.5, 0.5], "r": 0.46, "n": 8, "z": [0.0, 0.14]}, "mat": "stone"},
+    {"prism": {"c": [0.5, 0.5], "r": 0.2, "n": 8, "z": [0.14, 0.56]}, "mat": "ashlar"},
+    {"prism": {"c": [0.5, 0.5], "r": 0.22, "r_top": 0.4, "n": 8, "z": [0.56, 0.66]}, "mat": "stone"},
+    {
+     "prism": {"c": [0.5, 0.5], "r": 0.4, "n": 8, "z": [0.66, 0.96]},
+     "mat": {"name": "ashlar", "course": 0.3, "block": 0.16}
+    },
+    {"prism": {"c": [0.5, 0.5], "r": 0.42, "n": 8, "z": [0.96, 1.0]}, "mat": "stone"},
+    {"prism": {"c": [0.5, 0.5], "r": 0.37, "r_top": 0.3, "n": 8, "z": [1.0, 1.1]}, "mat": "oak_dark"},
+    {"pyramid": {"c": [0.5, 0.5], "r": 0.3, "n": 8, "z": [1.1, 1.62]}, "mat": "oak_dark"},
+    {"cyl": {"c": [0.5, 0.5], "r": 0.035, "z": [1.5, 1.74]}, "mat": "gilt"}
+   ]
+  },
+  {
+   "name": "pulpit",
+   "kind": "object",
+   "size": [1, 2],
+   "facings": ["N", "S", "E", "W"],
+   "props": [["solidtrans", ""], ["CustomName", "Pulpit"], ["BlocksPlacement", ""]],
+   "parts": [
+    {"prism": {"c": [0.5, 1.45], "r": 0.26, "n": 6, "z": [0.0, 0.3]}, "mat": "ashlar"},
+    {"prism": {"c": [0.5, 1.45], "r": 0.18, "r_top": 0.4, "n": 6, "z": [0.3, 0.95]}, "mat": "stone"},
+    {"prism": {"c": [0.5, 1.45], "r": 0.47, "n": 6, "z": [0.95, 1.05]}, "mat": "oak_dark"},
+    {
+     "prism": {"c": [0.5, 1.45], "r": 0.45, "n": 6, "z": [1.05, 1.95]},
+     "mat": {"name": "oak_carved", "panel": [0.26, 0.45], "motif": "arch"}
+    },
+    {"prism": {"c": [0.5, 1.45], "r": 0.49, "n": 6, "z": [1.95, 2.06]}, "mat": "oak_dark"},
+    {"box": [0.3, 0.7, 1.8, 1.96, 1.98, 2.14], "mat": {"name": "cloth", "rgb": [150, 30, 40]}},
+    {"box": [0.34, 0.66, 0.05, 0.95, 0.0, 0.25], "mat": "oak"},
+    {"box": [0.34, 0.66, 0.3, 0.95, 0.25, 0.5], "mat": "oak"},
+    {"box": [0.34, 0.66, 0.55, 0.95, 0.5, 0.75], "mat": "oak"},
+    {"box": [0.34, 0.66, 0.8, 1.05, 0.75, 1.0], "mat": "oak"},
+    {"box": [0.28, 0.31, 0.05, 0.08, 0.0, 1.0], "mat": "oak_dark"},
+    {
+     "poly": [[0.295, 0.06, 1.0], [0.295, 1.02, 1.95], [0.295, 1.02, 2.0], [0.295, 0.06, 1.05]],
+     "mat": "oak_dark"
+    }
+   ]
+  },
+  {
+   "name": "chest",
+   "kind": "object",
+   "size": [1, 1],
+   "facings": ["N", "S", "E", "W"],
+   "like": {
+    "S": {"0,0": "furniture_storage_02_28"},
+    "E": {"0,0": "furniture_storage_02_29"},
+    "N": {"0,0": "furniture_storage_02_30"},
+    "W": {"0,0": "furniture_storage_02_31"}
+   },
+   "props": [["CustomName", "Churchwardens' Chest"]],
+   "parts": [
+    {"box": [0.06, 0.94, 0.3, 0.82, 0.0, 0.08], "mat": "oak_dark"},
+    {
+     "box": [0.08, 0.92, 0.32, 0.8, 0.08, 0.56],
+     "mat": {"name": "oak_carved", "panel": [0.28, 0.48], "motif": "arch"}
+    },
+    {"box": [0.06, 0.94, 0.3, 0.82, 0.56, 0.62], "mat": "oak_dark"},
+    {"box": [0.2, 0.24, 0.29, 0.83, 0.1, 0.63], "mat": "iron", "edges": false},
+    {"box": [0.76, 0.8, 0.29, 0.83, 0.1, 0.63], "mat": "iron", "edges": false},
+    {"box": [0.46, 0.54, 0.81, 0.84, 0.4, 0.52], "mat": "iron"}
+   ]
+  },
+  {
+   "name": "organ",
+   "kind": "object",
+   "size": [3, 1],
+   "facings": ["N", "S"],
+   "props": [["solidtrans", ""], ["CustomName", "Organ"], ["BlocksPlacement", ""]],
+   "parts": [
+    {
+     "box": [0.1, 2.9, 0.15, 0.95, 0.0, 1.1],
+     "mat": {"name": "oak_carved", "panel": [0.45, 0.5], "motif": "arch"}
+    },
+    {"box": [0.05, 2.95, 0.12, 0.98, 1.1, 1.18], "mat": "oak_dark"},
+    {"box": [0.1, 2.9, 0.15, 0.3, 1.18, 3.6], "mat": "oak_dark"},
+    {
+     "panel": {"o": [0.15, 0.75, 3.55], "u": [2.7, 0, 0], "v": [0, 0, -2.37]},
+     "pattern": {"name": "organ", "pipes": 19, "towers": 3, "rgb": [200, 184, 140]}
+    },
+    {"box": [0.1, 0.25, 0.3, 0.9, 1.18, 3.7], "mat": "oak_dark"},
+    {"box": [2.75, 2.9, 0.3, 0.9, 1.18, 3.7], "mat": "oak_dark"},
+    {"box": [0.05, 2.95, 0.12, 0.95, 3.7, 3.82], "mat": "oak_dark"}
+   ]
+  },
+  {
+   "name": "pier",
+   "kind": "edge",
+   "length": 1,
+   "layer": "Furniture",
+   "props": [["solidtrans", ""], ["BlocksPlacement", ""], ["CustomName", "Pier"]],
+   "parts": [
+    {"prism": {"c": [0.0, 0.5], "r": 0.36, "n": 8, "z": [0.0, 0.22]}, "mat": "stone"},
+    {"cyl": {"c": [0.0, 0.5], "r": 0.27, "z": [0.22, 1.7]}, "mat": "stone"},
+    {"cyl": {"c": [0.0, 0.5], "r": 0.31, "z": [1.7, 1.78]}, "mat": "stone"},
+    {"prism": {"c": [0.0, 0.5], "r": 0.3, "r_top": 0.38, "n": 8, "z": [1.78, 1.92]}, "mat": "stone"},
+    {"prism": {"c": [0.0, 0.5], "r": 0.4, "n": 8, "z": [1.92, 2.0]}, "mat": "stone"},
+    {"box": [-0.3, 0.3, 0.2, 0.8, 2.0, 3.0], "mat": "plaster", "edges": false}
+   ]
+  },
+  {
+   "name": "arcade5",
+   "kind": "edge",
+   "length": 6,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "panel": {"o": [0.3, 0.5, 3.0], "u": [0, 5.0, 0], "v": [0, 0, -3.0]},
+     "pattern": {
+      "name": "arch",
+      "span": 4.4,
+      "spring": 2.0,
+      "shape": "tudor",
+      "mat": "plaster",
+      "trim": "ashlar",
+      "band": 0.14,
+      "rise": 0.86
+     }
+    },
+    {
+     "panel": {"o": [-0.3, 0.5, 3.0], "u": [0.6, 0, 0], "v": [0, 0, -0.66]},
+     "pattern": {"name": "fill", "mat": "ashlar"}
+    }
+   ]
+  },
+  {
+   "name": "arcade6",
+   "kind": "edge",
+   "length": 7,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "panel": {"o": [0.3, 0.5, 3.0], "u": [0, 6.0, 0], "v": [0, 0, -3.0]},
+     "pattern": {
+      "name": "arch",
+      "span": 5.4,
+      "spring": 2.0,
+      "shape": "tudor",
+      "mat": "plaster",
+      "trim": "ashlar",
+      "band": 0.14,
+      "rise": 0.86
+     }
+    },
+    {
+     "panel": {"o": [-0.3, 0.5, 3.0], "u": [0.6, 0, 0], "v": [0, 0, -0.66]},
+     "pattern": {"name": "fill", "mat": "ashlar"}
+    }
+   ]
+  },
+  {
+   "name": "arcade4",
+   "kind": "edge",
+   "length": 5,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "panel": {"o": [0.3, 0.5, 3.0], "u": [0, 4.0, 0], "v": [0, 0, -3.0]},
+     "pattern": {
+      "name": "arch",
+      "span": 3.4,
+      "spring": 2.0,
+      "shape": "tudor",
+      "mat": "plaster",
+      "trim": "ashlar",
+      "band": 0.14,
+      "rise": 0.86
+     }
+    },
+    {
+     "panel": {"o": [-0.3, 0.5, 3.0], "u": [0.6, 0, 0], "v": [0, 0, -0.66]},
+     "pattern": {"name": "fill", "mat": "ashlar"}
+    }
+   ]
+  },
+  {
+   "name": "chancel_arch",
+   "kind": "edge",
+   "length": 7,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "panel": {"o": [0.3, 0.0, 3.0], "u": [0, 7.0, 0], "v": [0, 0, -3.0]},
+     "pattern": {
+      "name": "arch",
+      "span": 5.0,
+      "spring": 1.95,
+      "shape": "tudor",
+      "mat": "plaster",
+      "trim": "ashlar",
+      "band": 0.2,
+      "rise": 0.92
+     }
+    }
+   ]
+  },
+  {
+   "name": "gallery_front",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "box": [0.0, 0.1, 0.0, 1.0, 2.4, 3.0],
+     "mat": {"name": "oak_carved", "panel": [0.5, 0.6], "motif": "arch"}
+    },
+    {"box": [0.0, 0.14, 0.0, 1.0, 2.34, 2.42], "mat": "oak_dark"},
+    {
+     "box": [0.0, 0.1, 0.0, 1.0, 3.0, 3.9],
+     "mat": {"name": "oak_carved", "panel": [0.25, 0.45], "motif": "arch"}
+    },
+    {"box": [0.0, 0.14, 0.0, 1.0, 3.9, 3.98], "mat": "oak_dark"},
+    {"box": [0.04, 0.2, 0.42, 0.58, 0.0, 2.34], "mat": "oak_dark"}
+   ]
+  },
+  {
+   "name": "gallery_panel",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "box": [0.0, 0.1, 0.0, 1.0, 2.4, 3.0],
+     "mat": {"name": "oak_carved", "panel": [0.5, 0.6], "motif": "arch"}
+    },
+    {"box": [0.0, 0.14, 0.0, 1.0, 2.34, 2.42], "mat": "oak_dark"},
+    {
+     "box": [0.0, 0.1, 0.0, 1.0, 3.0, 3.9],
+     "mat": {"name": "oak_carved", "panel": [0.25, 0.45], "motif": "arch"}
+    },
+    {"box": [0.0, 0.14, 0.0, 1.0, 3.9, 3.98], "mat": "oak_dark"}
+   ]
+  },
+  {
+   "name": "royal_arms",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "panel": {"o": [0.12, 0.08, 3.0], "u": [0, 0.84, 0], "v": [0, 0, -0.62]},
+     "pattern": {"name": "royal_arms"}
+    }
+   ]
+  },
+  {
+   "name": "benefaction_board",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "panel": {"o": [0.02, 0.12, 2.3], "u": [0, 0.76, 0], "v": [0, 0, -0.95]},
+     "pattern": {"name": "board", "rows": 9}
+    }
+   ]
+  },
+  {
+   "name": "brass",
+   "kind": "object",
+   "size": [1, 1],
+   "facings": ["S"],
+   "layer": "Furniture",
+   "props": [["CustomName", "Brass"]],
+   "parts": [
+    {"panel": {"o": [0.2, 0.1, 0.004], "u": [0.6, 0, 0], "v": [0, 0.8, 0]}, "pattern": {"name": "brass_slab"}}
+   ]
+  },
+  {"name": "floor_flags", "kind": "floor", "like": "floors_interior_tilesandwood_01_0", "mat": "flags"},
+  {"name": "floor_parquet", "kind": "floor", "like": "floors_interior_tilesandwood_01_42", "mat": "parquet"},
+  {
+   "name": "floor_encaustic",
+   "kind": "floor",
+   "like": "floors_interior_tilesandwood_01_0",
+   "mat": "encaustic"
+  },
+  {"name": "floor_ledger", "kind": "floor", "like": "floors_interior_tilesandwood_01_0", "mat": "ledger"}
+ ]
+}

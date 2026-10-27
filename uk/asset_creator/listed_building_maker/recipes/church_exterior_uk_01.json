@@ -1,0 +1,127 @@
+{
+ "sheet": "church_exterior_uk_01",
+ "about": "A parish church's outside: buttresses, a crenellated parapet and corner pinnacles for its tower, the bell-stage frame, a stone doorway. First for All Saints, Odiham.",
+ "evidence": [
+  "List text: 'Walling is in flint, with variable amounts of stone rubble and some brickwork, with 7 stepped buttresses on the long sides. Continuous plinth.'",
+  "List text: 'The 2 stages of the tower above eaves level are of the mid C17 and have classical details in red brick, including small corner pinnacles (early C19), a crenellated parapet, thin corner buttresses with Ionic caps, and moulded stone bands above a brick fillet on dentils.'",
+  "List text: 'a round-headed bell-stage opening, with rusticated sides and voussoirs, within a square frame formed by Ionic pilasters, moulded brick entablature and a base band on dentils.'",
+  "Looked at, not copied (Commons): 'All Saints Church, Odiham 03' (west front): stepped buttresses of flint with stone quoins and weatherings; the brick tower's parapet with four slim pinnacles; the west door in a four-centred stone arch.",
+  "The bell-stage frame (bell_frame2): 'a square frame formed by Ionic pilasters, moulded brick entablature and a base band on dentils', round the two-square opening."
+ ],
+ "items": [
+  {
+   "name": "buttress",
+   "kind": "edge",
+   "length": 1,
+   "layer": "Furniture",
+   "props": [["solidtrans", ""], ["BlocksPlacement", ""]],
+   "parts": [
+    {"box": [0.0, 0.8, 0.22, 0.78, 0.0, 0.35], "mat": "ashlar"},
+    {"box": [0.0, 0.72, 0.25, 0.75, 0.35, 2.4], "mat": {"name": "flint", "clunch": 0.1}},
+    {"box": [0.66, 0.73, 0.24, 0.76, 0.35, 2.4], "mat": "ashlar"},
+    {"poly": [[0.73, 0.25, 2.4], [0.73, 0.75, 2.4], [0.5, 0.75, 2.72], [0.5, 0.25, 2.72]], "mat": "ashlar"},
+    {"box": [0.0, 0.5, 0.28, 0.72, 2.4, 4.6], "mat": {"name": "flint", "clunch": 0.1}},
+    {"box": [0.44, 0.51, 0.27, 0.73, 2.4, 4.6], "mat": "ashlar"},
+    {"poly": [[0.51, 0.28, 4.6], [0.51, 0.72, 4.6], [0.0, 0.72, 5.3], [0.0, 0.28, 5.3]], "mat": "ashlar"},
+    {"poly": [[0.51, 0.28, 4.6], [0.0, 0.28, 5.3], [0.0, 0.28, 4.6]], "mat": "ashlar"},
+    {"poly": [[0.51, 0.72, 4.6], [0.0, 0.72, 5.3], [0.0, 0.72, 4.6]], "mat": "ashlar"}
+   ]
+  },
+  {
+   "name": "parapet",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "props": [["solidtrans", ""]],
+   "parts": [
+    {"box": [-0.12, 0.12, 0.0, 1.0, 0.0, 0.1], "mat": "ashlar"},
+    {"box": [-0.1, 0.1, 0.0, 1.0, 0.1, 0.55], "mat": "brick"},
+    {"box": [-0.12, 0.12, 0.0, 1.0, 0.55, 0.61], "mat": "ashlar"},
+    {"box": [-0.1, 0.1, 0.0, 0.5, 0.61, 1.0], "mat": "brick"},
+    {"box": [-0.12, 0.12, -0.02, 0.52, 1.0, 1.06], "mat": "ashlar"}
+   ]
+  },
+  {
+   "name": "pinnacle",
+   "kind": "object",
+   "size": [1, 1],
+   "facings": ["S", "E", "N", "W"],
+   "layer": "Furniture",
+   "props": [["solidtrans", ""]],
+   "parts": [
+    {"prism": {"c": [0.86, 0.86], "r": 0.24, "n": 4, "z": [0.0, 1.06], "rot": 45}, "mat": "brick"},
+    {"prism": {"c": [0.86, 0.86], "r": 0.29, "n": 4, "z": [1.06, 1.16], "rot": 45}, "mat": "ashlar"},
+    {"prism": {"c": [0.86, 0.86], "r": 0.17, "n": 4, "z": [1.16, 1.5], "rot": 45}, "mat": "brick"},
+    {"pyramid": {"c": [0.86, 0.86], "r": 0.2, "n": 4, "z": [1.5, 2.3]}, "mat": "ashlar"},
+    {"prism": {"c": [0.86, 0.86], "r": 0.06, "r_top": 0.0, "n": 8, "z": [2.3, 2.45]}, "mat": "ashlar"},
+    {"cyl": {"c": [0.86, 0.86], "r": 0.012, "z": [2.3, 2.9]}, "mat": "iron"},
+    {"box": [0.86, 0.87, 0.8, 0.92, 2.72, 2.84], "mat": "iron"}
+   ]
+  },
+  {
+   "name": "bell_frame",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {"box": [0.0, 0.07, 0.0, 1.0, 0.18, 0.32], "mat": "brick"},
+    {"box": [0.0, 0.09, 0.02, 0.06, 0.3, 0.34], "mat": "ashlar", "repeat": {"n": 12, "step": [0, 0.08, 0]}},
+    {"box": [0.0, 0.06, 0.03, 0.13, 0.34, 2.55], "mat": "brick"},
+    {"box": [0.0, 0.06, 0.87, 0.97, 0.34, 2.55], "mat": "brick"},
+    {"box": [0.0, 0.08, 0.01, 0.15, 2.55, 2.65], "mat": "ashlar"},
+    {"box": [0.0, 0.08, 0.85, 0.99, 2.55, 2.65], "mat": "ashlar"},
+    {"box": [0.0, 0.09, 0.0, 1.0, 2.65, 2.95], "mat": "brick"},
+    {"box": [0.0, 0.11, 0.0, 1.0, 2.95, 3.0], "mat": "ashlar"}
+   ]
+  },
+  {
+   "name": "tower_band",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {"box": [0.0, 0.05, 0.0, 1.0, 0.02, 0.08], "mat": "brick"},
+    {"box": [0.0, 0.07, 0.03, 0.08, 0.08, 0.12], "mat": "brick", "repeat": {"n": 10, "step": [0, 0.1, 0]}},
+    {"box": [0.0, 0.1, 0.0, 1.0, 0.12, 0.24], "mat": "ashlar"}
+   ]
+  },
+  {
+   "name": "doorway",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "panel": {"o": [0.035, 0.0, 2.75], "u": [0, 1.0, 0], "v": [0, 0, -2.75]},
+     "pattern": {
+      "name": "arch",
+      "span": 0.78,
+      "spring": 1.95,
+      "shape": "tudor",
+      "rise": 0.38,
+      "band": 0.13,
+      "mat": "ashlar",
+      "trim": "stone"
+     }
+    },
+    {"box": [0.0, 0.1, -0.04, 1.04, 2.7, 2.82], "mat": "ashlar"}
+   ]
+  },
+  {
+   "name": "bell_frame2",
+   "kind": "edge",
+   "length": 2,
+   "layer": "WallOverlay",
+   "parts": [
+    {"box": [0.0, 0.07, 0.0, 2.0, 0.12, 0.26], "mat": "brick"},
+    {"box": [0.0, 0.09, 0.02, 0.06, 0.24, 0.28], "mat": "ashlar", "repeat": {"n": 25, "step": [0, 0.08, 0]}},
+    {"box": [0.0, 0.08, 0.06, 0.24, 0.28, 2.5], "mat": "brick"},
+    {"box": [0.0, 0.08, 1.76, 1.94, 0.28, 2.5], "mat": "brick"},
+    {"box": [0.0, 0.1, 0.04, 0.26, 2.5, 2.62], "mat": "ashlar"},
+    {"box": [0.0, 0.1, 1.74, 1.96, 2.5, 2.62], "mat": "ashlar"},
+    {"box": [0.0, 0.11, 0.0, 2.0, 2.62, 2.92], "mat": "brick"},
+    {"box": [0.0, 0.13, 0.0, 2.0, 2.92, 3.0], "mat": "ashlar"}
+   ]
+  }
+ ]
+}

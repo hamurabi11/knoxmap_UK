@@ -1,0 +1,157 @@
+{
+ "sheet": "castle_ruin_uk_01",
+ "about": "A ruined castle: King John's octagonal keep at Odiham (1207-14), and fallen masonry.",
+ "evidence": [
+  "Wikipedia (Odiham Castle, facts only): 'a three-storey stone keep, an inner round moat and an outer square moat ... The only visible remains are part of the octagonal keep and outlying earthworks.'",
+  "OSM: the keep's walls mapped as a barrier=wall ring about 17 m across (Odiham_castle map, centre 463,442).",
+  "Looked at, not copied (Commons, Category:Odiham Castle: geograph 981478, 5392169, 285361, 'Flintwork of Odiham Castle' 2435851): an octagonal shell of pale grey flint rubble two to three storeys high, ragged tops, one side broken low, round-arched breaches at ground level, a round window, rows of square putlog holes."
+ ],
+ "items": [
+  {
+   "name": "keep",
+   "kind": "object",
+   "size": [20, 20],
+   "facings": ["S"],
+   "layer": "Furniture",
+   "props": [["solid", ""], ["CustomName", "Castle Ruin"]],
+   "parts": [
+    {
+     "ruin_wall": {
+      "a": [17.3, 13.024],
+      "b": [13.024, 17.3],
+      "thick": 2.4,
+      "seed": 1,
+      "top": [[0, 8.0], [0.2, 6.4], [0.4, 2.8], [0.65, 2.0], [0.85, 4.8], [1, 8.4]],
+      "putlogs": [2.56],
+      "centre": [10, 10],
+      "mitre": 22.5
+     },
+     "mat": {"name": "flint", "rgb": [190, 184, 170], "fade": 0.65, "clunch": 0.05}
+    },
+    {
+     "ruin_wall": {
+      "a": [13.024, 17.3],
+      "b": [6.976, 17.3],
+      "thick": 2.4,
+      "seed": 8,
+      "top": [[0, 8.4], [0.5, 7.2], [1, 8.8]],
+      "arches": [[0.3, 0.7, 2.0, 1.1]],
+      "rounds": [[0.5, 6.5, 0.5]],
+      "putlogs": [2.88, 6.08],
+      "centre": [10, 10],
+      "mitre": 22.5
+     },
+     "mat": {"name": "flint", "rgb": [190, 184, 170], "fade": 0.65, "clunch": 0.05}
+    },
+    {
+     "ruin_wall": {
+      "a": [6.976, 17.3],
+      "b": [2.7, 13.024],
+      "thick": 2.4,
+      "seed": 15,
+      "top": [[0, 8.8], [0.5, 9.2], [1, 8.0]],
+      "putlogs": [2.88, 6.08],
+      "centre": [10, 10],
+      "mitre": 22.5
+     },
+     "mat": {"name": "flint", "rgb": [190, 184, 170], "fade": 0.65, "clunch": 0.05}
+    },
+    {
+     "ruin_wall": {
+      "a": [2.7, 13.024],
+      "b": [2.7, 6.976],
+      "thick": 2.4,
+      "seed": 22,
+      "top": [[0, 8.0], [0.5, 6.4], [1, 8.8]],
+      "arches": [[0.35, 0.65, 2.2, 1.1]],
+      "putlogs": [2.88, 6.08],
+      "centre": [10, 10],
+      "mitre": 22.5
+     },
+     "mat": {"name": "flint", "rgb": [190, 184, 170], "fade": 0.65, "clunch": 0.05}
+    },
+    {
+     "ruin_wall": {
+      "a": [2.7, 6.976],
+      "b": [6.976, 2.7],
+      "thick": 2.4,
+      "seed": 29,
+      "top": [[0, 8.8], [0.6, 7.6], [1, 7.2]],
+      "putlogs": [2.88, 6.08],
+      "centre": [10, 10],
+      "mitre": 22.5
+     },
+     "mat": {"name": "flint", "rgb": [190, 184, 170], "fade": 0.65, "clunch": 0.05}
+    },
+    {
+     "ruin_wall": {
+      "a": [6.976, 2.7],
+      "b": [13.024, 2.7],
+      "thick": 2.4,
+      "seed": 36,
+      "top": [[0, 7.2], [0.3, 8.4], [0.7, 4.8], [1, 6.8]],
+      "rounds": [[0.45, 6.5, 0.55]],
+      "putlogs": [2.88],
+      "centre": [10, 10],
+      "mitre": 22.5
+     },
+     "mat": {"name": "flint", "rgb": [190, 184, 170], "fade": 0.65, "clunch": 0.05}
+    },
+    {
+     "ruin_wall": {
+      "a": [13.024, 2.7],
+      "b": [17.3, 6.976],
+      "thick": 2.4,
+      "seed": 43,
+      "top": [[0, 6.8], [0.5, 7.6], [1, 8.0]],
+      "arches": [[0.4, 0.7, 2.3, 1.1]],
+      "putlogs": [2.88, 6.08],
+      "centre": [10, 10],
+      "mitre": 22.5
+     },
+     "mat": {"name": "flint", "rgb": [190, 184, 170], "fade": 0.65, "clunch": 0.05}
+    },
+    {
+     "ruin_wall": {
+      "a": [17.3, 6.976],
+      "b": [17.3, 13.024],
+      "thick": 2.4,
+      "seed": 50,
+      "top": [[0, 8.0], [0.4, 5.6], [0.7, 6.8], [1, 8.0]],
+      "arches": [[0.3, 0.62, 2.4, 1.1]],
+      "putlogs": [2.88],
+      "centre": [10, 10],
+      "mitre": 22.5
+     },
+     "mat": {"name": "flint", "rgb": [190, 184, 170], "fade": 0.65, "clunch": 0.05}
+    }
+   ]
+  },
+  {
+   "name": "rubble",
+   "kind": "object",
+   "size": [1, 1],
+   "facings": ["S", "E"],
+   "layer": "Furniture",
+   "props": [["solidtrans", ""], ["CustomName", "Fallen Masonry"]],
+   "parts": [
+    {
+     "box": [0.1, 0.55, 0.15, 0.6, 0.0, 0.35],
+     "mat": {"name": "flint", "rgb": [190, 184, 170], "fade": 0.65, "clunch": 0.05}
+    },
+    {
+     "box": [0.45, 0.85, 0.35, 0.8, 0.0, 0.25],
+     "mat": {"name": "flint", "rgb": [190, 184, 170], "fade": 0.65, "clunch": 0.05}
+    },
+    {
+     "box": [0.3, 0.6, 0.55, 0.9, 0.0, 0.18],
+     "mat": {"name": "flint", "rgb": [190, 184, 170], "fade": 0.65, "clunch": 0.05}
+    },
+    {
+     "box": [0.25, 0.5, 0.3, 0.55, 0.35, 0.55],
+     "mat": {"name": "flint", "rgb": [190, 184, 170], "fade": 0.65, "clunch": 0.05}
+    }
+   ]
+  }
+ ]
+}

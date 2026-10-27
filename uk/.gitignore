@@ -1,0 +1,17 @@
+# Bulk downloads (hundreds of MB) and anything regenerated from them.
+data/raw/
+data/*/uprn.csv
+data/*/epc*.csv
+out/
+# LiDAR rasters and point-cloud crops: hundreds of MB, fetched again by
+# roofs.py --fetch and nlp_crop.py.
+data/*/lidar/
+data/*/lidar_test/
+data/*/nlp/
+__pycache__/
+data/*/*.log
+
+# KnoxMap UK fork: each area's data is made by setup_area.py, not committed
+data/*/
+!data/kerbs/
+!data/vanilla_roads/

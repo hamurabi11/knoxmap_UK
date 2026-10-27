@@ -1,0 +1,81 @@
+{
+ "sheet": "church_windows_uk_02",
+ "windows": true,
+ "about": "More church windows (two-storey ones: lower lights and head), as church_windows_uk_01.",
+ "evidence": [
+  "List text: 'Most of the windows have traceried lights of Decorated and Perpendicular style, all restorations, there are 2 smaller 3-light windows within square frames.'",
+  "List text: 'The main feature is a round-headed bell-stage opening, with rusticated sides and voussoirs'",
+  "Looked at, not copied (Commons): the west front ('All Saints Church, Odiham 03'): three-light Perpendicular windows in the aisle gables and the tower, pale stone tracery; stained glass in the east window ('nave 02').",
+  "Measured on the west front photo ('All Saints Church, Odiham 03', looked at only): the aisle windows are about 0.4 of the gable's width and rise from a third of the wall's height almost to the eaves: two storeys here, the lights below, the head above."
+ ],
+ "items": [
+  {
+   "shapes": [12, 8, 11],
+   "tracery": "perpendicular",
+   "lights": 4,
+   "glass": "glass_stained",
+   "frame": "ashlar",
+   "name": "big4_stained_low",
+   "part": "lower",
+   "sill": 1.4
+  },
+  {
+   "shapes": [12, 8, 11],
+   "tracery": "perpendicular",
+   "lights": 4,
+   "glass": "glass_stained",
+   "frame": "ashlar",
+   "name": "big4_stained_high",
+   "part": "upper"
+  },
+  {
+   "shapes": [12, 11],
+   "tracery": "perpendicular",
+   "lights": 3,
+   "glass": "glass_leaded",
+   "frame": "ashlar",
+   "name": "side3_low",
+   "part": "lower",
+   "sill": 1.4
+  },
+  {
+   "shapes": [12, 11],
+   "tracery": "perpendicular",
+   "lights": 3,
+   "glass": "glass_leaded",
+   "frame": "ashlar",
+   "name": "side3_high",
+   "part": "upper"
+  },
+  {
+   "shapes": [12, 11],
+   "tracery": "intersecting",
+   "lights": 2,
+   "glass": "glass_leaded",
+   "frame": "ashlar",
+   "arch": 1.0,
+   "name": "side2_dec_low",
+   "part": "lower",
+   "sill": 1.4
+  },
+  {
+   "shapes": [12, 11],
+   "tracery": "intersecting",
+   "lights": 2,
+   "glass": "glass_leaded",
+   "frame": "ashlar",
+   "arch": 1.0,
+   "name": "side2_dec_high",
+   "part": "upper"
+  },
+  {
+   "name": "lancet",
+   "shapes": [9],
+   "tracery": "perpendicular",
+   "lights": 1,
+   "glass": "glass_leaded",
+   "frame": "ashlar",
+   "arch": 1.0
+  }
+ ]
+}

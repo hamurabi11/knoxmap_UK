@@ -17,6 +17,7 @@ Layout and map.info fields follow an installed B42 workshop map (New Hartburg).
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import shutil
 import sys
@@ -284,6 +285,56 @@ def write_reset_loot(mod_root: str) -> bool:
     lua_dir = os.path.join(mod_root, "common", "media", "lua", "client", "KnoxMap")
     os.makedirs(lua_dir, exist_ok=True)
     shutil.copy2(source, os.path.join(lua_dir, "KnoxMapResetLoot.lua"))
+    return True
+
+
+def write_freezers(mod_root: str) -> bool:
+    """Ship knoxbuild/lua/freezers.lua: the game's shop freezers (01_48-51), which our
+    supermarkets stand, added to the Gigamart's and grocery's freezer forceForTiles,
+    without which they never fill. Server side, after the distributions merge."""
+    source = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                          "knoxbuild", "lua", "freezers.lua")
+    if not os.path.exists(source):
+        return False
+    lua_dir = os.path.join(mod_root, "common", "media", "lua", "server", "KnoxMap")
+    os.makedirs(lua_dir, exist_ok=True)
+    shutil.copy2(source, os.path.join(lua_dir, "KnoxMapFreezers.lua"))
+    return True
+
+
+def write_fills(mod_root: str) -> bool:
+    """Ship knoxbuild/lua/fills.lua: an ordinary loot list for containers the game's tables fill
+    only by named tile (home dining-room shelves and counters, restaurant counters)."""
+    source = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                          "knoxbuild", "lua", "fills.lua")
+    if not os.path.exists(source):
+        return False
+    lua_dir = os.path.join(mod_root, "common", "media", "lua", "server", "KnoxMap")
+    os.makedirs(lua_dir, exist_ok=True)
+    shutil.copy2(source, os.path.join(lua_dir, "KnoxMapFills.lua"))
+    return True
+
+
+HIGH_STOREYS = 16    # B42's native sight reaches 15 levels above the player (knoxbuild/lua/highseen.lua)
+
+
+def write_high_seen(project_dir: str, mod_root: str) -> bool:
+    """KnoxMap UK: ship highseen.lua with a map that has a building taller than
+    HIGH_STOREYS (Parliament's towers), so its upper storeys draw from the street."""
+    import csv
+    name = os.path.basename(os.path.normpath(project_dir))
+    path = os.path.join(project_dir, f"{name}_placements.csv")
+    if not os.path.exists(path):
+        return False
+    with open(path, encoding="utf-8") as f:
+        tall = any(int(r.get("levels") or 0) > HIGH_STOREYS for r in csv.DictReader(f))
+    source = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                          "knoxbuild", "lua", "highseen.lua")
+    if not tall or not os.path.exists(source):
+        return False
+    lua_dir = os.path.join(mod_root, "common", "media", "lua", "client", "KnoxMap")
+    os.makedirs(lua_dir, exist_ok=True)
+    shutil.copy2(source, os.path.join(lua_dir, "KnoxMapHighSeen.lua"))
     return True
 
 
@@ -817,8 +868,22 @@ def package(project_dir: str, name: str, mod_id: str,
     # saw shop fronts and walls they could see straight through.
     uses_erika = any(f.endswith(".lotheader") and b"_erika_" in open(f, "rb").read()
                      for f in cells)
-    if uses_erika:
-        info += f"require={knoxpaths_module().ERIKAS_TILES_MOD_ID}\n"
+    # The same for KnoxMap UK's own tile pack (sheets named *_uk_*, built by
+    # asset_creator/Tile_creator/src/pack.py).
+    uses_uk = any(f.endswith(".lotheader") and b"_uk_0" in open(f, "rb").read()
+                  for f in cells)
+    # Westminster's own sheets are a pack of their own, KnoxMapUK_Westminster (pack.py;
+    # its sheets: listed_building_maker/recipes/westminster.order.json).
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from ukdirs import assets           # KnoxMap UK's asset_creator, if there is one
+    order = assets("listed_building_maker", "recipes", "westminster.order.json") or ""
+    west = [s.encode() + b"_" for s in json.load(open(order, encoding="utf-8"))] if os.path.exists(order) else []
+    uses_west = any(f.endswith(".lotheader") and any(s in open(f, "rb").read() for s in west)
+                    for f in cells)
+    requires = ([knoxpaths_module().ERIKAS_TILES_MOD_ID] if uses_erika else []) + \
+               (["KnoxMapUK_Tiles"] if uses_uk else []) + (["KnoxMapUK_Westminster"] if uses_west else [])
+    if requires:
+        info += f"require={','.join(requires)}\n"
     os.makedirs(os.path.join(mod_root, "42"), exist_ok=True)
     for where in ("", "common", "42"):
         with open(os.path.join(mod_root, where, "mod.info"), "w",
@@ -834,6 +899,10 @@ def package(project_dir: str, name: str, mod_id: str,
                                  needs_erika=uses_erika)
     n_pois = write_spawn_selector(project_dir, mod_root, mod_id, name)
     reset_loot = write_reset_loot(mod_root)
+    freezers = write_freezers(mod_root)
+    write_fills(mod_root)
+    if write_high_seen(project_dir, mod_root):
+        print(f"  tall buildings: KnoxMapHighSeen.lua (storeys past {HIGH_STOREYS} drawn from the street)")
     gun_cache = write_gun_cache(project_dir, mod_root, mod_id)
     extra_names = [os.path.basename(e) for e in extras]
     if n_spawns:
@@ -854,6 +923,8 @@ def package(project_dir: str, name: str, mod_id: str,
             f"match a map added or changed after it was made.")
     if reset_loot:
         extra_names.append("Reset loot menu")
+    if freezers:
+        extra_names.append("shop freezers filled (KnoxMapFreezers.lua)")
     if gun_cache:
         extra_names.append(
             f"one guaranteed rifle ({gun_cache.get('kind')}: "

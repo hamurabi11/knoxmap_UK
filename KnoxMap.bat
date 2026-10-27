@@ -9,4 +9,6 @@ if not exist ".venv\Scripts\pythonw.exe" (
   call Setup.bat
   if errorlevel 1 exit /b 1
 )
+rem KnoxMap UK: "KnoxMap.bat --uk" starts with the UK mode panel on (web/uk.py).
+if /i "%~1"=="--uk" set KNOXMAP_UK=1
 start "" ".venv\Scripts\pythonw.exe" "knoxmap.py"

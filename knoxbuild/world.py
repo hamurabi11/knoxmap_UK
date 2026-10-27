@@ -235,6 +235,32 @@ def _tool_path(path: str) -> str:
     return knoxpaths.tool_path(path)
 
 
+def _wall_safe_order(lots: list) -> list:
+    """The lots in `lots` order, except that a building comes before any whose
+    east or south wall stands on its squares: a floor tile takes its whole
+    square when the lots are composed, so a neighbour's low roof laid later
+    wiped that wall (KnoxMap UK, in game 2026-10-19: Alton's 0806 lost its
+    east wall under 1272's flat roof). On-top lots stay last."""
+    def under(a, b) -> bool:
+        """b's squares hold a's east or south wall."""
+        if a.on_top != b.on_top:
+            return False
+        ax0, ay0, ax1, ay1 = a.offset_x, a.offset_y, a.offset_x + a.width, a.offset_y + a.height
+        bx0, by0, bx1, by1 = b.offset_x, b.offset_y, b.offset_x + b.width, b.offset_y + b.height
+        east = bx0 <= ax1 < bx1 and ay0 < by1 and by0 < ay1
+        south = by0 <= ay1 < by1 and ax0 < bx1 and bx0 < ax1
+        return east or south
+    out, left = [], list(lots)
+    while left:
+        for i, a in enumerate(left):
+            if not any(under(a, b) for b in left if b is not a):
+                out.append(left.pop(i))
+                break
+        else:                                   # a ring: keep the order as it was
+            out.append(left.pop(0))
+    return out
+
+
 def render_pzw(cells_x: int, cells_y: int, bmp_name: str,
                placements: list[Placement], map_name: str = "",
                project_dir: str = "",
@@ -351,8 +377,8 @@ def render_pzw(cells_x: int, cells_y: int, bmp_name: str,
     all_cells = [(cx, cy) for cy in range(cells_y) for cx in range(cells_x)]
     for (cx, cy) in sorted(set(all_cells) | set(by_cell) | set(zones_by_cell)):
         out.append(f' <cell x="{cx}" y="{cy}" map={quoteattr(cell_map(cx, cy))}>')
-        for p in sorted(by_cell.get((cx, cy), []),
-                        key=lambda q: (q.on_top, q.levels, q.offset_y, q.offset_x)):
+        for p in _wall_safe_order(sorted(by_cell.get((cx, cy), []),
+                                         key=lambda q: (q.on_top, q.levels, q.offset_y, q.offset_x))):
             out.append(
                 f'  <lot x="{p.offset_x}" y="{p.offset_y}" level="0"'
                 f' width="{p.width}" height="{p.height}"'

@@ -1,0 +1,55 @@
+{
+ "sheet": "commercial_signs_uk_01",
+ "signs": {
+  "mot": {
+   "W": [
+    "commercial_signs_uk_01_0",
+    "commercial_signs_uk_01_2",
+    "commercial_signs_uk_01_4"
+   ],
+   "N": [
+    "commercial_signs_uk_01_1",
+    "commercial_signs_uk_01_3",
+    "commercial_signs_uk_01_5"
+   ]
+  },
+  "exchange": {
+   "W": [
+    "commercial_signs_uk_01_6",
+    "commercial_signs_uk_01_8",
+    "commercial_signs_uk_01_10",
+    "commercial_signs_uk_01_12",
+    "commercial_signs_uk_01_14",
+    "commercial_signs_uk_01_16"
+   ],
+   "N": [
+    "commercial_signs_uk_01_7",
+    "commercial_signs_uk_01_9",
+    "commercial_signs_uk_01_11",
+    "commercial_signs_uk_01_13",
+    "commercial_signs_uk_01_15",
+    "commercial_signs_uk_01_17"
+   ]
+  },
+  "sorting": {
+   "W": [
+    "commercial_signs_uk_01_18",
+    "commercial_signs_uk_01_20",
+    "commercial_signs_uk_01_22",
+    "commercial_signs_uk_01_24",
+    "commercial_signs_uk_01_26",
+    "commercial_signs_uk_01_28",
+    "commercial_signs_uk_01_30"
+   ],
+   "N": [
+    "commercial_signs_uk_01_19",
+    "commercial_signs_uk_01_21",
+    "commercial_signs_uk_01_23",
+    "commercial_signs_uk_01_25",
+    "commercial_signs_uk_01_27",
+    "commercial_signs_uk_01_29",
+    "commercial_signs_uk_01_31"
+   ]
+  }
+ }
+}

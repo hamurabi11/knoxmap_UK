@@ -1,0 +1,147 @@
+{
+ "sheet": "church_exterior_uk_01",
+ "items": {
+  "buttress": {
+   "kind": "edge",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "church_exterior_uk_01_0"
+     },
+     "N": {
+      "0,0": "church_exterior_uk_01_2"
+     }
+    },
+    "1": {
+     "W": {
+      "0,0": "church_exterior_uk_01_1"
+     },
+     "N": {
+      "0,0": "church_exterior_uk_01_3"
+     }
+    }
+   },
+   "storeys": 2
+  },
+  "parapet": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "-1,-1": "church_exterior_uk_01_4",
+      "-1,0": "church_exterior_uk_01_5",
+      "0,-1": "church_exterior_uk_01_6",
+      "0,0": "church_exterior_uk_01_7"
+     },
+     "N": {
+      "-1,-1": "church_exterior_uk_01_8",
+      "-1,0": "church_exterior_uk_01_9",
+      "0,-1": "church_exterior_uk_01_10",
+      "0,0": "church_exterior_uk_01_11"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "pinnacle": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "church_exterior_uk_01_12",
+      "0,1": "church_exterior_uk_01_13",
+      "1,0": "church_exterior_uk_01_14",
+      "1,1": "church_exterior_uk_01_15"
+     },
+     "W": {
+      "0,-1": "church_exterior_uk_01_16",
+      "0,0": "church_exterior_uk_01_17",
+      "1,-1": "church_exterior_uk_01_18",
+      "1,0": "church_exterior_uk_01_19"
+     },
+     "S": {
+      "-1,0": "church_exterior_uk_01_20",
+      "0,-1": "church_exterior_uk_01_21",
+      "0,0": "church_exterior_uk_01_22"
+     },
+     "E": {
+      "-1,0": "church_exterior_uk_01_23",
+      "-1,1": "church_exterior_uk_01_24",
+      "0,0": "church_exterior_uk_01_25",
+      "0,1": "church_exterior_uk_01_26"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "bell_frame": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "church_exterior_uk_01_27"
+     },
+     "N": {
+      "0,0": "church_exterior_uk_01_28"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "tower_band": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "church_exterior_uk_01_29"
+     },
+     "N": {
+      "0,0": "church_exterior_uk_01_30"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "doorway": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,-1": "church_exterior_uk_01_31",
+      "0,0": "church_exterior_uk_01_32",
+      "0,1": "church_exterior_uk_01_33"
+     },
+     "N": {
+      "-1,0": "church_exterior_uk_01_34",
+      "0,0": "church_exterior_uk_01_35",
+      "1,0": "church_exterior_uk_01_36"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "bell_frame2": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "church_exterior_uk_01_37",
+      "0,1": "church_exterior_uk_01_38"
+     },
+     "N": {
+      "0,0": "church_exterior_uk_01_39",
+      "1,0": "church_exterior_uk_01_40"
+     }
+    }
+   },
+   "storeys": 1
+  }
+ }
+}

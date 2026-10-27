@@ -43,7 +43,9 @@ class Settings:
     # the mapper wants to pick which one wins.
     rotate_degrees: float = 0.0
     # Lay every road in straight runs along the tiles and on 45-degree
-    # diagonals, like Knox County's (1), or draw them as mapped (0).
+    # diagonals, like Knox County's (1), or draw them as mapped (0); or (2)
+    # the roads where buildings are along the tiles only, square-cornered,
+    # and the 45-degree runs only in between (octilinear.py).
     straight_roads: int = 1
 
     # --- terrain ---------------------------------------------------------
@@ -199,8 +201,11 @@ LIMITS = {
     "min_size": (3, 40),
     "align_streets": (0, 1),
     # Past 45 either way it is the same grid again, a quarter turn round.
-    "rotate_degrees": (-45.0, 45.0),
-    "straight_roads": (0, 1),
+    # Past 45 the tile grid is the same again, but the isometric view is not:
+    # a quarter turn decides whether a main street runs up-right or down-right
+    # on screen. Vanilla towns read best with it up-right (along game N-S).
+    "rotate_degrees": (-180.0, 180.0),
+    "straight_roads": (0, 2),
     "max_size": (8, 250),
     "apartment_footprint": (16, 4000),
     "apartment_chance": (0.0, 1.0),

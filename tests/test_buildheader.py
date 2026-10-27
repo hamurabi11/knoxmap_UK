@@ -69,6 +69,16 @@ class TableTests(unittest.TestCase):
         self.assertEqual(buildings, [[0]])
         self.assertEqual(cell_tables(83, 0, placed), ([], []))
 
+    def test_a_map_at_another_origin_keeps_its_rooms(self):
+        # KnoxMap UK, 2026-10-19: Alton (worldOrigin 80,0 = 24000) was compiled
+        # with Odiham's origin, and every cell's tables came out empty.
+        b = building([[[1, 1]]])
+        placed = placed_rooms([(b, 10, 3, 0)])
+        cx = (24000 + 10) // 256
+        rooms, buildings = cell_tables(cx, 0, placed, 24000)
+        self.assertEqual(rooms[0]["rects"], [((24000 + 10) % 256, 3, 2, 1)])
+        self.assertEqual(buildings, [[0]])
+
     def test_buildings_come_by_source_cell_row_by_row(self):
         b = building([[[1]]])
         # Cell 82_1 starts at world (-8, 256). The project lists the lot in source cell (0, 1)

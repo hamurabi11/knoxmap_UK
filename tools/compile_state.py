@@ -76,7 +76,9 @@ def _global_fingerprint(project: Path, pzw_text: str, facts: dict) -> str:
     parts.append(head.encode("utf-8", "replace"))
     tools = knoxpaths.mapping_tools_dir()
     if tools:
-        for rel in (("config", "Rules.txt"), ("config", "Blends.txt"),
+        # KnoxMap UK: the vanilla rules for a map with UK assets off (terrain_source.rules_path)
+        config = "config_vanilla" if (project / "uk_assets.off").exists() else "config"
+        for rel in ((config, "Rules.txt"), (config, "Blends.txt"),
                     ("settings", "PZTools.ini")):
             p = tools.joinpath(*rel)
             parts.append(p.read_bytes() if p.exists() else b"-")

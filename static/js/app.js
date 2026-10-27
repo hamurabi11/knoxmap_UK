@@ -451,7 +451,7 @@ const SETTING_LABELS = {
   min_size:            ['Smallest building', 'Buildings narrower than this many tiles are left out.'],
   align_streets:       ['Straighten streets', 'On turns the map so the main street grid runs along the tiles - no staircase roads. Off keeps north up.'],
   rotate_degrees:      ['Turn the map', 'Degrees to turn the whole area before it is built, on top of Straighten streets. Use it when the automatic angle picks the wrong grid.'],
-  straight_roads:      ['Knox County roads', 'On lays every road in straight runs along the tiles and on 45-degree diagonals. Off draws roads as they are.'],
+  straight_roads:      ['Knox County roads', 'Knox County roads lays every road in straight runs along the tiles and on 45-degree diagonals. Grid where buildings are keeps every street with buildings on it along the tiles, square-cornered (a diagonal street becomes a few long steps), and uses the diagonals only to join roads up between them. As mapped draws roads as they are.'],
   max_size:            ['Largest building', 'Footprints above this are skipped.'],
   apartment_footprint: ['Flats above', 'An untagged footprint this big reads as flats.'],
   apartment_chance:    ['Flats chance', 'How often such a footprint really becomes flats.'],

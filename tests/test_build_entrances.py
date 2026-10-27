@@ -11,6 +11,13 @@ from knoxbuild.footprint import Footprint, place
 from knoxbuild.profile import BuildingProfile
 
 
+
+def _enter(case, cm):
+    """TestCase.enterContext for Python 3.10 (it is 3.11+): enter, exit at cleanup."""
+    value = cm.__enter__()
+    case.addCleanup(cm.__exit__, None, None, None)
+    return value
+
 class EntrancePointMapping(unittest.TestCase):
     def test_entrance_nodes_are_not_consumed_as_points_of_use(self):
         grid = {(0, 0): [(10.5, 10.0, {"entrance": "main"}),
@@ -89,7 +96,7 @@ class TheSideAFrontDoorFaces(unittest.TestCase):
 
         from generator import pz_colors as C
 
-        directory = self.enterContext(TemporaryDirectory())
+        directory = _enter(self, TemporaryDirectory())
         tiles = np.zeros((40, 40, 3), dtype=np.uint8)
         tiles[:, :] = C.MEDIUM_GRASS
         paint(tiles, C)

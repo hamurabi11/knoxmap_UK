@@ -60,11 +60,24 @@ VERGE_BY_HIERARCHY_M = {
 
 
 def _sidewalk_width_m(feat: OSMFeature, cat: str) -> float:
+    """Pavement each side for this way: its own sidewalk width tag where it
+    has one (an old town's lanes have a metre of pavement, not the class's
+    three), else the class's."""
+    raw = feat.tags.get("sidewalk:both:width") or feat.tags.get("sidewalk:width")
+    if raw:
+        try:
+            return max(0.0, min(6.0, float(str(raw).split()[0].replace(",", "."))))
+        except (ValueError, IndexError):
+            pass
     return SIDEWALK_BY_HIERARCHY_M.get(road_hierarchy(feat.tags),
                                       SIDEWALK_M.get(cat, 0.0))
 
 
 def _verge_width_m(feat: OSMFeature, cat: str) -> float:
+    """Grass between kerb and pavement: none where the way says verge=no (a
+    high street is paved from the kerb to the shop fronts)."""
+    if feat.tags.get("verge") == "no":
+        return 0.0
     return VERGE_BY_HIERARCHY_M.get(road_hierarchy(feat.tags),
                                     VERGE_M.get(cat, 0.0))
 

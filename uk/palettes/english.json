@@ -1,0 +1,1087 @@
+{
+  "about": "English palette from vanilla tiles only (stand-ins until the UK tile pack). Wall sets: Tile_creator findings, LOG 2026-10-05. Gable caps per style to match its wall and chimney stacks (fixtures_fireplaces_01, as Riverside's) (LOG 2026-10-07). Shop fronts (with Erika's Tiles): painted timber storefronts in heritage colours - black, bottle green, oxblood, cream, brown - picked per shop by its OSM id like the wall styles; no shop signs (Erika's are American names) (LOG 2026-10-10). The 1960s-70s estate house's style uk_estate_70s is asset_creator/housing_kit's (LOG 2026-10-19 #6/#7). Upper floors, porches and bays per style (upper_wall, porch, bay: export_regional; LOG 2026-10-19 #9). The 1990s superstores' styles uk_superstore_brick / uk_superstore_buff are asset_creator/commercial_kit's (supermarket.py; LOG 2026-10-20 #6): brick to the eaves (user, 2026-10-20: no cladding on the supermarkets), set by export_regional.uk_shopfronts. The industrial units' styles uk_unit_juniper / uk_unit_grey (commercial_kit/industrial.py; LOG 2026-10-20 #9): profiled cladding over a brick dado, a flat roof, a roller shutter (export_regional.uk_units). The farm buildings' styles uk_barn_black_iron / _tile, uk_shed_yorkshire (commercial_kit/farm.py; LOG 2026-10-20 #12): tarred weatherboarding on a brick plinth under corrugated iron or clay tile, Yorkshire boarding over block under fibre cement; no windows, cart or sliding doors (export_regional.uk_farm). granary_staddle (commercial_kit/farm.py; LOG 2026-10-20 #15): a listed granary on staddle stones, the listed maker's wall for a barn whose listing names staddles. uk_garage_brick (commercial_kit; LOG 2026-10-20 #16): a repair garage's workshop in plain red brick, a cream roller shutter, an MOT board (export_regional.uk_garages). uk_exchange_buff (commercial_kit; LOG 2026-10-20 #18): a 1960s telephone exchange, buff brick to a flat roof, a van door, TELEPHONE EXCHANGE in cast letters (export_regional.uk_exchanges).",
+  "palette": {
+    "drop": [
+      "clapboard",
+      "siding_blue",
+      "siding_yellow",
+      "siding_green",
+      "siding_pink",
+      "siding_grey",
+      "logs",
+      "trailer",
+      "timber",
+      "stucco",
+      "panel"
+    ],
+    "add": [
+      {
+        "name": "red_brick",
+        "like": "brick",
+        "wall": "walls_exterior_house_01_004",
+        "shaped": "walls_exterior_house_05_032",
+        "window": "fixtures_windows_white_024",
+        "roof_from": "brick",
+        "caps": "walls_exterior_roofs_02_000",
+        "caps_shallow": "walls_exterior_roofs_02_048",
+        "caps_30": "walls_exterior_roofs_30_09_000",
+        "chimney": "fixtures_fireplaces_01_064"
+      },
+      {
+        "name": "old_brick",
+        "like": "brick",
+        "wall": "walls_exterior_house_01_020",
+        "shaped": "walls_exterior_house_05_096",
+        "window": "fixtures_windows_white_016",
+        "roof_from": "brick",
+        "caps": "walls_exterior_roofs_01_072",
+        "caps_shallow": "walls_exterior_roofs_02_048",
+        "caps_30": "walls_exterior_roofs_30_09_000",
+        "chimney": "fixtures_fireplaces_01_064"
+      },
+      {
+        "name": "victorian",
+        "like": "render",
+        "roof_from": "clapboard",
+        "caps": "walls_exterior_roofs_09_080",
+        "caps_shallow": "walls_exterior_roofs_09_176",
+        "caps_30": "walls_exterior_roofs_30_08_048",
+        "chimney": "fixtures_fireplaces_01_066"
+      },
+      {
+        "name": "buff_brick",
+        "like": "brick",
+        "wall": "walls_exterior_house_02_036",
+        "shaped": "walls_exterior_house_08_000",
+        "window": "fixtures_windows_white_016",
+        "roof_from": "brick",
+        "caps": "walls_exterior_roofs_07_024",
+        "caps_shallow": "walls_exterior_roofs_07_072",
+        "caps_30": "walls_exterior_roofs_30_07_000",
+        "chimney": "fixtures_fireplaces_01_069"
+      },
+      {
+        "name": "cream",
+        "like": "painted",
+        "wall": "walls_exterior_house_02_048",
+        "shaped": "walls_exterior_house_08_032",
+        "window": "fixtures_windows_white_024",
+        "roof_from": "brick",
+        "caps": "walls_exterior_roofs_08_000",
+        "caps_shallow": "walls_exterior_roofs_08_048",
+        "caps_30": "walls_exterior_roofs_30_14_000",
+        "chimney": "fixtures_fireplaces_01_064"
+      },
+      {
+        "name": "stone",
+        "like": "brick",
+        "wall": "walls_exterior_house_02_000",
+        "shaped": "walls_exterior_house_06_096",
+        "roof_from": "brick",
+        "caps": "walls_exterior_roofs_09_000",
+        "caps_shallow": "walls_exterior_roofs_09_048",
+        "caps_30": "walls_exterior_roofs_30_13_000",
+        "chimney": "fixtures_fireplaces_01_068"
+      },
+      {
+        "name": "uk_estate_70s",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_buff_70s_000",
+        "shaped": "walls_house_uk_02_brick_buff_70s_016",
+        "caps": "walls_house_uk_02_brick_buff_70s_048",
+        "caps_shallow": "walls_house_uk_02_brick_buff_70s_066",
+        "caps_30": "walls_house_uk_02_brick_buff_70s_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_brown",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_brown",
+        "window": "fixtures_windows_uk_02_000",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_069",
+        "by_id_only": true,
+        "upper_wall": "walls_house_uk_02_boards_stained_70s",
+        "porch": "canopy_flat",
+        "plinth": "dpc_buff70",
+        "upper_sides": "long",
+        "garage": {
+          "kit": "brick_buff_70s",
+          "integral": true
+        }
+      },
+      {
+        "name": "uk_estate_80s",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_orange_80s_000",
+        "shaped": "walls_house_uk_02_brick_orange_80s_016",
+        "caps": "walls_house_uk_02_brick_orange_80s_048",
+        "caps_shallow": "walls_house_uk_02_brick_orange_80s_066",
+        "caps_30": "walls_house_uk_02_brick_orange_80s_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_pantile_brown",
+        "roof_sheet_30": "roofs_30_uk_02_pantile_brown",
+        "window": "fixtures_windows_uk_02_008",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "porch": "canopy_tiled",
+        "bay": "e80",
+        "plinth": "dpc_orange80",
+        "garage": {
+          "kit": "brick_orange_80s",
+          "integral": true
+        }
+      },
+      {
+        "name": "uk_postwar_50s",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_red_50s_000",
+        "shaped": "walls_house_uk_02_brick_red_50s_016",
+        "caps": "walls_house_uk_02_brick_red_50s_048",
+        "caps_shallow": "walls_house_uk_02_brick_red_50s_066",
+        "caps_30": "walls_house_uk_02_brick_red_50s_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_plain",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_plain",
+        "window": "fixtures_windows_uk_02_006",
+        "trim_from": "timber",
+        "grime": true,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "porch": "canopy_flat",
+        "plinth": "dpc_red50",
+        "garage": {
+          "kit": "brick_red_50s",
+          "integral": false
+        }
+      },
+      {
+        "name": "uk_interwar_30s",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_red_edw_000",
+        "shaped": "walls_house_uk_02_brick_red_edw_016",
+        "caps": "walls_house_uk_02_pebbledash_cream_048",
+        "caps_shallow": "walls_house_uk_02_pebbledash_cream_066",
+        "caps_30": "walls_house_uk_02_pebbledash_cream_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_01_tile",
+        "roof_sheet_30": "roofs_30_uk_01_tile",
+        "window": "fixtures_windows_uk_02_004",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "upper_wall": "walls_house_uk_02_pebbledash_cream",
+        "porch": "porch_30s",
+        "bay": "iw",
+        "plinth": "dpc_rededw"
+      },
+      {
+        "name": "uk_edwardian",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_red_edw_000",
+        "shaped": "walls_house_uk_02_brick_red_edw_016",
+        "caps": "walls_house_uk_02_roughcast_white_048",
+        "caps_shallow": "walls_house_uk_02_roughcast_white_066",
+        "caps_30": "walls_house_uk_02_roughcast_white_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_01_tile",
+        "roof_sheet_30": "roofs_30_uk_01_tile",
+        "window": "fixtures_windows_uk_02_002",
+        "trim_from": "timber",
+        "grime": true,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "upper_wall": "walls_house_uk_02_roughcast_white",
+        "porch": "canopy_bracket",
+        "bay": "edw",
+        "plinth": "plinth_rededw"
+      },
+      {
+        "like": "brick",
+        "wall": "walls_house_uk_01_brick_flemish_000",
+        "shaped": "walls_house_uk_01_brick_flemish_016",
+        "caps": "walls_house_uk_01_brick_flemish_048",
+        "caps_shallow": "walls_house_uk_01_brick_flemish_066",
+        "caps_30": "walls_house_uk_01_brick_flemish_074",
+        "roof_from": "brick",
+        "trim_from": "timber",
+        "grime": true,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "name": "uk_victorian_terrace",
+        "roof_sheet": "roofs_uk_01_slate",
+        "roof_sheet_30": "roofs_30_uk_01_slate",
+        "window": "fixtures_windows_uk_01_002",
+        "by_id_only": true,
+        "porch": "canopy_bracket",
+        "bay": "vic",
+        "plinth": "plinth_flemish"
+      },
+      {
+        "like": "brick",
+        "wall": "walls_house_uk_01_brick_flemish_000",
+        "shaped": "walls_house_uk_01_brick_flemish_016",
+        "caps": "walls_house_uk_01_brick_flemish_048",
+        "caps_shallow": "walls_house_uk_01_brick_flemish_066",
+        "caps_30": "walls_house_uk_01_brick_flemish_074",
+        "roof_from": "brick",
+        "trim_from": "timber",
+        "grime": true,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "name": "uk_georgian_town",
+        "roof_sheet": "roofs_uk_01_tile",
+        "roof_sheet_30": "roofs_30_uk_01_tile",
+        "window": "fixtures_windows_uk_01_000",
+        "by_id_only": true,
+        "porch": "doorcase",
+        "plinth": "plinth_flemish"
+      },
+      {
+        "like": "brick",
+        "wall": "walls_house_uk_01_brick_flemish_000",
+        "shaped": "walls_house_uk_01_brick_flemish_016",
+        "caps": "walls_house_uk_01_timber_white_048",
+        "caps_shallow": "walls_house_uk_01_timber_white_066",
+        "caps_30": "walls_house_uk_01_timber_white_074",
+        "roof_from": "brick",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "name": "uk_vernacular_timber",
+        "roof_sheet": "roofs_uk_01_tile",
+        "roof_sheet_30": "roofs_30_uk_01_tile",
+        "window": "fixtures_windows_uk_01_006",
+        "by_id_only": true,
+        "upper_wall": "walls_house_uk_01_timber_white",
+        "porch": "porch_timber",
+        "plinth": "plinth_flemish"
+      },
+      {
+        "name": "uk_estate_80s_timber",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_orange_80s_000",
+        "shaped": "walls_house_uk_02_brick_orange_80s_016",
+        "caps": "walls_house_uk_02_brick_orange_80s_048",
+        "caps_shallow": "walls_house_uk_02_brick_orange_80s_066",
+        "caps_30": "walls_house_uk_02_brick_orange_80s_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_pantile_brown",
+        "roof_sheet_30": "roofs_30_uk_02_pantile_brown",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "upper_wall": "walls_house_uk_01_tile_hung",
+        "porch": "canopy_tiled",
+        "bay": "e80",
+        "plinth": "dpc_orange80",
+        "garage": {
+          "kit": "brick_orange_80s",
+          "integral": true
+        }
+      },
+      {
+        "name": "uk_estate_70s_panel",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_buff_70s_000",
+        "shaped": "walls_house_uk_02_brick_buff_70s_016",
+        "caps": "walls_house_uk_02_brick_buff_70s_048",
+        "caps_shallow": "walls_house_uk_02_brick_buff_70s_066",
+        "caps_30": "walls_house_uk_02_brick_buff_70s_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_brown",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_brown",
+        "window": "fixtures_windows_uk_02_000",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_069",
+        "by_id_only": true,
+        "upper_wall": "walls_house_uk_02_panel_white_70s",
+        "porch": "canopy_flat",
+        "plinth": "dpc_buff70",
+        "upper_sides": "long",
+        "garage": {
+          "kit": "brick_buff_70s",
+          "integral": true
+        }
+      },
+      {
+        "name": "uk_council_iw",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_red_iwc_000",
+        "shaped": "walls_house_uk_02_brick_red_iwc_016",
+        "caps": "walls_house_uk_02_brick_red_iwc_048",
+        "caps_shallow": "walls_house_uk_02_brick_red_iwc_066",
+        "caps_30": "walls_house_uk_02_brick_red_iwc_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_01_tile",
+        "roof_sheet_30": "roofs_30_uk_01_tile",
+        "window": "fixtures_windows_uk_03_000",
+        "trim_from": "timber",
+        "grime": true,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "porch": "canopy_bracket",
+        "plinth": "dpc_iwc"
+      },
+      {
+        "name": "uk_council_iw_rough",
+        "like": "brick",
+        "wall": "walls_house_uk_02_roughcast_grey_000",
+        "shaped": "walls_house_uk_02_roughcast_grey_016",
+        "caps": "walls_house_uk_02_roughcast_grey_048",
+        "caps_shallow": "walls_house_uk_02_roughcast_grey_066",
+        "caps_30": "walls_house_uk_02_roughcast_grey_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_01_tile",
+        "roof_sheet_30": "roofs_30_uk_01_tile",
+        "window": "fixtures_windows_uk_03_000",
+        "trim_from": "timber",
+        "grime": true,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "porch": "canopy_bracket",
+        "plinth": "dpc_iwc"
+      },
+      {
+        "name": "uk_council_pw",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_fletton_000",
+        "shaped": "walls_house_uk_02_brick_fletton_016",
+        "caps": "walls_house_uk_02_brick_fletton_048",
+        "caps_shallow": "walls_house_uk_02_brick_fletton_066",
+        "caps_30": "walls_house_uk_02_brick_fletton_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_grey",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_grey",
+        "window": "fixtures_windows_uk_03_002",
+        "trim_from": "timber",
+        "grime": true,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "porch": "canopy_flat",
+        "plinth": "dpc_fletton"
+      },
+      {
+        "name": "uk_council_70s",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_brown_70s_000",
+        "shaped": "walls_house_uk_02_brick_brown_70s_016",
+        "caps": "walls_house_uk_02_brick_brown_70s_048",
+        "caps_shallow": "walls_house_uk_02_brick_brown_70s_066",
+        "caps_30": "walls_house_uk_02_brick_brown_70s_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_grey",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_grey",
+        "window": "fixtures_windows_uk_03_004",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "upper_wall": "walls_house_uk_02_weatherboard_white_70s",
+        "upper_sides": "long",
+        "porch": "canopy_flat",
+        "plinth": "dpc_brown70",
+        "garage": {
+          "kit": "brick_brown_70s",
+          "integral": false
+        }
+      },
+      {
+        "name": "uk_social_80s",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_buff_80s_000",
+        "shaped": "walls_house_uk_02_brick_buff_80s_016",
+        "caps": "walls_house_uk_02_brick_buff_80s_048",
+        "caps_shallow": "walls_house_uk_02_brick_buff_80s_066",
+        "caps_30": "walls_house_uk_02_brick_buff_80s_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_brown",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_brown",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_069",
+        "by_id_only": true,
+        "porch": "canopy_tiled",
+        "plinth": "dpc_buff80",
+        "garage": {
+          "kit": "brick_buff_80s",
+          "integral": false
+        }
+      },
+      {
+        "name": "uk_terrace_80s",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_red_80s_band_000",
+        "shaped": "walls_house_uk_02_brick_red_80s_band_016",
+        "caps": "walls_house_uk_02_brick_red_80s_band_048",
+        "caps_shallow": "walls_house_uk_02_brick_red_80s_band_066",
+        "caps_30": "walls_house_uk_02_brick_red_80s_band_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_brown",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_brown",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "porch": "canopy_tiled",
+        "plinth": "dpc_red80",
+        "garage": {
+          "kit": "brick_red_80s_band",
+          "integral": false
+        }
+      },
+      {
+        "name": "uk_terrace_80s_upvc",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_red_80s_band_000",
+        "shaped": "walls_house_uk_02_brick_red_80s_band_016",
+        "caps": "walls_house_uk_02_brick_red_80s_band_048",
+        "caps_shallow": "walls_house_uk_02_brick_red_80s_band_066",
+        "caps_30": "walls_house_uk_02_brick_red_80s_band_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_brown",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_brown",
+        "window": "fixtures_windows_uk_02_008",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "porch": "canopy_tiled",
+        "plinth": "dpc_red80",
+        "garage": {
+          "kit": "brick_red_80s_band",
+          "integral": false
+        }
+      },
+      {
+        "name": "uk_bungalow_iw",
+        "like": "brick",
+        "wall": "walls_house_uk_02_pebbledash_cream_000",
+        "shaped": "walls_house_uk_02_pebbledash_cream_016",
+        "caps": "walls_house_uk_02_pebbledash_cream_048",
+        "caps_shallow": "walls_house_uk_02_pebbledash_cream_066",
+        "caps_30": "walls_house_uk_02_pebbledash_cream_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_01_tile",
+        "roof_sheet_30": "roofs_30_uk_01_tile",
+        "window": "fixtures_windows_uk_02_004",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "porch": "porch_30s",
+        "bay": "iw",
+        "plinth": "dpc_iwc"
+      },
+      {
+        "name": "uk_bungalow_pw",
+        "like": "brick",
+        "wall": "walls_house_uk_02_roughcast_white_000",
+        "shaped": "walls_house_uk_02_roughcast_white_016",
+        "caps": "walls_house_uk_02_roughcast_white_048",
+        "caps_shallow": "walls_house_uk_02_roughcast_white_066",
+        "caps_30": "walls_house_uk_02_roughcast_white_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_plain",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_plain",
+        "window": "fixtures_windows_uk_02_006",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "porch": "canopy_flat",
+        "plinth": "dpc_fletton"
+      },
+      {
+        "name": "uk_bungalow_70s",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_brown_70s_000",
+        "shaped": "walls_house_uk_02_brick_brown_70s_016",
+        "caps": "walls_house_uk_02_brick_brown_70s_048",
+        "caps_shallow": "walls_house_uk_02_brick_brown_70s_066",
+        "caps_30": "walls_house_uk_02_brick_brown_70s_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_brown",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_brown",
+        "window": "fixtures_windows_uk_02_000",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "porch": "canopy_flat",
+        "plinth": "dpc_brown70",
+        "garage": {
+          "kit": "brick_brown_70s",
+          "integral": false
+        }
+      },
+      {
+        "name": "uk_flats_pw",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_fletton_band_000",
+        "shaped": "walls_house_uk_02_brick_fletton_band_016",
+        "caps": "walls_house_uk_02_brick_fletton_band_048",
+        "caps_shallow": "walls_house_uk_02_brick_fletton_band_066",
+        "caps_30": "walls_house_uk_02_brick_fletton_band_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_grey",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_grey",
+        "window": "fixtures_windows_uk_03_002",
+        "trim_from": "timber",
+        "grime": true,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "plinth": "dpc_fletton"
+      },
+      {
+        "name": "uk_flats_80s",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_buff_80s_000",
+        "shaped": "walls_house_uk_02_brick_buff_80s_016",
+        "caps": "walls_house_uk_02_brick_buff_80s_048",
+        "caps_shallow": "walls_house_uk_02_brick_buff_80s_066",
+        "caps_30": "walls_house_uk_02_brick_buff_80s_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_brown",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_brown",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_069",
+        "by_id_only": true,
+        "plinth": "dpc_buff80"
+      },
+      {
+        "name": "uk_flats_80s_red",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_red_80s_band_000",
+        "shaped": "walls_house_uk_02_brick_red_80s_band_016",
+        "caps": "walls_house_uk_02_brick_red_80s_band_048",
+        "caps_shallow": "walls_house_uk_02_brick_red_80s_band_066",
+        "caps_30": "walls_house_uk_02_brick_red_80s_band_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_brown",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_brown",
+        "window": "fixtures_windows_uk_02_008",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "plinth": "dpc_red80"
+      },
+      {
+        "name": "uk_edwardian_tudor",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_red_edw_000",
+        "shaped": "walls_house_uk_02_brick_red_edw_016",
+        "caps": "walls_house_uk_02_mocktudor_048",
+        "caps_shallow": "walls_house_uk_02_roughcast_white_066",
+        "caps_30": "walls_house_uk_02_roughcast_white_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_01_tile",
+        "roof_sheet_30": "roofs_30_uk_01_tile",
+        "window": "fixtures_windows_uk_02_002",
+        "trim_from": "timber",
+        "grime": true,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "upper_wall": "walls_house_uk_02_roughcast_white",
+        "porch": "canopy_bracket",
+        "bay": "edw",
+        "plinth": "plinth_rededw"
+      },
+      {
+        "name": "uk_interwar_tudor",
+        "like": "brick",
+        "wall": "walls_house_uk_02_brick_red_edw_000",
+        "shaped": "walls_house_uk_02_brick_red_edw_016",
+        "caps": "walls_house_uk_02_mocktudor_048",
+        "caps_shallow": "walls_house_uk_02_pebbledash_cream_066",
+        "caps_30": "walls_house_uk_02_pebbledash_cream_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_01_tile",
+        "roof_sheet_30": "roofs_30_uk_01_tile",
+        "window": "fixtures_windows_uk_02_004",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": "fixtures_fireplaces_01_064",
+        "by_id_only": true,
+        "upper_wall": "walls_house_uk_02_pebbledash_cream",
+        "porch": "porch_30s",
+        "bay": "iw",
+        "plinth": "dpc_rededw"
+      },
+      {
+        "name": "uk_superstore_brick",
+        "like": "brick",
+        "wall": "walls_commercial_uk_01_superstore_brick_000",
+        "shaped": "walls_commercial_uk_01_superstore_brick_016",
+        "caps": "walls_commercial_uk_01_superstore_brick_048",
+        "caps_shallow": "walls_commercial_uk_01_superstore_brick_066",
+        "caps_30": "walls_commercial_uk_01_superstore_brick_074",
+        "roof_from": "brick",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "by_id_only": true,
+        "roof_sheet": "roofs_uk_02_concrete_grey",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_grey",
+        "flat_tops": "floors_exterior_street_01_016",
+        "chimney": false,
+        "upper_wall": "walls_commercial_uk_01_superstore_brick_upper"
+      },
+      {
+        "name": "uk_superstore_buff",
+        "like": "brick",
+        "wall": "walls_commercial_uk_01_superstore_buff_000",
+        "shaped": "walls_commercial_uk_01_superstore_buff_016",
+        "caps": "walls_commercial_uk_01_superstore_buff_048",
+        "caps_shallow": "walls_commercial_uk_01_superstore_buff_066",
+        "caps_30": "walls_commercial_uk_01_superstore_buff_074",
+        "roof_from": "brick",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "by_id_only": true,
+        "roof_sheet": "roofs_uk_02_concrete_grey",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_grey",
+        "flat_tops": "floors_exterior_street_01_016",
+        "chimney": false,
+        "upper_wall": "walls_commercial_uk_01_superstore_buff_upper"
+      },
+      {
+        "name": "uk_unit_juniper",
+        "like": "brick",
+        "wall": "walls_commercial_uk_01_unit_juniper_000",
+        "shaped": "walls_commercial_uk_01_unit_juniper_016",
+        "caps": "walls_commercial_uk_01_unit_juniper_048",
+        "caps_shallow": "walls_commercial_uk_01_unit_juniper_066",
+        "caps_30": "walls_commercial_uk_01_unit_juniper_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_grey",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_grey",
+        "flat_tops": "floors_exterior_street_01_016",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": false,
+        "by_id_only": true,
+        "upper_wall": "walls_commercial_uk_01_cladding_juniper"
+      },
+      {
+        "name": "uk_unit_grey",
+        "like": "brick",
+        "wall": "walls_commercial_uk_01_unit_grey_000",
+        "shaped": "walls_commercial_uk_01_unit_grey_016",
+        "caps": "walls_commercial_uk_01_unit_grey_048",
+        "caps_shallow": "walls_commercial_uk_01_unit_grey_066",
+        "caps_30": "walls_commercial_uk_01_unit_grey_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_grey",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_grey",
+        "flat_tops": "floors_exterior_street_01_016",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": false,
+        "by_id_only": true,
+        "upper_wall": "walls_commercial_uk_01_cladding_grey"
+      },
+      {
+        "name": "uk_barn_black_iron",
+        "like": "brick",
+        "wall": "walls_commercial_uk_01_barn_black_000",
+        "shaped": "walls_commercial_uk_01_barn_black_016",
+        "caps": "walls_commercial_uk_01_barn_black_upper_048",
+        "caps_shallow": "walls_commercial_uk_01_barn_black_upper_066",
+        "caps_30": "walls_commercial_uk_01_barn_black_upper_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_03_corrugated_iron",
+        "roof_sheet_30": "roofs_30_uk_03_corrugated_iron",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": false,
+        "by_id_only": true,
+        "upper_wall": "walls_commercial_uk_01_barn_black_upper"
+      },
+      {
+        "name": "uk_barn_black_tile",
+        "like": "brick",
+        "wall": "walls_commercial_uk_01_barn_black_000",
+        "shaped": "walls_commercial_uk_01_barn_black_016",
+        "caps": "walls_commercial_uk_01_barn_black_upper_048",
+        "caps_shallow": "walls_commercial_uk_01_barn_black_upper_066",
+        "caps_30": "walls_commercial_uk_01_barn_black_upper_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_01_tile",
+        "roof_sheet_30": "roofs_30_uk_01_tile",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": false,
+        "by_id_only": true,
+        "upper_wall": "walls_commercial_uk_01_barn_black_upper"
+      },
+      {
+        "name": "uk_shed_yorkshire",
+        "like": "brick",
+        "wall": "walls_commercial_uk_01_shed_yorkshire_000",
+        "shaped": "walls_commercial_uk_01_shed_yorkshire_016",
+        "caps": "walls_commercial_uk_01_shed_yorkshire_upper_048",
+        "caps_shallow": "walls_commercial_uk_01_shed_yorkshire_upper_066",
+        "caps_30": "walls_commercial_uk_01_shed_yorkshire_upper_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_03_fibre_cement",
+        "roof_sheet_30": "roofs_30_uk_03_fibre_cement",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": false,
+        "by_id_only": true,
+        "upper_wall": "walls_commercial_uk_01_shed_yorkshire_upper"
+      },
+      {
+        "name": "granary_staddle",
+        "like": "brick",
+        "wall": "walls_commercial_uk_01_granary_staddle_000",
+        "shaped": "walls_commercial_uk_01_granary_staddle_016",
+        "caps": "walls_commercial_uk_01_barn_black_upper_048",
+        "caps_shallow": "walls_commercial_uk_01_barn_black_upper_066",
+        "caps_30": "walls_commercial_uk_01_barn_black_upper_074",
+        "roof_from": "brick",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": false,
+        "by_id_only": true,
+        "upper_wall": "walls_commercial_uk_01_barn_black_upper"
+      },
+      {
+        "name": "uk_garage_brick",
+        "like": "brick",
+        "wall": "walls_commercial_uk_01_superstore_brick_upper_000",
+        "shaped": "walls_commercial_uk_01_superstore_brick_upper_016",
+        "caps": "walls_commercial_uk_01_superstore_brick_upper_048",
+        "caps_shallow": "walls_commercial_uk_01_superstore_brick_upper_066",
+        "caps_30": "walls_commercial_uk_01_superstore_brick_upper_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_grey",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_grey",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": false,
+        "by_id_only": true
+      },
+      {
+        "name": "uk_exchange_buff",
+        "like": "brick",
+        "wall": "walls_commercial_uk_01_superstore_buff_upper_000",
+        "shaped": "walls_commercial_uk_01_superstore_buff_upper_016",
+        "caps": "walls_commercial_uk_01_superstore_buff_upper_048",
+        "caps_shallow": "walls_commercial_uk_01_superstore_buff_upper_066",
+        "caps_30": "walls_commercial_uk_01_superstore_buff_upper_074",
+        "roof_from": "brick",
+        "roof_sheet": "roofs_uk_02_concrete_grey",
+        "roof_sheet_30": "roofs_30_uk_02_concrete_grey",
+        "flat_tops": "floors_exterior_street_01_016",
+        "window": "fixtures_windows_uk_02_010",
+        "trim_from": "timber",
+        "grime": false,
+        "shutters": false,
+        "chimney": false,
+        "by_id_only": true,
+        "upper_wall": "walls_commercial_uk_01_superstore_buff_upper"
+      }
+    ],
+    "shop_signs": false,
+    "shutters": false,
+    "uk_stand_ins": {
+      "_about": "UK assets off (Knoxmap/knoxbuild/assets_uk.py): each UK style's vanilla look-alike among the palette's own and KnoxMap's (brick, render, painted, stucco, panel, timber).",
+      "uk_estate_70s": "buff_brick",
+      "uk_estate_70s_panel": "buff_brick",
+      "uk_estate_80s": "red_brick",
+      "uk_estate_80s_timber": "red_brick",
+      "uk_postwar_50s": "red_brick",
+      "uk_interwar_30s": "cream",
+      "uk_interwar_tudor": "cream",
+      "uk_edwardian": "red_brick",
+      "uk_edwardian_tudor": "cream",
+      "uk_victorian_terrace": "victorian",
+      "uk_georgian_town": "red_brick",
+      "uk_vernacular_timber": "cream",
+      "uk_council_iw": "red_brick",
+      "uk_council_iw_rough": "cream",
+      "uk_council_pw": "red_brick",
+      "uk_council_70s": "buff_brick",
+      "uk_social_80s": "red_brick",
+      "uk_terrace_80s": "red_brick",
+      "uk_terrace_80s_upvc": "red_brick",
+      "uk_bungalow_iw": "cream",
+      "uk_bungalow_pw": "red_brick",
+      "uk_bungalow_70s": "buff_brick",
+      "uk_flats_pw": "brick",
+      "uk_flats_80s": "buff_brick",
+      "uk_flats_80s_red": "red_brick",
+      "uk_superstore_brick": "red_brick",
+      "uk_superstore_buff": "buff_brick",
+      "uk_unit_juniper": "panel",
+      "uk_unit_grey": "panel",
+      "uk_barn_black_iron": "timber",
+      "uk_barn_black_tile": "timber",
+      "uk_shed_yorkshire": "timber",
+      "granary_staddle": "timber",
+      "uk_garage_brick": "red_brick",
+      "uk_exchange_buff": "buff_brick"
+    }
+  },
+  "type_styles": {
+    "georgian_townhouse": [
+      "red_brick"
+    ],
+    "listed_cottage": [
+      "cream",
+      "old_brick",
+      "red_brick"
+    ],
+    "timber_framed": [
+      "cream"
+    ],
+    "victorian_terrace": [
+      "victorian"
+    ],
+    "victorian_cottage": [
+      "victorian",
+      "old_brick"
+    ],
+    "edwardian": [
+      "red_brick"
+    ],
+    "interwar_semi": [
+      "cream"
+    ],
+    "postwar_council": [
+      "brick"
+    ],
+    "estate_60s70s": [
+      "brick"
+    ],
+    "estate_80s90s": [
+      "buff_brick"
+    ],
+    "new_build": [
+      "buff_brick",
+      "red_brick"
+    ],
+    "flats_old": [
+      "victorian"
+    ],
+    "flats_modern": [
+      "buff_brick"
+    ]
+  },
+  "subtype_styles": {
+    "_about": "By each building's look (area/subtypes.py: its sub-type as it stood in 1993 - newer builds look 1990s, user 2026-10-19). Stand-ins from today's styles until each sub-type has its own tile set (to-do K09.22). Before type_styles, after name, listed and High Street rules (export_regional.py).",
+    "vern_timber": [
+      "uk_vernacular_timber"
+    ],
+    "vern_thatched": [
+      "cream"
+    ],
+    "vern_flint": [
+      "stone"
+    ],
+    "vern_brick": [
+      "old_brick"
+    ],
+    "georgian_townhouse": [
+      "uk_georgian_town"
+    ],
+    "georgian_house": [
+      "red_brick",
+      "cream"
+    ],
+    "vic_terrace": [
+      "uk_victorian_terrace"
+    ],
+    "vic_villa": [
+      "victorian",
+      "red_brick",
+      "old_brick"
+    ],
+    "vic_cottage": [
+      "old_brick",
+      "victorian"
+    ],
+    "edw_terrace": [
+      "uk_edwardian"
+    ],
+    "edw_semi": [
+      "uk_edwardian_tudor"
+    ],
+    "edw_villa": [
+      "uk_edwardian_tudor",
+      "uk_edwardian"
+    ],
+    "iw_semi": [
+      "uk_interwar_tudor",
+      "uk_interwar_30s"
+    ],
+    "iw_detached": [
+      "uk_interwar_30s",
+      "uk_interwar_tudor"
+    ],
+    "iw_bungalow": [
+      "uk_bungalow_iw"
+    ],
+    "iw_council": [
+      "uk_council_iw",
+      "uk_council_iw_rough"
+    ],
+    "pw_system": [
+      "cream"
+    ],
+    "pw_council": [
+      "uk_council_pw"
+    ],
+    "pw_private": [
+      "uk_postwar_50s"
+    ],
+    "pw_bungalow": [
+      "uk_bungalow_pw"
+    ],
+    "e70_house": [
+      "uk_estate_70s",
+      "uk_estate_70s_panel"
+    ],
+    "e70_terrace": [
+      "brick"
+    ],
+    "e70_bungalow": [
+      "uk_bungalow_70s",
+      "uk_estate_70s"
+    ],
+    "e70_council": [
+      "uk_council_70s"
+    ],
+    "e80_house": [
+      "uk_estate_80s_timber",
+      "uk_estate_80s"
+    ],
+    "e80_terrace": [
+      "uk_terrace_80s",
+      "uk_terrace_80s_upvc"
+    ],
+    "e80_social": [
+      "uk_social_80s"
+    ],
+    "flats_conversion": [
+      "uk_victorian_terrace",
+      "uk_georgian_town"
+    ],
+    "flats_period": [
+      "uk_edwardian"
+    ],
+    "flats_postwar": [
+      "uk_flats_pw"
+    ],
+    "flats_modern": [
+      "uk_flats_80s",
+      "uk_flats_80s_red"
+    ],
+    "unknown_terrace": [
+      "uk_victorian_terrace",
+      "uk_edwardian",
+      "brick",
+      "uk_terrace_80s"
+    ],
+    "unknown_semi": [
+      "uk_edwardian_tudor",
+      "uk_interwar_tudor",
+      "uk_interwar_30s",
+      "uk_council_pw",
+      "uk_postwar_50s",
+      "uk_estate_70s"
+    ],
+    "unknown_detached": [
+      "victorian",
+      "uk_interwar_30s",
+      "uk_postwar_50s",
+      "uk_estate_70s",
+      "uk_estate_80s"
+    ],
+    "unknown_bungalow": [
+      "uk_bungalow_iw",
+      "uk_bungalow_pw",
+      "uk_bungalow_70s"
+    ],
+    "unknown_flats": [
+      "uk_flats_pw",
+      "uk_flats_80s"
+    ]
+  },
+  "listed_styles": [
+    "cream",
+    "old_brick",
+    "red_brick"
+  ],
+  "name_styles": {
+    "CHURCH OF": "stone",
+    "CHAPEL": "stone"
+  },
+  "high_street_unlisted": [
+    "red_brick",
+    "cream"
+  ],
+  "unit_styles": [
+    "red_brick",
+    "cream",
+    "old_brick",
+    "victorian"
+  ],
+  "shopfronts": [
+    "walls_commercial_erika_01",
+    "walls_commercial_erika_05",
+    "walls_commercial_erika_02",
+    "walls_commercial_erika_04",
+    "walls_commercial_erika_09"
+  ]
+}

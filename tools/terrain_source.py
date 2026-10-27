@@ -33,13 +33,24 @@ from knoxbuild.terrain import Palette, ground_layers, stack_order  # noqa: E402
 ORIGIN_X = 70 * 300       # the world's west edge in lot-file tiles (worldOrigin 70,0)
 
 
-def rules_path() -> str:
+# KnoxMap UK: a map with uk_assets.off in its folder is made with no UK tile, its ground
+# by the vanilla rules - the map tools' rules with the UK tiles swapped back
+# (asset_creator/Tile_creator/src/register.py --vanilla-to <tools>/config_vanilla, which
+# Building_types' uk_pipeline.py runs for such a map).
+UK_ASSETS_OFF = "uk_assets.off"
+VANILLA_CONFIG = "config_vanilla"
+
+
+def rules_path(project: str | None = None) -> str:
+    """The map tools' Rules.txt; the vanilla rules' for a project with UK assets off."""
+    config = VANILLA_CONFIG if project and os.path.exists(os.path.join(project, UK_ASSETS_OFF)) else "config"
     tools = knoxpaths.tools_dir() if hasattr(knoxpaths, "tools_dir") else None
     for base in (tools, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
                                      "vendor", "PZMappingTools")):
-        if base and os.path.exists(os.path.join(base, "config", "Rules.txt")):
-            return os.path.join(base, "config", "Rules.txt")
-    raise FileNotFoundError("Rules.txt not found")
+        if base and os.path.exists(os.path.join(base, config, "Rules.txt")):
+            return os.path.join(base, config, "Rules.txt")
+    raise FileNotFoundError(f"{config}/Rules.txt not found" + (
+        " (UK assets off: run the UK pipeline, which makes it)" if config == VANILLA_CONFIG else ""))
 
 
 _LOADED: dict = {}
@@ -106,7 +117,7 @@ def make_sources(project: str, out: str, seed: int = 1, rules_file: str | None =
     if head is None:
         raise ValueError(f"{land_path} is not a plain BMP")
     w, h = head[0], head[1]
-    rules_file = rules_file or rules_path()
+    rules_file = rules_file or rules_path(project)
     os.makedirs(out, exist_ok=True)
     jobs = [(land_path, veg_path, out, cy, w, h, seed, rules_file, seams)
             for cy in range((h + SIDE - 1) // SIDE)]

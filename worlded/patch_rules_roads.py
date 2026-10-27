@@ -67,6 +67,7 @@ RULES = [
     ("Street lamp E", (12, 36, 203), "lighting_outdoor_01_9", "0_Furniture"),
     ("Street lamp S", (12, 36, 204), "lighting_outdoor_01_10", "0_Furniture"),
     ("Street lamp W", (12, 36, 205), "lighting_outdoor_01_11", "0_Furniture"),
+    # US stand-in (PLAN E): the hydrant, the mailboxes and Erika's mph signs below.
     ("Fire hydrant", (12, 36, 206), "street_decoration_01_12", "0_Furniture"),
     ("Storm drain", (12, 36, 207), ["street_decoration_01_13", "street_decoration_01_14"],
      "0_FloorOverlay6"),

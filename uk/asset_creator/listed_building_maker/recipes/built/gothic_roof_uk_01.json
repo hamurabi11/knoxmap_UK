@@ -1,0 +1,79 @@
+{
+ "sheet": "gothic_roof_uk_01",
+ "items": {
+  "ridge_cresting": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_roof_uk_01_0"
+     },
+     "W": {
+      "0,0": "gothic_roof_uk_01_1"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "roof_lantern_sq": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_roof_uk_01_2",
+      "0,1": "gothic_roof_uk_01_3",
+      "1,0": "gothic_roof_uk_01_4",
+      "1,1": "gothic_roof_uk_01_5"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "roof_lantern_oct": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "1": {
+     "N": {
+      "0,0": "gothic_roof_uk_01_6",
+      "0,1": "gothic_roof_uk_01_8",
+      "1,0": "gothic_roof_uk_01_10",
+      "1,1": "gothic_roof_uk_01_12"
+     }
+    },
+    "0": {
+     "N": {
+      "0,1": "gothic_roof_uk_01_7",
+      "1,0": "gothic_roof_uk_01_9",
+      "1,1": "gothic_roof_uk_01_11"
+     }
+    }
+   },
+   "storeys": 2
+  },
+  "lead_fleche_small": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "1": {
+     "N": {
+      "0,0": "gothic_roof_uk_01_13",
+      "0,1": "gothic_roof_uk_01_15",
+      "1,0": "gothic_roof_uk_01_17",
+      "1,1": "gothic_roof_uk_01_19"
+     }
+    },
+    "0": {
+     "N": {
+      "0,1": "gothic_roof_uk_01_14",
+      "1,0": "gothic_roof_uk_01_16",
+      "1,1": "gothic_roof_uk_01_18"
+     }
+    }
+   },
+   "storeys": 2
+  }
+ }
+}

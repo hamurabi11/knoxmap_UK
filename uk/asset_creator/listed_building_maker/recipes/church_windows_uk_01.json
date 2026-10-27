@@ -1,0 +1,82 @@
+{
+ "sheet": "church_windows_uk_01",
+ "windows": true,
+ "about": "Church windows that work as windows (they break, their glass can be taken out), in vanilla's church window layout. First for All Saints, Odiham.",
+ "evidence": [
+  "List text: 'Most of the windows have traceried lights of Decorated and Perpendicular style, all restorations, there are 2 smaller 3-light windows within square frames.'",
+  "List text: 'The main feature is a round-headed bell-stage opening, with rusticated sides and voussoirs'",
+  "Looked at, not copied (Commons): the west front ('All Saints Church, Odiham 03'): three-light Perpendicular windows in the aisle gables and the tower, pale stone tracery; stained glass in the east window ('nave 02').",
+  "Measured on the west front photo ('All Saints Church, Odiham 03', looked at only): the aisle windows are about 0.4 of the gable's width and rise from a third of the wall's height almost to the eaves: two storeys here, the lights below, the head above.",
+  "All Saints' bell-stage opening, the listing's 'main feature': round-headed, about 1.5 m wide (two squares), louvred, with rusticated voussoirs (the stone frame)."
+ ],
+ "items": [
+  {
+   "name": "perp3",
+   "shapes": [2, 1],
+   "tracery": "perpendicular",
+   "lights": 3,
+   "glass": "glass_leaded",
+   "frame": "ashlar"
+  },
+  {
+   "name": "perp3_stained",
+   "shapes": [2, 1],
+   "tracery": "perpendicular",
+   "lights": 3,
+   "glass": "glass_stained",
+   "frame": "ashlar"
+  },
+  {
+   "name": "dec2",
+   "shapes": [2, 1],
+   "tracery": "intersecting",
+   "lights": 2,
+   "glass": "glass_leaded",
+   "frame": "ashlar",
+   "arch": 1.0
+  },
+  {
+   "name": "square3",
+   "shapes": [13],
+   "tracery": "square",
+   "lights": 3,
+   "glass": "glass_leaded",
+   "frame": "ashlar"
+  },
+  {
+   "name": "bell_opening",
+   "shapes": [10],
+   "tracery": "square",
+   "lights": 1,
+   "glass": "louvre",
+   "frame": {"name": "brick"}
+  },
+  {
+   "shapes": [12, 8, 11],
+   "tracery": "perpendicular",
+   "lights": 4,
+   "glass": "glass_leaded",
+   "frame": "ashlar",
+   "name": "big4_low",
+   "part": "lower",
+   "sill": 1.4
+  },
+  {
+   "shapes": [12, 8, 11],
+   "tracery": "perpendicular",
+   "lights": 4,
+   "glass": "glass_leaded",
+   "frame": "ashlar",
+   "name": "big4_high",
+   "part": "upper"
+  },
+  {
+   "name": "bell_round2",
+   "shapes": [2, 1],
+   "tracery": "open",
+   "lights": 1,
+   "glass": "louvre",
+   "frame": {"name": "ashlar"}
+  }
+ ]
+}

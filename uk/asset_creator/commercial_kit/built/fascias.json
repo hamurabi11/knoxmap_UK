@@ -1,0 +1,8378 @@
+{
+ "sheets": [
+  "fascias_uk_01",
+  "fascias_uk_02",
+  "fascias_uk_03",
+  "fascias_uk_04",
+  "fascias_uk_05",
+  "fascias_uk_06",
+  "fascias_uk_07",
+  "fascias_uk_08",
+  "fascias_uk_09",
+  "fascias_uk_10",
+  "fascias_uk_11",
+  "fascias_uk_12",
+  "fascias_uk_13",
+  "fascias_uk_14",
+  "fascias_uk_15",
+  "fascias_uk_16",
+  "fascias_uk_17",
+  "fascias_uk_18",
+  "fascias_uk_19",
+  "fascias_uk_20",
+  "fascias_uk_21",
+  "fascias_uk_22",
+  "fascias_uk_23",
+  "fascias_uk_24",
+  "fascias_uk_25",
+  "fascias_uk_26",
+  "fascias_uk_27",
+  "fascias_uk_28",
+  "fascias_uk_29",
+  "fascias_uk_30",
+  "fascias_uk_31"
+ ],
+ "signs": {
+  "tisco": {
+   "versions": [
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_01_0",
+      "fascias_uk_01_2"
+     ],
+     "N": [
+      "fascias_uk_01_1",
+      "fascias_uk_01_3"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_01_4",
+    "N": "fascias_uk_01_5"
+   }
+  },
+  "lainburys": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_01_6",
+      "fascias_uk_01_8",
+      "fascias_uk_01_10",
+      "fascias_uk_01_12"
+     ],
+     "N": [
+      "fascias_uk_01_7",
+      "fascias_uk_01_9",
+      "fascias_uk_01_11",
+      "fascias_uk_01_13"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_01_14",
+      "fascias_uk_01_16",
+      "fascias_uk_01_18"
+     ],
+     "N": [
+      "fascias_uk_01_15",
+      "fascias_uk_01_17",
+      "fascias_uk_01_19"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_01_20",
+      "fascias_uk_01_22"
+     ],
+     "N": [
+      "fascias_uk_01_21",
+      "fascias_uk_01_23"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_01_24",
+    "N": "fascias_uk_01_25"
+   }
+  },
+  "norrisons": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_01_26",
+      "fascias_uk_01_28",
+      "fascias_uk_01_30",
+      "fascias_uk_01_32"
+     ],
+     "N": [
+      "fascias_uk_01_27",
+      "fascias_uk_01_29",
+      "fascias_uk_01_31",
+      "fascias_uk_01_33"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_01_34",
+      "fascias_uk_01_36",
+      "fascias_uk_01_38"
+     ],
+     "N": [
+      "fascias_uk_01_35",
+      "fascias_uk_01_37",
+      "fascias_uk_01_39"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_01_40",
+      "fascias_uk_01_42"
+     ],
+     "N": [
+      "fascias_uk_01_41",
+      "fascias_uk_01_43"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_01_44",
+    "N": "fascias_uk_01_45"
+   }
+  },
+  "greenes": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_01_46",
+      "fascias_uk_01_48",
+      "fascias_uk_01_50"
+     ],
+     "N": [
+      "fascias_uk_01_47",
+      "fascias_uk_01_49",
+      "fascias_uk_01_51"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_01_52",
+      "fascias_uk_01_54"
+     ],
+     "N": [
+      "fascias_uk_01_53",
+      "fascias_uk_01_55"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_01_56",
+    "N": "fascias_uk_01_57"
+   }
+  },
+  "safeway": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_01_58",
+      "fascias_uk_01_60",
+      "fascias_uk_01_62"
+     ],
+     "N": [
+      "fascias_uk_01_59",
+      "fascias_uk_01_61",
+      "fascias_uk_01_63"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_01_64",
+      "fascias_uk_01_66"
+     ],
+     "N": [
+      "fascias_uk_01_65",
+      "fascias_uk_01_67"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_01_68",
+    "N": "fascias_uk_01_69"
+   }
+  },
+  "kwiksave": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_01_70",
+      "fascias_uk_01_72",
+      "fascias_uk_01_74"
+     ],
+     "N": [
+      "fascias_uk_01_71",
+      "fascias_uk_01_73",
+      "fascias_uk_01_75"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_01_76",
+      "fascias_uk_01_78"
+     ],
+     "N": [
+      "fascias_uk_01_77",
+      "fascias_uk_01_79"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_01_80",
+    "N": "fascias_uk_01_81"
+   }
+  },
+  "waitrows": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_01_82",
+      "fascias_uk_01_84",
+      "fascias_uk_01_86",
+      "fascias_uk_01_88"
+     ],
+     "N": [
+      "fascias_uk_01_83",
+      "fascias_uk_01_85",
+      "fascias_uk_01_87",
+      "fascias_uk_01_89"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_01_90",
+      "fascias_uk_01_92",
+      "fascias_uk_01_94"
+     ],
+     "N": [
+      "fascias_uk_01_91",
+      "fascias_uk_01_93",
+      "fascias_uk_01_95"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_01_96",
+      "fascias_uk_01_98"
+     ],
+     "N": [
+      "fascias_uk_01_97",
+      "fascias_uk_01_99"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_01_100",
+    "N": "fascias_uk_01_101"
+   }
+  },
+  "marks_spender": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_01_102",
+      "fascias_uk_01_104",
+      "fascias_uk_01_106",
+      "fascias_uk_01_108",
+      "fascias_uk_01_110",
+      "fascias_uk_01_112"
+     ],
+     "N": [
+      "fascias_uk_01_103",
+      "fascias_uk_01_105",
+      "fascias_uk_01_107",
+      "fascias_uk_01_109",
+      "fascias_uk_01_111",
+      "fascias_uk_01_113"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_01_114",
+      "fascias_uk_01_116",
+      "fascias_uk_01_118"
+     ],
+     "N": [
+      "fascias_uk_01_115",
+      "fascias_uk_01_117",
+      "fascias_uk_01_119"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_01_120",
+      "fascias_uk_01_122"
+     ],
+     "N": [
+      "fascias_uk_01_121",
+      "fascias_uk_01_123"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_01_124",
+    "N": "fascias_uk_01_125"
+   }
+  },
+  "greenland": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_02_0",
+      "fascias_uk_02_2",
+      "fascias_uk_02_4",
+      "fascias_uk_02_6"
+     ],
+     "N": [
+      "fascias_uk_02_1",
+      "fascias_uk_02_3",
+      "fascias_uk_02_5",
+      "fascias_uk_02_7"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_02_8",
+      "fascias_uk_02_10",
+      "fascias_uk_02_12"
+     ],
+     "N": [
+      "fascias_uk_02_9",
+      "fascias_uk_02_11",
+      "fascias_uk_02_13"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_02_14",
+      "fascias_uk_02_16"
+     ],
+     "N": [
+      "fascias_uk_02_15",
+      "fascias_uk_02_17"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_02_18",
+    "N": "fascias_uk_02_19"
+   }
+  },
+  "wessex_coop": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_02_20",
+      "fascias_uk_02_22",
+      "fascias_uk_02_24",
+      "fascias_uk_02_26"
+     ],
+     "N": [
+      "fascias_uk_02_21",
+      "fascias_uk_02_23",
+      "fascias_uk_02_25",
+      "fascias_uk_02_27"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_02_28",
+      "fascias_uk_02_30",
+      "fascias_uk_02_32"
+     ],
+     "N": [
+      "fascias_uk_02_29",
+      "fascias_uk_02_31",
+      "fascias_uk_02_33"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_02_34",
+      "fascias_uk_02_36"
+     ],
+     "N": [
+      "fascias_uk_02_35",
+      "fascias_uk_02_37"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_02_38",
+    "N": "fascias_uk_02_39"
+   }
+  },
+  "spur": {
+   "versions": [
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_02_40",
+      "fascias_uk_02_42"
+     ],
+     "N": [
+      "fascias_uk_02_41",
+      "fascias_uk_02_43"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_02_44",
+    "N": "fascias_uk_02_45"
+   }
+  },
+  "woolies": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_02_46",
+      "fascias_uk_02_48",
+      "fascias_uk_02_50"
+     ],
+     "N": [
+      "fascias_uk_02_47",
+      "fascias_uk_02_49",
+      "fascias_uk_02_51"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_02_52",
+      "fascias_uk_02_54"
+     ],
+     "N": [
+      "fascias_uk_02_53",
+      "fascias_uk_02_55"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_02_56",
+    "N": "fascias_uk_02_57"
+   }
+  },
+  "littlewards": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_02_58",
+      "fascias_uk_02_60",
+      "fascias_uk_02_62",
+      "fascias_uk_02_64"
+     ],
+     "N": [
+      "fascias_uk_02_59",
+      "fascias_uk_02_61",
+      "fascias_uk_02_63",
+      "fascias_uk_02_65"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_02_66",
+      "fascias_uk_02_68",
+      "fascias_uk_02_70"
+     ],
+     "N": [
+      "fascias_uk_02_67",
+      "fascias_uk_02_69",
+      "fascias_uk_02_71"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_02_72",
+      "fascias_uk_02_74"
+     ],
+     "N": [
+      "fascias_uk_02_73",
+      "fascias_uk_02_75"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_02_76",
+    "N": "fascias_uk_02_77"
+   }
+  },
+  "boats": {
+   "versions": [
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_02_78",
+      "fascias_uk_02_80"
+     ],
+     "N": [
+      "fascias_uk_02_79",
+      "fascias_uk_02_81"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_02_82",
+    "N": "fascias_uk_02_83"
+   }
+  },
+  "supadrug": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_02_84",
+      "fascias_uk_02_86",
+      "fascias_uk_02_88"
+     ],
+     "N": [
+      "fascias_uk_02_85",
+      "fascias_uk_02_87",
+      "fascias_uk_02_89"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_02_90",
+      "fascias_uk_02_92"
+     ],
+     "N": [
+      "fascias_uk_02_91",
+      "fascias_uk_02_93"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_02_94",
+    "N": "fascias_uk_02_95"
+   }
+  },
+  "wh_smythe": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_02_96",
+      "fascias_uk_02_98",
+      "fascias_uk_02_100",
+      "fascias_uk_02_102"
+     ],
+     "N": [
+      "fascias_uk_02_97",
+      "fascias_uk_02_99",
+      "fascias_uk_02_101",
+      "fascias_uk_02_103"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_02_104",
+      "fascias_uk_02_106",
+      "fascias_uk_02_108"
+     ],
+     "N": [
+      "fascias_uk_02_105",
+      "fascias_uk_02_107",
+      "fascias_uk_02_109"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_02_110",
+      "fascias_uk_02_112"
+     ],
+     "N": [
+      "fascias_uk_02_111",
+      "fascias_uk_02_113"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_02_114",
+    "N": "fascias_uk_02_115"
+   }
+  },
+  "martyns": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_02_116",
+      "fascias_uk_02_118",
+      "fascias_uk_02_120"
+     ],
+     "N": [
+      "fascias_uk_02_117",
+      "fascias_uk_02_119",
+      "fascias_uk_02_121"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_02_122",
+      "fascias_uk_02_124"
+     ],
+     "N": [
+      "fascias_uk_02_123",
+      "fascias_uk_02_125"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_02_126",
+    "N": "fascias_uk_02_127"
+   }
+  },
+  "our_prize": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_03_0",
+      "fascias_uk_03_2",
+      "fascias_uk_03_4"
+     ],
+     "N": [
+      "fascias_uk_03_1",
+      "fascias_uk_03_3",
+      "fascias_uk_03_5"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_03_6",
+      "fascias_uk_03_8"
+     ],
+     "N": [
+      "fascias_uk_03_7",
+      "fascias_uk_03_9"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_03_10",
+    "N": "fascias_uk_03_11"
+   }
+  },
+  "hmb": {
+   "versions": [
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_03_12",
+      "fascias_uk_03_14"
+     ],
+     "N": [
+      "fascias_uk_03_13",
+      "fascias_uk_03_15"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_03_16",
+    "N": "fascias_uk_03_17"
+   }
+  },
+  "blockbluster": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_03_18",
+      "fascias_uk_03_20",
+      "fascias_uk_03_22",
+      "fascias_uk_03_24",
+      "fascias_uk_03_26",
+      "fascias_uk_03_28"
+     ],
+     "N": [
+      "fascias_uk_03_19",
+      "fascias_uk_03_21",
+      "fascias_uk_03_23",
+      "fascias_uk_03_25",
+      "fascias_uk_03_27",
+      "fascias_uk_03_29"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_03_30",
+      "fascias_uk_03_32",
+      "fascias_uk_03_34"
+     ],
+     "N": [
+      "fascias_uk_03_31",
+      "fascias_uk_03_33",
+      "fascias_uk_03_35"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_03_36",
+      "fascias_uk_03_38"
+     ],
+     "N": [
+      "fascias_uk_03_37",
+      "fascias_uk_03_39"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_03_40",
+    "N": "fascias_uk_03_41"
+   }
+  },
+  "dixens": {
+   "versions": [
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_03_42",
+      "fascias_uk_03_44"
+     ],
+     "N": [
+      "fascias_uk_03_43",
+      "fascias_uk_03_45"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_03_46",
+    "N": "fascias_uk_03_47"
+   }
+  },
+  "curries": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_03_48",
+      "fascias_uk_03_50",
+      "fascias_uk_03_52"
+     ],
+     "N": [
+      "fascias_uk_03_49",
+      "fascias_uk_03_51",
+      "fascias_uk_03_53"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_03_54",
+      "fascias_uk_03_56"
+     ],
+     "N": [
+      "fascias_uk_03_55",
+      "fascias_uk_03_57"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_03_58",
+    "N": "fascias_uk_03_59"
+   }
+  },
+  "rumblers": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_03_60",
+      "fascias_uk_03_62",
+      "fascias_uk_03_64"
+     ],
+     "N": [
+      "fascias_uk_03_61",
+      "fascias_uk_03_63",
+      "fascias_uk_03_65"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_03_66",
+      "fascias_uk_03_68"
+     ],
+     "N": [
+      "fascias_uk_03_67",
+      "fascias_uk_03_69"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_03_70",
+    "N": "fascias_uk_03_71"
+   }
+  },
+  "victory_wine": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_03_72",
+      "fascias_uk_03_74",
+      "fascias_uk_03_76",
+      "fascias_uk_03_78"
+     ],
+     "N": [
+      "fascias_uk_03_73",
+      "fascias_uk_03_75",
+      "fascias_uk_03_77",
+      "fascias_uk_03_79"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_03_80",
+      "fascias_uk_03_82",
+      "fascias_uk_03_84"
+     ],
+     "N": [
+      "fascias_uk_03_81",
+      "fascias_uk_03_83",
+      "fascias_uk_03_85"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_03_86",
+      "fascias_uk_03_88"
+     ],
+     "N": [
+      "fascias_uk_03_87",
+      "fascias_uk_03_89"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_03_90",
+    "N": "fascias_uk_03_91"
+   }
+  },
+  "thrashers": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_03_92",
+      "fascias_uk_03_94",
+      "fascias_uk_03_96",
+      "fascias_uk_03_98"
+     ],
+     "N": [
+      "fascias_uk_03_93",
+      "fascias_uk_03_95",
+      "fascias_uk_03_97",
+      "fascias_uk_03_99"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_03_100",
+      "fascias_uk_03_102",
+      "fascias_uk_03_104"
+     ],
+     "N": [
+      "fascias_uk_03_101",
+      "fascias_uk_03_103",
+      "fascias_uk_03_105"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_03_106",
+      "fascias_uk_03_108"
+     ],
+     "N": [
+      "fascias_uk_03_107",
+      "fascias_uk_03_109"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_03_110",
+    "N": "fascias_uk_03_111"
+   }
+  },
+  "griggs": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_03_112",
+      "fascias_uk_03_114",
+      "fascias_uk_03_116"
+     ],
+     "N": [
+      "fascias_uk_03_113",
+      "fascias_uk_03_115",
+      "fascias_uk_03_117"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_03_118",
+      "fascias_uk_03_120"
+     ],
+     "N": [
+      "fascias_uk_03_119",
+      "fascias_uk_03_121"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_03_122",
+    "N": "fascias_uk_03_123"
+   }
+  },
+  "barton": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_04_0",
+      "fascias_uk_04_2",
+      "fascias_uk_04_4"
+     ],
+     "N": [
+      "fascias_uk_04_1",
+      "fascias_uk_04_3",
+      "fascias_uk_04_5"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_04_6",
+      "fascias_uk_04_8"
+     ],
+     "N": [
+      "fascias_uk_04_7",
+      "fascias_uk_04_9"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_04_10",
+    "N": "fascias_uk_04_11"
+   }
+  },
+  "dorothy_parkins": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_04_12",
+      "fascias_uk_04_14",
+      "fascias_uk_04_16",
+      "fascias_uk_04_18",
+      "fascias_uk_04_20",
+      "fascias_uk_04_22"
+     ],
+     "N": [
+      "fascias_uk_04_13",
+      "fascias_uk_04_15",
+      "fascias_uk_04_17",
+      "fascias_uk_04_19",
+      "fascias_uk_04_21",
+      "fascias_uk_04_23"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_04_24",
+      "fascias_uk_04_26",
+      "fascias_uk_04_28"
+     ],
+     "N": [
+      "fascias_uk_04_25",
+      "fascias_uk_04_27",
+      "fascias_uk_04_29"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_04_30",
+      "fascias_uk_04_32"
+     ],
+     "N": [
+      "fascias_uk_04_31",
+      "fascias_uk_04_33"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_04_34",
+    "N": "fascias_uk_04_35"
+   }
+  },
+  "c_and_e": {
+   "versions": [
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_04_36",
+      "fascias_uk_04_38"
+     ],
+     "N": [
+      "fascias_uk_04_37",
+      "fascias_uk_04_39"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_04_40",
+    "N": "fascias_uk_04_41"
+   }
+  },
+  "clerks": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_04_42",
+      "fascias_uk_04_44",
+      "fascias_uk_04_46"
+     ],
+     "N": [
+      "fascias_uk_04_43",
+      "fascias_uk_04_45",
+      "fascias_uk_04_47"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_04_48",
+      "fascias_uk_04_50"
+     ],
+     "N": [
+      "fascias_uk_04_49",
+      "fascias_uk_04_51"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_04_52",
+    "N": "fascias_uk_04_53"
+   }
+  },
+  "mothercore": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_04_54",
+      "fascias_uk_04_56",
+      "fascias_uk_04_58",
+      "fascias_uk_04_60"
+     ],
+     "N": [
+      "fascias_uk_04_55",
+      "fascias_uk_04_57",
+      "fascias_uk_04_59",
+      "fascias_uk_04_61"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_04_62",
+      "fascias_uk_04_64",
+      "fascias_uk_04_66"
+     ],
+     "N": [
+      "fascias_uk_04_63",
+      "fascias_uk_04_65",
+      "fascias_uk_04_67"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_04_68",
+      "fascias_uk_04_70"
+     ],
+     "N": [
+      "fascias_uk_04_69",
+      "fascias_uk_04_71"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_04_72",
+    "N": "fascias_uk_04_73"
+   }
+  },
+  "rattners": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_04_74",
+      "fascias_uk_04_76",
+      "fascias_uk_04_78"
+     ],
+     "N": [
+      "fascias_uk_04_75",
+      "fascias_uk_04_77",
+      "fascias_uk_04_79"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_04_80",
+      "fascias_uk_04_82"
+     ],
+     "N": [
+      "fascias_uk_04_81",
+      "fascias_uk_04_83"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_04_84",
+    "N": "fascias_uk_04_85"
+   }
+  },
+  "h_samuels": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_04_86",
+      "fascias_uk_04_88",
+      "fascias_uk_04_90",
+      "fascias_uk_04_92"
+     ],
+     "N": [
+      "fascias_uk_04_87",
+      "fascias_uk_04_89",
+      "fascias_uk_04_91",
+      "fascias_uk_04_93"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_04_94",
+      "fascias_uk_04_96",
+      "fascias_uk_04_98"
+     ],
+     "N": [
+      "fascias_uk_04_95",
+      "fascias_uk_04_97",
+      "fascias_uk_04_99"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_04_100",
+      "fascias_uk_04_102"
+     ],
+     "N": [
+      "fascias_uk_04_101",
+      "fascias_uk_04_103"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_04_104",
+    "N": "fascias_uk_04_105"
+   }
+  },
+  "highland_bank": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_04_106",
+      "fascias_uk_04_108",
+      "fascias_uk_04_110",
+      "fascias_uk_04_112",
+      "fascias_uk_04_114"
+     ],
+     "N": [
+      "fascias_uk_04_107",
+      "fascias_uk_04_109",
+      "fascias_uk_04_111",
+      "fascias_uk_04_113",
+      "fascias_uk_04_115"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_04_116",
+      "fascias_uk_04_118",
+      "fascias_uk_04_120"
+     ],
+     "N": [
+      "fascias_uk_04_117",
+      "fascias_uk_04_119",
+      "fascias_uk_04_121"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_04_122",
+      "fascias_uk_04_124"
+     ],
+     "N": [
+      "fascias_uk_04_123",
+      "fascias_uk_04_125"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_04_126",
+    "N": "fascias_uk_04_127"
+   }
+  },
+  "nateast": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_05_0",
+      "fascias_uk_05_2",
+      "fascias_uk_05_4"
+     ],
+     "N": [
+      "fascias_uk_05_1",
+      "fascias_uk_05_3",
+      "fascias_uk_05_5"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_05_6",
+      "fascias_uk_05_8"
+     ],
+     "N": [
+      "fascias_uk_05_7",
+      "fascias_uk_05_9"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_05_10",
+    "N": "fascias_uk_05_11"
+   }
+  },
+  "barkleys": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_05_12",
+      "fascias_uk_05_14",
+      "fascias_uk_05_16"
+     ],
+     "N": [
+      "fascias_uk_05_13",
+      "fascias_uk_05_15",
+      "fascias_uk_05_17"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_05_18",
+      "fascias_uk_05_20"
+     ],
+     "N": [
+      "fascias_uk_05_19",
+      "fascias_uk_05_21"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_05_22",
+    "N": "fascias_uk_05_23"
+   }
+  },
+  "floyds": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_05_24",
+      "fascias_uk_05_26",
+      "fascias_uk_05_28",
+      "fascias_uk_05_30"
+     ],
+     "N": [
+      "fascias_uk_05_25",
+      "fascias_uk_05_27",
+      "fascias_uk_05_29",
+      "fascias_uk_05_31"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_05_32",
+      "fascias_uk_05_34",
+      "fascias_uk_05_36"
+     ],
+     "N": [
+      "fascias_uk_05_33",
+      "fascias_uk_05_35",
+      "fascias_uk_05_37"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_05_38",
+      "fascias_uk_05_40"
+     ],
+     "N": [
+      "fascias_uk_05_39",
+      "fascias_uk_05_41"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_05_42",
+    "N": "fascias_uk_05_43"
+   }
+  },
+  "tbs": {
+   "versions": [
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_05_44",
+      "fascias_uk_05_46"
+     ],
+     "N": [
+      "fascias_uk_05_45",
+      "fascias_uk_05_47"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_05_48",
+    "N": "fascias_uk_05_49"
+   }
+  },
+  "abbey_rational": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_05_50",
+      "fascias_uk_05_52",
+      "fascias_uk_05_54",
+      "fascias_uk_05_56",
+      "fascias_uk_05_58"
+     ],
+     "N": [
+      "fascias_uk_05_51",
+      "fascias_uk_05_53",
+      "fascias_uk_05_55",
+      "fascias_uk_05_57",
+      "fascias_uk_05_59"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_05_60",
+      "fascias_uk_05_62",
+      "fascias_uk_05_64"
+     ],
+     "N": [
+      "fascias_uk_05_61",
+      "fascias_uk_05_63",
+      "fascias_uk_05_65"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_05_66",
+      "fascias_uk_05_68"
+     ],
+     "N": [
+      "fascias_uk_05_67",
+      "fascias_uk_05_69"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_05_70",
+    "N": "fascias_uk_05_71"
+   }
+  },
+  "halifix": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_05_72",
+      "fascias_uk_05_74",
+      "fascias_uk_05_76"
+     ],
+     "N": [
+      "fascias_uk_05_73",
+      "fascias_uk_05_75",
+      "fascias_uk_05_77"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_05_78",
+      "fascias_uk_05_80"
+     ],
+     "N": [
+      "fascias_uk_05_79",
+      "fascias_uk_05_81"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_05_82",
+    "N": "fascias_uk_05_83"
+   }
+  },
+  "lunn_polly": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_05_84",
+      "fascias_uk_05_86",
+      "fascias_uk_05_88",
+      "fascias_uk_05_90"
+     ],
+     "N": [
+      "fascias_uk_05_85",
+      "fascias_uk_05_87",
+      "fascias_uk_05_89",
+      "fascias_uk_05_91"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_05_92",
+      "fascias_uk_05_94",
+      "fascias_uk_05_96"
+     ],
+     "N": [
+      "fascias_uk_05_93",
+      "fascias_uk_05_95",
+      "fascias_uk_05_97"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_05_98",
+      "fascias_uk_05_100"
+     ],
+     "N": [
+      "fascias_uk_05_99",
+      "fascias_uk_05_101"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_05_102",
+    "N": "fascias_uk_05_103"
+   }
+  },
+  "thomas_crook": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_05_104",
+      "fascias_uk_05_106",
+      "fascias_uk_05_108",
+      "fascias_uk_05_110",
+      "fascias_uk_05_112"
+     ],
+     "N": [
+      "fascias_uk_05_105",
+      "fascias_uk_05_107",
+      "fascias_uk_05_109",
+      "fascias_uk_05_111",
+      "fascias_uk_05_113"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_05_114",
+      "fascias_uk_05_116",
+      "fascias_uk_05_118"
+     ],
+     "N": [
+      "fascias_uk_05_115",
+      "fascias_uk_05_117",
+      "fascias_uk_05_119"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_05_120",
+      "fascias_uk_05_122"
+     ],
+     "N": [
+      "fascias_uk_05_121",
+      "fascias_uk_05_123"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_05_124",
+    "N": "fascias_uk_05_125"
+   }
+  },
+  "ladbrooks": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_06_0",
+      "fascias_uk_06_2",
+      "fascias_uk_06_4",
+      "fascias_uk_06_6"
+     ],
+     "N": [
+      "fascias_uk_06_1",
+      "fascias_uk_06_3",
+      "fascias_uk_06_5",
+      "fascias_uk_06_7"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_06_8",
+      "fascias_uk_06_10",
+      "fascias_uk_06_12"
+     ],
+     "N": [
+      "fascias_uk_06_9",
+      "fascias_uk_06_11",
+      "fascias_uk_06_13"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_06_14",
+      "fascias_uk_06_16"
+     ],
+     "N": [
+      "fascias_uk_06_15",
+      "fascias_uk_06_17"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_06_18",
+    "N": "fascias_uk_06_19"
+   }
+  },
+  "william_hall": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_06_20",
+      "fascias_uk_06_22",
+      "fascias_uk_06_24",
+      "fascias_uk_06_26"
+     ],
+     "N": [
+      "fascias_uk_06_21",
+      "fascias_uk_06_23",
+      "fascias_uk_06_25",
+      "fascias_uk_06_27"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_06_28",
+      "fascias_uk_06_30",
+      "fascias_uk_06_32"
+     ],
+     "N": [
+      "fascias_uk_06_29",
+      "fascias_uk_06_31",
+      "fascias_uk_06_33"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_06_34",
+      "fascias_uk_06_36"
+     ],
+     "N": [
+      "fascias_uk_06_35",
+      "fascias_uk_06_37"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_06_38",
+    "N": "fascias_uk_06_39"
+   }
+  },
+  "clintons_cardz": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_06_40",
+      "fascias_uk_06_42",
+      "fascias_uk_06_44",
+      "fascias_uk_06_46",
+      "fascias_uk_06_48"
+     ],
+     "N": [
+      "fascias_uk_06_41",
+      "fascias_uk_06_43",
+      "fascias_uk_06_45",
+      "fascias_uk_06_47",
+      "fascias_uk_06_49"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_06_50",
+      "fascias_uk_06_52",
+      "fascias_uk_06_54"
+     ],
+     "N": [
+      "fascias_uk_06_51",
+      "fascias_uk_06_53",
+      "fascias_uk_06_55"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_06_56",
+      "fascias_uk_06_58"
+     ],
+     "N": [
+      "fascias_uk_06_57",
+      "fascias_uk_06_59"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_06_60",
+    "N": "fascias_uk_06_61"
+   }
+  },
+  "wimpey": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_06_62",
+      "fascias_uk_06_64",
+      "fascias_uk_06_66"
+     ],
+     "N": [
+      "fascias_uk_06_63",
+      "fascias_uk_06_65",
+      "fascias_uk_06_67"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_06_68",
+      "fascias_uk_06_70"
+     ],
+     "N": [
+      "fascias_uk_06_69",
+      "fascias_uk_06_71"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_06_72",
+    "N": "fascias_uk_06_73"
+   }
+  },
+  "kfg": {
+   "versions": [
+    {
+     "length": 7,
+     "W": [
+      "fascias_uk_06_74",
+      "fascias_uk_06_76",
+      "fascias_uk_06_78",
+      "fascias_uk_06_80",
+      "fascias_uk_06_82",
+      "fascias_uk_06_84",
+      "fascias_uk_06_86"
+     ],
+     "N": [
+      "fascias_uk_06_75",
+      "fascias_uk_06_77",
+      "fascias_uk_06_79",
+      "fascias_uk_06_81",
+      "fascias_uk_06_83",
+      "fascias_uk_06_85",
+      "fascias_uk_06_87"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_06_88",
+      "fascias_uk_06_90",
+      "fascias_uk_06_92"
+     ],
+     "N": [
+      "fascias_uk_06_89",
+      "fascias_uk_06_91",
+      "fascias_uk_06_93"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_06_94",
+      "fascias_uk_06_96"
+     ],
+     "N": [
+      "fascias_uk_06_95",
+      "fascias_uk_06_97"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_06_98",
+    "N": "fascias_uk_06_99"
+   }
+  },
+  "pizza_hutt": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_06_100",
+      "fascias_uk_06_102",
+      "fascias_uk_06_104",
+      "fascias_uk_06_106"
+     ],
+     "N": [
+      "fascias_uk_06_101",
+      "fascias_uk_06_103",
+      "fascias_uk_06_105",
+      "fascias_uk_06_107"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_06_108",
+      "fascias_uk_06_110",
+      "fascias_uk_06_112"
+     ],
+     "N": [
+      "fascias_uk_06_109",
+      "fascias_uk_06_111",
+      "fascias_uk_06_113"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_06_114",
+      "fascias_uk_06_116"
+     ],
+     "N": [
+      "fascias_uk_06_115",
+      "fascias_uk_06_117"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_06_118",
+    "N": "fascias_uk_06_119"
+   }
+  },
+  "dominoes": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_07_0",
+      "fascias_uk_07_2",
+      "fascias_uk_07_4",
+      "fascias_uk_07_6",
+      "fascias_uk_07_8"
+     ],
+     "N": [
+      "fascias_uk_07_1",
+      "fascias_uk_07_3",
+      "fascias_uk_07_5",
+      "fascias_uk_07_7",
+      "fascias_uk_07_9"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_07_10",
+      "fascias_uk_07_12",
+      "fascias_uk_07_14"
+     ],
+     "N": [
+      "fascias_uk_07_11",
+      "fascias_uk_07_13",
+      "fascias_uk_07_15"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_07_16",
+      "fascias_uk_07_18"
+     ],
+     "N": [
+      "fascias_uk_07_17",
+      "fascias_uk_07_19"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_07_20",
+    "N": "fascias_uk_07_21"
+   }
+  },
+  "spiffos": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_07_22",
+      "fascias_uk_07_24",
+      "fascias_uk_07_26"
+     ],
+     "N": [
+      "fascias_uk_07_23",
+      "fascias_uk_07_25",
+      "fascias_uk_07_27"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_07_28",
+      "fascias_uk_07_30"
+     ],
+     "N": [
+      "fascias_uk_07_29",
+      "fascias_uk_07_31"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_07_32",
+    "N": "fascias_uk_07_33"
+   }
+  },
+  "post_office": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_07_34",
+      "fascias_uk_07_36",
+      "fascias_uk_07_38",
+      "fascias_uk_07_40"
+     ],
+     "N": [
+      "fascias_uk_07_35",
+      "fascias_uk_07_37",
+      "fascias_uk_07_39",
+      "fascias_uk_07_41"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_07_42",
+      "fascias_uk_07_44",
+      "fascias_uk_07_46"
+     ],
+     "N": [
+      "fascias_uk_07_43",
+      "fascias_uk_07_45",
+      "fascias_uk_07_47"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_07_48",
+      "fascias_uk_07_50"
+     ],
+     "N": [
+      "fascias_uk_07_49",
+      "fascias_uk_07_51"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_07_52",
+    "N": "fascias_uk_07_53"
+   }
+  },
+  "halfwords": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_07_54",
+      "fascias_uk_07_56",
+      "fascias_uk_07_58",
+      "fascias_uk_07_60"
+     ],
+     "N": [
+      "fascias_uk_07_55",
+      "fascias_uk_07_57",
+      "fascias_uk_07_59",
+      "fascias_uk_07_61"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_07_62",
+      "fascias_uk_07_64",
+      "fascias_uk_07_66"
+     ],
+     "N": [
+      "fascias_uk_07_63",
+      "fascias_uk_07_65",
+      "fascias_uk_07_67"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_07_68",
+      "fascias_uk_07_70"
+     ],
+     "N": [
+      "fascias_uk_07_69",
+      "fascias_uk_07_71"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_07_72",
+    "N": "fascias_uk_07_73"
+   }
+  },
+  "texeco": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_07_74",
+      "fascias_uk_07_76",
+      "fascias_uk_07_78"
+     ],
+     "N": [
+      "fascias_uk_07_75",
+      "fascias_uk_07_77",
+      "fascias_uk_07_79"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_07_80",
+      "fascias_uk_07_82"
+     ],
+     "N": [
+      "fascias_uk_07_81",
+      "fascias_uk_07_83"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_07_84",
+    "N": "fascias_uk_07_85"
+   }
+  },
+  "kwik_fix": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_07_86",
+      "fascias_uk_07_88",
+      "fascias_uk_07_90"
+     ],
+     "N": [
+      "fascias_uk_07_87",
+      "fascias_uk_07_89",
+      "fascias_uk_07_91"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_07_92",
+      "fascias_uk_07_94"
+     ],
+     "N": [
+      "fascias_uk_07_93",
+      "fascias_uk_07_95"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_07_96",
+    "N": "fascias_uk_07_97"
+   }
+  },
+  "holland_barratt": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_07_98",
+      "fascias_uk_07_100",
+      "fascias_uk_07_102",
+      "fascias_uk_07_104",
+      "fascias_uk_07_106",
+      "fascias_uk_07_108"
+     ],
+     "N": [
+      "fascias_uk_07_99",
+      "fascias_uk_07_101",
+      "fascias_uk_07_103",
+      "fascias_uk_07_105",
+      "fascias_uk_07_107",
+      "fascias_uk_07_109"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_07_110",
+      "fascias_uk_07_112",
+      "fascias_uk_07_114"
+     ],
+     "N": [
+      "fascias_uk_07_111",
+      "fascias_uk_07_113",
+      "fascias_uk_07_115"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_07_116",
+      "fascias_uk_07_118"
+     ],
+     "N": [
+      "fascias_uk_07_117",
+      "fascias_uk_07_119"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_07_120",
+    "N": "fascias_uk_07_121"
+   }
+  },
+  "peacox": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_08_0",
+      "fascias_uk_08_2",
+      "fascias_uk_08_4"
+     ],
+     "N": [
+      "fascias_uk_08_1",
+      "fascias_uk_08_3",
+      "fascias_uk_08_5"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_08_6",
+      "fascias_uk_08_8"
+     ],
+     "N": [
+      "fascias_uk_08_7",
+      "fascias_uk_08_9"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_08_10",
+    "N": "fascias_uk_08_11"
+   }
+  },
+  "ind_butcher_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_08_12",
+      "fascias_uk_08_14",
+      "fascias_uk_08_16",
+      "fascias_uk_08_18",
+      "fascias_uk_08_20"
+     ],
+     "N": [
+      "fascias_uk_08_13",
+      "fascias_uk_08_15",
+      "fascias_uk_08_17",
+      "fascias_uk_08_19",
+      "fascias_uk_08_21"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_08_22",
+      "fascias_uk_08_24",
+      "fascias_uk_08_26"
+     ],
+     "N": [
+      "fascias_uk_08_23",
+      "fascias_uk_08_25",
+      "fascias_uk_08_27"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_08_28",
+      "fascias_uk_08_30"
+     ],
+     "N": [
+      "fascias_uk_08_29",
+      "fascias_uk_08_31"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_08_32",
+    "N": "fascias_uk_08_33"
+   }
+  },
+  "ind_butcher_1": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_08_34",
+      "fascias_uk_08_36",
+      "fascias_uk_08_38"
+     ],
+     "N": [
+      "fascias_uk_08_35",
+      "fascias_uk_08_37",
+      "fascias_uk_08_39"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_08_40",
+      "fascias_uk_08_42"
+     ],
+     "N": [
+      "fascias_uk_08_41",
+      "fascias_uk_08_43"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_08_44",
+    "N": "fascias_uk_08_45"
+   }
+  },
+  "ind_butcher_2": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_08_46",
+      "fascias_uk_08_48",
+      "fascias_uk_08_50"
+     ],
+     "N": [
+      "fascias_uk_08_47",
+      "fascias_uk_08_49",
+      "fascias_uk_08_51"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_08_52",
+      "fascias_uk_08_54"
+     ],
+     "N": [
+      "fascias_uk_08_53",
+      "fascias_uk_08_55"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_08_56",
+    "N": "fascias_uk_08_57"
+   }
+  },
+  "ind_bakery_0": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_08_58",
+      "fascias_uk_08_60",
+      "fascias_uk_08_62",
+      "fascias_uk_08_64",
+      "fascias_uk_08_66",
+      "fascias_uk_08_68"
+     ],
+     "N": [
+      "fascias_uk_08_59",
+      "fascias_uk_08_61",
+      "fascias_uk_08_63",
+      "fascias_uk_08_65",
+      "fascias_uk_08_67",
+      "fascias_uk_08_69"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_08_70",
+      "fascias_uk_08_72",
+      "fascias_uk_08_74"
+     ],
+     "N": [
+      "fascias_uk_08_71",
+      "fascias_uk_08_73",
+      "fascias_uk_08_75"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_08_76",
+      "fascias_uk_08_78"
+     ],
+     "N": [
+      "fascias_uk_08_77",
+      "fascias_uk_08_79"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_08_80",
+    "N": "fascias_uk_08_81"
+   }
+  },
+  "ind_bakery_1": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_08_82",
+      "fascias_uk_08_84",
+      "fascias_uk_08_86",
+      "fascias_uk_08_88",
+      "fascias_uk_08_90"
+     ],
+     "N": [
+      "fascias_uk_08_83",
+      "fascias_uk_08_85",
+      "fascias_uk_08_87",
+      "fascias_uk_08_89",
+      "fascias_uk_08_91"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_08_92",
+      "fascias_uk_08_94",
+      "fascias_uk_08_96"
+     ],
+     "N": [
+      "fascias_uk_08_93",
+      "fascias_uk_08_95",
+      "fascias_uk_08_97"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_08_98",
+      "fascias_uk_08_100"
+     ],
+     "N": [
+      "fascias_uk_08_99",
+      "fascias_uk_08_101"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_08_102",
+    "N": "fascias_uk_08_103"
+   }
+  },
+  "ind_bakery_2": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_08_104",
+      "fascias_uk_08_106",
+      "fascias_uk_08_108"
+     ],
+     "N": [
+      "fascias_uk_08_105",
+      "fascias_uk_08_107",
+      "fascias_uk_08_109"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_08_110",
+      "fascias_uk_08_112"
+     ],
+     "N": [
+      "fascias_uk_08_111",
+      "fascias_uk_08_113"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_08_114",
+    "N": "fascias_uk_08_115"
+   }
+  },
+  "ind_greengrocer_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_09_0",
+      "fascias_uk_09_2",
+      "fascias_uk_09_4",
+      "fascias_uk_09_6"
+     ],
+     "N": [
+      "fascias_uk_09_1",
+      "fascias_uk_09_3",
+      "fascias_uk_09_5",
+      "fascias_uk_09_7"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_09_8",
+      "fascias_uk_09_10",
+      "fascias_uk_09_12"
+     ],
+     "N": [
+      "fascias_uk_09_9",
+      "fascias_uk_09_11",
+      "fascias_uk_09_13"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_09_14",
+      "fascias_uk_09_16"
+     ],
+     "N": [
+      "fascias_uk_09_15",
+      "fascias_uk_09_17"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_09_18",
+    "N": "fascias_uk_09_19"
+   }
+  },
+  "ind_greengrocer_1": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_09_20",
+      "fascias_uk_09_22",
+      "fascias_uk_09_24",
+      "fascias_uk_09_26",
+      "fascias_uk_09_28",
+      "fascias_uk_09_30"
+     ],
+     "N": [
+      "fascias_uk_09_21",
+      "fascias_uk_09_23",
+      "fascias_uk_09_25",
+      "fascias_uk_09_27",
+      "fascias_uk_09_29",
+      "fascias_uk_09_31"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_09_32",
+      "fascias_uk_09_34",
+      "fascias_uk_09_36"
+     ],
+     "N": [
+      "fascias_uk_09_33",
+      "fascias_uk_09_35",
+      "fascias_uk_09_37"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_09_38",
+      "fascias_uk_09_40"
+     ],
+     "N": [
+      "fascias_uk_09_39",
+      "fascias_uk_09_41"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_09_42",
+    "N": "fascias_uk_09_43"
+   }
+  },
+  "ind_greengrocer_2": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_09_44",
+      "fascias_uk_09_46",
+      "fascias_uk_09_48"
+     ],
+     "N": [
+      "fascias_uk_09_45",
+      "fascias_uk_09_47",
+      "fascias_uk_09_49"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_09_50",
+      "fascias_uk_09_52"
+     ],
+     "N": [
+      "fascias_uk_09_51",
+      "fascias_uk_09_53"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_09_54",
+    "N": "fascias_uk_09_55"
+   }
+  },
+  "ind_newsagent_0": {
+   "versions": [
+    {
+     "length": 8,
+     "W": [
+      "fascias_uk_09_56",
+      "fascias_uk_09_58",
+      "fascias_uk_09_60",
+      "fascias_uk_09_62",
+      "fascias_uk_09_64",
+      "fascias_uk_09_66",
+      "fascias_uk_09_68",
+      "fascias_uk_09_70"
+     ],
+     "N": [
+      "fascias_uk_09_57",
+      "fascias_uk_09_59",
+      "fascias_uk_09_61",
+      "fascias_uk_09_63",
+      "fascias_uk_09_65",
+      "fascias_uk_09_67",
+      "fascias_uk_09_69",
+      "fascias_uk_09_71"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_09_72",
+      "fascias_uk_09_74",
+      "fascias_uk_09_76"
+     ],
+     "N": [
+      "fascias_uk_09_73",
+      "fascias_uk_09_75",
+      "fascias_uk_09_77"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_09_78",
+      "fascias_uk_09_80"
+     ],
+     "N": [
+      "fascias_uk_09_79",
+      "fascias_uk_09_81"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_09_82",
+    "N": "fascias_uk_09_83"
+   }
+  },
+  "ind_newsagent_1": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_09_84",
+      "fascias_uk_09_86",
+      "fascias_uk_09_88",
+      "fascias_uk_09_90",
+      "fascias_uk_09_92"
+     ],
+     "N": [
+      "fascias_uk_09_85",
+      "fascias_uk_09_87",
+      "fascias_uk_09_89",
+      "fascias_uk_09_91",
+      "fascias_uk_09_93"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_09_94",
+      "fascias_uk_09_96",
+      "fascias_uk_09_98"
+     ],
+     "N": [
+      "fascias_uk_09_95",
+      "fascias_uk_09_97",
+      "fascias_uk_09_99"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_09_100",
+      "fascias_uk_09_102"
+     ],
+     "N": [
+      "fascias_uk_09_101",
+      "fascias_uk_09_103"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_09_104",
+    "N": "fascias_uk_09_105"
+   }
+  },
+  "ind_newsagent_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_09_106",
+      "fascias_uk_09_108",
+      "fascias_uk_09_110",
+      "fascias_uk_09_112"
+     ],
+     "N": [
+      "fascias_uk_09_107",
+      "fascias_uk_09_109",
+      "fascias_uk_09_111",
+      "fascias_uk_09_113"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_09_114",
+      "fascias_uk_09_116",
+      "fascias_uk_09_118"
+     ],
+     "N": [
+      "fascias_uk_09_115",
+      "fascias_uk_09_117",
+      "fascias_uk_09_119"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_09_120",
+      "fascias_uk_09_122"
+     ],
+     "N": [
+      "fascias_uk_09_121",
+      "fascias_uk_09_123"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_09_124",
+    "N": "fascias_uk_09_125"
+   }
+  },
+  "ind_hardware_0": {
+   "versions": [
+    {
+     "length": 7,
+     "W": [
+      "fascias_uk_10_0",
+      "fascias_uk_10_2",
+      "fascias_uk_10_4",
+      "fascias_uk_10_6",
+      "fascias_uk_10_8",
+      "fascias_uk_10_10",
+      "fascias_uk_10_12"
+     ],
+     "N": [
+      "fascias_uk_10_1",
+      "fascias_uk_10_3",
+      "fascias_uk_10_5",
+      "fascias_uk_10_7",
+      "fascias_uk_10_9",
+      "fascias_uk_10_11",
+      "fascias_uk_10_13"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_10_14",
+      "fascias_uk_10_16",
+      "fascias_uk_10_18"
+     ],
+     "N": [
+      "fascias_uk_10_15",
+      "fascias_uk_10_17",
+      "fascias_uk_10_19"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_10_20",
+      "fascias_uk_10_22"
+     ],
+     "N": [
+      "fascias_uk_10_21",
+      "fascias_uk_10_23"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_10_24",
+    "N": "fascias_uk_10_25"
+   }
+  },
+  "ind_hardware_1": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_10_26",
+      "fascias_uk_10_28",
+      "fascias_uk_10_30"
+     ],
+     "N": [
+      "fascias_uk_10_27",
+      "fascias_uk_10_29",
+      "fascias_uk_10_31"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_10_32",
+      "fascias_uk_10_34"
+     ],
+     "N": [
+      "fascias_uk_10_33",
+      "fascias_uk_10_35"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_10_36",
+    "N": "fascias_uk_10_37"
+   }
+  },
+  "ind_hardware_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_10_38",
+      "fascias_uk_10_40",
+      "fascias_uk_10_42",
+      "fascias_uk_10_44",
+      "fascias_uk_10_46"
+     ],
+     "N": [
+      "fascias_uk_10_39",
+      "fascias_uk_10_41",
+      "fascias_uk_10_43",
+      "fascias_uk_10_45",
+      "fascias_uk_10_47"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_10_48",
+      "fascias_uk_10_50",
+      "fascias_uk_10_52"
+     ],
+     "N": [
+      "fascias_uk_10_49",
+      "fascias_uk_10_51",
+      "fascias_uk_10_53"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_10_54",
+      "fascias_uk_10_56"
+     ],
+     "N": [
+      "fascias_uk_10_55",
+      "fascias_uk_10_57"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_10_58",
+    "N": "fascias_uk_10_59"
+   }
+  },
+  "ind_chemist_0": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_10_60",
+      "fascias_uk_10_62",
+      "fascias_uk_10_64"
+     ],
+     "N": [
+      "fascias_uk_10_61",
+      "fascias_uk_10_63",
+      "fascias_uk_10_65"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_10_66",
+      "fascias_uk_10_68"
+     ],
+     "N": [
+      "fascias_uk_10_67",
+      "fascias_uk_10_69"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_10_70",
+    "N": "fascias_uk_10_71"
+   }
+  },
+  "ind_chemist_1": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_10_72",
+      "fascias_uk_10_74",
+      "fascias_uk_10_76",
+      "fascias_uk_10_78"
+     ],
+     "N": [
+      "fascias_uk_10_73",
+      "fascias_uk_10_75",
+      "fascias_uk_10_77",
+      "fascias_uk_10_79"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_10_80",
+      "fascias_uk_10_82",
+      "fascias_uk_10_84"
+     ],
+     "N": [
+      "fascias_uk_10_81",
+      "fascias_uk_10_83",
+      "fascias_uk_10_85"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_10_86",
+      "fascias_uk_10_88"
+     ],
+     "N": [
+      "fascias_uk_10_87",
+      "fascias_uk_10_89"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_10_90",
+    "N": "fascias_uk_10_91"
+   }
+  },
+  "ind_chemist_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_10_92",
+      "fascias_uk_10_94",
+      "fascias_uk_10_96",
+      "fascias_uk_10_98",
+      "fascias_uk_10_100"
+     ],
+     "N": [
+      "fascias_uk_10_93",
+      "fascias_uk_10_95",
+      "fascias_uk_10_97",
+      "fascias_uk_10_99",
+      "fascias_uk_10_101"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_10_102",
+      "fascias_uk_10_104",
+      "fascias_uk_10_106"
+     ],
+     "N": [
+      "fascias_uk_10_103",
+      "fascias_uk_10_105",
+      "fascias_uk_10_107"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_10_108",
+      "fascias_uk_10_110"
+     ],
+     "N": [
+      "fascias_uk_10_109",
+      "fascias_uk_10_111"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_10_112",
+    "N": "fascias_uk_10_113"
+   }
+  },
+  "ind_hairdresser_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_11_0",
+      "fascias_uk_11_2",
+      "fascias_uk_11_4",
+      "fascias_uk_11_6"
+     ],
+     "N": [
+      "fascias_uk_11_1",
+      "fascias_uk_11_3",
+      "fascias_uk_11_5",
+      "fascias_uk_11_7"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_11_8",
+      "fascias_uk_11_10",
+      "fascias_uk_11_12"
+     ],
+     "N": [
+      "fascias_uk_11_9",
+      "fascias_uk_11_11",
+      "fascias_uk_11_13"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_11_14",
+      "fascias_uk_11_16"
+     ],
+     "N": [
+      "fascias_uk_11_15",
+      "fascias_uk_11_17"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_11_18",
+    "N": "fascias_uk_11_19"
+   }
+  },
+  "ind_hairdresser_1": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_11_20",
+      "fascias_uk_11_22",
+      "fascias_uk_11_24"
+     ],
+     "N": [
+      "fascias_uk_11_21",
+      "fascias_uk_11_23",
+      "fascias_uk_11_25"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_11_26",
+      "fascias_uk_11_28"
+     ],
+     "N": [
+      "fascias_uk_11_27",
+      "fascias_uk_11_29"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_11_30",
+    "N": "fascias_uk_11_31"
+   }
+  },
+  "ind_hairdresser_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_11_32",
+      "fascias_uk_11_34",
+      "fascias_uk_11_36",
+      "fascias_uk_11_38"
+     ],
+     "N": [
+      "fascias_uk_11_33",
+      "fascias_uk_11_35",
+      "fascias_uk_11_37",
+      "fascias_uk_11_39"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_11_40",
+      "fascias_uk_11_42",
+      "fascias_uk_11_44"
+     ],
+     "N": [
+      "fascias_uk_11_41",
+      "fascias_uk_11_43",
+      "fascias_uk_11_45"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_11_46",
+      "fascias_uk_11_48"
+     ],
+     "N": [
+      "fascias_uk_11_47",
+      "fascias_uk_11_49"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_11_50",
+    "N": "fascias_uk_11_51"
+   }
+  },
+  "ind_estate_agent_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_11_52",
+      "fascias_uk_11_54",
+      "fascias_uk_11_56",
+      "fascias_uk_11_58",
+      "fascias_uk_11_60"
+     ],
+     "N": [
+      "fascias_uk_11_53",
+      "fascias_uk_11_55",
+      "fascias_uk_11_57",
+      "fascias_uk_11_59",
+      "fascias_uk_11_61"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_11_62",
+      "fascias_uk_11_64",
+      "fascias_uk_11_66"
+     ],
+     "N": [
+      "fascias_uk_11_63",
+      "fascias_uk_11_65",
+      "fascias_uk_11_67"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_11_68",
+      "fascias_uk_11_70"
+     ],
+     "N": [
+      "fascias_uk_11_69",
+      "fascias_uk_11_71"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_11_72",
+    "N": "fascias_uk_11_73"
+   }
+  },
+  "ind_estate_agent_1": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_11_74",
+      "fascias_uk_11_76",
+      "fascias_uk_11_78",
+      "fascias_uk_11_80",
+      "fascias_uk_11_82",
+      "fascias_uk_11_84"
+     ],
+     "N": [
+      "fascias_uk_11_75",
+      "fascias_uk_11_77",
+      "fascias_uk_11_79",
+      "fascias_uk_11_81",
+      "fascias_uk_11_83",
+      "fascias_uk_11_85"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_11_86",
+      "fascias_uk_11_88",
+      "fascias_uk_11_90"
+     ],
+     "N": [
+      "fascias_uk_11_87",
+      "fascias_uk_11_89",
+      "fascias_uk_11_91"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_11_92",
+      "fascias_uk_11_94"
+     ],
+     "N": [
+      "fascias_uk_11_93",
+      "fascias_uk_11_95"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_11_96",
+    "N": "fascias_uk_11_97"
+   }
+  },
+  "ind_estate_agent_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_11_98",
+      "fascias_uk_11_100",
+      "fascias_uk_11_102",
+      "fascias_uk_11_104",
+      "fascias_uk_11_106"
+     ],
+     "N": [
+      "fascias_uk_11_99",
+      "fascias_uk_11_101",
+      "fascias_uk_11_103",
+      "fascias_uk_11_105",
+      "fascias_uk_11_107"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_11_108",
+      "fascias_uk_11_110",
+      "fascias_uk_11_112"
+     ],
+     "N": [
+      "fascias_uk_11_109",
+      "fascias_uk_11_111",
+      "fascias_uk_11_113"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_11_114",
+      "fascias_uk_11_116"
+     ],
+     "N": [
+      "fascias_uk_11_115",
+      "fascias_uk_11_117"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_11_118",
+    "N": "fascias_uk_11_119"
+   }
+  },
+  "ind_video_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_12_0",
+      "fascias_uk_12_2",
+      "fascias_uk_12_4",
+      "fascias_uk_12_6"
+     ],
+     "N": [
+      "fascias_uk_12_1",
+      "fascias_uk_12_3",
+      "fascias_uk_12_5",
+      "fascias_uk_12_7"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_12_8",
+      "fascias_uk_12_10",
+      "fascias_uk_12_12"
+     ],
+     "N": [
+      "fascias_uk_12_9",
+      "fascias_uk_12_11",
+      "fascias_uk_12_13"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_12_14",
+      "fascias_uk_12_16"
+     ],
+     "N": [
+      "fascias_uk_12_15",
+      "fascias_uk_12_17"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_12_18",
+    "N": "fascias_uk_12_19"
+   }
+  },
+  "ind_video_1": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_12_20",
+      "fascias_uk_12_22",
+      "fascias_uk_12_24"
+     ],
+     "N": [
+      "fascias_uk_12_21",
+      "fascias_uk_12_23",
+      "fascias_uk_12_25"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_12_26",
+      "fascias_uk_12_28"
+     ],
+     "N": [
+      "fascias_uk_12_27",
+      "fascias_uk_12_29"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_12_30",
+    "N": "fascias_uk_12_31"
+   }
+  },
+  "ind_video_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_12_32",
+      "fascias_uk_12_34",
+      "fascias_uk_12_36",
+      "fascias_uk_12_38"
+     ],
+     "N": [
+      "fascias_uk_12_33",
+      "fascias_uk_12_35",
+      "fascias_uk_12_37",
+      "fascias_uk_12_39"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_12_40",
+      "fascias_uk_12_42",
+      "fascias_uk_12_44"
+     ],
+     "N": [
+      "fascias_uk_12_41",
+      "fascias_uk_12_43",
+      "fascias_uk_12_45"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_12_46",
+      "fascias_uk_12_48"
+     ],
+     "N": [
+      "fascias_uk_12_47",
+      "fascias_uk_12_49"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_12_50",
+    "N": "fascias_uk_12_51"
+   }
+  },
+  "ind_chinese_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_12_52",
+      "fascias_uk_12_54",
+      "fascias_uk_12_56",
+      "fascias_uk_12_58",
+      "fascias_uk_12_60"
+     ],
+     "N": [
+      "fascias_uk_12_53",
+      "fascias_uk_12_55",
+      "fascias_uk_12_57",
+      "fascias_uk_12_59",
+      "fascias_uk_12_61"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_12_62",
+      "fascias_uk_12_64",
+      "fascias_uk_12_66"
+     ],
+     "N": [
+      "fascias_uk_12_63",
+      "fascias_uk_12_65",
+      "fascias_uk_12_67"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_12_68",
+      "fascias_uk_12_70"
+     ],
+     "N": [
+      "fascias_uk_12_69",
+      "fascias_uk_12_71"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_12_72",
+    "N": "fascias_uk_12_73"
+   }
+  },
+  "ind_chinese_1": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_12_74",
+      "fascias_uk_12_76",
+      "fascias_uk_12_78",
+      "fascias_uk_12_80"
+     ],
+     "N": [
+      "fascias_uk_12_75",
+      "fascias_uk_12_77",
+      "fascias_uk_12_79",
+      "fascias_uk_12_81"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_12_82",
+      "fascias_uk_12_84",
+      "fascias_uk_12_86"
+     ],
+     "N": [
+      "fascias_uk_12_83",
+      "fascias_uk_12_85",
+      "fascias_uk_12_87"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_12_88",
+      "fascias_uk_12_90"
+     ],
+     "N": [
+      "fascias_uk_12_89",
+      "fascias_uk_12_91"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_12_92",
+    "N": "fascias_uk_12_93"
+   }
+  },
+  "ind_chinese_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_12_94",
+      "fascias_uk_12_96",
+      "fascias_uk_12_98",
+      "fascias_uk_12_100",
+      "fascias_uk_12_102"
+     ],
+     "N": [
+      "fascias_uk_12_95",
+      "fascias_uk_12_97",
+      "fascias_uk_12_99",
+      "fascias_uk_12_101",
+      "fascias_uk_12_103"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_12_104",
+      "fascias_uk_12_106",
+      "fascias_uk_12_108"
+     ],
+     "N": [
+      "fascias_uk_12_105",
+      "fascias_uk_12_107",
+      "fascias_uk_12_109"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_12_110",
+      "fascias_uk_12_112"
+     ],
+     "N": [
+      "fascias_uk_12_111",
+      "fascias_uk_12_113"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_12_114",
+    "N": "fascias_uk_12_115"
+   }
+  },
+  "ind_fish_chips_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_13_0",
+      "fascias_uk_13_2",
+      "fascias_uk_13_4",
+      "fascias_uk_13_6",
+      "fascias_uk_13_8"
+     ],
+     "N": [
+      "fascias_uk_13_1",
+      "fascias_uk_13_3",
+      "fascias_uk_13_5",
+      "fascias_uk_13_7",
+      "fascias_uk_13_9"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_13_10",
+      "fascias_uk_13_12",
+      "fascias_uk_13_14"
+     ],
+     "N": [
+      "fascias_uk_13_11",
+      "fascias_uk_13_13",
+      "fascias_uk_13_15"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_13_16",
+      "fascias_uk_13_18"
+     ],
+     "N": [
+      "fascias_uk_13_17",
+      "fascias_uk_13_19"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_13_20",
+    "N": "fascias_uk_13_21"
+   }
+  },
+  "ind_fish_chips_1": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_13_22",
+      "fascias_uk_13_24",
+      "fascias_uk_13_26",
+      "fascias_uk_13_28",
+      "fascias_uk_13_30"
+     ],
+     "N": [
+      "fascias_uk_13_23",
+      "fascias_uk_13_25",
+      "fascias_uk_13_27",
+      "fascias_uk_13_29",
+      "fascias_uk_13_31"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_13_32",
+      "fascias_uk_13_34",
+      "fascias_uk_13_36"
+     ],
+     "N": [
+      "fascias_uk_13_33",
+      "fascias_uk_13_35",
+      "fascias_uk_13_37"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_13_38",
+      "fascias_uk_13_40"
+     ],
+     "N": [
+      "fascias_uk_13_39",
+      "fascias_uk_13_41"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_13_42",
+    "N": "fascias_uk_13_43"
+   }
+  },
+  "ind_fish_chips_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_13_44",
+      "fascias_uk_13_46",
+      "fascias_uk_13_48",
+      "fascias_uk_13_50"
+     ],
+     "N": [
+      "fascias_uk_13_45",
+      "fascias_uk_13_47",
+      "fascias_uk_13_49",
+      "fascias_uk_13_51"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_13_52",
+      "fascias_uk_13_54",
+      "fascias_uk_13_56"
+     ],
+     "N": [
+      "fascias_uk_13_53",
+      "fascias_uk_13_55",
+      "fascias_uk_13_57"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_13_58",
+      "fascias_uk_13_60"
+     ],
+     "N": [
+      "fascias_uk_13_59",
+      "fascias_uk_13_61"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_13_62",
+    "N": "fascias_uk_13_63"
+   }
+  },
+  "ind_kebab_0": {
+   "versions": [
+    {
+     "length": 7,
+     "W": [
+      "fascias_uk_13_64",
+      "fascias_uk_13_66",
+      "fascias_uk_13_68",
+      "fascias_uk_13_70",
+      "fascias_uk_13_72",
+      "fascias_uk_13_74",
+      "fascias_uk_13_76"
+     ],
+     "N": [
+      "fascias_uk_13_65",
+      "fascias_uk_13_67",
+      "fascias_uk_13_69",
+      "fascias_uk_13_71",
+      "fascias_uk_13_73",
+      "fascias_uk_13_75",
+      "fascias_uk_13_77"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_13_78",
+      "fascias_uk_13_80",
+      "fascias_uk_13_82"
+     ],
+     "N": [
+      "fascias_uk_13_79",
+      "fascias_uk_13_81",
+      "fascias_uk_13_83"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_13_84",
+      "fascias_uk_13_86"
+     ],
+     "N": [
+      "fascias_uk_13_85",
+      "fascias_uk_13_87"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_13_88",
+    "N": "fascias_uk_13_89"
+   }
+  },
+  "ind_kebab_1": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_13_90",
+      "fascias_uk_13_92",
+      "fascias_uk_13_94",
+      "fascias_uk_13_96"
+     ],
+     "N": [
+      "fascias_uk_13_91",
+      "fascias_uk_13_93",
+      "fascias_uk_13_95",
+      "fascias_uk_13_97"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_13_98",
+      "fascias_uk_13_100",
+      "fascias_uk_13_102"
+     ],
+     "N": [
+      "fascias_uk_13_99",
+      "fascias_uk_13_101",
+      "fascias_uk_13_103"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_13_104",
+      "fascias_uk_13_106"
+     ],
+     "N": [
+      "fascias_uk_13_105",
+      "fascias_uk_13_107"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_13_108",
+    "N": "fascias_uk_13_109"
+   }
+  },
+  "ind_kebab_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_14_0",
+      "fascias_uk_14_2",
+      "fascias_uk_14_4",
+      "fascias_uk_14_6",
+      "fascias_uk_14_8"
+     ],
+     "N": [
+      "fascias_uk_14_1",
+      "fascias_uk_14_3",
+      "fascias_uk_14_5",
+      "fascias_uk_14_7",
+      "fascias_uk_14_9"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_14_10",
+      "fascias_uk_14_12",
+      "fascias_uk_14_14"
+     ],
+     "N": [
+      "fascias_uk_14_11",
+      "fascias_uk_14_13",
+      "fascias_uk_14_15"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_14_16",
+      "fascias_uk_14_18"
+     ],
+     "N": [
+      "fascias_uk_14_17",
+      "fascias_uk_14_19"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_14_20",
+    "N": "fascias_uk_14_21"
+   }
+  },
+  "ind_indian_0": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_14_22",
+      "fascias_uk_14_24",
+      "fascias_uk_14_26",
+      "fascias_uk_14_28",
+      "fascias_uk_14_30",
+      "fascias_uk_14_32"
+     ],
+     "N": [
+      "fascias_uk_14_23",
+      "fascias_uk_14_25",
+      "fascias_uk_14_27",
+      "fascias_uk_14_29",
+      "fascias_uk_14_31",
+      "fascias_uk_14_33"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_14_34",
+      "fascias_uk_14_36",
+      "fascias_uk_14_38"
+     ],
+     "N": [
+      "fascias_uk_14_35",
+      "fascias_uk_14_37",
+      "fascias_uk_14_39"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_14_40",
+      "fascias_uk_14_42"
+     ],
+     "N": [
+      "fascias_uk_14_41",
+      "fascias_uk_14_43"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_14_44",
+    "N": "fascias_uk_14_45"
+   }
+  },
+  "ind_indian_1": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_14_46",
+      "fascias_uk_14_48",
+      "fascias_uk_14_50",
+      "fascias_uk_14_52"
+     ],
+     "N": [
+      "fascias_uk_14_47",
+      "fascias_uk_14_49",
+      "fascias_uk_14_51",
+      "fascias_uk_14_53"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_14_54",
+      "fascias_uk_14_56",
+      "fascias_uk_14_58"
+     ],
+     "N": [
+      "fascias_uk_14_55",
+      "fascias_uk_14_57",
+      "fascias_uk_14_59"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_14_60",
+      "fascias_uk_14_62"
+     ],
+     "N": [
+      "fascias_uk_14_61",
+      "fascias_uk_14_63"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_14_64",
+    "N": "fascias_uk_14_65"
+   }
+  },
+  "ind_indian_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_14_66",
+      "fascias_uk_14_68",
+      "fascias_uk_14_70",
+      "fascias_uk_14_72",
+      "fascias_uk_14_74"
+     ],
+     "N": [
+      "fascias_uk_14_67",
+      "fascias_uk_14_69",
+      "fascias_uk_14_71",
+      "fascias_uk_14_73",
+      "fascias_uk_14_75"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_14_76",
+      "fascias_uk_14_78",
+      "fascias_uk_14_80"
+     ],
+     "N": [
+      "fascias_uk_14_77",
+      "fascias_uk_14_79",
+      "fascias_uk_14_81"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_14_82",
+      "fascias_uk_14_84"
+     ],
+     "N": [
+      "fascias_uk_14_83",
+      "fascias_uk_14_85"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_14_86",
+    "N": "fascias_uk_14_87"
+   }
+  },
+  "ind_italian_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_14_88",
+      "fascias_uk_14_90",
+      "fascias_uk_14_92",
+      "fascias_uk_14_94"
+     ],
+     "N": [
+      "fascias_uk_14_89",
+      "fascias_uk_14_91",
+      "fascias_uk_14_93",
+      "fascias_uk_14_95"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_14_96",
+      "fascias_uk_14_98",
+      "fascias_uk_14_100"
+     ],
+     "N": [
+      "fascias_uk_14_97",
+      "fascias_uk_14_99",
+      "fascias_uk_14_101"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_14_102",
+      "fascias_uk_14_104"
+     ],
+     "N": [
+      "fascias_uk_14_103",
+      "fascias_uk_14_105"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_14_106",
+    "N": "fascias_uk_14_107"
+   }
+  },
+  "ind_italian_1": {
+   "versions": [
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_14_108",
+      "fascias_uk_14_110"
+     ],
+     "N": [
+      "fascias_uk_14_109",
+      "fascias_uk_14_111"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_14_112",
+    "N": "fascias_uk_14_113"
+   }
+  },
+  "ind_italian_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_15_0",
+      "fascias_uk_15_2",
+      "fascias_uk_15_4",
+      "fascias_uk_15_6"
+     ],
+     "N": [
+      "fascias_uk_15_1",
+      "fascias_uk_15_3",
+      "fascias_uk_15_5",
+      "fascias_uk_15_7"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_15_8",
+      "fascias_uk_15_10",
+      "fascias_uk_15_12"
+     ],
+     "N": [
+      "fascias_uk_15_9",
+      "fascias_uk_15_11",
+      "fascias_uk_15_13"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_15_14",
+      "fascias_uk_15_16"
+     ],
+     "N": [
+      "fascias_uk_15_15",
+      "fascias_uk_15_17"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_15_18",
+    "N": "fascias_uk_15_19"
+   }
+  },
+  "ind_thai_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_15_20",
+      "fascias_uk_15_22",
+      "fascias_uk_15_24",
+      "fascias_uk_15_26",
+      "fascias_uk_15_28"
+     ],
+     "N": [
+      "fascias_uk_15_21",
+      "fascias_uk_15_23",
+      "fascias_uk_15_25",
+      "fascias_uk_15_27",
+      "fascias_uk_15_29"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_15_30",
+      "fascias_uk_15_32",
+      "fascias_uk_15_34"
+     ],
+     "N": [
+      "fascias_uk_15_31",
+      "fascias_uk_15_33",
+      "fascias_uk_15_35"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_15_36",
+      "fascias_uk_15_38"
+     ],
+     "N": [
+      "fascias_uk_15_37",
+      "fascias_uk_15_39"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_15_40",
+    "N": "fascias_uk_15_41"
+   }
+  },
+  "ind_thai_1": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_15_42",
+      "fascias_uk_15_44",
+      "fascias_uk_15_46",
+      "fascias_uk_15_48"
+     ],
+     "N": [
+      "fascias_uk_15_43",
+      "fascias_uk_15_45",
+      "fascias_uk_15_47",
+      "fascias_uk_15_49"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_15_50",
+      "fascias_uk_15_52",
+      "fascias_uk_15_54"
+     ],
+     "N": [
+      "fascias_uk_15_51",
+      "fascias_uk_15_53",
+      "fascias_uk_15_55"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_15_56",
+      "fascias_uk_15_58"
+     ],
+     "N": [
+      "fascias_uk_15_57",
+      "fascias_uk_15_59"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_15_60",
+    "N": "fascias_uk_15_61"
+   }
+  },
+  "ind_thai_2": {
+   "versions": [
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_15_62",
+      "fascias_uk_15_64"
+     ],
+     "N": [
+      "fascias_uk_15_63",
+      "fascias_uk_15_65"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_15_66",
+    "N": "fascias_uk_15_67"
+   }
+  },
+  "ind_restaurant_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_15_68",
+      "fascias_uk_15_70",
+      "fascias_uk_15_72",
+      "fascias_uk_15_74"
+     ],
+     "N": [
+      "fascias_uk_15_69",
+      "fascias_uk_15_71",
+      "fascias_uk_15_73",
+      "fascias_uk_15_75"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_15_76",
+      "fascias_uk_15_78",
+      "fascias_uk_15_80"
+     ],
+     "N": [
+      "fascias_uk_15_77",
+      "fascias_uk_15_79",
+      "fascias_uk_15_81"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_15_82",
+      "fascias_uk_15_84"
+     ],
+     "N": [
+      "fascias_uk_15_83",
+      "fascias_uk_15_85"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_15_86",
+    "N": "fascias_uk_15_87"
+   }
+  },
+  "ind_restaurant_1": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_15_88",
+      "fascias_uk_15_90",
+      "fascias_uk_15_92",
+      "fascias_uk_15_94",
+      "fascias_uk_15_96",
+      "fascias_uk_15_98"
+     ],
+     "N": [
+      "fascias_uk_15_89",
+      "fascias_uk_15_91",
+      "fascias_uk_15_93",
+      "fascias_uk_15_95",
+      "fascias_uk_15_97",
+      "fascias_uk_15_99"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_15_100",
+      "fascias_uk_15_102",
+      "fascias_uk_15_104"
+     ],
+     "N": [
+      "fascias_uk_15_101",
+      "fascias_uk_15_103",
+      "fascias_uk_15_105"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_15_106",
+      "fascias_uk_15_108"
+     ],
+     "N": [
+      "fascias_uk_15_107",
+      "fascias_uk_15_109"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_15_110",
+    "N": "fascias_uk_15_111"
+   }
+  },
+  "ind_restaurant_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_16_0",
+      "fascias_uk_16_2",
+      "fascias_uk_16_4",
+      "fascias_uk_16_6",
+      "fascias_uk_16_8"
+     ],
+     "N": [
+      "fascias_uk_16_1",
+      "fascias_uk_16_3",
+      "fascias_uk_16_5",
+      "fascias_uk_16_7",
+      "fascias_uk_16_9"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_16_10",
+      "fascias_uk_16_12",
+      "fascias_uk_16_14"
+     ],
+     "N": [
+      "fascias_uk_16_11",
+      "fascias_uk_16_13",
+      "fascias_uk_16_15"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_16_16",
+      "fascias_uk_16_18"
+     ],
+     "N": [
+      "fascias_uk_16_17",
+      "fascias_uk_16_19"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_16_20",
+    "N": "fascias_uk_16_21"
+   }
+  },
+  "ind_cafe_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_16_22",
+      "fascias_uk_16_24",
+      "fascias_uk_16_26",
+      "fascias_uk_16_28",
+      "fascias_uk_16_30"
+     ],
+     "N": [
+      "fascias_uk_16_23",
+      "fascias_uk_16_25",
+      "fascias_uk_16_27",
+      "fascias_uk_16_29",
+      "fascias_uk_16_31"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_16_32",
+      "fascias_uk_16_34",
+      "fascias_uk_16_36"
+     ],
+     "N": [
+      "fascias_uk_16_33",
+      "fascias_uk_16_35",
+      "fascias_uk_16_37"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_16_38",
+      "fascias_uk_16_40"
+     ],
+     "N": [
+      "fascias_uk_16_39",
+      "fascias_uk_16_41"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_16_42",
+    "N": "fascias_uk_16_43"
+   }
+  },
+  "ind_cafe_1": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_16_44",
+      "fascias_uk_16_46",
+      "fascias_uk_16_48",
+      "fascias_uk_16_50"
+     ],
+     "N": [
+      "fascias_uk_16_45",
+      "fascias_uk_16_47",
+      "fascias_uk_16_49",
+      "fascias_uk_16_51"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_16_52",
+      "fascias_uk_16_54",
+      "fascias_uk_16_56"
+     ],
+     "N": [
+      "fascias_uk_16_53",
+      "fascias_uk_16_55",
+      "fascias_uk_16_57"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_16_58",
+      "fascias_uk_16_60"
+     ],
+     "N": [
+      "fascias_uk_16_59",
+      "fascias_uk_16_61"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_16_62",
+    "N": "fascias_uk_16_63"
+   }
+  },
+  "ind_cafe_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_16_64",
+      "fascias_uk_16_66",
+      "fascias_uk_16_68",
+      "fascias_uk_16_70"
+     ],
+     "N": [
+      "fascias_uk_16_65",
+      "fascias_uk_16_67",
+      "fascias_uk_16_69",
+      "fascias_uk_16_71"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_16_72",
+      "fascias_uk_16_74",
+      "fascias_uk_16_76"
+     ],
+     "N": [
+      "fascias_uk_16_73",
+      "fascias_uk_16_75",
+      "fascias_uk_16_77"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_16_78",
+      "fascias_uk_16_80"
+     ],
+     "N": [
+      "fascias_uk_16_79",
+      "fascias_uk_16_81"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_16_82",
+    "N": "fascias_uk_16_83"
+   }
+  },
+  "ind_laundry_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_16_84",
+      "fascias_uk_16_86",
+      "fascias_uk_16_88",
+      "fascias_uk_16_90"
+     ],
+     "N": [
+      "fascias_uk_16_85",
+      "fascias_uk_16_87",
+      "fascias_uk_16_89",
+      "fascias_uk_16_91"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_16_92",
+      "fascias_uk_16_94",
+      "fascias_uk_16_96"
+     ],
+     "N": [
+      "fascias_uk_16_93",
+      "fascias_uk_16_95",
+      "fascias_uk_16_97"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_16_98",
+      "fascias_uk_16_100"
+     ],
+     "N": [
+      "fascias_uk_16_99",
+      "fascias_uk_16_101"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_16_102",
+    "N": "fascias_uk_16_103"
+   }
+  },
+  "ind_laundry_1": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_16_104",
+      "fascias_uk_16_106",
+      "fascias_uk_16_108",
+      "fascias_uk_16_110"
+     ],
+     "N": [
+      "fascias_uk_16_105",
+      "fascias_uk_16_107",
+      "fascias_uk_16_109",
+      "fascias_uk_16_111"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_16_112",
+      "fascias_uk_16_114",
+      "fascias_uk_16_116"
+     ],
+     "N": [
+      "fascias_uk_16_113",
+      "fascias_uk_16_115",
+      "fascias_uk_16_117"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_16_118",
+      "fascias_uk_16_120"
+     ],
+     "N": [
+      "fascias_uk_16_119",
+      "fascias_uk_16_121"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_16_122",
+    "N": "fascias_uk_16_123"
+   }
+  },
+  "ind_laundry_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_17_0",
+      "fascias_uk_17_2",
+      "fascias_uk_17_4",
+      "fascias_uk_17_6"
+     ],
+     "N": [
+      "fascias_uk_17_1",
+      "fascias_uk_17_3",
+      "fascias_uk_17_5",
+      "fascias_uk_17_7"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_17_8",
+      "fascias_uk_17_10",
+      "fascias_uk_17_12"
+     ],
+     "N": [
+      "fascias_uk_17_9",
+      "fascias_uk_17_11",
+      "fascias_uk_17_13"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_17_14",
+      "fascias_uk_17_16"
+     ],
+     "N": [
+      "fascias_uk_17_15",
+      "fascias_uk_17_17"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_17_18",
+    "N": "fascias_uk_17_19"
+   }
+  },
+  "ind_florist_0": {
+   "versions": [
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_17_20",
+      "fascias_uk_17_22"
+     ],
+     "N": [
+      "fascias_uk_17_21",
+      "fascias_uk_17_23"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_17_24",
+    "N": "fascias_uk_17_25"
+   }
+  },
+  "ind_florist_1": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_17_26",
+      "fascias_uk_17_28",
+      "fascias_uk_17_30",
+      "fascias_uk_17_32",
+      "fascias_uk_17_34"
+     ],
+     "N": [
+      "fascias_uk_17_27",
+      "fascias_uk_17_29",
+      "fascias_uk_17_31",
+      "fascias_uk_17_33",
+      "fascias_uk_17_35"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_17_36",
+      "fascias_uk_17_38",
+      "fascias_uk_17_40"
+     ],
+     "N": [
+      "fascias_uk_17_37",
+      "fascias_uk_17_39",
+      "fascias_uk_17_41"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_17_42",
+      "fascias_uk_17_44"
+     ],
+     "N": [
+      "fascias_uk_17_43",
+      "fascias_uk_17_45"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_17_46",
+    "N": "fascias_uk_17_47"
+   }
+  },
+  "ind_florist_2": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_17_48",
+      "fascias_uk_17_50",
+      "fascias_uk_17_52"
+     ],
+     "N": [
+      "fascias_uk_17_49",
+      "fascias_uk_17_51",
+      "fascias_uk_17_53"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_17_54",
+      "fascias_uk_17_56"
+     ],
+     "N": [
+      "fascias_uk_17_55",
+      "fascias_uk_17_57"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_17_58",
+    "N": "fascias_uk_17_59"
+   }
+  },
+  "ind_clothes_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_17_60",
+      "fascias_uk_17_62",
+      "fascias_uk_17_64",
+      "fascias_uk_17_66"
+     ],
+     "N": [
+      "fascias_uk_17_61",
+      "fascias_uk_17_63",
+      "fascias_uk_17_65",
+      "fascias_uk_17_67"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_17_68",
+      "fascias_uk_17_70",
+      "fascias_uk_17_72"
+     ],
+     "N": [
+      "fascias_uk_17_69",
+      "fascias_uk_17_71",
+      "fascias_uk_17_73"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_17_74",
+      "fascias_uk_17_76"
+     ],
+     "N": [
+      "fascias_uk_17_75",
+      "fascias_uk_17_77"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_17_78",
+    "N": "fascias_uk_17_79"
+   }
+  },
+  "ind_clothes_1": {
+   "versions": [
+    {
+     "length": 8,
+     "W": [
+      "fascias_uk_17_80",
+      "fascias_uk_17_82",
+      "fascias_uk_17_84",
+      "fascias_uk_17_86",
+      "fascias_uk_17_88",
+      "fascias_uk_17_90",
+      "fascias_uk_17_92",
+      "fascias_uk_17_94"
+     ],
+     "N": [
+      "fascias_uk_17_81",
+      "fascias_uk_17_83",
+      "fascias_uk_17_85",
+      "fascias_uk_17_87",
+      "fascias_uk_17_89",
+      "fascias_uk_17_91",
+      "fascias_uk_17_93",
+      "fascias_uk_17_95"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_17_96",
+      "fascias_uk_17_98",
+      "fascias_uk_17_100"
+     ],
+     "N": [
+      "fascias_uk_17_97",
+      "fascias_uk_17_99",
+      "fascias_uk_17_101"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_17_102",
+      "fascias_uk_17_104"
+     ],
+     "N": [
+      "fascias_uk_17_103",
+      "fascias_uk_17_105"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_17_106",
+    "N": "fascias_uk_17_107"
+   }
+  },
+  "ind_clothes_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_18_0",
+      "fascias_uk_18_2",
+      "fascias_uk_18_4",
+      "fascias_uk_18_6",
+      "fascias_uk_18_8"
+     ],
+     "N": [
+      "fascias_uk_18_1",
+      "fascias_uk_18_3",
+      "fascias_uk_18_5",
+      "fascias_uk_18_7",
+      "fascias_uk_18_9"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_18_10",
+      "fascias_uk_18_12",
+      "fascias_uk_18_14"
+     ],
+     "N": [
+      "fascias_uk_18_11",
+      "fascias_uk_18_13",
+      "fascias_uk_18_15"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_18_16",
+      "fascias_uk_18_18"
+     ],
+     "N": [
+      "fascias_uk_18_17",
+      "fascias_uk_18_19"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_18_20",
+    "N": "fascias_uk_18_21"
+   }
+  },
+  "ind_shoes_0": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_18_22",
+      "fascias_uk_18_24",
+      "fascias_uk_18_26",
+      "fascias_uk_18_28",
+      "fascias_uk_18_30",
+      "fascias_uk_18_32"
+     ],
+     "N": [
+      "fascias_uk_18_23",
+      "fascias_uk_18_25",
+      "fascias_uk_18_27",
+      "fascias_uk_18_29",
+      "fascias_uk_18_31",
+      "fascias_uk_18_33"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_18_34",
+      "fascias_uk_18_36",
+      "fascias_uk_18_38"
+     ],
+     "N": [
+      "fascias_uk_18_35",
+      "fascias_uk_18_37",
+      "fascias_uk_18_39"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_18_40",
+      "fascias_uk_18_42"
+     ],
+     "N": [
+      "fascias_uk_18_41",
+      "fascias_uk_18_43"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_18_44",
+    "N": "fascias_uk_18_45"
+   }
+  },
+  "ind_shoes_1": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_18_46",
+      "fascias_uk_18_48",
+      "fascias_uk_18_50",
+      "fascias_uk_18_52",
+      "fascias_uk_18_54"
+     ],
+     "N": [
+      "fascias_uk_18_47",
+      "fascias_uk_18_49",
+      "fascias_uk_18_51",
+      "fascias_uk_18_53",
+      "fascias_uk_18_55"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_18_56",
+      "fascias_uk_18_58",
+      "fascias_uk_18_60"
+     ],
+     "N": [
+      "fascias_uk_18_57",
+      "fascias_uk_18_59",
+      "fascias_uk_18_61"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_18_62",
+      "fascias_uk_18_64"
+     ],
+     "N": [
+      "fascias_uk_18_63",
+      "fascias_uk_18_65"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_18_66",
+    "N": "fascias_uk_18_67"
+   }
+  },
+  "ind_shoes_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_18_68",
+      "fascias_uk_18_70",
+      "fascias_uk_18_72",
+      "fascias_uk_18_74"
+     ],
+     "N": [
+      "fascias_uk_18_69",
+      "fascias_uk_18_71",
+      "fascias_uk_18_73",
+      "fascias_uk_18_75"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_18_76",
+      "fascias_uk_18_78",
+      "fascias_uk_18_80"
+     ],
+     "N": [
+      "fascias_uk_18_77",
+      "fascias_uk_18_79",
+      "fascias_uk_18_81"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_18_82",
+      "fascias_uk_18_84"
+     ],
+     "N": [
+      "fascias_uk_18_83",
+      "fascias_uk_18_85"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_18_86",
+    "N": "fascias_uk_18_87"
+   }
+  },
+  "ind_charity_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_18_88",
+      "fascias_uk_18_90",
+      "fascias_uk_18_92",
+      "fascias_uk_18_94"
+     ],
+     "N": [
+      "fascias_uk_18_89",
+      "fascias_uk_18_91",
+      "fascias_uk_18_93",
+      "fascias_uk_18_95"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_18_96",
+      "fascias_uk_18_98",
+      "fascias_uk_18_100"
+     ],
+     "N": [
+      "fascias_uk_18_97",
+      "fascias_uk_18_99",
+      "fascias_uk_18_101"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_18_102",
+      "fascias_uk_18_104"
+     ],
+     "N": [
+      "fascias_uk_18_103",
+      "fascias_uk_18_105"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_18_106",
+    "N": "fascias_uk_18_107"
+   }
+  },
+  "ind_charity_1": {
+   "versions": [
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_18_108",
+      "fascias_uk_18_110"
+     ],
+     "N": [
+      "fascias_uk_18_109",
+      "fascias_uk_18_111"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_18_112",
+    "N": "fascias_uk_18_113"
+   }
+  },
+  "ind_charity_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_19_0",
+      "fascias_uk_19_2",
+      "fascias_uk_19_4",
+      "fascias_uk_19_6",
+      "fascias_uk_19_8"
+     ],
+     "N": [
+      "fascias_uk_19_1",
+      "fascias_uk_19_3",
+      "fascias_uk_19_5",
+      "fascias_uk_19_7",
+      "fascias_uk_19_9"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_19_10",
+      "fascias_uk_19_12",
+      "fascias_uk_19_14"
+     ],
+     "N": [
+      "fascias_uk_19_11",
+      "fascias_uk_19_13",
+      "fascias_uk_19_15"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_19_16",
+      "fascias_uk_19_18"
+     ],
+     "N": [
+      "fascias_uk_19_17",
+      "fascias_uk_19_19"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_19_20",
+    "N": "fascias_uk_19_21"
+   }
+  },
+  "ind_gift_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_19_22",
+      "fascias_uk_19_24",
+      "fascias_uk_19_26",
+      "fascias_uk_19_28"
+     ],
+     "N": [
+      "fascias_uk_19_23",
+      "fascias_uk_19_25",
+      "fascias_uk_19_27",
+      "fascias_uk_19_29"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_19_30",
+      "fascias_uk_19_32",
+      "fascias_uk_19_34"
+     ],
+     "N": [
+      "fascias_uk_19_31",
+      "fascias_uk_19_33",
+      "fascias_uk_19_35"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_19_36",
+      "fascias_uk_19_38"
+     ],
+     "N": [
+      "fascias_uk_19_37",
+      "fascias_uk_19_39"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_19_40",
+    "N": "fascias_uk_19_41"
+   }
+  },
+  "ind_gift_1": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_19_42",
+      "fascias_uk_19_44",
+      "fascias_uk_19_46",
+      "fascias_uk_19_48"
+     ],
+     "N": [
+      "fascias_uk_19_43",
+      "fascias_uk_19_45",
+      "fascias_uk_19_47",
+      "fascias_uk_19_49"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_19_50",
+      "fascias_uk_19_52",
+      "fascias_uk_19_54"
+     ],
+     "N": [
+      "fascias_uk_19_51",
+      "fascias_uk_19_53",
+      "fascias_uk_19_55"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_19_56",
+      "fascias_uk_19_58"
+     ],
+     "N": [
+      "fascias_uk_19_57",
+      "fascias_uk_19_59"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_19_60",
+    "N": "fascias_uk_19_61"
+   }
+  },
+  "ind_gift_2": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_19_62",
+      "fascias_uk_19_64",
+      "fascias_uk_19_66"
+     ],
+     "N": [
+      "fascias_uk_19_63",
+      "fascias_uk_19_65",
+      "fascias_uk_19_67"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_19_68",
+      "fascias_uk_19_70"
+     ],
+     "N": [
+      "fascias_uk_19_69",
+      "fascias_uk_19_71"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_19_72",
+    "N": "fascias_uk_19_73"
+   }
+  },
+  "ind_jewelry_0": {
+   "versions": [
+    {
+     "length": 8,
+     "W": [
+      "fascias_uk_19_74",
+      "fascias_uk_19_76",
+      "fascias_uk_19_78",
+      "fascias_uk_19_80",
+      "fascias_uk_19_82",
+      "fascias_uk_19_84",
+      "fascias_uk_19_86",
+      "fascias_uk_19_88"
+     ],
+     "N": [
+      "fascias_uk_19_75",
+      "fascias_uk_19_77",
+      "fascias_uk_19_79",
+      "fascias_uk_19_81",
+      "fascias_uk_19_83",
+      "fascias_uk_19_85",
+      "fascias_uk_19_87",
+      "fascias_uk_19_89"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_19_90",
+      "fascias_uk_19_92",
+      "fascias_uk_19_94"
+     ],
+     "N": [
+      "fascias_uk_19_91",
+      "fascias_uk_19_93",
+      "fascias_uk_19_95"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_19_96",
+      "fascias_uk_19_98"
+     ],
+     "N": [
+      "fascias_uk_19_97",
+      "fascias_uk_19_99"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_19_100",
+    "N": "fascias_uk_19_101"
+   }
+  },
+  "ind_jewelry_1": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_19_102",
+      "fascias_uk_19_104",
+      "fascias_uk_19_106"
+     ],
+     "N": [
+      "fascias_uk_19_103",
+      "fascias_uk_19_105",
+      "fascias_uk_19_107"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_19_108",
+      "fascias_uk_19_110"
+     ],
+     "N": [
+      "fascias_uk_19_109",
+      "fascias_uk_19_111"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_19_112",
+    "N": "fascias_uk_19_113"
+   }
+  },
+  "ind_jewelry_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_20_0",
+      "fascias_uk_20_2",
+      "fascias_uk_20_4",
+      "fascias_uk_20_6"
+     ],
+     "N": [
+      "fascias_uk_20_1",
+      "fascias_uk_20_3",
+      "fascias_uk_20_5",
+      "fascias_uk_20_7"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_20_8",
+      "fascias_uk_20_10",
+      "fascias_uk_20_12"
+     ],
+     "N": [
+      "fascias_uk_20_9",
+      "fascias_uk_20_11",
+      "fascias_uk_20_13"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_20_14",
+      "fascias_uk_20_16"
+     ],
+     "N": [
+      "fascias_uk_20_15",
+      "fascias_uk_20_17"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_20_18",
+    "N": "fascias_uk_20_19"
+   }
+  },
+  "ind_music_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_20_20",
+      "fascias_uk_20_22",
+      "fascias_uk_20_24",
+      "fascias_uk_20_26",
+      "fascias_uk_20_28"
+     ],
+     "N": [
+      "fascias_uk_20_21",
+      "fascias_uk_20_23",
+      "fascias_uk_20_25",
+      "fascias_uk_20_27",
+      "fascias_uk_20_29"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_20_30",
+      "fascias_uk_20_32",
+      "fascias_uk_20_34"
+     ],
+     "N": [
+      "fascias_uk_20_31",
+      "fascias_uk_20_33",
+      "fascias_uk_20_35"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_20_36",
+      "fascias_uk_20_38"
+     ],
+     "N": [
+      "fascias_uk_20_37",
+      "fascias_uk_20_39"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_20_40",
+    "N": "fascias_uk_20_41"
+   }
+  },
+  "ind_music_1": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_20_42",
+      "fascias_uk_20_44",
+      "fascias_uk_20_46"
+     ],
+     "N": [
+      "fascias_uk_20_43",
+      "fascias_uk_20_45",
+      "fascias_uk_20_47"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_20_48",
+      "fascias_uk_20_50"
+     ],
+     "N": [
+      "fascias_uk_20_49",
+      "fascias_uk_20_51"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_20_52",
+    "N": "fascias_uk_20_53"
+   }
+  },
+  "ind_music_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_20_54",
+      "fascias_uk_20_56",
+      "fascias_uk_20_58",
+      "fascias_uk_20_60"
+     ],
+     "N": [
+      "fascias_uk_20_55",
+      "fascias_uk_20_57",
+      "fascias_uk_20_59",
+      "fascias_uk_20_61"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_20_62",
+      "fascias_uk_20_64",
+      "fascias_uk_20_66"
+     ],
+     "N": [
+      "fascias_uk_20_63",
+      "fascias_uk_20_65",
+      "fascias_uk_20_67"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_20_68",
+      "fascias_uk_20_70"
+     ],
+     "N": [
+      "fascias_uk_20_69",
+      "fascias_uk_20_71"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_20_72",
+    "N": "fascias_uk_20_73"
+   }
+  },
+  "ind_electrical_0": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_20_74",
+      "fascias_uk_20_76",
+      "fascias_uk_20_78",
+      "fascias_uk_20_80",
+      "fascias_uk_20_82",
+      "fascias_uk_20_84"
+     ],
+     "N": [
+      "fascias_uk_20_75",
+      "fascias_uk_20_77",
+      "fascias_uk_20_79",
+      "fascias_uk_20_81",
+      "fascias_uk_20_83",
+      "fascias_uk_20_85"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_20_86",
+      "fascias_uk_20_88",
+      "fascias_uk_20_90"
+     ],
+     "N": [
+      "fascias_uk_20_87",
+      "fascias_uk_20_89",
+      "fascias_uk_20_91"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_20_92",
+      "fascias_uk_20_94"
+     ],
+     "N": [
+      "fascias_uk_20_93",
+      "fascias_uk_20_95"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_20_96",
+    "N": "fascias_uk_20_97"
+   }
+  },
+  "ind_electrical_1": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_20_98",
+      "fascias_uk_20_100",
+      "fascias_uk_20_102",
+      "fascias_uk_20_104",
+      "fascias_uk_20_106"
+     ],
+     "N": [
+      "fascias_uk_20_99",
+      "fascias_uk_20_101",
+      "fascias_uk_20_103",
+      "fascias_uk_20_105",
+      "fascias_uk_20_107"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_20_108",
+      "fascias_uk_20_110",
+      "fascias_uk_20_112"
+     ],
+     "N": [
+      "fascias_uk_20_109",
+      "fascias_uk_20_111",
+      "fascias_uk_20_113"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_20_114",
+      "fascias_uk_20_116"
+     ],
+     "N": [
+      "fascias_uk_20_115",
+      "fascias_uk_20_117"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_20_118",
+    "N": "fascias_uk_20_119"
+   }
+  },
+  "ind_electrical_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_21_0",
+      "fascias_uk_21_2",
+      "fascias_uk_21_4",
+      "fascias_uk_21_6"
+     ],
+     "N": [
+      "fascias_uk_21_1",
+      "fascias_uk_21_3",
+      "fascias_uk_21_5",
+      "fascias_uk_21_7"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_21_8",
+      "fascias_uk_21_10",
+      "fascias_uk_21_12"
+     ],
+     "N": [
+      "fascias_uk_21_9",
+      "fascias_uk_21_11",
+      "fascias_uk_21_13"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_21_14",
+      "fascias_uk_21_16"
+     ],
+     "N": [
+      "fascias_uk_21_15",
+      "fascias_uk_21_17"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_21_18",
+    "N": "fascias_uk_21_19"
+   }
+  },
+  "ind_off_licence_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_21_20",
+      "fascias_uk_21_22",
+      "fascias_uk_21_24",
+      "fascias_uk_21_26",
+      "fascias_uk_21_28"
+     ],
+     "N": [
+      "fascias_uk_21_21",
+      "fascias_uk_21_23",
+      "fascias_uk_21_25",
+      "fascias_uk_21_27",
+      "fascias_uk_21_29"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_21_30",
+      "fascias_uk_21_32",
+      "fascias_uk_21_34"
+     ],
+     "N": [
+      "fascias_uk_21_31",
+      "fascias_uk_21_33",
+      "fascias_uk_21_35"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_21_36",
+      "fascias_uk_21_38"
+     ],
+     "N": [
+      "fascias_uk_21_37",
+      "fascias_uk_21_39"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_21_40",
+    "N": "fascias_uk_21_41"
+   }
+  },
+  "ind_off_licence_1": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_21_42",
+      "fascias_uk_21_44",
+      "fascias_uk_21_46",
+      "fascias_uk_21_48",
+      "fascias_uk_21_50"
+     ],
+     "N": [
+      "fascias_uk_21_43",
+      "fascias_uk_21_45",
+      "fascias_uk_21_47",
+      "fascias_uk_21_49",
+      "fascias_uk_21_51"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_21_52",
+      "fascias_uk_21_54",
+      "fascias_uk_21_56"
+     ],
+     "N": [
+      "fascias_uk_21_53",
+      "fascias_uk_21_55",
+      "fascias_uk_21_57"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_21_58",
+      "fascias_uk_21_60"
+     ],
+     "N": [
+      "fascias_uk_21_59",
+      "fascias_uk_21_61"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_21_62",
+    "N": "fascias_uk_21_63"
+   }
+  },
+  "ind_off_licence_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_21_64",
+      "fascias_uk_21_66",
+      "fascias_uk_21_68",
+      "fascias_uk_21_70"
+     ],
+     "N": [
+      "fascias_uk_21_65",
+      "fascias_uk_21_67",
+      "fascias_uk_21_69",
+      "fascias_uk_21_71"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_21_72",
+      "fascias_uk_21_74",
+      "fascias_uk_21_76"
+     ],
+     "N": [
+      "fascias_uk_21_73",
+      "fascias_uk_21_75",
+      "fascias_uk_21_77"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_21_78",
+      "fascias_uk_21_80"
+     ],
+     "N": [
+      "fascias_uk_21_79",
+      "fascias_uk_21_81"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_21_82",
+    "N": "fascias_uk_21_83"
+   }
+  },
+  "ind_travel_agency_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_21_84",
+      "fascias_uk_21_86",
+      "fascias_uk_21_88",
+      "fascias_uk_21_90"
+     ],
+     "N": [
+      "fascias_uk_21_85",
+      "fascias_uk_21_87",
+      "fascias_uk_21_89",
+      "fascias_uk_21_91"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_21_92",
+      "fascias_uk_21_94",
+      "fascias_uk_21_96"
+     ],
+     "N": [
+      "fascias_uk_21_93",
+      "fascias_uk_21_95",
+      "fascias_uk_21_97"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_21_98",
+      "fascias_uk_21_100"
+     ],
+     "N": [
+      "fascias_uk_21_99",
+      "fascias_uk_21_101"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_21_102",
+    "N": "fascias_uk_21_103"
+   }
+  },
+  "ind_travel_agency_1": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_21_104",
+      "fascias_uk_21_106",
+      "fascias_uk_21_108",
+      "fascias_uk_21_110",
+      "fascias_uk_21_112",
+      "fascias_uk_21_114"
+     ],
+     "N": [
+      "fascias_uk_21_105",
+      "fascias_uk_21_107",
+      "fascias_uk_21_109",
+      "fascias_uk_21_111",
+      "fascias_uk_21_113",
+      "fascias_uk_21_115"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_21_116",
+      "fascias_uk_21_118",
+      "fascias_uk_21_120"
+     ],
+     "N": [
+      "fascias_uk_21_117",
+      "fascias_uk_21_119",
+      "fascias_uk_21_121"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_21_122",
+      "fascias_uk_21_124"
+     ],
+     "N": [
+      "fascias_uk_21_123",
+      "fascias_uk_21_125"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_21_126",
+    "N": "fascias_uk_21_127"
+   }
+  },
+  "ind_travel_agency_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_22_0",
+      "fascias_uk_22_2",
+      "fascias_uk_22_4",
+      "fascias_uk_22_6"
+     ],
+     "N": [
+      "fascias_uk_22_1",
+      "fascias_uk_22_3",
+      "fascias_uk_22_5",
+      "fascias_uk_22_7"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_22_8",
+      "fascias_uk_22_10",
+      "fascias_uk_22_12"
+     ],
+     "N": [
+      "fascias_uk_22_9",
+      "fascias_uk_22_11",
+      "fascias_uk_22_13"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_22_14",
+      "fascias_uk_22_16"
+     ],
+     "N": [
+      "fascias_uk_22_15",
+      "fascias_uk_22_17"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_22_18",
+    "N": "fascias_uk_22_19"
+   }
+  },
+  "ind_bookmaker_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_22_20",
+      "fascias_uk_22_22",
+      "fascias_uk_22_24",
+      "fascias_uk_22_26",
+      "fascias_uk_22_28"
+     ],
+     "N": [
+      "fascias_uk_22_21",
+      "fascias_uk_22_23",
+      "fascias_uk_22_25",
+      "fascias_uk_22_27",
+      "fascias_uk_22_29"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_22_30",
+      "fascias_uk_22_32",
+      "fascias_uk_22_34"
+     ],
+     "N": [
+      "fascias_uk_22_31",
+      "fascias_uk_22_33",
+      "fascias_uk_22_35"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_22_36",
+      "fascias_uk_22_38"
+     ],
+     "N": [
+      "fascias_uk_22_37",
+      "fascias_uk_22_39"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_22_40",
+    "N": "fascias_uk_22_41"
+   }
+  },
+  "ind_bookmaker_1": {
+   "versions": [
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_22_42",
+      "fascias_uk_22_44"
+     ],
+     "N": [
+      "fascias_uk_22_43",
+      "fascias_uk_22_45"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_22_46",
+    "N": "fascias_uk_22_47"
+   }
+  },
+  "ind_bookmaker_2": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_22_48",
+      "fascias_uk_22_50",
+      "fascias_uk_22_52"
+     ],
+     "N": [
+      "fascias_uk_22_49",
+      "fascias_uk_22_51",
+      "fascias_uk_22_53"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_22_54",
+      "fascias_uk_22_56"
+     ],
+     "N": [
+      "fascias_uk_22_55",
+      "fascias_uk_22_57"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_22_58",
+    "N": "fascias_uk_22_59"
+   }
+  },
+  "ind_office_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_22_60",
+      "fascias_uk_22_62",
+      "fascias_uk_22_64",
+      "fascias_uk_22_66"
+     ],
+     "N": [
+      "fascias_uk_22_61",
+      "fascias_uk_22_63",
+      "fascias_uk_22_65",
+      "fascias_uk_22_67"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_22_68",
+      "fascias_uk_22_70",
+      "fascias_uk_22_72"
+     ],
+     "N": [
+      "fascias_uk_22_69",
+      "fascias_uk_22_71",
+      "fascias_uk_22_73"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_22_74",
+      "fascias_uk_22_76"
+     ],
+     "N": [
+      "fascias_uk_22_75",
+      "fascias_uk_22_77"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_22_78",
+    "N": "fascias_uk_22_79"
+   }
+  },
+  "ind_office_1": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_22_80",
+      "fascias_uk_22_82",
+      "fascias_uk_22_84",
+      "fascias_uk_22_86",
+      "fascias_uk_22_88"
+     ],
+     "N": [
+      "fascias_uk_22_81",
+      "fascias_uk_22_83",
+      "fascias_uk_22_85",
+      "fascias_uk_22_87",
+      "fascias_uk_22_89"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_22_90",
+      "fascias_uk_22_92",
+      "fascias_uk_22_94"
+     ],
+     "N": [
+      "fascias_uk_22_91",
+      "fascias_uk_22_93",
+      "fascias_uk_22_95"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_22_96",
+      "fascias_uk_22_98"
+     ],
+     "N": [
+      "fascias_uk_22_97",
+      "fascias_uk_22_99"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_22_100",
+    "N": "fascias_uk_22_101"
+   }
+  },
+  "ind_office_2": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_22_102",
+      "fascias_uk_22_104",
+      "fascias_uk_22_106",
+      "fascias_uk_22_108",
+      "fascias_uk_22_110",
+      "fascias_uk_22_112"
+     ],
+     "N": [
+      "fascias_uk_22_103",
+      "fascias_uk_22_105",
+      "fascias_uk_22_107",
+      "fascias_uk_22_109",
+      "fascias_uk_22_111",
+      "fascias_uk_22_113"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_22_114",
+      "fascias_uk_22_116",
+      "fascias_uk_22_118"
+     ],
+     "N": [
+      "fascias_uk_22_115",
+      "fascias_uk_22_117",
+      "fascias_uk_22_119"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_22_120",
+      "fascias_uk_22_122"
+     ],
+     "N": [
+      "fascias_uk_22_121",
+      "fascias_uk_22_123"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_22_124",
+    "N": "fascias_uk_22_125"
+   }
+  },
+  "ind_bank_0": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_23_0",
+      "fascias_uk_23_2",
+      "fascias_uk_23_4",
+      "fascias_uk_23_6",
+      "fascias_uk_23_8",
+      "fascias_uk_23_10"
+     ],
+     "N": [
+      "fascias_uk_23_1",
+      "fascias_uk_23_3",
+      "fascias_uk_23_5",
+      "fascias_uk_23_7",
+      "fascias_uk_23_9",
+      "fascias_uk_23_11"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_23_12",
+      "fascias_uk_23_14",
+      "fascias_uk_23_16"
+     ],
+     "N": [
+      "fascias_uk_23_13",
+      "fascias_uk_23_15",
+      "fascias_uk_23_17"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_23_18",
+      "fascias_uk_23_20"
+     ],
+     "N": [
+      "fascias_uk_23_19",
+      "fascias_uk_23_21"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_23_22",
+    "N": "fascias_uk_23_23"
+   }
+  },
+  "ind_bank_1": {
+   "versions": [
+    {
+     "length": 8,
+     "W": [
+      "fascias_uk_23_24",
+      "fascias_uk_23_26",
+      "fascias_uk_23_28",
+      "fascias_uk_23_30",
+      "fascias_uk_23_32",
+      "fascias_uk_23_34",
+      "fascias_uk_23_36",
+      "fascias_uk_23_38"
+     ],
+     "N": [
+      "fascias_uk_23_25",
+      "fascias_uk_23_27",
+      "fascias_uk_23_29",
+      "fascias_uk_23_31",
+      "fascias_uk_23_33",
+      "fascias_uk_23_35",
+      "fascias_uk_23_37",
+      "fascias_uk_23_39"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_23_40",
+      "fascias_uk_23_42",
+      "fascias_uk_23_44"
+     ],
+     "N": [
+      "fascias_uk_23_41",
+      "fascias_uk_23_43",
+      "fascias_uk_23_45"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_23_46",
+      "fascias_uk_23_48"
+     ],
+     "N": [
+      "fascias_uk_23_47",
+      "fascias_uk_23_49"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_23_50",
+    "N": "fascias_uk_23_51"
+   }
+  },
+  "ind_bank_2": {
+   "versions": [
+    {
+     "length": 8,
+     "W": [
+      "fascias_uk_23_52",
+      "fascias_uk_23_54",
+      "fascias_uk_23_56",
+      "fascias_uk_23_58",
+      "fascias_uk_23_60",
+      "fascias_uk_23_62",
+      "fascias_uk_23_64",
+      "fascias_uk_23_66"
+     ],
+     "N": [
+      "fascias_uk_23_53",
+      "fascias_uk_23_55",
+      "fascias_uk_23_57",
+      "fascias_uk_23_59",
+      "fascias_uk_23_61",
+      "fascias_uk_23_63",
+      "fascias_uk_23_65",
+      "fascias_uk_23_67"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_23_68",
+      "fascias_uk_23_70",
+      "fascias_uk_23_72"
+     ],
+     "N": [
+      "fascias_uk_23_69",
+      "fascias_uk_23_71",
+      "fascias_uk_23_73"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_23_74",
+      "fascias_uk_23_76"
+     ],
+     "N": [
+      "fascias_uk_23_75",
+      "fascias_uk_23_77"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_23_78",
+    "N": "fascias_uk_23_79"
+   }
+  },
+  "ind_convenience_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_23_80",
+      "fascias_uk_23_82",
+      "fascias_uk_23_84",
+      "fascias_uk_23_86"
+     ],
+     "N": [
+      "fascias_uk_23_81",
+      "fascias_uk_23_83",
+      "fascias_uk_23_85",
+      "fascias_uk_23_87"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_23_88",
+      "fascias_uk_23_90",
+      "fascias_uk_23_92"
+     ],
+     "N": [
+      "fascias_uk_23_89",
+      "fascias_uk_23_91",
+      "fascias_uk_23_93"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_23_94",
+      "fascias_uk_23_96"
+     ],
+     "N": [
+      "fascias_uk_23_95",
+      "fascias_uk_23_97"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_23_98",
+    "N": "fascias_uk_23_99"
+   }
+  },
+  "ind_convenience_1": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_23_100",
+      "fascias_uk_23_102",
+      "fascias_uk_23_104"
+     ],
+     "N": [
+      "fascias_uk_23_101",
+      "fascias_uk_23_103",
+      "fascias_uk_23_105"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_23_106",
+      "fascias_uk_23_108"
+     ],
+     "N": [
+      "fascias_uk_23_107",
+      "fascias_uk_23_109"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_23_110",
+    "N": "fascias_uk_23_111"
+   }
+  },
+  "ind_convenience_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_24_0",
+      "fascias_uk_24_2",
+      "fascias_uk_24_4",
+      "fascias_uk_24_6",
+      "fascias_uk_24_8"
+     ],
+     "N": [
+      "fascias_uk_24_1",
+      "fascias_uk_24_3",
+      "fascias_uk_24_5",
+      "fascias_uk_24_7",
+      "fascias_uk_24_9"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_24_10",
+      "fascias_uk_24_12",
+      "fascias_uk_24_14"
+     ],
+     "N": [
+      "fascias_uk_24_11",
+      "fascias_uk_24_13",
+      "fascias_uk_24_15"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_24_16",
+      "fascias_uk_24_18"
+     ],
+     "N": [
+      "fascias_uk_24_17",
+      "fascias_uk_24_19"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_24_20",
+    "N": "fascias_uk_24_21"
+   }
+  },
+  "ind_general_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_24_22",
+      "fascias_uk_24_24",
+      "fascias_uk_24_26",
+      "fascias_uk_24_28",
+      "fascias_uk_24_30"
+     ],
+     "N": [
+      "fascias_uk_24_23",
+      "fascias_uk_24_25",
+      "fascias_uk_24_27",
+      "fascias_uk_24_29",
+      "fascias_uk_24_31"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_24_32",
+      "fascias_uk_24_34",
+      "fascias_uk_24_36"
+     ],
+     "N": [
+      "fascias_uk_24_33",
+      "fascias_uk_24_35",
+      "fascias_uk_24_37"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_24_38",
+      "fascias_uk_24_40"
+     ],
+     "N": [
+      "fascias_uk_24_39",
+      "fascias_uk_24_41"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_24_42",
+    "N": "fascias_uk_24_43"
+   }
+  },
+  "ind_general_1": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_24_44",
+      "fascias_uk_24_46",
+      "fascias_uk_24_48",
+      "fascias_uk_24_50",
+      "fascias_uk_24_52"
+     ],
+     "N": [
+      "fascias_uk_24_45",
+      "fascias_uk_24_47",
+      "fascias_uk_24_49",
+      "fascias_uk_24_51",
+      "fascias_uk_24_53"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_24_54",
+      "fascias_uk_24_56",
+      "fascias_uk_24_58"
+     ],
+     "N": [
+      "fascias_uk_24_55",
+      "fascias_uk_24_57",
+      "fascias_uk_24_59"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_24_60",
+      "fascias_uk_24_62"
+     ],
+     "N": [
+      "fascias_uk_24_61",
+      "fascias_uk_24_63"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_24_64",
+    "N": "fascias_uk_24_65"
+   }
+  },
+  "ind_general_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_24_66",
+      "fascias_uk_24_68",
+      "fascias_uk_24_70",
+      "fascias_uk_24_72"
+     ],
+     "N": [
+      "fascias_uk_24_67",
+      "fascias_uk_24_69",
+      "fascias_uk_24_71",
+      "fascias_uk_24_73"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_24_74",
+      "fascias_uk_24_76",
+      "fascias_uk_24_78"
+     ],
+     "N": [
+      "fascias_uk_24_75",
+      "fascias_uk_24_77",
+      "fascias_uk_24_79"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_24_80",
+      "fascias_uk_24_82"
+     ],
+     "N": [
+      "fascias_uk_24_81",
+      "fascias_uk_24_83"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_24_84",
+    "N": "fascias_uk_24_85"
+   }
+  },
+  "ind_variety_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_24_86",
+      "fascias_uk_24_88",
+      "fascias_uk_24_90",
+      "fascias_uk_24_92",
+      "fascias_uk_24_94"
+     ],
+     "N": [
+      "fascias_uk_24_87",
+      "fascias_uk_24_89",
+      "fascias_uk_24_91",
+      "fascias_uk_24_93",
+      "fascias_uk_24_95"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_24_96",
+      "fascias_uk_24_98",
+      "fascias_uk_24_100"
+     ],
+     "N": [
+      "fascias_uk_24_97",
+      "fascias_uk_24_99",
+      "fascias_uk_24_101"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_24_102",
+      "fascias_uk_24_104"
+     ],
+     "N": [
+      "fascias_uk_24_103",
+      "fascias_uk_24_105"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_24_106",
+    "N": "fascias_uk_24_107"
+   }
+  },
+  "ind_variety_1": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_24_108",
+      "fascias_uk_24_110",
+      "fascias_uk_24_112",
+      "fascias_uk_24_114"
+     ],
+     "N": [
+      "fascias_uk_24_109",
+      "fascias_uk_24_111",
+      "fascias_uk_24_113",
+      "fascias_uk_24_115"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_24_116",
+      "fascias_uk_24_118",
+      "fascias_uk_24_120"
+     ],
+     "N": [
+      "fascias_uk_24_117",
+      "fascias_uk_24_119",
+      "fascias_uk_24_121"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_24_122",
+      "fascias_uk_24_124"
+     ],
+     "N": [
+      "fascias_uk_24_123",
+      "fascias_uk_24_125"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_24_126",
+    "N": "fascias_uk_24_127"
+   }
+  },
+  "ind_variety_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_25_0",
+      "fascias_uk_25_2",
+      "fascias_uk_25_4",
+      "fascias_uk_25_6",
+      "fascias_uk_25_8"
+     ],
+     "N": [
+      "fascias_uk_25_1",
+      "fascias_uk_25_3",
+      "fascias_uk_25_5",
+      "fascias_uk_25_7",
+      "fascias_uk_25_9"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_25_10",
+      "fascias_uk_25_12",
+      "fascias_uk_25_14"
+     ],
+     "N": [
+      "fascias_uk_25_11",
+      "fascias_uk_25_13",
+      "fascias_uk_25_15"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_25_16",
+      "fascias_uk_25_18"
+     ],
+     "N": [
+      "fascias_uk_25_17",
+      "fascias_uk_25_19"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_25_20",
+    "N": "fascias_uk_25_21"
+   }
+  },
+  "ind_baby_0": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_25_22",
+      "fascias_uk_25_24",
+      "fascias_uk_25_26"
+     ],
+     "N": [
+      "fascias_uk_25_23",
+      "fascias_uk_25_25",
+      "fascias_uk_25_27"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_25_28",
+      "fascias_uk_25_30"
+     ],
+     "N": [
+      "fascias_uk_25_29",
+      "fascias_uk_25_31"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_25_32",
+    "N": "fascias_uk_25_33"
+   }
+  },
+  "ind_baby_1": {
+   "versions": [
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_25_34",
+      "fascias_uk_25_36",
+      "fascias_uk_25_38"
+     ],
+     "N": [
+      "fascias_uk_25_35",
+      "fascias_uk_25_37",
+      "fascias_uk_25_39"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_25_40",
+      "fascias_uk_25_42"
+     ],
+     "N": [
+      "fascias_uk_25_41",
+      "fascias_uk_25_43"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_25_44",
+    "N": "fascias_uk_25_45"
+   }
+  },
+  "ind_baby_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_25_46",
+      "fascias_uk_25_48",
+      "fascias_uk_25_50",
+      "fascias_uk_25_52"
+     ],
+     "N": [
+      "fascias_uk_25_47",
+      "fascias_uk_25_49",
+      "fascias_uk_25_51",
+      "fascias_uk_25_53"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_25_54",
+      "fascias_uk_25_56",
+      "fascias_uk_25_58"
+     ],
+     "N": [
+      "fascias_uk_25_55",
+      "fascias_uk_25_57",
+      "fascias_uk_25_59"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_25_60",
+      "fascias_uk_25_62"
+     ],
+     "N": [
+      "fascias_uk_25_61",
+      "fascias_uk_25_63"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_25_64",
+    "N": "fascias_uk_25_65"
+   }
+  },
+  "ind_car_parts_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_25_66",
+      "fascias_uk_25_68",
+      "fascias_uk_25_70",
+      "fascias_uk_25_72",
+      "fascias_uk_25_74"
+     ],
+     "N": [
+      "fascias_uk_25_67",
+      "fascias_uk_25_69",
+      "fascias_uk_25_71",
+      "fascias_uk_25_73",
+      "fascias_uk_25_75"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_25_76",
+      "fascias_uk_25_78",
+      "fascias_uk_25_80"
+     ],
+     "N": [
+      "fascias_uk_25_77",
+      "fascias_uk_25_79",
+      "fascias_uk_25_81"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_25_82",
+      "fascias_uk_25_84"
+     ],
+     "N": [
+      "fascias_uk_25_83",
+      "fascias_uk_25_85"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_25_86",
+    "N": "fascias_uk_25_87"
+   }
+  },
+  "ind_car_parts_1": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_25_88",
+      "fascias_uk_25_90",
+      "fascias_uk_25_92",
+      "fascias_uk_25_94"
+     ],
+     "N": [
+      "fascias_uk_25_89",
+      "fascias_uk_25_91",
+      "fascias_uk_25_93",
+      "fascias_uk_25_95"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_25_96",
+      "fascias_uk_25_98",
+      "fascias_uk_25_100"
+     ],
+     "N": [
+      "fascias_uk_25_97",
+      "fascias_uk_25_99",
+      "fascias_uk_25_101"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_25_102",
+      "fascias_uk_25_104"
+     ],
+     "N": [
+      "fascias_uk_25_103",
+      "fascias_uk_25_105"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_25_106",
+    "N": "fascias_uk_25_107"
+   }
+  },
+  "ind_car_parts_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_26_0",
+      "fascias_uk_26_2",
+      "fascias_uk_26_4",
+      "fascias_uk_26_6",
+      "fascias_uk_26_8"
+     ],
+     "N": [
+      "fascias_uk_26_1",
+      "fascias_uk_26_3",
+      "fascias_uk_26_5",
+      "fascias_uk_26_7",
+      "fascias_uk_26_9"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_26_10",
+      "fascias_uk_26_12",
+      "fascias_uk_26_14"
+     ],
+     "N": [
+      "fascias_uk_26_11",
+      "fascias_uk_26_13",
+      "fascias_uk_26_15"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_26_16",
+      "fascias_uk_26_18"
+     ],
+     "N": [
+      "fascias_uk_26_17",
+      "fascias_uk_26_19"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_26_20",
+    "N": "fascias_uk_26_21"
+   }
+  },
+  "ind_pizza_0": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_26_22",
+      "fascias_uk_26_24",
+      "fascias_uk_26_26",
+      "fascias_uk_26_28"
+     ],
+     "N": [
+      "fascias_uk_26_23",
+      "fascias_uk_26_25",
+      "fascias_uk_26_27",
+      "fascias_uk_26_29"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_26_30",
+      "fascias_uk_26_32",
+      "fascias_uk_26_34"
+     ],
+     "N": [
+      "fascias_uk_26_31",
+      "fascias_uk_26_33",
+      "fascias_uk_26_35"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_26_36",
+      "fascias_uk_26_38"
+     ],
+     "N": [
+      "fascias_uk_26_37",
+      "fascias_uk_26_39"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_26_40",
+    "N": "fascias_uk_26_41"
+   }
+  },
+  "ind_pizza_1": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_26_42",
+      "fascias_uk_26_44",
+      "fascias_uk_26_46",
+      "fascias_uk_26_48",
+      "fascias_uk_26_50"
+     ],
+     "N": [
+      "fascias_uk_26_43",
+      "fascias_uk_26_45",
+      "fascias_uk_26_47",
+      "fascias_uk_26_49",
+      "fascias_uk_26_51"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_26_52",
+      "fascias_uk_26_54",
+      "fascias_uk_26_56"
+     ],
+     "N": [
+      "fascias_uk_26_53",
+      "fascias_uk_26_55",
+      "fascias_uk_26_57"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_26_58",
+      "fascias_uk_26_60"
+     ],
+     "N": [
+      "fascias_uk_26_59",
+      "fascias_uk_26_61"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_26_62",
+    "N": "fascias_uk_26_63"
+   }
+  },
+  "ind_pizza_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_26_64",
+      "fascias_uk_26_66",
+      "fascias_uk_26_68",
+      "fascias_uk_26_70"
+     ],
+     "N": [
+      "fascias_uk_26_65",
+      "fascias_uk_26_67",
+      "fascias_uk_26_69",
+      "fascias_uk_26_71"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_26_72",
+      "fascias_uk_26_74",
+      "fascias_uk_26_76"
+     ],
+     "N": [
+      "fascias_uk_26_73",
+      "fascias_uk_26_75",
+      "fascias_uk_26_77"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_26_78",
+      "fascias_uk_26_80"
+     ],
+     "N": [
+      "fascias_uk_26_79",
+      "fascias_uk_26_81"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_26_82",
+    "N": "fascias_uk_26_83"
+   }
+  },
+  "ind_car_repair_0": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_26_84",
+      "fascias_uk_26_86",
+      "fascias_uk_26_88",
+      "fascias_uk_26_90",
+      "fascias_uk_26_92",
+      "fascias_uk_26_94"
+     ],
+     "N": [
+      "fascias_uk_26_85",
+      "fascias_uk_26_87",
+      "fascias_uk_26_89",
+      "fascias_uk_26_91",
+      "fascias_uk_26_93",
+      "fascias_uk_26_95"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_26_96",
+      "fascias_uk_26_98",
+      "fascias_uk_26_100"
+     ],
+     "N": [
+      "fascias_uk_26_97",
+      "fascias_uk_26_99",
+      "fascias_uk_26_101"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_26_102",
+      "fascias_uk_26_104"
+     ],
+     "N": [
+      "fascias_uk_26_103",
+      "fascias_uk_26_105"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_26_106",
+    "N": "fascias_uk_26_107"
+   }
+  },
+  "ind_car_repair_1": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_27_0",
+      "fascias_uk_27_2",
+      "fascias_uk_27_4",
+      "fascias_uk_27_6",
+      "fascias_uk_27_8"
+     ],
+     "N": [
+      "fascias_uk_27_1",
+      "fascias_uk_27_3",
+      "fascias_uk_27_5",
+      "fascias_uk_27_7",
+      "fascias_uk_27_9"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_27_10",
+      "fascias_uk_27_12",
+      "fascias_uk_27_14"
+     ],
+     "N": [
+      "fascias_uk_27_11",
+      "fascias_uk_27_13",
+      "fascias_uk_27_15"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_27_16",
+      "fascias_uk_27_18"
+     ],
+     "N": [
+      "fascias_uk_27_17",
+      "fascias_uk_27_19"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_27_20",
+    "N": "fascias_uk_27_21"
+   }
+  },
+  "ind_car_repair_2": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_27_22",
+      "fascias_uk_27_24",
+      "fascias_uk_27_26",
+      "fascias_uk_27_28",
+      "fascias_uk_27_30"
+     ],
+     "N": [
+      "fascias_uk_27_23",
+      "fascias_uk_27_25",
+      "fascias_uk_27_27",
+      "fascias_uk_27_29",
+      "fascias_uk_27_31"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_27_32",
+      "fascias_uk_27_34",
+      "fascias_uk_27_36"
+     ],
+     "N": [
+      "fascias_uk_27_33",
+      "fascias_uk_27_35",
+      "fascias_uk_27_37"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_27_38",
+      "fascias_uk_27_40"
+     ],
+     "N": [
+      "fascias_uk_27_39",
+      "fascias_uk_27_41"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_27_42",
+    "N": "fascias_uk_27_43"
+   }
+  },
+  "ind_health_food_0": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_27_44",
+      "fascias_uk_27_46",
+      "fascias_uk_27_48",
+      "fascias_uk_27_50",
+      "fascias_uk_27_52"
+     ],
+     "N": [
+      "fascias_uk_27_45",
+      "fascias_uk_27_47",
+      "fascias_uk_27_49",
+      "fascias_uk_27_51",
+      "fascias_uk_27_53"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_27_54",
+      "fascias_uk_27_56",
+      "fascias_uk_27_58"
+     ],
+     "N": [
+      "fascias_uk_27_55",
+      "fascias_uk_27_57",
+      "fascias_uk_27_59"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_27_60",
+      "fascias_uk_27_62"
+     ],
+     "N": [
+      "fascias_uk_27_61",
+      "fascias_uk_27_63"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_27_64",
+    "N": "fascias_uk_27_65"
+   }
+  },
+  "ind_health_food_1": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_27_66",
+      "fascias_uk_27_68",
+      "fascias_uk_27_70",
+      "fascias_uk_27_72",
+      "fascias_uk_27_74"
+     ],
+     "N": [
+      "fascias_uk_27_67",
+      "fascias_uk_27_69",
+      "fascias_uk_27_71",
+      "fascias_uk_27_73",
+      "fascias_uk_27_75"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_27_76",
+      "fascias_uk_27_78",
+      "fascias_uk_27_80"
+     ],
+     "N": [
+      "fascias_uk_27_77",
+      "fascias_uk_27_79",
+      "fascias_uk_27_81"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_27_82",
+      "fascias_uk_27_84"
+     ],
+     "N": [
+      "fascias_uk_27_83",
+      "fascias_uk_27_85"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_27_86",
+    "N": "fascias_uk_27_87"
+   }
+  },
+  "ind_health_food_2": {
+   "versions": [
+    {
+     "length": 4,
+     "W": [
+      "fascias_uk_27_88",
+      "fascias_uk_27_90",
+      "fascias_uk_27_92",
+      "fascias_uk_27_94"
+     ],
+     "N": [
+      "fascias_uk_27_89",
+      "fascias_uk_27_91",
+      "fascias_uk_27_93",
+      "fascias_uk_27_95"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_27_96",
+      "fascias_uk_27_98",
+      "fascias_uk_27_100"
+     ],
+     "N": [
+      "fascias_uk_27_97",
+      "fascias_uk_27_99",
+      "fascias_uk_27_101"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_27_102",
+      "fascias_uk_27_104"
+     ],
+     "N": [
+      "fascias_uk_27_103",
+      "fascias_uk_27_105"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_27_106",
+    "N": "fascias_uk_27_107"
+   }
+  },
+  "pub_anchor_inn": {
+   "versions": [
+    {
+     "length": 7,
+     "W": [
+      "fascias_uk_28_0",
+      "fascias_uk_28_2",
+      "fascias_uk_28_4",
+      "fascias_uk_28_6",
+      "fascias_uk_28_8",
+      "fascias_uk_28_10",
+      "fascias_uk_28_12"
+     ],
+     "N": [
+      "fascias_uk_28_1",
+      "fascias_uk_28_3",
+      "fascias_uk_28_5",
+      "fascias_uk_28_7",
+      "fascias_uk_28_9",
+      "fascias_uk_28_11",
+      "fascias_uk_28_13"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_28_14",
+      "fascias_uk_28_16",
+      "fascias_uk_28_18"
+     ],
+     "N": [
+      "fascias_uk_28_15",
+      "fascias_uk_28_17",
+      "fascias_uk_28_19"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_28_20",
+      "fascias_uk_28_22"
+     ],
+     "N": [
+      "fascias_uk_28_21",
+      "fascias_uk_28_23"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_28_24",
+    "N": "fascias_uk_28_25"
+   }
+  },
+  "pub_waterwitch": {
+   "versions": [
+    {
+     "length": 8,
+     "W": [
+      "fascias_uk_28_26",
+      "fascias_uk_28_28",
+      "fascias_uk_28_30",
+      "fascias_uk_28_32",
+      "fascias_uk_28_34",
+      "fascias_uk_28_36",
+      "fascias_uk_28_38",
+      "fascias_uk_28_40"
+     ],
+     "N": [
+      "fascias_uk_28_27",
+      "fascias_uk_28_29",
+      "fascias_uk_28_31",
+      "fascias_uk_28_33",
+      "fascias_uk_28_35",
+      "fascias_uk_28_37",
+      "fascias_uk_28_39",
+      "fascias_uk_28_41"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_28_42",
+      "fascias_uk_28_44",
+      "fascias_uk_28_46"
+     ],
+     "N": [
+      "fascias_uk_28_43",
+      "fascias_uk_28_45",
+      "fascias_uk_28_47"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_28_48",
+      "fascias_uk_28_50"
+     ],
+     "N": [
+      "fascias_uk_28_49",
+      "fascias_uk_28_51"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_28_52",
+    "N": "fascias_uk_28_53"
+   }
+  },
+  "pub_red_lion": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_28_54",
+      "fascias_uk_28_56",
+      "fascias_uk_28_58",
+      "fascias_uk_28_60",
+      "fascias_uk_28_62",
+      "fascias_uk_28_64"
+     ],
+     "N": [
+      "fascias_uk_28_55",
+      "fascias_uk_28_57",
+      "fascias_uk_28_59",
+      "fascias_uk_28_61",
+      "fascias_uk_28_63",
+      "fascias_uk_28_65"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_28_66",
+      "fascias_uk_28_68",
+      "fascias_uk_28_70"
+     ],
+     "N": [
+      "fascias_uk_28_67",
+      "fascias_uk_28_69",
+      "fascias_uk_28_71"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_28_72",
+      "fascias_uk_28_74"
+     ],
+     "N": [
+      "fascias_uk_28_73",
+      "fascias_uk_28_75"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_28_76",
+    "N": "fascias_uk_28_77"
+   }
+  },
+  "pub_bell_inn": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_28_78",
+      "fascias_uk_28_80",
+      "fascias_uk_28_82",
+      "fascias_uk_28_84",
+      "fascias_uk_28_86"
+     ],
+     "N": [
+      "fascias_uk_28_79",
+      "fascias_uk_28_81",
+      "fascias_uk_28_83",
+      "fascias_uk_28_85",
+      "fascias_uk_28_87"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_28_88",
+      "fascias_uk_28_90",
+      "fascias_uk_28_92"
+     ],
+     "N": [
+      "fascias_uk_28_89",
+      "fascias_uk_28_91",
+      "fascias_uk_28_93"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_28_94",
+      "fascias_uk_28_96"
+     ],
+     "N": [
+      "fascias_uk_28_95",
+      "fascias_uk_28_97"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_28_98",
+    "N": "fascias_uk_28_99"
+   }
+  },
+  "pub_swan": {
+   "versions": [
+    {
+     "length": 5,
+     "W": [
+      "fascias_uk_28_100",
+      "fascias_uk_28_102",
+      "fascias_uk_28_104",
+      "fascias_uk_28_106",
+      "fascias_uk_28_108"
+     ],
+     "N": [
+      "fascias_uk_28_101",
+      "fascias_uk_28_103",
+      "fascias_uk_28_105",
+      "fascias_uk_28_107",
+      "fascias_uk_28_109"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_28_110",
+      "fascias_uk_28_112",
+      "fascias_uk_28_114"
+     ],
+     "N": [
+      "fascias_uk_28_111",
+      "fascias_uk_28_113",
+      "fascias_uk_28_115"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_28_116",
+      "fascias_uk_28_118"
+     ],
+     "N": [
+      "fascias_uk_28_117",
+      "fascias_uk_28_119"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_28_120",
+    "N": "fascias_uk_28_121"
+   }
+  },
+  "pub_greyfriar": {
+   "versions": [
+    {
+     "length": 7,
+     "W": [
+      "fascias_uk_29_0",
+      "fascias_uk_29_2",
+      "fascias_uk_29_4",
+      "fascias_uk_29_6",
+      "fascias_uk_29_8",
+      "fascias_uk_29_10",
+      "fascias_uk_29_12"
+     ],
+     "N": [
+      "fascias_uk_29_1",
+      "fascias_uk_29_3",
+      "fascias_uk_29_5",
+      "fascias_uk_29_7",
+      "fascias_uk_29_9",
+      "fascias_uk_29_11",
+      "fascias_uk_29_13"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_29_14",
+      "fascias_uk_29_16",
+      "fascias_uk_29_18"
+     ],
+     "N": [
+      "fascias_uk_29_15",
+      "fascias_uk_29_17",
+      "fascias_uk_29_19"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_29_20",
+      "fascias_uk_29_22"
+     ],
+     "N": [
+      "fascias_uk_29_21",
+      "fascias_uk_29_23"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_29_24",
+    "N": "fascias_uk_29_25"
+   }
+  },
+  "pub_ivy_house": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_29_26",
+      "fascias_uk_29_28",
+      "fascias_uk_29_30",
+      "fascias_uk_29_32",
+      "fascias_uk_29_34",
+      "fascias_uk_29_36"
+     ],
+     "N": [
+      "fascias_uk_29_27",
+      "fascias_uk_29_29",
+      "fascias_uk_29_31",
+      "fascias_uk_29_33",
+      "fascias_uk_29_35",
+      "fascias_uk_29_37"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_29_38",
+      "fascias_uk_29_40",
+      "fascias_uk_29_42"
+     ],
+     "N": [
+      "fascias_uk_29_39",
+      "fascias_uk_29_41",
+      "fascias_uk_29_43"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_29_44",
+      "fascias_uk_29_46"
+     ],
+     "N": [
+      "fascias_uk_29_45",
+      "fascias_uk_29_47"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_29_48",
+    "N": "fascias_uk_29_49"
+   }
+  },
+  "pub_white_horse": {
+   "versions": [
+    {
+     "length": 8,
+     "W": [
+      "fascias_uk_29_50",
+      "fascias_uk_29_52",
+      "fascias_uk_29_54",
+      "fascias_uk_29_56",
+      "fascias_uk_29_58",
+      "fascias_uk_29_60",
+      "fascias_uk_29_62",
+      "fascias_uk_29_64"
+     ],
+     "N": [
+      "fascias_uk_29_51",
+      "fascias_uk_29_53",
+      "fascias_uk_29_55",
+      "fascias_uk_29_57",
+      "fascias_uk_29_59",
+      "fascias_uk_29_61",
+      "fascias_uk_29_63",
+      "fascias_uk_29_65"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_29_66",
+      "fascias_uk_29_68",
+      "fascias_uk_29_70"
+     ],
+     "N": [
+      "fascias_uk_29_67",
+      "fascias_uk_29_69",
+      "fascias_uk_29_71"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_29_72",
+      "fascias_uk_29_74"
+     ],
+     "N": [
+      "fascias_uk_29_73",
+      "fascias_uk_29_75"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_29_76",
+    "N": "fascias_uk_29_77"
+   }
+  },
+  "pub_wheatsheaf": {
+   "versions": [
+    {
+     "length": 8,
+     "W": [
+      "fascias_uk_29_78",
+      "fascias_uk_29_80",
+      "fascias_uk_29_82",
+      "fascias_uk_29_84",
+      "fascias_uk_29_86",
+      "fascias_uk_29_88",
+      "fascias_uk_29_90",
+      "fascias_uk_29_92"
+     ],
+     "N": [
+      "fascias_uk_29_79",
+      "fascias_uk_29_81",
+      "fascias_uk_29_83",
+      "fascias_uk_29_85",
+      "fascias_uk_29_87",
+      "fascias_uk_29_89",
+      "fascias_uk_29_91",
+      "fascias_uk_29_93"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_29_94",
+      "fascias_uk_29_96",
+      "fascias_uk_29_98"
+     ],
+     "N": [
+      "fascias_uk_29_95",
+      "fascias_uk_29_97",
+      "fascias_uk_29_99"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_29_100",
+      "fascias_uk_29_102"
+     ],
+     "N": [
+      "fascias_uk_29_101",
+      "fascias_uk_29_103"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_29_104",
+    "N": "fascias_uk_29_105"
+   }
+  },
+  "pub_market_hotel": {
+   "versions": [
+    {
+     "length": 7,
+     "W": [
+      "fascias_uk_30_0",
+      "fascias_uk_30_2",
+      "fascias_uk_30_4",
+      "fascias_uk_30_6",
+      "fascias_uk_30_8",
+      "fascias_uk_30_10",
+      "fascias_uk_30_12"
+     ],
+     "N": [
+      "fascias_uk_30_1",
+      "fascias_uk_30_3",
+      "fascias_uk_30_5",
+      "fascias_uk_30_7",
+      "fascias_uk_30_9",
+      "fascias_uk_30_11",
+      "fascias_uk_30_13"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_30_14",
+      "fascias_uk_30_16",
+      "fascias_uk_30_18"
+     ],
+     "N": [
+      "fascias_uk_30_15",
+      "fascias_uk_30_17",
+      "fascias_uk_30_19"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_30_20",
+      "fascias_uk_30_22"
+     ],
+     "N": [
+      "fascias_uk_30_21",
+      "fascias_uk_30_23"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_30_24",
+    "N": "fascias_uk_30_25"
+   }
+  },
+  "pub_bakers_arms": {
+   "versions": [
+    {
+     "length": 7,
+     "W": [
+      "fascias_uk_30_26",
+      "fascias_uk_30_28",
+      "fascias_uk_30_30",
+      "fascias_uk_30_32",
+      "fascias_uk_30_34",
+      "fascias_uk_30_36",
+      "fascias_uk_30_38"
+     ],
+     "N": [
+      "fascias_uk_30_27",
+      "fascias_uk_30_29",
+      "fascias_uk_30_31",
+      "fascias_uk_30_33",
+      "fascias_uk_30_35",
+      "fascias_uk_30_37",
+      "fascias_uk_30_39"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_30_40",
+      "fascias_uk_30_42",
+      "fascias_uk_30_44"
+     ],
+     "N": [
+      "fascias_uk_30_41",
+      "fascias_uk_30_43",
+      "fascias_uk_30_45"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_30_46",
+      "fascias_uk_30_48"
+     ],
+     "N": [
+      "fascias_uk_30_47",
+      "fascias_uk_30_49"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_30_50",
+    "N": "fascias_uk_30_51"
+   }
+  },
+  "pub_george": {
+   "versions": [
+    {
+     "length": 6,
+     "W": [
+      "fascias_uk_30_52",
+      "fascias_uk_30_54",
+      "fascias_uk_30_56",
+      "fascias_uk_30_58",
+      "fascias_uk_30_60",
+      "fascias_uk_30_62"
+     ],
+     "N": [
+      "fascias_uk_30_53",
+      "fascias_uk_30_55",
+      "fascias_uk_30_57",
+      "fascias_uk_30_59",
+      "fascias_uk_30_61",
+      "fascias_uk_30_63"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_30_64",
+      "fascias_uk_30_66",
+      "fascias_uk_30_68"
+     ],
+     "N": [
+      "fascias_uk_30_65",
+      "fascias_uk_30_67",
+      "fascias_uk_30_69"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_30_70",
+      "fascias_uk_30_72"
+     ],
+     "N": [
+      "fascias_uk_30_71",
+      "fascias_uk_30_73"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_30_74",
+    "N": "fascias_uk_30_75"
+   }
+  },
+  "pub_eight_bells": {
+   "versions": [
+    {
+     "length": 7,
+     "W": [
+      "fascias_uk_30_76",
+      "fascias_uk_30_78",
+      "fascias_uk_30_80",
+      "fascias_uk_30_82",
+      "fascias_uk_30_84",
+      "fascias_uk_30_86",
+      "fascias_uk_30_88"
+     ],
+     "N": [
+      "fascias_uk_30_77",
+      "fascias_uk_30_79",
+      "fascias_uk_30_81",
+      "fascias_uk_30_83",
+      "fascias_uk_30_85",
+      "fascias_uk_30_87",
+      "fascias_uk_30_89"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_30_90",
+      "fascias_uk_30_92",
+      "fascias_uk_30_94"
+     ],
+     "N": [
+      "fascias_uk_30_91",
+      "fascias_uk_30_93",
+      "fascias_uk_30_95"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_30_96",
+      "fascias_uk_30_98"
+     ],
+     "N": [
+      "fascias_uk_30_97",
+      "fascias_uk_30_99"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_30_100",
+    "N": "fascias_uk_30_101"
+   }
+  },
+  "pub_crown_hotel": {
+   "versions": [
+    {
+     "length": 7,
+     "W": [
+      "fascias_uk_30_102",
+      "fascias_uk_30_104",
+      "fascias_uk_30_106",
+      "fascias_uk_30_108",
+      "fascias_uk_30_110",
+      "fascias_uk_30_112",
+      "fascias_uk_30_114"
+     ],
+     "N": [
+      "fascias_uk_30_103",
+      "fascias_uk_30_105",
+      "fascias_uk_30_107",
+      "fascias_uk_30_109",
+      "fascias_uk_30_111",
+      "fascias_uk_30_113",
+      "fascias_uk_30_115"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_30_116",
+      "fascias_uk_30_118",
+      "fascias_uk_30_120"
+     ],
+     "N": [
+      "fascias_uk_30_117",
+      "fascias_uk_30_119",
+      "fascias_uk_30_121"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_30_122",
+      "fascias_uk_30_124"
+     ],
+     "N": [
+      "fascias_uk_30_123",
+      "fascias_uk_30_125"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_30_126",
+    "N": "fascias_uk_30_127"
+   }
+  },
+  "pub_railway_arms": {
+   "versions": [
+    {
+     "length": 7,
+     "W": [
+      "fascias_uk_31_0",
+      "fascias_uk_31_2",
+      "fascias_uk_31_4",
+      "fascias_uk_31_6",
+      "fascias_uk_31_8",
+      "fascias_uk_31_10",
+      "fascias_uk_31_12"
+     ],
+     "N": [
+      "fascias_uk_31_1",
+      "fascias_uk_31_3",
+      "fascias_uk_31_5",
+      "fascias_uk_31_7",
+      "fascias_uk_31_9",
+      "fascias_uk_31_11",
+      "fascias_uk_31_13"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_31_14",
+      "fascias_uk_31_16",
+      "fascias_uk_31_18"
+     ],
+     "N": [
+      "fascias_uk_31_15",
+      "fascias_uk_31_17",
+      "fascias_uk_31_19"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_31_20",
+      "fascias_uk_31_22"
+     ],
+     "N": [
+      "fascias_uk_31_21",
+      "fascias_uk_31_23"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_31_24",
+    "N": "fascias_uk_31_25"
+   }
+  },
+  "pub_french_horn": {
+   "versions": [
+    {
+     "length": 8,
+     "W": [
+      "fascias_uk_31_26",
+      "fascias_uk_31_28",
+      "fascias_uk_31_30",
+      "fascias_uk_31_32",
+      "fascias_uk_31_34",
+      "fascias_uk_31_36",
+      "fascias_uk_31_38",
+      "fascias_uk_31_40"
+     ],
+     "N": [
+      "fascias_uk_31_27",
+      "fascias_uk_31_29",
+      "fascias_uk_31_31",
+      "fascias_uk_31_33",
+      "fascias_uk_31_35",
+      "fascias_uk_31_37",
+      "fascias_uk_31_39",
+      "fascias_uk_31_41"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_31_42",
+      "fascias_uk_31_44",
+      "fascias_uk_31_46"
+     ],
+     "N": [
+      "fascias_uk_31_43",
+      "fascias_uk_31_45",
+      "fascias_uk_31_47"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_31_48",
+      "fascias_uk_31_50"
+     ],
+     "N": [
+      "fascias_uk_31_49",
+      "fascias_uk_31_51"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_31_52",
+    "N": "fascias_uk_31_53"
+   }
+  },
+  "pub_white_hart_inn": {
+   "versions": [
+    {
+     "length": 8,
+     "W": [
+      "fascias_uk_31_54",
+      "fascias_uk_31_56",
+      "fascias_uk_31_58",
+      "fascias_uk_31_60",
+      "fascias_uk_31_62",
+      "fascias_uk_31_64",
+      "fascias_uk_31_66",
+      "fascias_uk_31_68"
+     ],
+     "N": [
+      "fascias_uk_31_55",
+      "fascias_uk_31_57",
+      "fascias_uk_31_59",
+      "fascias_uk_31_61",
+      "fascias_uk_31_63",
+      "fascias_uk_31_65",
+      "fascias_uk_31_67",
+      "fascias_uk_31_69"
+     ]
+    },
+    {
+     "length": 3,
+     "W": [
+      "fascias_uk_31_70",
+      "fascias_uk_31_72",
+      "fascias_uk_31_74"
+     ],
+     "N": [
+      "fascias_uk_31_71",
+      "fascias_uk_31_73",
+      "fascias_uk_31_75"
+     ]
+    },
+    {
+     "length": 2,
+     "W": [
+      "fascias_uk_31_76",
+      "fascias_uk_31_78"
+     ],
+     "N": [
+      "fascias_uk_31_77",
+      "fascias_uk_31_79"
+     ]
+    }
+   ],
+   "plain": {
+    "W": "fascias_uk_31_80",
+    "N": "fascias_uk_31_81"
+   }
+  }
+ }
+}

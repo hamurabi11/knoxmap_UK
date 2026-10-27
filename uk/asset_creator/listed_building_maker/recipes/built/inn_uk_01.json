@@ -1,0 +1,113 @@
+{
+ "sheet": "inn_uk_01",
+ "items": {
+  "gable_tilehung5": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,-1": "inn_uk_01_0",
+      "0,0": "inn_uk_01_1",
+      "0,1": "inn_uk_01_2",
+      "0,2": "inn_uk_01_3",
+      "0,3": "inn_uk_01_4",
+      "0,4": "inn_uk_01_5",
+      "0,5": "inn_uk_01_6"
+     },
+     "N": {
+      "-1,0": "inn_uk_01_7",
+      "0,0": "inn_uk_01_8",
+      "1,0": "inn_uk_01_9",
+      "2,0": "inn_uk_01_10",
+      "3,0": "inn_uk_01_11",
+      "4,0": "inn_uk_01_12",
+      "5,0": "inn_uk_01_13"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "inn_sign": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "inn_uk_01_14",
+      "1,0": "inn_uk_01_15"
+     },
+     "N": {
+      "0,0": "inn_uk_01_16",
+      "0,1": "inn_uk_01_17"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "panelling": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "inn_uk_01_18"
+     },
+     "N": {
+      "0,0": "inn_uk_01_19"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "fireplace_c16": {
+   "kind": "edge",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "inn_uk_01_20",
+      "0,1": "inn_uk_01_21"
+     },
+     "N": {
+      "0,0": "inn_uk_01_22",
+      "1,0": "inn_uk_01_23"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "mural": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "inn_uk_01_24",
+      "0,1": "inn_uk_01_25"
+     },
+     "N": {
+      "0,0": "inn_uk_01_26",
+      "1,0": "inn_uk_01_27"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "frame_exposed": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "inn_uk_01_28"
+     },
+     "N": {
+      "0,0": "inn_uk_01_29"
+     }
+    }
+   },
+   "storeys": 1
+  }
+ }
+}

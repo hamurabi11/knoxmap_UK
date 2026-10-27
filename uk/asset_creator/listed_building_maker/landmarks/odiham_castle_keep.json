@@ -1,0 +1,17 @@
+{
+ "kind": "structure", "map": "Odiham_castle",
+ "name": "Odiham Castle (King John's Castle): the keep",
+ "about": "The ruined octagonal keep of King John's castle (1207-14), standing alone in its clearing by the Basingstoke Canal. A scheduled monument. On its own map for now (Odiham_castle, turned as Odiham is), to join to Odiham's later.",
+ "evidence": [
+  "Wikipedia (Odiham Castle, facts only): built 1207-14, 'a three-storey stone keep ... The only visible remains are part of the octagonal keep and outlying earthworks', at 51.26142 N 0.96172 W.",
+  "OSM: the keep's walls as a barrier=wall ring about 17 m across, centre (463, 442) on this map: the ruin stands on it and replaces it.",
+  "Photos (Commons, Category:Odiham Castle, looked at only): pale grey flint rubble, two to three storeys, ragged tops, broken low on one side, round-arched breaches, a round window, putlog holes."
+ ],
+ "box": [453, 432, 473, 452],
+ "clear_fences": [452, 431, 474, 453],
+ "pieces": [
+  [0, "keep", 453, 432, "S"],
+  [0, "rubble", 462, 451, "S"], [0, "rubble", 464, 452, "E"], [0, "rubble", 459, 450, "E"],
+  [0, "rubble", 466, 440, "S"], [0, "rubble", 461, 437, "E"]
+ ]
+}

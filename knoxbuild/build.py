@@ -821,8 +821,9 @@ def _detect_zones(landscape_path: str, placements, rng_seed: int = 7,
                 stall = box(x, y, x + sw, y + sh)
                 if not lot.contains(stall):
                     continue
-                if any(px[i, j] not in hard for i in (x, x + sw - 1)
-                       for j in (y, y + sh - 1)):
+                # Every square hard standing, not only the corners (KnoxMap UK,
+                # 2026-10-19: stalls ran onto fences and verges between them).
+                if any(px[i, j] not in hard for i in range(x, x + sw) for j in range(y, y + sh)):
                     continue
                 if built is not None and any(buildings[int(i)].intersects(stall)
                                              for i in built.query(stall)):
@@ -859,7 +860,16 @@ def _detect_zones(landscape_path: str, placements, rng_seed: int = 7,
             if rng.random() > chance:
                 continue
             vertical = is_asphalt(x, y - 2) or is_asphalt(x, y + 2)
-            sw, sh = (STALL_W, STALL_H) if vertical else (STALL_H, STALL_W)
+            # KnoxMap UK (in game, 2026-10-19: a van on a garden fence at a
+            # bend): the whole stall on the carriageway, every square of it -
+            # the other way round, or a step back, when the first will not fit.
+            for sw, sh, dx, dy in ((STALL_W, STALL_H, 0, 0), (STALL_H, STALL_W, 0, 0),
+                                   (STALL_W, STALL_H, -2, -2), (STALL_H, STALL_W, -2, -2))[0 if vertical else 1:]:
+                if all(is_asphalt(i, j) for i in range(x + dx, x + dx + sw) for j in range(y + dy, y + dy + sh)):
+                    break
+            else:
+                continue
+            x, y = x + dx, y + dy
             # Not on a petrol station's forecourt, where the pumps stand.
             if any(x < fx + fw and fx < x + sw and y < fy + fh and fy < y + sh
                    for fx, fy, fw, fh in keep_clear):
@@ -902,6 +912,17 @@ def _ring_points(geom: dict) -> list[list[float]]:
 
 
 STREET_LOOK_TILES = 40
+# Kinds a regional step's knox_dwelling may replace (the guesses: house, shed,
+# flats, a shop from a stray point or the land around it); a church, school,
+# surgery or anything else its own tags make it keeps that.
+DWELLING_OVERRIDES = {None, "house", "shed", "apartment", "shop", "civic"}
+# A "works" (no home, no shop point: shops.py) stays a shop or civic building
+# when its building tag is one of these (else it is industrial).
+WORKS_KEEP = {"office", "commercial", "retail", "supermarket", "shop", "kiosk", "hotel", "civic", "public",
+              "government", "townhall", "bank"}
+ANNEX_SHED_M2 = 60
+ROOMS_PER_FLOOR = 4      # rooms a storey of a small home is sized for...
+MIN_HOME_ROOM = 12       # ...none smaller than this many tiles
 # How far off a wall counts as standing at the water's edge. A building this
 # close to water on one side has its door on another.
 SHORE_LOOK_TILES = 6
@@ -1071,7 +1092,7 @@ def _points_of_use(out_dir: str, info: dict, map_name: str, proj) -> dict:
         # Where the renderer moved them to, with the roads straightened.
         from generator.octilinear import straighten_roads
         from generator.renderer import _is_polygon, classify
-        straighten_roads(feats, proj, classify, _is_polygon)
+        straighten_roads(feats, proj, classify, _is_polygon, map_dir=out_dir)
     for feat in feats:
         if feat.kind != "node" or not (
             any(k in feat.tags for k in USE_KEYS) or "entrance" in feat.tags):
@@ -1215,7 +1236,9 @@ def _make_one(job: tuple) -> tuple:
     reason, instead of stopping the other two thousand."""
     (w, h, levels, commercial, seed, kind, mask, settings, style, label, path, street, retail,
         uses, hotel, entrances, profile, mapped, garage_door, preset_file,
-        party) = job
+        party, *planned) = job
+    # A roof planned part by part (knoxbuild/regional_uk.py), when there is one.
+    roof = planned[0] if planned else None
     if preset_file:
         # A building somebody built by hand, used as it was built. Nothing is
         # re-rendered and nothing is stretched: the file that was saved is the
@@ -1232,13 +1255,75 @@ def _make_one(job: tuple) -> tuple:
         from . import presets as P
         about = P.measure(text) or {"storeys": 1, "rooms": 0}
         return (about["storeys"], about["rooms"], 0, None, [])
+    if os.environ.get("KNOXMAP_ROOMS_DUMP"):
+        # KnoxMap UK: each house as the room solver would get it (rooms_uk.dump_job)
+        from . import rooms_uk
+        rooms_uk.dump_job(os.environ["KNOXMAP_ROOMS_DUMP"], job, roof)
     try:
-        plan = build_building(w, h, levels=levels, commercial=commercial, seed=seed,
-                              kind=kind, mask=mask, settings=settings, street=street,
-                              retail=retail, uses=uses, hotel=hotel, party=party,
-                              entrances=entrances, profile=profile,
-                              mapped=mapped, garage_door=garage_door)
-        text = render_tbx(plan, label, style)
+        plan = None
+        if style and style.get("uk_map"):
+            # KnoxMap UK: shop fittings their rooms' loot tables fill (loot_uk.py)
+            from . import loot_uk
+            loot_uk.apply()
+        if style and style.get("superstore"):
+            # KnoxMap UK: a superstore's inside from the game's Gigamarts (superstore_uk.py)
+            from . import superstore_uk
+            superstore_uk.register()
+            try:
+                plan = superstore_uk.plan_for_job(job, roof)
+            except Exception:  # noqa: BLE001 - Build's own layout
+                plan = None
+            if plan is not None:
+                plan.stepped = True         # its roof plan's two storeys (superstore_uk.roof)
+                style = dict(style, one_interior=True)      # one plain paint, as the game's Gigamarts
+        if plan is None and style and style.get("uk_rooms"):
+            # KnoxMap UK: an English house's rooms from the room solver
+            # (rooms_uk.py, KNOXMAP_UK_ROOMS=1), else Build's own layout
+            from . import rooms_uk
+            if rooms_uk.enabled():
+                try:
+                    plan = rooms_uk.plan_for_job(job, roof)
+                except Exception:  # noqa: BLE001 - that house keeps Build's own layout
+                    plan = None
+                if plan is not None and roof and roof.get("level_masks"):
+                    # laid out on the roof plan's storey masks (rooms_uk.house_from_job), so the planned
+                    # roof goes on it too: render_tbx takes the plan's pieces only from a stepped
+                    # building, and without this every room-solver house got Build's own roof
+                    # (turned_buildings LOG #D32)
+                    plan.stepped = True
+        if plan is None:
+            plan = build_building(w, h, levels=levels, commercial=commercial, seed=seed,
+                                  kind=kind, mask=mask, settings=settings, street=street,
+                                  retail=retail, uses=uses, hotel=hotel, party=party,
+                                  entrances=entrances, profile=profile,
+                                  mapped=mapped, garage_door=garage_door,
+                                  level_masks=roof["level_masks"] if roof else None)
+        if style and style.get("uk_map") and not style.get("landmark") and not style.get("superstore"):
+            # KnoxMap UK: pillars in big open rooms, as the game's Gigamarts have (pillars_uk.py)
+            from . import pillars_uk
+            for storey in plan.storeys:
+                pillars_uk.add(storey)
+        if style and style.get("landmark"):
+            # KnoxMap UK: a landmark built to its own description (landmark_uk.py)
+            from . import landmark_uk
+            plan, roof, style = landmark_uk.dress(plan, roof, style)
+        elif style and style.get("garage"):
+            # KnoxMap UK: a house's garage door (regional_uk.garage_for)
+            from . import regional_uk
+            role = style["garage"]["role"]
+            # (the role registered in this worker too: tbx.py writes its tiles from catalog.FURNITURE)
+            if role.startswith("uk_loading_"):
+                regional_uk.loading_role(role[len("uk_loading_"):])
+            else:
+                regional_uk.garage_role(role[len("uk_garage_"):])
+            regional_uk.lay_garage(plan, style["garage"])
+            if style.get("superstore"):
+                # KnoxMap UK: a big store's second lorry dock beside the first (superstore_uk)
+                from . import superstore_uk
+                superstore_uk.second_dock(plan, style["garage"])
+        if style and style.get("front_door"):
+            style = dict(style, street_side=street)      # the UK front door on the street's side (tbx.py)
+        text = render_tbx(plan, label, style, roof_plan=roof)
     except Exception:  # noqa: BLE001
         import traceback
         return (0, 0, 0, f"{os.path.basename(path)} ({kind or 'house'}, {w}x{h}, "
@@ -1272,11 +1357,14 @@ def _code_fingerprint() -> str:
     h = hashlib.sha1()
     here = os.path.dirname(os.path.abspath(__file__))
     for name in sorted(os.listdir(here)):
-        if name.endswith(".py"):
+        # KnoxMap UK: the room solver's tables (rooms_uk.json) lay houses out too
+        if name.endswith(".py") or name == "rooms_uk.json":
             h.update(name.encode())
             with open(os.path.join(here, name), "rb") as f:
                 h.update(f.read())
     h.update(b"erika" if _erika_ready() else b"vanilla")
+    from . import rooms_uk
+    h.update(b"rooms_uk" if rooms_uk.enabled() else b"build_rooms")
     return h.hexdigest()
 
 
@@ -1325,6 +1413,10 @@ def _make_all(jobs: list[tuple], tick=None) -> list[tuple[int, int, int]]:
                 tick(len(out), len(jobs))
         return out
 
+    # KnoxMap UK: the houses' room layouts solved before the pool starts
+    # (rooms_uk.prepare: the cache, so each worker only reads it)
+    from . import rooms_uk
+    rooms_uk.prepare(jobs)
     workers = int(os.environ.get("KNOXBUILD_WORKERS") or
                   max(1, min(12, (os.cpu_count() or 2) - 2)))
     if workers <= 1 or len(jobs) < PARALLEL_FROM:
@@ -1359,6 +1451,10 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
     (0 to 1, or None when that is not known). The fractions are rough: where
     each stage starts, not a measured share of the time.
     """
+    # KnoxMap UK: this map's houses laid out by the room solver when its
+    # folder has rooms_uk.on (rooms_uk.switch_for), as KNOXMAP_UK_ROOMS=1
+    from . import rooms_uk
+    rooms_uk.switch_for(out_dir)
     def say(text: str, fraction: float | None = None) -> None:
         if progress:
             progress(text, fraction)
@@ -1390,11 +1486,22 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
         print(f"{out_dir} is missing what the map is or its buildings - "
               f"generate the map again", file=sys.stderr)
         return 2
+    # Styles and per-building choices from a regional data pipeline, if the
+    # map folder has them (knoxbuild/regional_uk.py). Nothing changes without.
+    from . import regional_uk as uk
+    overlay = uk.load(out_dir)
+    # KnoxMap UK: no UK tile at all (uk_assets.off): the regional data comes without
+    # them (uk.load) and the UK pieces below are left out (assets_uk.py)
+    from . import assets_uk
+    uk_tiles = overlay is not None and not assets_uk.off(out_dir)
+    uk.apply_palette(overlay)
+    geo = uk.join_units(geo, overlay)          # KnoxMap UK: a landmark's units as one building
 
     bbox = info["bbox"]
     proj = Projector.build(bbox["south"], bbox["west"], bbox["north"],
                            bbox["east"], info["meters_per_tile"],
                            info.get("rotation") or 0.0)
+    geo = uk.extend_outlines(geo, overlay, proj)   # KnoxMap UK: a landmark's parts the outline misses
     if (proj.width, proj.height) != (info["width_tiles"], info["height_tiles"]):
         print("projection does not match the rendered BMP - is this folder "
               "from a different Knoxify version?", file=sys.stderr)
@@ -1464,6 +1571,7 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
     squared = 0    # buildings close enough to the grid to square up
     rows_split = 0   # rows of shops or terraces cut into their units
     units_made = 0   # and how many buildings those became
+    garages = 0      # KnoxMap UK: houses given an integrated garage (regional_uk.garage_for)
     split_large = 0  # and buildings past max_size kept by cutting them
 
     areas = AreaIndex.load(out_dir, map_name, proj)
@@ -1475,6 +1583,12 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
     # Real outlines of the buildings placed, for the in-game paper map.
     outlines: list[tuple[list[tuple[float, float]], str, str]] = []
     occupied = np.zeros((proj.height, proj.width), dtype=bool)
+    # KnoxMap UK: ground held for buildings set in after the compile (turned rows, rotate.plan_step):
+    # nothing else is placed there and no path, drive or yard crosses it.
+    reserved = os.path.join(out_dir, f"{map_name}_reserved.npz")
+    if os.path.exists(reserved):
+        held = np.load(reserved)["mask"][:proj.height, :proj.width]
+        occupied[:held.shape[0], :held.shape[1]] |= held
     # ...and the ground covered by a lot rectangle rather than by a building's
     # own tiles, which is more ground whenever the footprint is not a rectangle
     # (footprint._clear_box). Lots may not overlap: WorldEd writes each of them
@@ -1488,8 +1602,10 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
     # not be the town hall giving way to the shed behind it.
     order = []
     jobs: list[tuple] = []       # what each building needs to lay itself out
+    roof_plans: list = []        # and its roof planned part by part, if any
     street_side = _street_finder(out_dir, map_name, road_hierarchy)
     stations: list[tuple] = []   # petrol stations, for their pumps
+    beer_gardens: list[tuple] = []   # KnoxMap UK: pubs, for their gardens' benches (beer_gardens.py)
     gunshops: set[str] = set()   # and the buildings OSM says sell weapons
     canopies: list[list] = []    # and the canopies over their forecourts
     decided: list[tuple] = []    # and what the map needs to know about it
@@ -1603,6 +1719,8 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
         if placed_so_far % 64 == 0:
             knoxstop.check(should_stop, "the buildings")
         feat = geo["features"][i]
+        # A footprint a regional step already laid on the tiles keeps them.
+        exact = bool(feat.get("properties", {}).get("placed"))
         oversize = False
         if retry:
             # A building past max_size is not thrown away any more: the
@@ -1616,23 +1734,45 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
             fp, reason = place(px, occupied, min_side=min_size, max_side=1e9,
                        snap_degrees=settings.square_buildings,
                        avoid=road_weight, lots=lots,
-                       alignment=settings.building_alignment)
+                       alignment=settings.building_alignment, exact=exact)
             oversize = fp is not None
         else:
-            fp, reason = place(px, occupied, min_side=min_size, max_side=max_size,
+            # KnoxMap UK: a landmark is never deferred as too large - placed last,
+            # its neighbours had taken its edges (Westminster Hall's west side)
+            big_ok = bool((uk._entry(overlay, feat["properties"].get("osm_id")) or {}).get("landmark"))
+            fp, reason = place(px, occupied, min_side=min_size, max_side=1e9 if big_ok else max_size,
                        snap_degrees=settings.square_buildings,
                        avoid=road_weight, lots=lots,
-                       alignment=settings.building_alignment)
+                       alignment=settings.building_alignment, exact=exact)
             if fp is None and reason == "large":
                 if -_neg_area <= MAX_OVERSIZE_TILES:
                     deferred_large.append((_neg_area, i, px))
                 else:
                     skipped["large"] += 1
+                    listed = (uk._entry(overlay, feat["properties"].get("osm_id")) or {}).get("listed")
+                    if listed:
+                        print(f"listed {listed.get('entry')} ({feat['properties'].get('osm_id')}): not placed - too large")
                 continue
         if fp is None:
             skipped[reason] += 1
+            # KnoxMap UK: a listed building left out is said by name, not only counted
+            listed = (uk._entry(overlay, feat["properties"].get("osm_id")) or {}).get("listed")
+            if listed:
+                print(f"listed {listed.get('entry')} ({feat['properties'].get('osm_id')}, "
+                      f"{listed.get('name', '')[:40]}): not placed - {reason}")
             continue
         x0, y0, w, h = fp.x0, fp.y0, fp.width, fp.height
+        # KnoxMap UK: a landmark's courts stay open. place() draws the outer ring
+        # only (Parliament's ten courts came out as offices): its inner rings are
+        # taken back out of the mask and the ground under them freed.
+        if (uk._entry(overlay, feat["properties"].get("osm_id")) or {}).get("landmark") and \
+                feat["geometry"].get("type") == "Polygon" and len(feat["geometry"]["coordinates"]) > 1:
+            from shapely import contains_xy
+            xs_, ys_ = np.meshgrid(np.arange(w) + x0 + 0.5, np.arange(h) + y0 + 0.5)
+            for ring in feat["geometry"]["coordinates"][1:]:
+                court = contains_xy(Polygon([proj.to_px(lat, lon) for lon, lat in ring]), xs_, ys_)
+                fp.mask[court] = False
+                occupied[y0:y0 + h, x0:x0 + w][court] = False
         if fp.angle <= 8.0:
             squared += 1
 
@@ -1651,7 +1791,14 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
         special = classify_building(tags)
         # What is really in it: its own tags and the shops, restaurants and
         # offices mapped as points inside it.
-        inside = [tags] + _points_inside(points, px, points_taken)
+        # A regional step that placed this building itself (and so knows
+        # where its shops really are) lists them as knox_uses: the points
+        # the straightening moved would miss it, or fall in the house next door.
+        if "knox_uses" in tags:
+            inside = [tags] + list(tags.get("knox_uses") or [])
+        else:
+            inside = [tags] + _points_inside(points, px, points_taken)
+        inside = uk.uses_with(overlay, tags.get("osm_id"), inside)   # KnoxMap UK: a Spiffo's the regional step chose
         uses = uses_of(inside)
         special = _business_kind(special, uses)
         if special == "garage":
@@ -1660,6 +1807,8 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
         hotel = is_hotel(inside)
         if ("gasstore", "storage") in uses:
             stations.append((x0, y0, w, h, street_side(x0, y0, w, h)))
+        if overlay is not None and (uk._entry(overlay, tags.get("osm_id")) or {}).get("beer_garden"):
+            beer_gardens.append((x0, y0, w, h, uk.front_of(overlay, tags.get("osm_id")) or street_side(x0, y0, w, h)))
         offices_only = bool(uses) and all(u == ("office", "office") for u in uses)
         if uses:
             with_uses += 1
@@ -1683,6 +1832,15 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
             # mapper's height says so more reliably than the zoning does.
             if around == "shop" and (levels_from_tags(tags, here) or 0) >= 3:
                 around = None
+            # A regional step that looked for this building's uses (shop
+            # points, business rates, food ratings) and found none knows
+            # better than the zoning: a retail area drawn over a High
+            # Street's back land made every cottage behind it a shop, and a
+            # cemetery made the houses beside it churches. A named site
+            # (amenity=school, leisure=sports_centre) still says what the
+            # buildings on it are; a landuse=* zone does not.
+            if around and "knox_uses" in tags and (areas.around(cx, cy) or {}).get("landuse"):
+                around = None
             if around:
                 special = around
                 from_area += 1
@@ -1691,6 +1849,33 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
                                                     here):
             special = "apartment"
             commercial = True
+        # What a regional step found the building to be, from its own addresses
+        # (KnoxMap UK: Building_types/src/buildings/shops.py), wins over every guess above
+        # - but not over a church, a school or anything else its tags make it.
+        dwelling = tags.get("knox_dwelling")
+        if dwelling and special in DWELLING_OVERRIDES:
+            if dwelling == "house":
+                special, commercial = None, False
+            elif dwelling == "flats":
+                special, commercial = "apartment", True
+            elif dwelling in ("shop", "shop_flats"):
+                special = special if special in ("shop", "restaurant") else "shop"
+                commercial = True
+            elif dwelling == "works":
+                # No home and no shop in it (KnoxMap UK shops.py): a works,
+                # a depot or offices - never flats or a house by its size.
+                # Kept a shop or civic building only where its own tags say
+                # so (its building type, or a use on the way itself), never
+                # by the land round it (review, 2026-10-14: 7 of Alton's
+                # supermarkets with no shop point were built as works).
+                own_use = btag in WORKS_KEEP or any(tags.get(k) for k in ("shop", "amenity", "tourism", "office"))
+                special = special if special in ("civic", "shop") and own_use else "industrial"
+                commercial = True
+            elif dwelling == "annex":
+                # A back range or store of a building whose addresses are in
+                # its other parts: a shed when small, else back rooms.
+                special = "shed" if real_m2 <= ANNEX_SHED_M2 else None
+                commercial = True
         levels, measured = building_levels(tags, special, fp.tiles,
                                            style_rng, here,
                                            metres_per_tile=metres_per_tile,
@@ -1707,6 +1892,11 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
             levels = max(1, min(top, int(round(nearby)) +
                                 style_rng.choice((-1, 0, 0, 1))))
             from_near += 1
+        # Storeys a regional step measured (knoxbuild/regional_uk.py) win over
+        # every guess above, and come before anything decided from them: flats
+        # over a shop, a theatre's height, the building's profile.
+        levels = uk.levels_for(overlay, tags.get("osm_id"), levels,
+                               settings.max_levels)
         if hotel:
             special = "apartment"      # its flats are guest rooms
         elif any(back == "theatre" for _front, back in uses):
@@ -1714,8 +1904,11 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
             # few storeys of hall, not a tower.
             special = "civic"
             levels = min(levels, THEATRE_MAX_LEVELS)
-        elif special in ("shop", "restaurant") and uses and levels >= 3 and \
+        elif special in ("shop", "restaurant") and uses and dwelling != "shop" and \
+                (levels >= 3 or (tags.get("knox_flats_over") and levels >= 2)) and \
                 btag not in ("retail", "commercial", "supermarket", "shop", "kiosk"):
+            # (From two storeys where a regional step found homes in it too:
+            # a High Street shop with a flat over it.)
             # A pizza place in a five-storey building is flats over a pizza
             # place, not a five-storey pizza place - unless the building is
             # offices: a company inside it, or a name like "Americas Tower".
@@ -1731,6 +1924,7 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
                            x0, y0, style_rng, here,
                            density=local_density, profile=profile,
                            region=region)
+        style = uk.style_for(overlay, tags.get("osm_id"), special, style)
         # A zone may pin its buildings to one set of walls - the estate on the
         # hill all the same brick - however many styles the rest of the map
         # has. A name nothing answers to leaves the style it would have had.
@@ -1746,8 +1940,15 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
         # A row of shops or a terrace of houses is one polygon here; built as
         # one building it is the "uber building" players reported. Each unit
         # becomes its own building, standing wall to wall with the next.
-        units = row_units(fp, special, btag, len(uses), metres_per_tile,
-                          max_side=max_size if oversize else None)
+        # A building whose units a regional step cut from its addresses is one
+        # property already: not split again.
+        # KnoxMap UK: a landmark built to its own description is one building
+        # however big (the Palace of Westminster: 21,000 squares, 292 long) -
+        # cut into units, none of them would carry its description.
+        landmark = bool((uk._entry(overlay, tags.get("osm_id")) or {}).get("landmark"))
+        units = [fp] if (dwelling and not oversize) or landmark else \
+            row_units(fp, special, btag, len(uses), metres_per_tile,
+                      max_side=max_size if oversize else None)
         if oversize:
             split_large += 1
         unit_mapped = _rooms_by_unit(mapped, fp, units, proj)
@@ -1759,7 +1960,10 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
         if len(units) > 1:
             rows_split += 1
             units_made += len(units)
+        base_style = style       # each piece starts from the building's own (a piece's garage,
+                                 # front door or landmark stays its own: Alton, 2026-10-25)
         for n, unit in enumerate(units):
+            style = base_style
             ux0, uy0 = unit.x0, unit.y0
             uw, uh = unit.width, unit.height
             umask = unit.mask_list()
@@ -1773,6 +1977,21 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
                      name or f"{map_name} building {i}")
             if ("gunstore", "storage") in unit_uses:
                 gunshops.add(fname)
+            # A roof planned part by part from regional data, with the storeys
+            # each part stands to (knoxbuild/regional_uk.py).
+            roof_tiles = style.get("roof") or {}
+            has30 = ("CapPeak30S1" in ((roof_tiles.get("caps") or {}).get("tiles") or {})
+                     and "Slope30S1" in ((roof_tiles.get("slopes") or {}).get("tiles") or {}))
+            roof = uk.roof_plan(overlay, tags.get("osm_id"), ux0, uy0, unit.mask,
+                                      roof30=has30)
+            if style.get("superstore"):
+                # KnoxMap UK: a superstore one storey, its staff floor over the back (superstore_uk)
+                from . import superstore_uk
+                side = (uk.front_of(overlay, tags.get("osm_id")) or tags.get("knox_front")
+                        or street_side(ux0, uy0, uw, uh))
+                roof = superstore_uk.roof(ux0, uy0, umask, uw, uh, side, roof)
+                style = dict(style, superstore_front=side)      # its outside (storefront_uk.py)
+            roof_plans.append(roof)
             # A hand-built building for this plot: one its zone names, or one
             # built to stand in for this kind of building where that kind is
             # switched on. The zone is asked first, because a zone is the
@@ -1793,11 +2012,66 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
                 if pick is not None:
                     preset_file = pick["file"]
                     used_presets[pick["name"]] += 1
-            jobs.append((uw, uh, levels, commercial, seed + i * 31 + n, special, umask,
-                         here, style, label, os.path.join(bdir, fname),
-                         street_side(ux0, uy0, uw, uh),
-                         # Shops under flats where the town is built up.
-                         context.density(cx, cy) >= RETAIL_DENSITY,
+            # A home a regional step cut from its addresses can be a narrow
+            # English terrace house, 5 or 6 m wide: rooms sized for its floor
+            # (about ROOMS_PER_FLOOR a storey), or the stairs and one room
+            # are all that fit.
+            job_settings = here
+            if dwelling in ("house", "flats", "shop_flats"):
+                floor = int(sum(map(sum, umask))) if umask else uw * uh
+                fit = max(MIN_HOME_ROOM, min(here.room_size, round(floor / ROOMS_PER_FLOOR)))
+                if fit < here.room_size:
+                    from dataclasses import replace as _replace
+                    job_settings = _replace(here, room_size=fit)
+            # KnoxMap UK: each home its own front door (regional_uk.front_door),
+            # house by house along a terrace.
+            if uk_tiles:
+                style = uk.with_front_door(style, special, f"{tags.get('osm_id') or label}:{n}",
+                                           uk.door_of(overlay, tags.get("osm_id")),
+                                           uk.surround_of(overlay, tags.get("osm_id")))
+                # ...and a landmark its own description (landmark_uk.py)
+                landmark = uk.landmark_of(overlay, tags.get("osm_id"), ux0, uy0)
+                if landmark and len(units) == 1:
+                    style = dict(style, landmark=landmark)
+                elif landmark and n == 0:
+                    print(f"landmark {tags.get('osm_id')}: its building was cut into {len(units)} units - "
+                          f"not built to its description (join its units, or give it one outline)")
+                # ...and a house its garage (to-do K09.24): the flat-roofed wing
+                # beside it, or one built in; a room of its own on the ground
+                # floor (laid out as a mapped room), its door laid after (_make_one)
+                elif (overlay is not None and len(units) == 1
+                      and (uk._entry(overlay, tags.get("osm_id")) or {}).get("loading")
+                      and (uk._entry(overlay, tags.get("osm_id"))["loading"].get("kind") or "industrial") in ("*", special)):
+                    # KnoxMap UK: an industrial unit's roller shutter, a barn's cart doors (regional_uk.loading_for),
+                    # laid as a garage door is (lay_garage)
+                    # (a plain rectangle has no mask: the whole box is the unit)
+                    garage = uk.loading_for(overlay, tags.get("osm_id"),
+                                            umask if umask is not None else [[1] * uw for _ in range(uh)],
+                                            uk.front_of(overlay, tags.get("osm_id")) or tags.get("knox_front")
+                                            or street_side(ux0, uy0, uw, uh))
+                    if garage:
+                        style = dict(style, garage=garage)
+                        garages += 1
+                elif special in (None, "house") and not unit_uses:
+                    garage = uk.garage_for(overlay, tags.get("osm_id"), roof, umask,
+                                           uk.front_of(overlay, tags.get("osm_id")) or tags.get("knox_front") or street_side(ux0, uy0, uw, uh))
+                    if garage:
+                        gx0, gy0, gx1, gy1 = garage["rect"]
+                        unit_mapped[n] = list(unit_mapped[n]) + [
+                            ([(gx0, gy0), (gx1, gy0), (gx1, gy1), (gx0, gy1)], "garage")]
+                        style = dict(style, garage=garage)
+                        garages += 1
+            jobs.append((uw, uh, roof["levels"] if roof else levels, commercial,
+                         seed + i * 31 + n, special, umask,
+                         job_settings, style, label, os.path.join(bdir, fname),
+                         # The street side a regional step found (the road, not
+                         # a yard), else the nearest paving.
+                         uk.front_of(overlay, tags.get("osm_id")) or tags.get("knox_front") or street_side(ux0, uy0, uw, uh),
+                         # Shops under flats where the town is built up - unless
+                         # a regional step looked for this building's uses: then
+                         # only where it found one (no shop is made up).
+                         bool(unit_uses) if "knox_uses" in tags
+                         else context.density(cx, cy) >= RETAIL_DENSITY,
                          # What the ground floor really is, and a hotel's rooms.
                          unit_uses, hotel, entrances_by_unit[n], profile,
                          unit_mapped[n],
@@ -1821,7 +2095,7 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
         view[dfp.mask[:view.shape[0], :view.shape[1]]] = j
     for j, d in enumerate(decided):
         jobs[j] = jobs[j] + (_party_walls(owner, j, d[2], d[3], d[6].mask,
-                                          [job[2] for job in jobs]),)
+                                          [job[2] for job in jobs]), roof_plans[j])
 
     # Every decision above is made in order, from one random stream, so the
     # town comes out the same each time. What is left - laying out rooms and
@@ -1883,6 +2157,7 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
             "kind": special or "house",
             "building": btag,
             "style": style["name"],
+            "landmark": int(bool(style.get("landmark"))),     # KnoxMap UK: its doors get paths (yards.py)
             "shaped": int(mask is not None),
             "angle": round(fp.angle, 1),
         })
@@ -1925,6 +2200,19 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
                                   on_top=True)
     escalator_placements = pack_loose(bdir, map_name, "escalators",
                                       escalator_squares, on_top=True)
+    # Chimney stacks on the ridges of roofs planned from regional data.
+    stacks = []
+    aerials = []
+    facing = uk.aerial_facing(proj)
+    for d, roof in zip(decided, roof_plans):
+        # KnoxMap UK: no stack where the style has none (a superstore: regional_uk no_chimney)
+        mine = [] if (d[11] or {}).get("no_chimney") else uk.chimney_tiles(roof, d[2], d[3], uk.chimney_for(d[11]))
+        stacks += mine
+        # ...and on most homes' first stack a TV aerial, a level over it.
+        aerials += uk.aerial_tiles(mine, d[8], d[0], facing) if uk_tiles else []
+    stacks += aerials
+    chimney_placements = pack_loose(bdir, map_name, "chimneys", stacks, on_top=True) \
+        if stacks else []
 
     say("Petrol pumps, graves and other props", 0.74)
     # Pumps on a forecourt at each petrol station, including those mapped as
@@ -1935,6 +2223,14 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
     forecourts: list = []
     pump_placements, n_pumps = place_pumps(out_dir, map_name, bdir, occupied,
                                            stations, loose_fuel, forecourts, canopies)
+    if uk_tiles:
+        # KnoxMap UK: a superstore's front outside - canopy, bollards, window posters, phone
+        # boxes, bins (storefront_uk.py)
+        from .storefront_uk import place_storefronts
+        pump_placements = pump_placements + place_storefronts(out_dir, map_name, bdir, occupied, decided)
+    from .beer_gardens import place_benches
+    bench_placements, n_benches = place_benches(out_dir, map_name, bdir, occupied, beer_gardens, overlay)
+    pump_placements = pump_placements + bench_placements
 
     # Headstones in the churchyards, stores on the army bases: land uses that
     # are neither a building nor a colour of ground.
@@ -1942,6 +2238,13 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
     prop_placements, prop_counts = place_props(out_dir, map_name, bdir, occupied,
                                                areas, metres_per_tile,
                                                seed=seed + 5)
+    # KnoxMap UK's easter egg: a police box alone in a field (easter_egg.py).
+    egg = []
+    if uk_tiles:
+        from .easter_egg import police_box
+        egg = police_box(out_dir, map_name, occupied)
+        print(f"easter egg            : {'police box at %d,%d' % egg[0][:2] if egg else 'no field for it'}")
+    prop_placements = prop_placements + (pack_loose(bdir, map_name, "easter_egg", egg, on_top=True) if egg else [])
 
     if used_presets:
         tally = ", ".join(f"{name} x{n}" for name, n in used_presets.most_common(6))
@@ -1993,7 +2296,7 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
         structure_placements, raised = job_structures.result()
     placements = (placements + fence_placements + structure_placements +
                   pump_placements + prop_placements + light_placements
-                  + escalator_placements)
+                  + escalator_placements + chimney_placements)
 
     say("Writing the WorldEd project", 0.95)
     pzw_path = os.path.join(out_dir, f"{map_name}.pzw")
@@ -2038,6 +2341,8 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
           f"{squared} squared up ({shaped} with irregular outlines)")
     print(f"  kind from land use  : {from_area}")
     print(f"  sheds and garages   : {sheds}")
+    if garages:
+        print(f"  integrated garages  : {garages}")
     print(f"  rows cut into units : {rows_split} rows -> {units_made} buildings")
     if thinning:
         print(f"  town laid out for PZ: {thinning['thinned']} houses left out, "
@@ -2060,12 +2365,17 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
     n_park = sum(1 for z in zones if z.kind == "ParkingStall")
     n_town = sum(1 for z in zones if z.kind == "TownZone")
     print(f"zones                 : {n_park} parking, {n_town} town")
+    print(f"beer gardens          : {n_benches} benches at {len(beer_gardens)} pubs")
     print(f"petrol stations       : {n_pumps} pumps at {len(stations)} stations"
           f", {len(canopies)} canopies and {len(loose_fuel)} points")
     print(f"front paths, yards    : {paths} houses, {len(yard_fences)} back yards")
     print(f"graves, army stores  : {prop_counts['graves']} graves, "
           f"{prop_counts['dumps']} stacks of stores")
     print(f"porch lights         : {len(porch_lights)} by front doors")
+    from .fences import WAYS_LAID
+    if WAYS_LAID:
+        print("ways through (OSM)    : " + ", ".join(f"{k} {n}" for k, n in sorted(WAYS_LAID.items())))
+        WAYS_LAID.clear()                                  # (the next map built in this process counts its own)
     print(f"fences                : {fence_tiles} fence tiles in "
           f"{len(fence_placements)} lots")
     print(f"bridges, monuments    : {raised['bridges']} bridges, "
@@ -2096,6 +2406,15 @@ def build(out_dir: str, seed: int | None = None, min_size: int | None = None,
                 knoxlog.log.warning("building left out: %s", error)
         except Exception:  # noqa: BLE001 - the printout is the record then
             pass
+    # KnoxMap UK: hard checks on what was written (knoxbuild/checks.py) - a storey
+    # with no rooms fails the build (the game makes every square of it outdoors)
+    from .checks import check_buildings
+    empty = check_buildings(bdir, rows)
+    if empty:
+        print(f"FAILED: {len(empty)} storeys with no rooms:", file=sys.stderr)
+        for line in empty:
+            print(f"  {line}", file=sys.stderr)
+        return 1
     return 0
 
 

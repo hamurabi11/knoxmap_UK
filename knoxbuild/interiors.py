@@ -125,6 +125,7 @@ STORE_WEIGHTS = {"generalstore": 3, "grocery": 2, "conveniencestore": 3, "clothi
 # (the shelf and a two-tile aisle).
 MIN_SALES_FLOOR = 20
 ROW_EVERY = 3
+SHALLOW_SALES = 12      # a sales floor shallower than this starts its rows a tile nearer the front
 BOOKCASE_ROW_EVERY = 4
 CROSS_AISLE_EVERY = 8
 # Mannequins, drinks machines or bins inside the shop front, at most.
@@ -354,6 +355,11 @@ def furnish_store(plan, idx: int, room, rng: random.Random, door_tiles: set,
     # Bookcases stand back to back in pairs and are left alone; every other
     # shop draws each row, and each stretch of a row, from its mix.
     mix = [r for r in (spec.get("aisles") or [row_role]) if r in C.FURNITURE] or [row_role]
+    if row_role == "bookcases":
+        # Bookcase rows are bookshelves: "bookcases" is a row, not a piece, and
+        # looking for a shorter piece in the mix asked the catalogue for it
+        # (KeyError: four shops and flats in Alton left out, KnoxMap UK 2026-10-13).
+        mix = ["bookshelf"]
     for a in range(2, frame.length - 2, every):
         lines = [(a, "E" if frame.along_x else "S"), (a + 1, "W" if frame.along_x else "N")] \
             if row_role == "bookcases" else [(a, orient_row)]
@@ -366,7 +372,11 @@ def furnish_store(plan, idx: int, room, rng: random.Random, door_tiles: set,
             # grid of identical squares.
             cross_at = CROSS_AISLE_EVERY + rng.randint(-2, 3)
             change_at = rng.randint(4, 9)
-            d = 4
+            # Rows start four tiles in (the till and room to queue); a shop
+            # less than SHALLOW_SALES deep starts them at three, or its rows
+            # are a single piece long (a supermarket in a wide, shallow hall
+            # behind a High Street frontage, KnoxMap UK).
+            d = 3 if frame.depth < SHALLOW_SALES else 4
             since_cross = 0
             since_change = 0
             while d < frame.depth - 2:
@@ -393,7 +403,24 @@ def furnish_store(plan, idx: int, room, rng: random.Random, door_tiles: set,
                     d += size
                     since_cross += size
                     since_change += size
-                else:
+                    continue
+                # Not room for this piece here (a long aisle in a shallow
+                # shop): a shorter one from the mix before moving on, or a
+                # floor with only long pieces in its mix stays empty.
+                fitted = False
+                for alt in sorted(set(mix) - {role}, key=lambda r: len(C.FURNITURE[r][L._facing(r, orient)])):
+                    asize = len(C.FURNITURE[alt][L._facing(alt, orient)])
+                    ax, ay = frame.xy(a2, d)
+                    if not frame.along_x and front == "E" or frame.along_x and front == "S":
+                        bx, by = frame.xy(a2, d + asize - 1)
+                        ax, ay = (ax, by) if frame.along_x else (bx, ay)
+                    if put(alt, ax, ay, L._facing(alt, orient)):
+                        d += asize
+                        since_cross += asize
+                        since_change += asize
+                        fitted = True
+                        break
+                if not fitted:
                     d += 1
 
     # Just inside the shop front: mannequins in a clothes shop's window, a
@@ -534,11 +561,13 @@ def bed_against_wall(plan, idx: int, room, slots, occupied: set, door_tiles: set
 # The food court is a dining room the size of a car park, ringed by the
 # kitchens that serve it - 1,601 tiles of it in Knox County's mall.
 DINING_ROOMS = {"restaurantdining", "italianrestaurant", "chineserestaurant", "restaurant",
-                "cafe", "icecream", "bar", "foodcourt"}
+                "cafe", "icecream", "bar", "foodcourt", "spiffo_dining"}
 # A booth, its table and the facing booth, as the game's own set lays them.
 BOOTH_SETS = {
     "diner": [("diner_booth", 0, 0, "W"), ("diner_table", 0, 1, "W"), ("diner_booth", 0, 2, "E")],
     "pizza": [("pizza_booth", 0, 0, "W"), ("pizza_table", 0, 1, "W"), ("pizza_booth", 0, 2, "E")],
+    # KnoxMap UK: a Spiffo's in its own booths (the game's set)
+    "spiffos": [("spiffos_booth", 0, 0, "W"), ("spiffos_table", 0, 1, "W"), ("spiffos_booth", 0, 2, "E")],
 }
 TABLE_SET = [("dining_table", 1, 1, "W"), ("chair", 0, 1, "W"), ("chair", 3, 1, "E"),
              ("chair", 1, 0, "N"), ("chair", 2, 2, "S")]
@@ -546,6 +575,7 @@ SMALL_TABLE_SET = [("round_table", 1, 0, "W"), ("chair", 0, 0, "W"), ("chair", 2
 # The counter across the back of the room, by style: (pieces left to right).
 BACK_COUNTERS = {
     "diner": ["diner_counter", "diner_counter", "diner_counter", "diner_counter"],
+    "spiffos": ["diner_counter", "diner_counter", "diner_counter", "diner_counter"],
     "pizza": ["pizza_display", "pizza_counter", "pizza_counter"],
     "tables": ["counter_2", "counter_2", "counter_2"],
     "cafe": ["shop_display", "counter_1", "counter_1"],
@@ -564,12 +594,14 @@ KITCHEN_KIT = {
     "bakerykitchen": ["oven_commercial", "oven_commercial", "hot_counter", "kitchen_sink",
                       "metal_rack", "crate"],
     "icecreamkitchen": ["shop_freezer", "shop_freezer", "kitchen_sink", "metal_rack"],
+    "spiffoskitchen": ["griddle", "fryer", "fryer", "oven_steel", "shop_fridge_double",
+                       "kitchen_sink", "dishwasher", "metal_rack"],
 }
 DEFAULT_KITCHEN_KIT = ["oven_steel", "oven_steel_alt", "griddle", "fryer", "shop_fridge_double",
                        "kitchen_sink", "dishwasher", "metal_rack"]
 COMMERCIAL_KITCHENS = {"restaurantkitchen", "pizzakitchen", "burgerkitchen", "dinerkitchen",
                        "chinesekitchen", "sushikitchen", "mexicankitchen", "seafoodkitchen",
-                       "cafekitchen", "bakerykitchen", "icecreamkitchen"}
+                       "cafekitchen", "bakerykitchen", "icecreamkitchen", "spiffoskitchen"}
 # Tiles along a wall per booth set or table set, with the gap to the next.
 WALL_SET_EVERY = 4
 MIN_CENTRE_SIDE = 6
@@ -583,6 +615,8 @@ def eatery_style(plan, idx: int, room) -> str:
     near = {plan.rooms[j - 1].kind for j in L._neighbours(plan).get(idx, {})}
     if "pizzakitchen" in near:
         return "pizza"
+    if room.kind == "spiffo_dining" or "spiffoskitchen" in near:
+        return "spiffos"
     if near & {"dinerkitchen", "burgerkitchen"}:
         return "diner"
     return "tables"

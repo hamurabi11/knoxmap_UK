@@ -269,7 +269,7 @@ def generate():
             osm_cache=osm_cache_name,
             osm_bbox=osm_bbox,
             shape=shape,
-            straight_roads=bool(settings.straight_roads),
+            straight_roads=int(settings.straight_roads),
             should_stop=_stopper(map_name),
         )
     except knoxstop.Stopped:

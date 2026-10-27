@@ -180,6 +180,7 @@ def _paint_street_furniture(veg: Image.Image, landscape: Image.Image,
             for what, every, colour, at, need in (
                     ("speed", spacing.get("speed", SPEED_SIGN_EVERY), speed, (bx, by), None),
                     ("lamp", spacing.get("lamp", LAMP_EVERY), lamp, (bx, by), None),
+                    # US stand-in (PLAN E): the American pillar hydrant.
                     ("hydrant", spacing.get("hydrant", HYDRANT_EVERY), C.HYDRANT, (bx, by), None),
                     ("drain", spacing.get("drain", DRAIN_EVERY), C.STORM_DRAIN, (gx, gy), None)):
                 px, py = at

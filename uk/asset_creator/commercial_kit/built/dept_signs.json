@@ -1,0 +1,2034 @@
+{
+ "sheets": [
+  "dept_signs_uk_01",
+  "dept_signs_uk_02",
+  "dept_signs_uk_03",
+  "dept_signs_uk_04",
+  "dept_signs_uk_05",
+  "dept_signs_uk_06",
+  "dept_signs_uk_07",
+  "dept_signs_uk_08"
+ ],
+ "signs": {
+  "lainburys": {
+   "bakery": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "BAKERY",
+      "W": [
+       "dept_signs_uk_01_0",
+       "dept_signs_uk_01_2",
+       "dept_signs_uk_01_4",
+       "dept_signs_uk_01_6"
+      ],
+      "N": [
+       "dept_signs_uk_01_1",
+       "dept_signs_uk_01_3",
+       "dept_signs_uk_01_5",
+       "dept_signs_uk_01_7"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "BAKERY",
+      "W": [
+       "dept_signs_uk_01_8",
+       "dept_signs_uk_01_10",
+       "dept_signs_uk_01_12"
+      ],
+      "N": [
+       "dept_signs_uk_01_9",
+       "dept_signs_uk_01_11",
+       "dept_signs_uk_01_13"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "BAKERY",
+      "W": [
+       "dept_signs_uk_01_14",
+       "dept_signs_uk_01_16"
+      ],
+      "N": [
+       "dept_signs_uk_01_15",
+       "dept_signs_uk_01_17"
+      ]
+     }
+    ]
+   },
+   "butcher": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "BUTCHER",
+      "W": [
+       "dept_signs_uk_01_18",
+       "dept_signs_uk_01_20",
+       "dept_signs_uk_01_22",
+       "dept_signs_uk_01_24"
+      ],
+      "N": [
+       "dept_signs_uk_01_19",
+       "dept_signs_uk_01_21",
+       "dept_signs_uk_01_23",
+       "dept_signs_uk_01_25"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "BUTCHER",
+      "W": [
+       "dept_signs_uk_01_26",
+       "dept_signs_uk_01_28",
+       "dept_signs_uk_01_30"
+      ],
+      "N": [
+       "dept_signs_uk_01_27",
+       "dept_signs_uk_01_29",
+       "dept_signs_uk_01_31"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "BUTCHER",
+      "W": [
+       "dept_signs_uk_01_32",
+       "dept_signs_uk_01_34"
+      ],
+      "N": [
+       "dept_signs_uk_01_33",
+       "dept_signs_uk_01_35"
+      ]
+     }
+    ]
+   },
+   "deli": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "DELICATESSEN",
+      "W": [
+       "dept_signs_uk_01_36",
+       "dept_signs_uk_01_38",
+       "dept_signs_uk_01_40",
+       "dept_signs_uk_01_42"
+      ],
+      "N": [
+       "dept_signs_uk_01_37",
+       "dept_signs_uk_01_39",
+       "dept_signs_uk_01_41",
+       "dept_signs_uk_01_43"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "DELI",
+      "W": [
+       "dept_signs_uk_01_44",
+       "dept_signs_uk_01_46",
+       "dept_signs_uk_01_48"
+      ],
+      "N": [
+       "dept_signs_uk_01_45",
+       "dept_signs_uk_01_47",
+       "dept_signs_uk_01_49"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "DELI",
+      "W": [
+       "dept_signs_uk_01_50",
+       "dept_signs_uk_01_52"
+      ],
+      "N": [
+       "dept_signs_uk_01_51",
+       "dept_signs_uk_01_53"
+      ]
+     }
+    ]
+   },
+   "produce": {
+    "versions": [
+     {
+      "length": 6,
+      "text": "FRESH PRODUCE",
+      "W": [
+       "dept_signs_uk_01_54",
+       "dept_signs_uk_01_56",
+       "dept_signs_uk_01_58",
+       "dept_signs_uk_01_60",
+       "dept_signs_uk_01_62",
+       "dept_signs_uk_01_64"
+      ],
+      "N": [
+       "dept_signs_uk_01_55",
+       "dept_signs_uk_01_57",
+       "dept_signs_uk_01_59",
+       "dept_signs_uk_01_61",
+       "dept_signs_uk_01_63",
+       "dept_signs_uk_01_65"
+      ]
+     },
+     {
+      "length": 4,
+      "text": "PRODUCE",
+      "W": [
+       "dept_signs_uk_01_66",
+       "dept_signs_uk_01_68",
+       "dept_signs_uk_01_70",
+       "dept_signs_uk_01_72"
+      ],
+      "N": [
+       "dept_signs_uk_01_67",
+       "dept_signs_uk_01_69",
+       "dept_signs_uk_01_71",
+       "dept_signs_uk_01_73"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "PRODUCE",
+      "W": [
+       "dept_signs_uk_01_74",
+       "dept_signs_uk_01_76",
+       "dept_signs_uk_01_78"
+      ],
+      "N": [
+       "dept_signs_uk_01_75",
+       "dept_signs_uk_01_77",
+       "dept_signs_uk_01_79"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "PRODUCE",
+      "W": [
+       "dept_signs_uk_01_80",
+       "dept_signs_uk_01_82"
+      ],
+      "N": [
+       "dept_signs_uk_01_81",
+       "dept_signs_uk_01_83"
+      ]
+     }
+    ]
+   },
+   "frozen": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "FROZEN FOODS",
+      "W": [
+       "dept_signs_uk_01_84",
+       "dept_signs_uk_01_86",
+       "dept_signs_uk_01_88",
+       "dept_signs_uk_01_90"
+      ],
+      "N": [
+       "dept_signs_uk_01_85",
+       "dept_signs_uk_01_87",
+       "dept_signs_uk_01_89",
+       "dept_signs_uk_01_91"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "FROZEN",
+      "W": [
+       "dept_signs_uk_01_92",
+       "dept_signs_uk_01_94",
+       "dept_signs_uk_01_96"
+      ],
+      "N": [
+       "dept_signs_uk_01_93",
+       "dept_signs_uk_01_95",
+       "dept_signs_uk_01_97"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "FROZEN",
+      "W": [
+       "dept_signs_uk_01_98",
+       "dept_signs_uk_01_100"
+      ],
+      "N": [
+       "dept_signs_uk_01_99",
+       "dept_signs_uk_01_101"
+      ]
+     }
+    ]
+   },
+   "drinks": {
+    "versions": [
+     {
+      "length": 6,
+      "text": "BEERS, WINES & SPIRITS",
+      "W": [
+       "dept_signs_uk_02_0",
+       "dept_signs_uk_02_2",
+       "dept_signs_uk_02_4",
+       "dept_signs_uk_02_6",
+       "dept_signs_uk_02_8",
+       "dept_signs_uk_02_10"
+      ],
+      "N": [
+       "dept_signs_uk_02_1",
+       "dept_signs_uk_02_3",
+       "dept_signs_uk_02_5",
+       "dept_signs_uk_02_7",
+       "dept_signs_uk_02_9",
+       "dept_signs_uk_02_11"
+      ]
+     },
+     {
+      "length": 4,
+      "text": "BEERS & WINES",
+      "W": [
+       "dept_signs_uk_02_12",
+       "dept_signs_uk_02_14",
+       "dept_signs_uk_02_16",
+       "dept_signs_uk_02_18"
+      ],
+      "N": [
+       "dept_signs_uk_02_13",
+       "dept_signs_uk_02_15",
+       "dept_signs_uk_02_17",
+       "dept_signs_uk_02_19"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "WINES",
+      "W": [
+       "dept_signs_uk_02_20",
+       "dept_signs_uk_02_22",
+       "dept_signs_uk_02_24"
+      ],
+      "N": [
+       "dept_signs_uk_02_21",
+       "dept_signs_uk_02_23",
+       "dept_signs_uk_02_25"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "WINES",
+      "W": [
+       "dept_signs_uk_02_26",
+       "dept_signs_uk_02_28"
+      ],
+      "N": [
+       "dept_signs_uk_02_27",
+       "dept_signs_uk_02_29"
+      ]
+     }
+    ]
+   },
+   "household": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "HOUSEHOLD",
+      "W": [
+       "dept_signs_uk_02_30",
+       "dept_signs_uk_02_32",
+       "dept_signs_uk_02_34",
+       "dept_signs_uk_02_36"
+      ],
+      "N": [
+       "dept_signs_uk_02_31",
+       "dept_signs_uk_02_33",
+       "dept_signs_uk_02_35",
+       "dept_signs_uk_02_37"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "HOME",
+      "W": [
+       "dept_signs_uk_02_38",
+       "dept_signs_uk_02_40",
+       "dept_signs_uk_02_42"
+      ],
+      "N": [
+       "dept_signs_uk_02_39",
+       "dept_signs_uk_02_41",
+       "dept_signs_uk_02_43"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "HOME",
+      "W": [
+       "dept_signs_uk_02_44",
+       "dept_signs_uk_02_46"
+      ],
+      "N": [
+       "dept_signs_uk_02_45",
+       "dept_signs_uk_02_47"
+      ]
+     }
+    ]
+   },
+   "pharmacy": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "PHARMACY",
+      "W": [
+       "dept_signs_uk_02_48",
+       "dept_signs_uk_02_50",
+       "dept_signs_uk_02_52",
+       "dept_signs_uk_02_54"
+      ],
+      "N": [
+       "dept_signs_uk_02_49",
+       "dept_signs_uk_02_51",
+       "dept_signs_uk_02_53",
+       "dept_signs_uk_02_55"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "PHARMACY",
+      "W": [
+       "dept_signs_uk_02_56",
+       "dept_signs_uk_02_58",
+       "dept_signs_uk_02_60"
+      ],
+      "N": [
+       "dept_signs_uk_02_57",
+       "dept_signs_uk_02_59",
+       "dept_signs_uk_02_61"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "CHEMIST",
+      "W": [
+       "dept_signs_uk_02_62",
+       "dept_signs_uk_02_64"
+      ],
+      "N": [
+       "dept_signs_uk_02_63",
+       "dept_signs_uk_02_65"
+      ]
+     }
+    ]
+   },
+   "clothing": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "CLOTHING",
+      "W": [
+       "dept_signs_uk_02_66",
+       "dept_signs_uk_02_68",
+       "dept_signs_uk_02_70",
+       "dept_signs_uk_02_72"
+      ],
+      "N": [
+       "dept_signs_uk_02_67",
+       "dept_signs_uk_02_69",
+       "dept_signs_uk_02_71",
+       "dept_signs_uk_02_73"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "CLOTHING",
+      "W": [
+       "dept_signs_uk_02_74",
+       "dept_signs_uk_02_76",
+       "dept_signs_uk_02_78"
+      ],
+      "N": [
+       "dept_signs_uk_02_75",
+       "dept_signs_uk_02_77",
+       "dept_signs_uk_02_79"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "CLOTHES",
+      "W": [
+       "dept_signs_uk_02_80",
+       "dept_signs_uk_02_82"
+      ],
+      "N": [
+       "dept_signs_uk_02_81",
+       "dept_signs_uk_02_83"
+      ]
+     }
+    ]
+   },
+   "cafe": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "COFFEE SHOP",
+      "W": [
+       "dept_signs_uk_02_84",
+       "dept_signs_uk_02_86",
+       "dept_signs_uk_02_88",
+       "dept_signs_uk_02_90"
+      ],
+      "N": [
+       "dept_signs_uk_02_85",
+       "dept_signs_uk_02_87",
+       "dept_signs_uk_02_89",
+       "dept_signs_uk_02_91"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "CAFE",
+      "W": [
+       "dept_signs_uk_02_92",
+       "dept_signs_uk_02_94",
+       "dept_signs_uk_02_96"
+      ],
+      "N": [
+       "dept_signs_uk_02_93",
+       "dept_signs_uk_02_95",
+       "dept_signs_uk_02_97"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "CAFE",
+      "W": [
+       "dept_signs_uk_02_98",
+       "dept_signs_uk_02_100"
+      ],
+      "N": [
+       "dept_signs_uk_02_99",
+       "dept_signs_uk_02_101"
+      ]
+     }
+    ]
+   },
+   "services": {
+    "versions": [
+     {
+      "length": 6,
+      "text": "CUSTOMER SERVICES",
+      "W": [
+       "dept_signs_uk_03_0",
+       "dept_signs_uk_03_2",
+       "dept_signs_uk_03_4",
+       "dept_signs_uk_03_6",
+       "dept_signs_uk_03_8",
+       "dept_signs_uk_03_10"
+      ],
+      "N": [
+       "dept_signs_uk_03_1",
+       "dept_signs_uk_03_3",
+       "dept_signs_uk_03_5",
+       "dept_signs_uk_03_7",
+       "dept_signs_uk_03_9",
+       "dept_signs_uk_03_11"
+      ]
+     },
+     {
+      "length": 4,
+      "text": "SERVICES",
+      "W": [
+       "dept_signs_uk_03_12",
+       "dept_signs_uk_03_14",
+       "dept_signs_uk_03_16",
+       "dept_signs_uk_03_18"
+      ],
+      "N": [
+       "dept_signs_uk_03_13",
+       "dept_signs_uk_03_15",
+       "dept_signs_uk_03_17",
+       "dept_signs_uk_03_19"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "SERVICES",
+      "W": [
+       "dept_signs_uk_03_20",
+       "dept_signs_uk_03_22",
+       "dept_signs_uk_03_24"
+      ],
+      "N": [
+       "dept_signs_uk_03_21",
+       "dept_signs_uk_03_23",
+       "dept_signs_uk_03_25"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "SERVICES",
+      "W": [
+       "dept_signs_uk_03_26",
+       "dept_signs_uk_03_28"
+      ],
+      "N": [
+       "dept_signs_uk_03_27",
+       "dept_signs_uk_03_29"
+      ]
+     }
+    ]
+   },
+   "toilets": {
+    "versions": [
+     {
+      "length": 6,
+      "text": "CUSTOMER TOILETS",
+      "W": [
+       "dept_signs_uk_03_30",
+       "dept_signs_uk_03_32",
+       "dept_signs_uk_03_34",
+       "dept_signs_uk_03_36",
+       "dept_signs_uk_03_38",
+       "dept_signs_uk_03_40"
+      ],
+      "N": [
+       "dept_signs_uk_03_31",
+       "dept_signs_uk_03_33",
+       "dept_signs_uk_03_35",
+       "dept_signs_uk_03_37",
+       "dept_signs_uk_03_39",
+       "dept_signs_uk_03_41"
+      ]
+     },
+     {
+      "length": 4,
+      "text": "TOILETS",
+      "W": [
+       "dept_signs_uk_03_42",
+       "dept_signs_uk_03_44",
+       "dept_signs_uk_03_46",
+       "dept_signs_uk_03_48"
+      ],
+      "N": [
+       "dept_signs_uk_03_43",
+       "dept_signs_uk_03_45",
+       "dept_signs_uk_03_47",
+       "dept_signs_uk_03_49"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "TOILETS",
+      "W": [
+       "dept_signs_uk_03_50",
+       "dept_signs_uk_03_52",
+       "dept_signs_uk_03_54"
+      ],
+      "N": [
+       "dept_signs_uk_03_51",
+       "dept_signs_uk_03_53",
+       "dept_signs_uk_03_55"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "TOILETS",
+      "W": [
+       "dept_signs_uk_03_56",
+       "dept_signs_uk_03_58"
+      ],
+      "N": [
+       "dept_signs_uk_03_57",
+       "dept_signs_uk_03_59"
+      ]
+     }
+    ]
+   },
+   "grocery": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "GROCERY",
+      "W": [
+       "dept_signs_uk_03_60",
+       "dept_signs_uk_03_62",
+       "dept_signs_uk_03_64",
+       "dept_signs_uk_03_66"
+      ],
+      "N": [
+       "dept_signs_uk_03_61",
+       "dept_signs_uk_03_63",
+       "dept_signs_uk_03_65",
+       "dept_signs_uk_03_67"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "GROCERY",
+      "W": [
+       "dept_signs_uk_03_68",
+       "dept_signs_uk_03_70",
+       "dept_signs_uk_03_72"
+      ],
+      "N": [
+       "dept_signs_uk_03_69",
+       "dept_signs_uk_03_71",
+       "dept_signs_uk_03_73"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "GROCERY",
+      "W": [
+       "dept_signs_uk_03_74",
+       "dept_signs_uk_03_76"
+      ],
+      "N": [
+       "dept_signs_uk_03_75",
+       "dept_signs_uk_03_77"
+      ]
+     }
+    ]
+   }
+  },
+  "waitrows": {
+   "bakery": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "BAKERY",
+      "W": [
+       "dept_signs_uk_03_78",
+       "dept_signs_uk_03_80",
+       "dept_signs_uk_03_82",
+       "dept_signs_uk_03_84"
+      ],
+      "N": [
+       "dept_signs_uk_03_79",
+       "dept_signs_uk_03_81",
+       "dept_signs_uk_03_83",
+       "dept_signs_uk_03_85"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "BAKERY",
+      "W": [
+       "dept_signs_uk_03_86",
+       "dept_signs_uk_03_88",
+       "dept_signs_uk_03_90"
+      ],
+      "N": [
+       "dept_signs_uk_03_87",
+       "dept_signs_uk_03_89",
+       "dept_signs_uk_03_91"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "BAKERY",
+      "W": [
+       "dept_signs_uk_03_92",
+       "dept_signs_uk_03_94"
+      ],
+      "N": [
+       "dept_signs_uk_03_93",
+       "dept_signs_uk_03_95"
+      ]
+     }
+    ]
+   },
+   "butcher": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "BUTCHER",
+      "W": [
+       "dept_signs_uk_03_96",
+       "dept_signs_uk_03_98",
+       "dept_signs_uk_03_100",
+       "dept_signs_uk_03_102"
+      ],
+      "N": [
+       "dept_signs_uk_03_97",
+       "dept_signs_uk_03_99",
+       "dept_signs_uk_03_101",
+       "dept_signs_uk_03_103"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "BUTCHER",
+      "W": [
+       "dept_signs_uk_03_104",
+       "dept_signs_uk_03_106",
+       "dept_signs_uk_03_108"
+      ],
+      "N": [
+       "dept_signs_uk_03_105",
+       "dept_signs_uk_03_107",
+       "dept_signs_uk_03_109"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "BUTCHER",
+      "W": [
+       "dept_signs_uk_03_110",
+       "dept_signs_uk_03_112"
+      ],
+      "N": [
+       "dept_signs_uk_03_111",
+       "dept_signs_uk_03_113"
+      ]
+     }
+    ]
+   },
+   "deli": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "DELICATESSEN",
+      "W": [
+       "dept_signs_uk_04_0",
+       "dept_signs_uk_04_2",
+       "dept_signs_uk_04_4",
+       "dept_signs_uk_04_6"
+      ],
+      "N": [
+       "dept_signs_uk_04_1",
+       "dept_signs_uk_04_3",
+       "dept_signs_uk_04_5",
+       "dept_signs_uk_04_7"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "DELI",
+      "W": [
+       "dept_signs_uk_04_8",
+       "dept_signs_uk_04_10",
+       "dept_signs_uk_04_12"
+      ],
+      "N": [
+       "dept_signs_uk_04_9",
+       "dept_signs_uk_04_11",
+       "dept_signs_uk_04_13"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "DELI",
+      "W": [
+       "dept_signs_uk_04_14",
+       "dept_signs_uk_04_16"
+      ],
+      "N": [
+       "dept_signs_uk_04_15",
+       "dept_signs_uk_04_17"
+      ]
+     }
+    ]
+   },
+   "produce": {
+    "versions": [
+     {
+      "length": 6,
+      "text": "FRESH PRODUCE",
+      "W": [
+       "dept_signs_uk_04_18",
+       "dept_signs_uk_04_20",
+       "dept_signs_uk_04_22",
+       "dept_signs_uk_04_24",
+       "dept_signs_uk_04_26",
+       "dept_signs_uk_04_28"
+      ],
+      "N": [
+       "dept_signs_uk_04_19",
+       "dept_signs_uk_04_21",
+       "dept_signs_uk_04_23",
+       "dept_signs_uk_04_25",
+       "dept_signs_uk_04_27",
+       "dept_signs_uk_04_29"
+      ]
+     },
+     {
+      "length": 4,
+      "text": "PRODUCE",
+      "W": [
+       "dept_signs_uk_04_30",
+       "dept_signs_uk_04_32",
+       "dept_signs_uk_04_34",
+       "dept_signs_uk_04_36"
+      ],
+      "N": [
+       "dept_signs_uk_04_31",
+       "dept_signs_uk_04_33",
+       "dept_signs_uk_04_35",
+       "dept_signs_uk_04_37"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "PRODUCE",
+      "W": [
+       "dept_signs_uk_04_38",
+       "dept_signs_uk_04_40",
+       "dept_signs_uk_04_42"
+      ],
+      "N": [
+       "dept_signs_uk_04_39",
+       "dept_signs_uk_04_41",
+       "dept_signs_uk_04_43"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "PRODUCE",
+      "W": [
+       "dept_signs_uk_04_44",
+       "dept_signs_uk_04_46"
+      ],
+      "N": [
+       "dept_signs_uk_04_45",
+       "dept_signs_uk_04_47"
+      ]
+     }
+    ]
+   },
+   "frozen": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "FROZEN FOODS",
+      "W": [
+       "dept_signs_uk_04_48",
+       "dept_signs_uk_04_50",
+       "dept_signs_uk_04_52",
+       "dept_signs_uk_04_54"
+      ],
+      "N": [
+       "dept_signs_uk_04_49",
+       "dept_signs_uk_04_51",
+       "dept_signs_uk_04_53",
+       "dept_signs_uk_04_55"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "FROZEN",
+      "W": [
+       "dept_signs_uk_04_56",
+       "dept_signs_uk_04_58",
+       "dept_signs_uk_04_60"
+      ],
+      "N": [
+       "dept_signs_uk_04_57",
+       "dept_signs_uk_04_59",
+       "dept_signs_uk_04_61"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "FROZEN",
+      "W": [
+       "dept_signs_uk_04_62",
+       "dept_signs_uk_04_64"
+      ],
+      "N": [
+       "dept_signs_uk_04_63",
+       "dept_signs_uk_04_65"
+      ]
+     }
+    ]
+   },
+   "drinks": {
+    "versions": [
+     {
+      "length": 6,
+      "text": "BEERS, WINES & SPIRITS",
+      "W": [
+       "dept_signs_uk_04_66",
+       "dept_signs_uk_04_68",
+       "dept_signs_uk_04_70",
+       "dept_signs_uk_04_72",
+       "dept_signs_uk_04_74",
+       "dept_signs_uk_04_76"
+      ],
+      "N": [
+       "dept_signs_uk_04_67",
+       "dept_signs_uk_04_69",
+       "dept_signs_uk_04_71",
+       "dept_signs_uk_04_73",
+       "dept_signs_uk_04_75",
+       "dept_signs_uk_04_77"
+      ]
+     },
+     {
+      "length": 4,
+      "text": "BEERS & WINES",
+      "W": [
+       "dept_signs_uk_04_78",
+       "dept_signs_uk_04_80",
+       "dept_signs_uk_04_82",
+       "dept_signs_uk_04_84"
+      ],
+      "N": [
+       "dept_signs_uk_04_79",
+       "dept_signs_uk_04_81",
+       "dept_signs_uk_04_83",
+       "dept_signs_uk_04_85"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "WINES",
+      "W": [
+       "dept_signs_uk_04_86",
+       "dept_signs_uk_04_88",
+       "dept_signs_uk_04_90"
+      ],
+      "N": [
+       "dept_signs_uk_04_87",
+       "dept_signs_uk_04_89",
+       "dept_signs_uk_04_91"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "WINES",
+      "W": [
+       "dept_signs_uk_04_92",
+       "dept_signs_uk_04_94"
+      ],
+      "N": [
+       "dept_signs_uk_04_93",
+       "dept_signs_uk_04_95"
+      ]
+     }
+    ]
+   },
+   "household": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "HOUSEHOLD",
+      "W": [
+       "dept_signs_uk_04_96",
+       "dept_signs_uk_04_98",
+       "dept_signs_uk_04_100",
+       "dept_signs_uk_04_102"
+      ],
+      "N": [
+       "dept_signs_uk_04_97",
+       "dept_signs_uk_04_99",
+       "dept_signs_uk_04_101",
+       "dept_signs_uk_04_103"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "HOME",
+      "W": [
+       "dept_signs_uk_04_104",
+       "dept_signs_uk_04_106",
+       "dept_signs_uk_04_108"
+      ],
+      "N": [
+       "dept_signs_uk_04_105",
+       "dept_signs_uk_04_107",
+       "dept_signs_uk_04_109"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "HOME",
+      "W": [
+       "dept_signs_uk_04_110",
+       "dept_signs_uk_04_112"
+      ],
+      "N": [
+       "dept_signs_uk_04_111",
+       "dept_signs_uk_04_113"
+      ]
+     }
+    ]
+   },
+   "pharmacy": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "PHARMACY",
+      "W": [
+       "dept_signs_uk_05_0",
+       "dept_signs_uk_05_2",
+       "dept_signs_uk_05_4",
+       "dept_signs_uk_05_6"
+      ],
+      "N": [
+       "dept_signs_uk_05_1",
+       "dept_signs_uk_05_3",
+       "dept_signs_uk_05_5",
+       "dept_signs_uk_05_7"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "PHARMACY",
+      "W": [
+       "dept_signs_uk_05_8",
+       "dept_signs_uk_05_10",
+       "dept_signs_uk_05_12"
+      ],
+      "N": [
+       "dept_signs_uk_05_9",
+       "dept_signs_uk_05_11",
+       "dept_signs_uk_05_13"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "CHEMIST",
+      "W": [
+       "dept_signs_uk_05_14",
+       "dept_signs_uk_05_16"
+      ],
+      "N": [
+       "dept_signs_uk_05_15",
+       "dept_signs_uk_05_17"
+      ]
+     }
+    ]
+   },
+   "clothing": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "CLOTHING",
+      "W": [
+       "dept_signs_uk_05_18",
+       "dept_signs_uk_05_20",
+       "dept_signs_uk_05_22",
+       "dept_signs_uk_05_24"
+      ],
+      "N": [
+       "dept_signs_uk_05_19",
+       "dept_signs_uk_05_21",
+       "dept_signs_uk_05_23",
+       "dept_signs_uk_05_25"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "CLOTHING",
+      "W": [
+       "dept_signs_uk_05_26",
+       "dept_signs_uk_05_28",
+       "dept_signs_uk_05_30"
+      ],
+      "N": [
+       "dept_signs_uk_05_27",
+       "dept_signs_uk_05_29",
+       "dept_signs_uk_05_31"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "CLOTHES",
+      "W": [
+       "dept_signs_uk_05_32",
+       "dept_signs_uk_05_34"
+      ],
+      "N": [
+       "dept_signs_uk_05_33",
+       "dept_signs_uk_05_35"
+      ]
+     }
+    ]
+   },
+   "cafe": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "COFFEE SHOP",
+      "W": [
+       "dept_signs_uk_05_36",
+       "dept_signs_uk_05_38",
+       "dept_signs_uk_05_40",
+       "dept_signs_uk_05_42"
+      ],
+      "N": [
+       "dept_signs_uk_05_37",
+       "dept_signs_uk_05_39",
+       "dept_signs_uk_05_41",
+       "dept_signs_uk_05_43"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "CAFE",
+      "W": [
+       "dept_signs_uk_05_44",
+       "dept_signs_uk_05_46",
+       "dept_signs_uk_05_48"
+      ],
+      "N": [
+       "dept_signs_uk_05_45",
+       "dept_signs_uk_05_47",
+       "dept_signs_uk_05_49"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "CAFE",
+      "W": [
+       "dept_signs_uk_05_50",
+       "dept_signs_uk_05_52"
+      ],
+      "N": [
+       "dept_signs_uk_05_51",
+       "dept_signs_uk_05_53"
+      ]
+     }
+    ]
+   },
+   "services": {
+    "versions": [
+     {
+      "length": 6,
+      "text": "CUSTOMER SERVICES",
+      "W": [
+       "dept_signs_uk_05_54",
+       "dept_signs_uk_05_56",
+       "dept_signs_uk_05_58",
+       "dept_signs_uk_05_60",
+       "dept_signs_uk_05_62",
+       "dept_signs_uk_05_64"
+      ],
+      "N": [
+       "dept_signs_uk_05_55",
+       "dept_signs_uk_05_57",
+       "dept_signs_uk_05_59",
+       "dept_signs_uk_05_61",
+       "dept_signs_uk_05_63",
+       "dept_signs_uk_05_65"
+      ]
+     },
+     {
+      "length": 4,
+      "text": "SERVICES",
+      "W": [
+       "dept_signs_uk_05_66",
+       "dept_signs_uk_05_68",
+       "dept_signs_uk_05_70",
+       "dept_signs_uk_05_72"
+      ],
+      "N": [
+       "dept_signs_uk_05_67",
+       "dept_signs_uk_05_69",
+       "dept_signs_uk_05_71",
+       "dept_signs_uk_05_73"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "SERVICES",
+      "W": [
+       "dept_signs_uk_05_74",
+       "dept_signs_uk_05_76",
+       "dept_signs_uk_05_78"
+      ],
+      "N": [
+       "dept_signs_uk_05_75",
+       "dept_signs_uk_05_77",
+       "dept_signs_uk_05_79"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "SERVICES",
+      "W": [
+       "dept_signs_uk_05_80",
+       "dept_signs_uk_05_82"
+      ],
+      "N": [
+       "dept_signs_uk_05_81",
+       "dept_signs_uk_05_83"
+      ]
+     }
+    ]
+   },
+   "toilets": {
+    "versions": [
+     {
+      "length": 6,
+      "text": "CUSTOMER TOILETS",
+      "W": [
+       "dept_signs_uk_05_84",
+       "dept_signs_uk_05_86",
+       "dept_signs_uk_05_88",
+       "dept_signs_uk_05_90",
+       "dept_signs_uk_05_92",
+       "dept_signs_uk_05_94"
+      ],
+      "N": [
+       "dept_signs_uk_05_85",
+       "dept_signs_uk_05_87",
+       "dept_signs_uk_05_89",
+       "dept_signs_uk_05_91",
+       "dept_signs_uk_05_93",
+       "dept_signs_uk_05_95"
+      ]
+     },
+     {
+      "length": 4,
+      "text": "TOILETS",
+      "W": [
+       "dept_signs_uk_05_96",
+       "dept_signs_uk_05_98",
+       "dept_signs_uk_05_100",
+       "dept_signs_uk_05_102"
+      ],
+      "N": [
+       "dept_signs_uk_05_97",
+       "dept_signs_uk_05_99",
+       "dept_signs_uk_05_101",
+       "dept_signs_uk_05_103"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "TOILETS",
+      "W": [
+       "dept_signs_uk_05_104",
+       "dept_signs_uk_05_106",
+       "dept_signs_uk_05_108"
+      ],
+      "N": [
+       "dept_signs_uk_05_105",
+       "dept_signs_uk_05_107",
+       "dept_signs_uk_05_109"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "TOILETS",
+      "W": [
+       "dept_signs_uk_05_110",
+       "dept_signs_uk_05_112"
+      ],
+      "N": [
+       "dept_signs_uk_05_111",
+       "dept_signs_uk_05_113"
+      ]
+     }
+    ]
+   },
+   "grocery": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "GROCERY",
+      "W": [
+       "dept_signs_uk_06_0",
+       "dept_signs_uk_06_2",
+       "dept_signs_uk_06_4",
+       "dept_signs_uk_06_6"
+      ],
+      "N": [
+       "dept_signs_uk_06_1",
+       "dept_signs_uk_06_3",
+       "dept_signs_uk_06_5",
+       "dept_signs_uk_06_7"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "GROCERY",
+      "W": [
+       "dept_signs_uk_06_8",
+       "dept_signs_uk_06_10",
+       "dept_signs_uk_06_12"
+      ],
+      "N": [
+       "dept_signs_uk_06_9",
+       "dept_signs_uk_06_11",
+       "dept_signs_uk_06_13"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "GROCERY",
+      "W": [
+       "dept_signs_uk_06_14",
+       "dept_signs_uk_06_16"
+      ],
+      "N": [
+       "dept_signs_uk_06_15",
+       "dept_signs_uk_06_17"
+      ]
+     }
+    ]
+   }
+  },
+  "generic": {
+   "bakery": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "BAKERY",
+      "W": [
+       "dept_signs_uk_06_18",
+       "dept_signs_uk_06_20",
+       "dept_signs_uk_06_22",
+       "dept_signs_uk_06_24"
+      ],
+      "N": [
+       "dept_signs_uk_06_19",
+       "dept_signs_uk_06_21",
+       "dept_signs_uk_06_23",
+       "dept_signs_uk_06_25"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "BAKERY",
+      "W": [
+       "dept_signs_uk_06_26",
+       "dept_signs_uk_06_28",
+       "dept_signs_uk_06_30"
+      ],
+      "N": [
+       "dept_signs_uk_06_27",
+       "dept_signs_uk_06_29",
+       "dept_signs_uk_06_31"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "BAKERY",
+      "W": [
+       "dept_signs_uk_06_32",
+       "dept_signs_uk_06_34"
+      ],
+      "N": [
+       "dept_signs_uk_06_33",
+       "dept_signs_uk_06_35"
+      ]
+     }
+    ]
+   },
+   "butcher": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "BUTCHER",
+      "W": [
+       "dept_signs_uk_06_36",
+       "dept_signs_uk_06_38",
+       "dept_signs_uk_06_40",
+       "dept_signs_uk_06_42"
+      ],
+      "N": [
+       "dept_signs_uk_06_37",
+       "dept_signs_uk_06_39",
+       "dept_signs_uk_06_41",
+       "dept_signs_uk_06_43"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "BUTCHER",
+      "W": [
+       "dept_signs_uk_06_44",
+       "dept_signs_uk_06_46",
+       "dept_signs_uk_06_48"
+      ],
+      "N": [
+       "dept_signs_uk_06_45",
+       "dept_signs_uk_06_47",
+       "dept_signs_uk_06_49"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "BUTCHER",
+      "W": [
+       "dept_signs_uk_06_50",
+       "dept_signs_uk_06_52"
+      ],
+      "N": [
+       "dept_signs_uk_06_51",
+       "dept_signs_uk_06_53"
+      ]
+     }
+    ]
+   },
+   "deli": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "DELICATESSEN",
+      "W": [
+       "dept_signs_uk_06_54",
+       "dept_signs_uk_06_56",
+       "dept_signs_uk_06_58",
+       "dept_signs_uk_06_60"
+      ],
+      "N": [
+       "dept_signs_uk_06_55",
+       "dept_signs_uk_06_57",
+       "dept_signs_uk_06_59",
+       "dept_signs_uk_06_61"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "DELI",
+      "W": [
+       "dept_signs_uk_06_62",
+       "dept_signs_uk_06_64",
+       "dept_signs_uk_06_66"
+      ],
+      "N": [
+       "dept_signs_uk_06_63",
+       "dept_signs_uk_06_65",
+       "dept_signs_uk_06_67"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "DELI",
+      "W": [
+       "dept_signs_uk_06_68",
+       "dept_signs_uk_06_70"
+      ],
+      "N": [
+       "dept_signs_uk_06_69",
+       "dept_signs_uk_06_71"
+      ]
+     }
+    ]
+   },
+   "produce": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "FRESH PRODUCE",
+      "W": [
+       "dept_signs_uk_06_72",
+       "dept_signs_uk_06_74",
+       "dept_signs_uk_06_76",
+       "dept_signs_uk_06_78"
+      ],
+      "N": [
+       "dept_signs_uk_06_73",
+       "dept_signs_uk_06_75",
+       "dept_signs_uk_06_77",
+       "dept_signs_uk_06_79"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "PRODUCE",
+      "W": [
+       "dept_signs_uk_06_80",
+       "dept_signs_uk_06_82",
+       "dept_signs_uk_06_84"
+      ],
+      "N": [
+       "dept_signs_uk_06_81",
+       "dept_signs_uk_06_83",
+       "dept_signs_uk_06_85"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "PRODUCE",
+      "W": [
+       "dept_signs_uk_06_86",
+       "dept_signs_uk_06_88"
+      ],
+      "N": [
+       "dept_signs_uk_06_87",
+       "dept_signs_uk_06_89"
+      ]
+     }
+    ]
+   },
+   "frozen": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "FROZEN FOODS",
+      "W": [
+       "dept_signs_uk_06_90",
+       "dept_signs_uk_06_92",
+       "dept_signs_uk_06_94",
+       "dept_signs_uk_06_96"
+      ],
+      "N": [
+       "dept_signs_uk_06_91",
+       "dept_signs_uk_06_93",
+       "dept_signs_uk_06_95",
+       "dept_signs_uk_06_97"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "FROZEN",
+      "W": [
+       "dept_signs_uk_06_98",
+       "dept_signs_uk_06_100",
+       "dept_signs_uk_06_102"
+      ],
+      "N": [
+       "dept_signs_uk_06_99",
+       "dept_signs_uk_06_101",
+       "dept_signs_uk_06_103"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "FROZEN",
+      "W": [
+       "dept_signs_uk_06_104",
+       "dept_signs_uk_06_106"
+      ],
+      "N": [
+       "dept_signs_uk_06_105",
+       "dept_signs_uk_06_107"
+      ]
+     }
+    ]
+   },
+   "drinks": {
+    "versions": [
+     {
+      "length": 6,
+      "text": "BEERS, WINES & SPIRITS",
+      "W": [
+       "dept_signs_uk_07_0",
+       "dept_signs_uk_07_2",
+       "dept_signs_uk_07_4",
+       "dept_signs_uk_07_6",
+       "dept_signs_uk_07_8",
+       "dept_signs_uk_07_10"
+      ],
+      "N": [
+       "dept_signs_uk_07_1",
+       "dept_signs_uk_07_3",
+       "dept_signs_uk_07_5",
+       "dept_signs_uk_07_7",
+       "dept_signs_uk_07_9",
+       "dept_signs_uk_07_11"
+      ]
+     },
+     {
+      "length": 4,
+      "text": "BEERS & WINES",
+      "W": [
+       "dept_signs_uk_07_12",
+       "dept_signs_uk_07_14",
+       "dept_signs_uk_07_16",
+       "dept_signs_uk_07_18"
+      ],
+      "N": [
+       "dept_signs_uk_07_13",
+       "dept_signs_uk_07_15",
+       "dept_signs_uk_07_17",
+       "dept_signs_uk_07_19"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "WINES",
+      "W": [
+       "dept_signs_uk_07_20",
+       "dept_signs_uk_07_22",
+       "dept_signs_uk_07_24"
+      ],
+      "N": [
+       "dept_signs_uk_07_21",
+       "dept_signs_uk_07_23",
+       "dept_signs_uk_07_25"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "WINES",
+      "W": [
+       "dept_signs_uk_07_26",
+       "dept_signs_uk_07_28"
+      ],
+      "N": [
+       "dept_signs_uk_07_27",
+       "dept_signs_uk_07_29"
+      ]
+     }
+    ]
+   },
+   "household": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "HOUSEHOLD",
+      "W": [
+       "dept_signs_uk_07_30",
+       "dept_signs_uk_07_32",
+       "dept_signs_uk_07_34",
+       "dept_signs_uk_07_36"
+      ],
+      "N": [
+       "dept_signs_uk_07_31",
+       "dept_signs_uk_07_33",
+       "dept_signs_uk_07_35",
+       "dept_signs_uk_07_37"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "HOME",
+      "W": [
+       "dept_signs_uk_07_38",
+       "dept_signs_uk_07_40",
+       "dept_signs_uk_07_42"
+      ],
+      "N": [
+       "dept_signs_uk_07_39",
+       "dept_signs_uk_07_41",
+       "dept_signs_uk_07_43"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "HOME",
+      "W": [
+       "dept_signs_uk_07_44",
+       "dept_signs_uk_07_46"
+      ],
+      "N": [
+       "dept_signs_uk_07_45",
+       "dept_signs_uk_07_47"
+      ]
+     }
+    ]
+   },
+   "pharmacy": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "PHARMACY",
+      "W": [
+       "dept_signs_uk_07_48",
+       "dept_signs_uk_07_50",
+       "dept_signs_uk_07_52",
+       "dept_signs_uk_07_54"
+      ],
+      "N": [
+       "dept_signs_uk_07_49",
+       "dept_signs_uk_07_51",
+       "dept_signs_uk_07_53",
+       "dept_signs_uk_07_55"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "PHARMACY",
+      "W": [
+       "dept_signs_uk_07_56",
+       "dept_signs_uk_07_58",
+       "dept_signs_uk_07_60"
+      ],
+      "N": [
+       "dept_signs_uk_07_57",
+       "dept_signs_uk_07_59",
+       "dept_signs_uk_07_61"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "CHEMIST",
+      "W": [
+       "dept_signs_uk_07_62",
+       "dept_signs_uk_07_64"
+      ],
+      "N": [
+       "dept_signs_uk_07_63",
+       "dept_signs_uk_07_65"
+      ]
+     }
+    ]
+   },
+   "clothing": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "CLOTHING",
+      "W": [
+       "dept_signs_uk_07_66",
+       "dept_signs_uk_07_68",
+       "dept_signs_uk_07_70",
+       "dept_signs_uk_07_72"
+      ],
+      "N": [
+       "dept_signs_uk_07_67",
+       "dept_signs_uk_07_69",
+       "dept_signs_uk_07_71",
+       "dept_signs_uk_07_73"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "CLOTHING",
+      "W": [
+       "dept_signs_uk_07_74",
+       "dept_signs_uk_07_76",
+       "dept_signs_uk_07_78"
+      ],
+      "N": [
+       "dept_signs_uk_07_75",
+       "dept_signs_uk_07_77",
+       "dept_signs_uk_07_79"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "CLOTHES",
+      "W": [
+       "dept_signs_uk_07_80",
+       "dept_signs_uk_07_82"
+      ],
+      "N": [
+       "dept_signs_uk_07_81",
+       "dept_signs_uk_07_83"
+      ]
+     }
+    ]
+   },
+   "cafe": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "COFFEE SHOP",
+      "W": [
+       "dept_signs_uk_07_84",
+       "dept_signs_uk_07_86",
+       "dept_signs_uk_07_88",
+       "dept_signs_uk_07_90"
+      ],
+      "N": [
+       "dept_signs_uk_07_85",
+       "dept_signs_uk_07_87",
+       "dept_signs_uk_07_89",
+       "dept_signs_uk_07_91"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "CAFE",
+      "W": [
+       "dept_signs_uk_07_92",
+       "dept_signs_uk_07_94",
+       "dept_signs_uk_07_96"
+      ],
+      "N": [
+       "dept_signs_uk_07_93",
+       "dept_signs_uk_07_95",
+       "dept_signs_uk_07_97"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "CAFE",
+      "W": [
+       "dept_signs_uk_07_98",
+       "dept_signs_uk_07_100"
+      ],
+      "N": [
+       "dept_signs_uk_07_99",
+       "dept_signs_uk_07_101"
+      ]
+     }
+    ]
+   },
+   "services": {
+    "versions": [
+     {
+      "length": 6,
+      "text": "CUSTOMER SERVICES",
+      "W": [
+       "dept_signs_uk_08_0",
+       "dept_signs_uk_08_2",
+       "dept_signs_uk_08_4",
+       "dept_signs_uk_08_6",
+       "dept_signs_uk_08_8",
+       "dept_signs_uk_08_10"
+      ],
+      "N": [
+       "dept_signs_uk_08_1",
+       "dept_signs_uk_08_3",
+       "dept_signs_uk_08_5",
+       "dept_signs_uk_08_7",
+       "dept_signs_uk_08_9",
+       "dept_signs_uk_08_11"
+      ]
+     },
+     {
+      "length": 4,
+      "text": "SERVICES",
+      "W": [
+       "dept_signs_uk_08_12",
+       "dept_signs_uk_08_14",
+       "dept_signs_uk_08_16",
+       "dept_signs_uk_08_18"
+      ],
+      "N": [
+       "dept_signs_uk_08_13",
+       "dept_signs_uk_08_15",
+       "dept_signs_uk_08_17",
+       "dept_signs_uk_08_19"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "SERVICES",
+      "W": [
+       "dept_signs_uk_08_20",
+       "dept_signs_uk_08_22",
+       "dept_signs_uk_08_24"
+      ],
+      "N": [
+       "dept_signs_uk_08_21",
+       "dept_signs_uk_08_23",
+       "dept_signs_uk_08_25"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "SERVICES",
+      "W": [
+       "dept_signs_uk_08_26",
+       "dept_signs_uk_08_28"
+      ],
+      "N": [
+       "dept_signs_uk_08_27",
+       "dept_signs_uk_08_29"
+      ]
+     }
+    ]
+   },
+   "toilets": {
+    "versions": [
+     {
+      "length": 6,
+      "text": "CUSTOMER TOILETS",
+      "W": [
+       "dept_signs_uk_08_30",
+       "dept_signs_uk_08_32",
+       "dept_signs_uk_08_34",
+       "dept_signs_uk_08_36",
+       "dept_signs_uk_08_38",
+       "dept_signs_uk_08_40"
+      ],
+      "N": [
+       "dept_signs_uk_08_31",
+       "dept_signs_uk_08_33",
+       "dept_signs_uk_08_35",
+       "dept_signs_uk_08_37",
+       "dept_signs_uk_08_39",
+       "dept_signs_uk_08_41"
+      ]
+     },
+     {
+      "length": 4,
+      "text": "TOILETS",
+      "W": [
+       "dept_signs_uk_08_42",
+       "dept_signs_uk_08_44",
+       "dept_signs_uk_08_46",
+       "dept_signs_uk_08_48"
+      ],
+      "N": [
+       "dept_signs_uk_08_43",
+       "dept_signs_uk_08_45",
+       "dept_signs_uk_08_47",
+       "dept_signs_uk_08_49"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "TOILETS",
+      "W": [
+       "dept_signs_uk_08_50",
+       "dept_signs_uk_08_52",
+       "dept_signs_uk_08_54"
+      ],
+      "N": [
+       "dept_signs_uk_08_51",
+       "dept_signs_uk_08_53",
+       "dept_signs_uk_08_55"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "TOILETS",
+      "W": [
+       "dept_signs_uk_08_56",
+       "dept_signs_uk_08_58"
+      ],
+      "N": [
+       "dept_signs_uk_08_57",
+       "dept_signs_uk_08_59"
+      ]
+     }
+    ]
+   },
+   "grocery": {
+    "versions": [
+     {
+      "length": 4,
+      "text": "GROCERY",
+      "W": [
+       "dept_signs_uk_08_60",
+       "dept_signs_uk_08_62",
+       "dept_signs_uk_08_64",
+       "dept_signs_uk_08_66"
+      ],
+      "N": [
+       "dept_signs_uk_08_61",
+       "dept_signs_uk_08_63",
+       "dept_signs_uk_08_65",
+       "dept_signs_uk_08_67"
+      ]
+     },
+     {
+      "length": 3,
+      "text": "GROCERY",
+      "W": [
+       "dept_signs_uk_08_68",
+       "dept_signs_uk_08_70",
+       "dept_signs_uk_08_72"
+      ],
+      "N": [
+       "dept_signs_uk_08_69",
+       "dept_signs_uk_08_71",
+       "dept_signs_uk_08_73"
+      ]
+     },
+     {
+      "length": 2,
+      "text": "GROCERY",
+      "W": [
+       "dept_signs_uk_08_74",
+       "dept_signs_uk_08_76"
+      ],
+      "N": [
+       "dept_signs_uk_08_75",
+       "dept_signs_uk_08_77"
+      ]
+     }
+    ]
+   }
+  }
+ }
+}

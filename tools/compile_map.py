@@ -455,8 +455,10 @@ def clear_stale(project: Path) -> None:
     settings_time = 0.0
     tools = knoxpaths.mapping_tools_dir()
     if tools:
-        terrain = max(terrain, newest(p for p in (tools / "config" / "Rules.txt",
-                                                  tools / "config" / "Blends.txt")
+        # the vanilla rules for a map with UK assets off (KnoxMap UK, terrain_source.rules_path)
+        config = "config_vanilla" if (project / "uk_assets.off").exists() else "config"
+        terrain = max(terrain, newest(p for p in (tools / config / "Rules.txt",
+                                                  tools / config / "Blends.txt")
                                       if p.exists()))
         # Editor settings (the game folder, whose tile definitions shape every
         # window opening) change what the lots come out as.
@@ -795,6 +797,15 @@ def compile_rust(project_dir: str, on_progress=None, should_stop=None, workers: 
             shutil.rmtree(scratch, ignore_errors=True)
 
 
+def _check_lots(project_dir) -> None:
+    """Lots the game would load wrong (tools/lotcheck.py): a ground square with tiles but no floor drops the storeys
+    above it in its chunk (turned_buildings LOG #D49-#D50). Given the surrounding ground (a warning); the build fails
+    only where none can be worked out."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import lotcheck
+    lotcheck.check(str(project_dir), log=lambda m: (print(m), knoxlog.log.warning(m)))
+
+
 def compile_map(project_dir: str, batch: int = 4, exe: str | None = None,
                 on_progress=None, should_stop=None,
                 only_cells: list | None = None, workers: int | None = None,
@@ -826,7 +837,9 @@ def compile_map(project_dir: str, batch: int = 4, exe: str | None = None,
     everything compiled away first.
     """
     if (backend or default_backend()) == "rust":
-        return compile_rust(project_dir, on_progress, should_stop, workers, on_phase)
+        n = compile_rust(project_dir, on_progress, should_stop, workers, on_phase)
+        _check_lots(project_dir)
+        return n
     if workers is None:
         workers = default_workers()
     project = Path(project_dir).resolve()
@@ -1072,6 +1085,7 @@ def compile_map(project_dir: str, batch: int = 4, exe: str | None = None,
         if failures:
             knoxlog.log.warning("compile %s [%s]: finished with %d of %d batches failed",
                                 project.name, run, len(failures), len(batches))
+        _check_lots(project_dir)
         return len(list(lots.glob("*.lotheader")))
 
 

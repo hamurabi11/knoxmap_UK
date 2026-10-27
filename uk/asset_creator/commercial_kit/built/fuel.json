@@ -1,0 +1,38 @@
+{
+ "sheet": "commercial_fuel_uk_01",
+ "brand": "TEXECO",
+ "parts": {
+  "pump_x": "commercial_fuel_uk_01_0",
+  "pump_y": "commercial_fuel_uk_01_1",
+  "column": "commercial_fuel_uk_01_2",
+  "roof": "commercial_fuel_uk_01_3",
+  "price_lo": "commercial_fuel_uk_01_4",
+  "price_hi": "commercial_fuel_uk_01_5",
+  "price_e_lo": "commercial_fuel_uk_01_6",
+  "price_e_hi": "commercial_fuel_uk_01_7",
+  "band_S_0": "commercial_fuel_uk_01_8",
+  "band_S_1": "commercial_fuel_uk_01_9",
+  "band_S_2": "commercial_fuel_uk_01_10",
+  "band_S_3": "commercial_fuel_uk_01_11",
+  "band_S_letters": [
+   "commercial_fuel_uk_01_8",
+   "commercial_fuel_uk_01_9",
+   "commercial_fuel_uk_01_10",
+   "commercial_fuel_uk_01_11"
+  ],
+  "band_E_0": "commercial_fuel_uk_01_12",
+  "band_E_1": "commercial_fuel_uk_01_13",
+  "band_E_2": "commercial_fuel_uk_01_14",
+  "band_E_3": "commercial_fuel_uk_01_15",
+  "band_E_letters": [
+   "commercial_fuel_uk_01_12",
+   "commercial_fuel_uk_01_13",
+   "commercial_fuel_uk_01_14",
+   "commercial_fuel_uk_01_15"
+  ],
+  "band_S_plain": "commercial_fuel_uk_01_16",
+  "band_E_plain": "commercial_fuel_uk_01_17",
+  "band_N_plain": "commercial_fuel_uk_01_18",
+  "band_W_plain": "commercial_fuel_uk_01_19"
+ }
+}

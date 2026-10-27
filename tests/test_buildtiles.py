@@ -274,6 +274,38 @@ class AdditionalBuildingRulesTests(unittest.TestCase):
             self.assertIn("ew_0", tiles)          # the west wall
             self.assertIn("ew_1", tiles)          # the north wall
 
+    def test_a_neighbours_end_post_does_not_take_a_wall_away(self):
+        from knoxbuild.buildtiles import compose_lots
+        # A semi pair: `b` north of `a`, their east walls in line. `b`'s end post
+        # stands on the square (4, 3), where `a`'s east wall starts: the wall
+        # stays, whichever house is laid first (KnoxMap UK, 2026-10-19).
+        a = parse_tbx(tbx(4, 3, [(grid(4, 3), [])]))
+        b = parse_tbx(tbx(4, 3, [(grid(4, 3), [])]))
+        for lots in ([(a, 0, 3, 0), (b, 0, 0, 0)], [(b, 0, 0, 0), (a, 0, 3, 0)]):
+            tiles = compose_lots(lots)[(4, 3, 0)]
+            self.assertIn("ew_0", tiles)          # `a`'s east wall
+            self.assertNotIn("ew_3", tiles)       # no post over it
+
+
+
+class RoofCompositionTests(unittest.TestCase):
+    def test_terraced_houses_roofs_on_their_party_line_both_stay(self):
+        # Two terraced houses meet on one square column above their rooms: the east one's
+        # first column of slope with its gable cap under it, the west one's cap past its end.
+        # The cap laid later used to take the slope away (turned_buildings LOG #D30).
+        from unittest import mock
+        from types import SimpleNamespace
+        from knoxbuild import buildtiles
+        floor = SimpleNamespace(rooms=[[0]])
+        east = SimpleNamespace(floors=[floor], name="east")
+        west = SimpleNamespace(floors=[floor], name="west")
+        layers = {"east": {(0, 0): [("roof", "cap_w"), ("roof", "slope_s1")]},
+                  "west": {(0, 0): [("roof", "cap_w")]}}
+        with mock.patch.object(buildtiles, "level_layers", lambda b, z: layers[b.name]):
+            for lots in ([(east, 5, 5, 2), (west, 5, 5, 2)], [(west, 5, 5, 2), (east, 5, 5, 2)]):
+                tiles = buildtiles.compose_lots(lots)[(5, 5, 2)]
+                self.assertIn("slope_s1", tiles)
+                self.assertEqual(tiles.count("cap_w"), 1)
 
 if __name__ == "__main__":
     unittest.main()

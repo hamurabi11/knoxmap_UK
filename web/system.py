@@ -360,6 +360,8 @@ def api_settings():
                 [value, value.capitalize()]
                 for value in BUILDING_ALIGNMENT_OPTIONS],
             "arch_style": [["auto", "Auto"], ["cn", "Chinese"], ["off", "Default"]],
+            "straight_roads": [[0, "As mapped"], [1, "Knox County roads"],
+                               [2, "Knox County, grid where buildings are"]],
             "height_mix": [["auto", "As the place is"],
                            ["low", "Mostly low, a few taller"],
                            ["middle", "Mostly middling"],

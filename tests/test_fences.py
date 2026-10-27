@@ -11,6 +11,13 @@ from knoxbuild.fences import (STYLES, TALLER, build_fences, height_m,
                               style_for)
 
 
+
+def _enter(case, cm):
+    """TestCase.enterContext for Python 3.10 (it is 3.11+): enter, exit at cleanup."""
+    value = cm.__enter__()
+    case.addCleanup(cm.__exit__, None, None, None)
+    return value
+
 class FenceCollisionTests(unittest.TestCase):
     def test_mapped_fence_is_cut_around_building_footprint(self):
         with TemporaryDirectory() as directory:
@@ -81,7 +88,7 @@ class WaysThroughAFence(unittest.TestCase):
     the way in."""
 
     def fence(self, openings, tags=None):
-        directory = self.enterContext(TemporaryDirectory())
+        directory = _enter(self, TemporaryDirectory())
         bdir = os.path.join(directory, "buildings")
         os.mkdir(bdir)
         with open(os.path.join(directory, "map_fences.geojson"), "w") as f:
@@ -140,6 +147,28 @@ class WaysThroughAFence(unittest.TestCase):
         self.assertEqual(sorted(x for (x, y) in built if y == 6), list(range(2, 14)))
 
 
+
+class UKWaysThrough(unittest.TestCase):
+    """A UK map's OSM gate, stile or kissing gate suits the boundary it is in."""
+
+    def test_by_boundary(self):
+        from knoxbuild.fences import GATES, UK_WAYS, _uk_way
+        hedge = {(5, y): {"W": ("hedge_low", False)} for y in (4, 5, 6)}
+        x, y = 5, 5
+        gate = _uk_way("gate", "hedge_low", x, y, "W", hedge)
+        self.assertIn(gate, (UK_WAYS["gate"][0], UK_WAYS["metal_gate"][0]))       # ours, in a hedge
+        self.assertEqual(_uk_way("stile", "hedge_low", x, y, "W", hedge), UK_WAYS["stile"][0])
+        lone = {(5, 5): {"W": ("hedge_low", False)}}
+        self.assertIsNone(_uk_way("gate", "hedge_low", 5, 5, "W", lone))           # not at a loose end
+        self.assertIsNone(_uk_way("gate", "uk_brick_low", 5, 5, "W", lone))        # no gate on a stub of wall alone
+        wall_end = {(5, y): {"W": ("uk_brick_low", False)} for y in (4, 5)}
+        self.assertEqual(_uk_way("gate", "uk_brick_low", 5, 5, "W", wall_end), GATES["black_metal"][0])   # an iron gate at a wall's end
+        hedge_end = {(5, y): {"W": ("hedge_low", False)} for y in (4, 5)}
+        self.assertIsNone(_uk_way("gate", "hedge_low", 5, 5, "W", hedge_end))     # a field gate: the hedge both sides
+        self.assertIsNone(_uk_way("stile", "uk_brick_low", 5, 5, "W", lone))       # no stile in a garden wall
+        self.assertIsNone(_uk_way("gate", "tall_concrete", 5, 5, "W", lone))       # nothing that suits: the line stays whole
+
+
 class WhoseFenceItIs(unittest.TestCase):
     """A yard fence is this program's guess; a mapped or drawn one is not.
 
@@ -150,7 +179,7 @@ class WhoseFenceItIs(unittest.TestCase):
     """
 
     def built(self, mapped, yard):
-        directory = self.enterContext(TemporaryDirectory())
+        directory = _enter(self, TemporaryDirectory())          # enterContext is Python 3.11
         bdir = os.path.join(directory, "buildings")
         os.mkdir(bdir)
         with open(os.path.join(directory, "map_fences.geojson"), "w") as f:

@@ -32,15 +32,20 @@ from .structures import CELL, render_tiles_tbx
 
 # location_community_cemetary_01: headstones, wooden crosses and the angel on
 # her plinth. Several shapes, because a churchyard where every stone is the
-# same reads as a car park.
-HEADSTONES = ["location_community_cemetary_01_8", "location_community_cemetary_01_9",
-              "location_community_cemetary_01_11", "location_community_cemetary_01_12",
-              "location_community_cemetary_01_13", "location_community_cemetary_01_16",
-              "location_community_cemetary_01_17"]
-CROSSES = ["location_community_cemetary_01_30", "location_community_cemetary_01_31",
-           "location_community_cemetary_01_44", "location_community_cemetary_01_46"]
-ANGELS = ["location_community_cemetary_01_19", "location_community_cemetary_01_20",
-          "location_community_cemetary_01_21", "location_community_cemetary_01_22"]
+# same reads as a car park. Indices measured on the sheet (2026-10-13): 0-5,
+# 8, 9 headstones; 11-14 angels; 16-21, 24-29, 32-35, 40-43 halves of open
+# graves (two-square objects); 22, 23, 36, 37, 39 crosses; 44 on are empty
+# (drawn as red question marks). The old lists had angels and open graves
+# as headstones and empty slots as crosses.
+HEADSTONES = ["location_community_cemetary_01_0", "location_community_cemetary_01_1",
+              "location_community_cemetary_01_2", "location_community_cemetary_01_3",
+              "location_community_cemetary_01_4", "location_community_cemetary_01_5",
+              "location_community_cemetary_01_8", "location_community_cemetary_01_9"]
+CROSSES = ["location_community_cemetary_01_22", "location_community_cemetary_01_23",
+           "location_community_cemetary_01_36", "location_community_cemetary_01_37",
+           "location_community_cemetary_01_39"]
+ANGELS = ["location_community_cemetary_01_11", "location_community_cemetary_01_12",
+          "location_community_cemetary_01_13", "location_community_cemetary_01_14"]
 CROSS_SHARE = 0.12         # of the graves, a wooden cross instead of a stone
 ANGEL_SHARE = 0.006        # and once in a while a monument
 GRAVE_SPACING_M = 2.0      # along a row
@@ -51,8 +56,10 @@ MAX_GRAVES = 40000         # a whole county of churchyards, and no more
 # location_military_generic_01: ammunition crates, fuel drums and lockers.
 # Nothing with English writing on it - the same base has to read as a base in
 # any country the map is of.
+# (KnoxMap UK: not _16 and _17 - the two halves of an "Army Property" sign,
+# SpriteGridPos 0,0 and 1,0: laid one at a time as crates, each was half an
+# object the game cannot remove; LOG 2026-10-19.)
 CRATES = ["location_military_generic_01_8", "location_military_generic_01_9",
-          "location_military_generic_01_16", "location_military_generic_01_17",
           "location_military_generic_01_0", "location_military_generic_01_1"]
 DRUMS = ["location_military_generic_01_14", "location_military_generic_01_15",
          "location_military_generic_01_22", "location_military_generic_01_23"]
@@ -90,6 +97,26 @@ def _blocked_mask(ground: np.ndarray) -> np.ndarray:
     return out
 
 
+def _structure_squares(out_dir: str, map_name: str, height: int, width: int) -> np.ndarray:
+    """Ground squares the structures file lays something on (<map>_structures.json:
+    bridges, monuments, the playgrounds and pitches of sports.py, listed
+    structures). Its lot and the props' lot are separate, so a picnic table put
+    on a square of a playground roundabout replaced half of it in the compile:
+    a half multi-tile object, which the game hangs on (LOG 2026-10-18 #1,
+    Westminster_graph 2026-10-22)."""
+    import json
+    out = np.zeros((height, width), dtype=bool)
+    try:
+        with open(os.path.join(out_dir, f"{map_name}_structures.json"), encoding="utf-8") as f:
+            rows = json.load(f).get("tiles") or []
+    except (OSError, ValueError, AttributeError):
+        return out
+    for x, y, z, *_ in rows:
+        if z == 0 and 0 <= x < width and 0 <= y < height:
+            out[y, x] = True
+    return out
+
+
 def _polygons(areas, category: str) -> list:
     """The land-use polygons of one category, in tiles."""
     return [shape for shape, props in getattr(areas, "_items", [])
@@ -123,6 +150,7 @@ def place_props(out_dir: str, map_name: str, bdir: str, occupied: np.ndarray,
     height, width = ground.shape[:2]
     blocked = _blocked_mask(ground)
     blocked |= occupied[:height, :width]
+    blocked |= _structure_squares(out_dir, map_name, height, width)
     veg_path = os.path.join(out_dir, f"{map_name}_veg.bmp")
     veg = read_rgb(veg_path) if os.path.exists(veg_path) else None
     rng = random.Random(seed)

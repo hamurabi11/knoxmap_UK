@@ -20,7 +20,7 @@ from flask import Flask, jsonify, render_template, request
 import knoxlog
 
 from web import (compiling, generation, geo, jobs, maps, presets, system,
-                 updates, zones)
+                 uk, updates, zones)
 from web.common import _request_context, failed
 
 # Names the tests and tools/selftest.py reach through this module. The code
@@ -115,7 +115,8 @@ def index():
     # a download link there did nothing at all - so the page asks the server
     # to save it and show it in Explorer instead. See /api/save.
     return render_template("index.html", version=knoxlog.version(),
-                           in_window=os.environ.get("KNOXMAP_WINDOW") == "1")
+                           in_window=os.environ.get("KNOXMAP_WINDOW") == "1",
+                           uk=uk.enabled())
 
 
 # ---- the routes: one blueprint per area, in web/ ----------------------------------
@@ -128,6 +129,8 @@ app.register_blueprint(zones.bp)
 app.register_blueprint(compiling.bp)
 app.register_blueprint(generation.bp)
 app.register_blueprint(maps.bp)
+# KnoxMap UK: the UK mode panel's routes (web/uk.py); the page's button shows it
+app.register_blueprint(uk.bp)
 
 
 if __name__ == "__main__":

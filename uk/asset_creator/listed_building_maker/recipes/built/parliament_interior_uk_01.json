@@ -1,0 +1,419 @@
+{
+ "sheet": "parliament_interior_uk_01",
+ "items": {
+  "commons_bench3": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "S": {
+      "0,0": "parliament_interior_uk_01_0",
+      "1,0": "parliament_interior_uk_01_1",
+      "2,0": "parliament_interior_uk_01_2"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_3",
+      "1,0": "parliament_interior_uk_01_4",
+      "2,0": "parliament_interior_uk_01_5"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_6",
+      "0,1": "parliament_interior_uk_01_7",
+      "0,2": "parliament_interior_uk_01_8"
+     },
+     "E": {
+      "0,0": "parliament_interior_uk_01_9",
+      "0,1": "parliament_interior_uk_01_10",
+      "0,2": "parliament_interior_uk_01_11"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "commons_bench2": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "S": {
+      "0,0": "parliament_interior_uk_01_12",
+      "1,0": "parliament_interior_uk_01_13"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_14",
+      "1,0": "parliament_interior_uk_01_15"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_16",
+      "0,1": "parliament_interior_uk_01_17"
+     },
+     "E": {
+      "0,0": "parliament_interior_uk_01_18",
+      "0,1": "parliament_interior_uk_01_19"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "lords_bench3": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "S": {
+      "0,0": "parliament_interior_uk_01_20",
+      "1,0": "parliament_interior_uk_01_21",
+      "2,0": "parliament_interior_uk_01_22"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_23",
+      "1,0": "parliament_interior_uk_01_24",
+      "2,0": "parliament_interior_uk_01_25"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_26",
+      "0,1": "parliament_interior_uk_01_27",
+      "0,2": "parliament_interior_uk_01_28"
+     },
+     "E": {
+      "0,0": "parliament_interior_uk_01_29",
+      "0,1": "parliament_interior_uk_01_30",
+      "0,2": "parliament_interior_uk_01_31"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "lords_bench2": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "S": {
+      "0,0": "parliament_interior_uk_01_32",
+      "1,0": "parliament_interior_uk_01_33"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_34",
+      "1,0": "parliament_interior_uk_01_35"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_36",
+      "0,1": "parliament_interior_uk_01_37"
+     },
+     "E": {
+      "0,0": "parliament_interior_uk_01_38",
+      "0,1": "parliament_interior_uk_01_39"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "speakers_chair": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "S": {
+      "0,0": "parliament_interior_uk_01_40"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_41"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_42"
+     },
+     "E": {
+      "0,0": "parliament_interior_uk_01_43"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "table_of_the_house": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "S": {
+      "0,0": "parliament_interior_uk_01_44",
+      "1,0": "parliament_interior_uk_01_45",
+      "2,0": "parliament_interior_uk_01_46"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_47",
+      "1,0": "parliament_interior_uk_01_48",
+      "2,0": "parliament_interior_uk_01_49"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_50",
+      "0,1": "parliament_interior_uk_01_51",
+      "0,2": "parliament_interior_uk_01_52"
+     },
+     "E": {
+      "0,0": "parliament_interior_uk_01_53",
+      "0,1": "parliament_interior_uk_01_54",
+      "0,2": "parliament_interior_uk_01_55"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "woolsack": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "S": {
+      "0,0": "parliament_interior_uk_01_56",
+      "1,0": "parliament_interior_uk_01_57"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_58",
+      "1,0": "parliament_interior_uk_01_59"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_60",
+      "0,1": "parliament_interior_uk_01_61"
+     },
+     "E": {
+      "0,0": "parliament_interior_uk_01_62",
+      "0,1": "parliament_interior_uk_01_63"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "throne": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "S": {
+      "0,0": "parliament_interior_uk_01_64",
+      "1,0": "parliament_interior_uk_01_65",
+      "2,0": "parliament_interior_uk_01_66"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_67",
+      "1,0": "parliament_interior_uk_01_68",
+      "2,0": "parliament_interior_uk_01_69"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_70",
+      "0,1": "parliament_interior_uk_01_71",
+      "0,2": "parliament_interior_uk_01_72"
+     },
+     "E": {
+      "0,0": "parliament_interior_uk_01_73",
+      "0,1": "parliament_interior_uk_01_74",
+      "0,2": "parliament_interior_uk_01_75"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "brass_rail": {
+   "kind": "edge",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "parliament_interior_uk_01_76"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_77"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "statue_statesman": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "S": {
+      "0,0": "parliament_interior_uk_01_78"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_79"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_80"
+     },
+     "E": {
+      "0,0": "parliament_interior_uk_01_81"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "panelling_linenfold": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "parliament_interior_uk_01_82"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_83"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "door_surround_gothic": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "parliament_interior_uk_01_84"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_85"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "lobby_bench": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "S": {
+      "0,0": "parliament_interior_uk_01_86",
+      "1,0": "parliament_interior_uk_01_87"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_88",
+      "1,0": "parliament_interior_uk_01_89"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_90",
+      "0,1": "parliament_interior_uk_01_91"
+     },
+     "E": {
+      "0,0": "parliament_interior_uk_01_92",
+      "0,1": "parliament_interior_uk_01_93"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "lectern_gothic": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "S": {
+      "0,0": "parliament_interior_uk_01_94"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_95"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_96"
+     },
+     "E": {
+      "0,0": "parliament_interior_uk_01_97"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "gallery_table": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "S": {
+      "0,0": "parliament_interior_uk_01_98",
+      "1,0": "parliament_interior_uk_01_99",
+      "2,0": "parliament_interior_uk_01_100"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_101",
+      "1,0": "parliament_interior_uk_01_102",
+      "2,0": "parliament_interior_uk_01_103"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_104",
+      "0,1": "parliament_interior_uk_01_105",
+      "0,2": "parliament_interior_uk_01_106"
+     },
+     "E": {
+      "0,0": "parliament_interior_uk_01_107",
+      "0,1": "parliament_interior_uk_01_108",
+      "0,2": "parliament_interior_uk_01_109"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "display_case": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "parliament_interior_uk_01_110"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_111"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "floor_plaque_brass": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "parliament_interior_uk_01_112"
+     },
+     "W": {
+      "0,0": "parliament_interior_uk_01_113"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "wall_plaque_brass": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "parliament_interior_uk_01_114"
+     },
+     "N": {
+      "0,0": "parliament_interior_uk_01_115"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "floor_encaustic_lattice": {
+   "kind": "floor",
+   "tile": "parliament_interior_uk_01_116"
+  },
+  "floor_flags_worn": {
+   "kind": "floor",
+   "tile": "parliament_interior_uk_01_117"
+  },
+  "floor_carpet_commons": {
+   "kind": "floor",
+   "tile": "parliament_interior_uk_01_118"
+  },
+  "floor_carpet_lords": {
+   "kind": "floor",
+   "tile": "parliament_interior_uk_01_119"
+  }
+ }
+}

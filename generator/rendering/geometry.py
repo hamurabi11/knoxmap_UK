@@ -30,11 +30,20 @@ def _feature_coords_px(feat: OSMFeature, proj: Projector) -> list[list[tuple[flo
 
 
 def _is_polygon(feat: OSMFeature) -> bool:
-    """Treat as polygon if first/last point match (way) or it's a relation."""
+    """Treat as polygon if first/last point match (way) or it's a relation.
+
+    Except a road: a closed highway is a ring road - a close round a green, a
+    roundabout - unless it is mapped as an area (area=yes, a paved square).
+    Taken for an area, a close was painted as a solid disc of tarmac with its
+    houses standing on it, and left out of the Knox County straightening."""
     if feat.kind == "relation":
         return True
     if feat.kind == "way" and len(feat.geometry) >= 3:
-        return feat.geometry[0] == feat.geometry[-1]
+        if feat.geometry[0] != feat.geometry[-1]:
+            return False
+        if "highway" in feat.tags and feat.tags.get("area") != "yes":
+            return False
+        return True
     return False
 
 

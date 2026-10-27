@@ -1,0 +1,100 @@
+{
+ "sheet": "manor_uk_01",
+ "about": "A Georgian town house's front and inside, first for Westbrooke House, Alton (list entry 1094199, Grade II*).",
+ "evidence": [
+  "List text: 'Main front of 3 storeys and 5 bays wide, the central one advanced somewhat. Brick; slate roof. Ground floor with central door in pedimented stone doorcase ... 1st and 2nd floors each with 5 similar windows, the centre one on the 2nd floor with a cut brick head. Deep modillioned eaves cornice.'",
+  "List text: 'The interior has contemporary doors and panelling and a good oak staircase with alternate fluted and twisted balusters and carved stair ends. The stairs are entered on each level beneath a depressed arch with plaster panelled soffit and jambs ... Seven sections of Doric frieze re-sited on walls of hall and stairs, with triglyphs and moulded trophies in the metopes.'",
+  "No photo of the house is free to look at (Commons has none by name; Historic England's are view-only and not used): the pieces follow the list text and the usual early-C18 forms."
+ ],
+ "items": [
+  {
+   "name": "cornice_modillion",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {"box": [0.0, 0.06, 0.0, 1.0, 2.5, 2.72], "mat": {"name": "paint", "rgb": [232, 228, 216]}},
+    {"box": [0.0, 0.14, 0.0, 1.0, 2.72, 2.78], "mat": {"name": "paint", "rgb": [232, 228, 216]}},
+    {"box": [0.06, 0.36, 0.05, 0.13, 2.74, 2.82], "mat": {"name": "paint", "rgb": [236, 232, 220]}, "repeat": {"n": 3, "step": [0, 0.333, 0]}},
+    {"box": [0.0, 0.44, 0.0, 1.0, 2.82, 2.94], "mat": {"name": "paint", "rgb": [236, 232, 220]}},
+    {"box": [0.0, 0.48, 0.0, 1.0, 2.94, 3.0], "mat": {"name": "paint", "rgb": [226, 222, 210]}}
+   ]
+  },
+  {
+   "name": "break_start",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [{"box": [0.0, 0.1, 0.0, 0.14, 0.0, 3.0], "mat": {"name": "brick", "rgb": [146, 70, 54]}}]
+  },
+  {
+   "name": "break_end",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [{"box": [0.0, 0.1, 0.86, 1.0, 0.0, 3.0], "mat": {"name": "brick", "rgb": [146, 70, 54]}}]
+  },
+  {
+   "name": "brick_head",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {"box": [0.0, 0.04, 0.14, 0.86, 2.3, 2.52], "mat": {"name": "brick", "rgb": [198, 98, 66], "mortar": [214, 196, 170]}},
+    {"box": [0.0, 0.05, 0.44, 0.56, 2.28, 2.54], "mat": {"name": "brick", "rgb": [206, 112, 78], "mortar": [214, 196, 170]}}
+   ]
+  },
+  {
+   "name": "panelling_georgian",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {"box": [0.0, 0.05, 0.0, 1.0, 0.0, 0.14], "mat": {"name": "paint", "rgb": [182, 176, 158]}},
+    {"box": [0.0, 0.04, 0.0, 1.0, 0.14, 0.86], "mat": {"name": "oak_carved", "painted": true, "rgb": [208, 204, 186], "panel": [0.5, 0.72], "motif": "fielded"}},
+    {"box": [0.0, 0.07, 0.0, 1.0, 0.86, 0.94], "mat": {"name": "paint", "rgb": [214, 210, 192]}},
+    {"box": [0.0, 0.04, 0.0, 1.0, 0.94, 2.56], "mat": {"name": "oak_carved", "painted": true, "rgb": [208, 204, 186], "panel": [0.5, 0.81], "motif": "fielded"}},
+    {"box": [0.0, 0.08, 0.0, 1.0, 2.56, 2.66], "mat": {"name": "paint", "rgb": [220, 216, 200]}}
+   ]
+  },
+  {
+   "name": "frieze_doric",
+   "kind": "edge",
+   "length": 2,
+   "layer": "WallOverlay",
+   "parts": [
+    {"box": [0.0, 0.05, 0.0, 2.0, 2.26, 2.32], "mat": {"name": "paint", "rgb": [220, 214, 198]}},
+    {"panel": {"o": [0.04, 0.0, 2.62], "u": [0, 2.0, 0], "v": [0, 0, -0.3]}, "pattern": {"name": "frieze_doric", "triglyph": 0.14}},
+    {"box": [0.0, 0.07, 0.0, 2.0, 2.62, 2.7], "mat": {"name": "paint", "rgb": [226, 220, 204]}}
+   ]
+  },
+  {
+   "name": "balustrade_georgian",
+   "kind": "edge",
+   "length": 1,
+   "layer": "Furniture",
+   "props": [["CustomName", "Balustrade"]],
+   "parts": [
+    {"box": [0.0, 0.08, 0.0, 1.0, 0.0, 0.08], "mat": "oak_dark"},
+    {"box": [0.0, 0.09, 0.0, 1.0, 0.88, 0.95], "mat": "oak_dark"},
+    {"box": [0.02, 0.06, 0.08, 0.12, 0.08, 0.88], "mat": "oak", "repeat": {"n": 2, "step": [0, 0.5, 0]}},
+    {"box": [0.025, 0.055, 0.09, 0.11, 0.1, 0.86], "mat": "oak_pale", "repeat": {"n": 2, "step": [0, 0.5, 0]}, "edges": false},
+    {"box": [0.015, 0.065, 0.30, 0.34, 0.08, 0.16], "mat": "oak", "repeat": {"n": 5, "step": [0, 0, 0.16]}},
+    {"box": [0.015, 0.065, 0.33, 0.37, 0.16, 0.24], "mat": "oak", "repeat": {"n": 4, "step": [0, 0, 0.16]}},
+    {"box": [0.015, 0.065, 0.80, 0.84, 0.08, 0.16], "mat": "oak", "repeat": {"n": 5, "step": [0, 0, 0.16]}},
+    {"box": [0.015, 0.065, 0.83, 0.87, 0.16, 0.24], "mat": "oak", "repeat": {"n": 4, "step": [0, 0, 0.16]}}
+   ]
+  },
+  {
+   "name": "stair_arch",
+   "kind": "edge",
+   "length": 3,
+   "layer": "WallOverlay",
+   "parts": [
+    {"panel": {"o": [0.12, 0.0, 3.0], "u": [0, 3.0, 0], "v": [0, 0, -3.0]}, "pattern": {"name": "arch", "span": 2.2, "spring": 2.05, "shape": "tudor", "rise": 0.42, "mat": {"name": "plaster", "rgb": [222, 216, 200]}, "trim": {"name": "oak_carved", "painted": true, "rgb": [236, 232, 220], "panel": [0.16, 0.42], "motif": "fielded"}, "band": 0.16}},
+    {"panel": {"o": [-0.12, 0.0, 3.0], "u": [0.24, 0, 0], "v": [0, 0, -3.0]}, "pattern": {"name": "fill", "mat": {"name": "plaster", "rgb": [222, 216, 200]}}},
+    {"panel": {"o": [-0.12, 3.0, 3.0], "u": [0.24, 0, 0], "v": [0, 0, -3.0]}, "pattern": {"name": "fill", "mat": {"name": "plaster", "rgb": [222, 216, 200]}}}
+   ]
+  }
+ ]
+}

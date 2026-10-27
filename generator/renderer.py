@@ -106,7 +106,7 @@ def render(features: Iterable[OSMFeature], south: float, west: float,
            osm_cache: str | None = None,
            osm_bbox: tuple[float, float, float, float] | None = None,
            shape: dict | None = None,
-           straight_roads: bool = True,
+           straight_roads: int = 1,
            should_stop=None) -> RenderResult:
     proj = Projector.build(south, west, north, east, meters_per_tile, rotation)
     # Read more than once below - the buildings pass goes back over the
@@ -115,7 +115,8 @@ def render(features: Iterable[OSMFeature], south: float, west: float,
     if straight_roads:
         # Every road in straight runs at 45-degree steps (octilinear.py).
         from .octilinear import straighten_roads
-        straighten_roads(features, proj, classify, _is_polygon)
+        # 2: grid where buildings are, the 45-degree joins between (octilinear.py)
+        straighten_roads(features, proj, classify, _is_polygon, grid_built=int(straight_roads) == 2)
     # A drawn polygon, circle or real outline rather than a rectangle: the map
     # still covers its bounding box in whole cells, but only what lies inside
     # the shape is built.
@@ -228,6 +229,8 @@ def render(features: Iterable[OSMFeature], south: float, west: float,
                     if _is_polygon(feat):
                         continue
                     verge = _verge_width_m(feat, road)
+                    if verge <= 0:
+                        continue
                     width_px = _pixel_width(_way_width_m(feat, road) + 2 * verge,
                                             meters_per_tile)
                     _draw_line(l_draw, ground_rings(feat),
@@ -339,7 +342,7 @@ def render(features: Iterable[OSMFeature], south: float, west: float,
         "bbox": {"south": south, "west": west, "north": north, "east": east},
         "rotation": rotation,
         "osm_cache": osm_cache,
-        "straight_roads": bool(straight_roads),
+        "straight_roads": int(straight_roads),
         "osm_bbox": list(osm_bbox) if osm_bbox else None,
         "shape": shape,
         "meters_per_tile": meters_per_tile,

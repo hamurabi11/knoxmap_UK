@@ -261,7 +261,11 @@ ROOM_STYLE = {
                         ("chinesekitchen", "Chinese Kitchen"), ("sushikitchen", "Sushi Kitchen"),
                         ("mexicankitchen", "Mexican Kitchen"), ("seafoodkitchen", "Seafood Kitchen"),
                         ("cafekitchen", "Cafe Kitchen"), ("bakerykitchen", "Bakery Kitchen"),
-                        ("icecreamkitchen", "Ice Cream Kitchen"))},
+                        ("icecreamkitchen", "Ice Cream Kitchen"), ("spiffoskitchen", "Spiffo's Kitchen"))},
+    # KnoxMap UK: a Spiffo's (the game's own chain: its loot and its cooks' outfits
+    # come with these room names, Distributions.lua / ZombiesZoneDefinition.lua)
+    "spiffo_dining": (C.FLOOR_TILE_CHECK, "Spiffo's", ["plant", "painting", "plant"]),
+    "spiffosstorage": (C.FLOOR_LINO, "Spiffo's Storage", ["crate", "crate", "metal_rack", "shop_fridge"]),
     "barstorage": (C.FLOOR_LINO, "Bar Storage", ["crate", "crate", "metal_rack", "shop_fridge"]),
     "bank": (C.FLOOR_TILE_CHECK, "Bank",
              ["shop_counter", "shop_counter", "desk", "office_chair", "filing_cabinet", "plant",
@@ -1391,9 +1395,11 @@ SHOP_BACK_ROOMS = ["storage", "office", "storage"]
 SHOP_BACK_SHARE = 0.3
 SHOP_BACK_TILES = (3, 7)
 MIN_SALES_DEPTH = 8
+SPIFFOS_MIN_SALES = 4      # KnoxMap UK: a Spiffo's dining room may be this shallow, its kitchen behind
 
 
-def _shop_rooms(plan: Plan, rng: random.Random, street: str | None) -> None:
+def _shop_rooms(plan: Plan, rng: random.Random, street: str | None,
+                min_sales: int = MIN_SALES_DEPTH) -> None:
     """A shop's ground floor as one sales floor the width of the shop front,
     and a strip of back rooms behind it: stockroom, office, toilet.
 
@@ -1405,7 +1411,7 @@ def _shop_rooms(plan: Plan, rng: random.Random, street: str | None) -> None:
     side = street if street in ("N", "S", "W", "E") else ("S" if w >= h else "E")
     total = h if side in ("N", "S") else w
     back = max(SHOP_BACK_TILES[0], min(SHOP_BACK_TILES[1], round(total * SHOP_BACK_SHARE)))
-    if total - back < MIN_SALES_DEPTH:
+    if total - back < min_sales:
         plan.rooms.append(Room(0, 0, w - 1, h - 1))
         return
     if side == "S":
@@ -2931,8 +2937,10 @@ def _back_door(plan: Plan, street: str | None = None) -> None:
             for idx, room in enumerate(plan.rooms, 1):
                 if room.kind != kind or room.is_shaft:
                     continue
+                # (Not a wall with a door in it already: a front door on the
+                # "back" side was written twice - QA, 2026-10-19, a quarter of houses.)
                 runs = [wall for side, wall in _outside_runs(plan, idx)
-                        if len(wall) >= 3 and (side == wanted if wanted else
+                        if len(wall) >= 3 and not set(wall) & set(plan.doors) and (side == wanted if wanted else
                         abs(wall[len(wall) // 2][0] - fx) + abs(wall[len(wall) // 2][1] - fy) > 6)]
                 if runs:
                     wall = max(runs, key=len)
@@ -2991,6 +2999,15 @@ SERVICE_WINDOW_CAP = {"garage": 0, "mechanic": 0, "elevator": 0, "shed": 1}
 LIVED_IN = {"livingroom", "openplan", "bedroom", "kidsbedroom", "kitchen",
             "classroom", "restaurant"}
 MIN_WALL_FOR_WINDOW = 3
+# KnoxMap UK: a house's windows in bays down each straight wall, the same on
+# every storey (_place_windows): one a HOUSE_BAY_PITCH tiles along the front
+# and back, one a HOUSE_SIDE_PITCH along the ends; none into the rooms of
+# HOUSE_NO_WINDOW, at most so many into those of HOUSE_ONE_WINDOW.
+HOUSE_FACADE_WINDOWS = True
+HOUSE_BAY_PITCH = 3
+HOUSE_SIDE_PITCH = 5
+HOUSE_NO_WINDOW = {"closet", "garage", "elevator"}
+HOUSE_ONE_WINDOW = {"bathroom": 1, "laundry": 1, "storage": 1}
 # What "a shelf" is, by the room it stands in.
 #
 # One generic wooden shelf was on nearly every room's list and was always the
@@ -3325,8 +3342,17 @@ def _bays(by_side: dict, front: set[str], near: int, far: int,
     return bays
 
 
+def _straight_walled(grid) -> bool:
+    """Whether most of a storey's outside wall is straight runs a window bay can
+    be laid along (3 squares or more). A house at an angle to the grid has
+    sides of one- and two-square steps, which the bays skipped (QA, 2026-10-19):
+    it keeps the room-by-room windows."""
+    runs = [len(wall) for _side, wall in _facade_runs(grid)]
+    return sum(n for n in runs if n >= MIN_WALL_FOR_WINDOW) * 2 >= sum(runs)
+
+
 def _place_windows(building: "Building", kind: str | None,
-                   shop_ground: bool = False) -> None:
+                   shop_ground: bool = False, street: str | None = None) -> None:
     """Windows in bays down the facade, the same bays on every storey.
 
     Two things made the buildings look wrong. Windows were spaced along every
@@ -3374,14 +3400,19 @@ def _place_windows(building: "Building", kind: str | None,
         return bays_by_grid[key]
 
     if kind in SHOP_FRONT_KINDS or shop_ground:
-        glass = _bays(by_side, front, 1, far, only=front)
-        # Glass only where there is a shop behind it: a block of flats' long
-        # sides are both "front", and its offices and toilets were glazed
-        # like the shops.
         g0 = building.storeys[0]
         sales = RETAIL_ROOMS | FRONT_ROOMS | {"restaurant"}
-        glass = [b for b in glass if g0.grid[b[4]][b[3]]
-                 and g0.rooms[g0.grid[b[4]][b[3]] - 1].kind in sales]
+
+        def shop_glass(sides):
+            # Glass only where there is a shop behind it: a block of flats'
+            # long sides are both "front", and its offices and toilets were
+            # glazed like the shops.
+            return [b for b in _bays(by_side, sides, 1, far, only=sides) if g0.grid[b[4]][b[3]]
+                    and g0.rooms[g0.grid[b[4]][b[3]] - 1].kind in sales]
+        # KnoxMap UK: on the street side when the shop has one there (the
+        # building's front from the data); a block of flats' front is its
+        # long sides, which put the Co-op's glass on its back garden.
+        glass = (shop_glass({street}) if street in by_side else []) or shop_glass(front)
         glass_set = set(glass)
         ground_bays = glass + [b for b in bays if b not in glass_set]
     house_like = kind in HOUSE_LIKE_KINDS
@@ -3468,7 +3499,52 @@ def _place_windows(building: "Building", kind: str | None,
                     continue
                 add(edge)
                 taken[idx] = taken.get(idx, 0) + 1
-        if house_like:
+        # KnoxMap UK: then a straight-walled house's windows in bays down each wall (below),
+        # spaced from those columns; any other house's room by room, as upstream lays them.
+        facade = house_like and HOUSE_FACADE_WINDOWS and _straight_walled(storey.grid)
+        if facade:
+            # KnoxMap UK (user, 2026-10-19: "not very symmetric and sometimes
+            # misses large chunks of wall"): a house's windows in bays down
+            # each straight wall, centred and evenly spread, from the wall
+            # alone - so a storey's wall that runs on above the one below
+            # gets the same bays, and the windows stack. Placed room by room
+            # (below), each storey and room chose its own: 53% of Odiham's
+            # upper windows stood over a window, and 59% of upper walls had
+            # five or more blank tiles. A bay is dropped only where the room
+            # behind has no use for a window (HOUSE_NO_WINDOW) or one is
+            # enough (a bathroom, the stair hall's landing); a blocked spot
+            # moves one tile at most.
+            back = {"N": "S", "S": "N", "W": "E", "E": "W"}
+            glazed_sides = set(front) | {back[s] for s in front}
+            for side, wall in _facade_runs(storey.grid):
+                if len(wall) < MIN_WALL_FOR_WINDOW:
+                    continue
+                pitch = HOUSE_BAY_PITCH if side in glazed_sides else HOUSE_SIDE_PITCH
+                n = (len(wall) + 1) // pitch
+                for k in range(n):
+                    i = int((k + 0.5) * len(wall) / n)
+                    # a spot over a window of the floor below first (upstream 1.7.6.2:
+                    # windows in columns), else the bay's centre, then a tile either side
+                    spots = sorted((i, i - 1, i + 1),
+                                   key=lambda j: not (0 <= j < len(wall) and tuple(wall[j][:3]) in under))
+                    for j in spots:
+                        if not 0 < j < len(wall) - 1:
+                            continue
+                        x, y, d, ix, iy = wall[j]
+                        idx = storey.grid[iy][ix]
+                        room = storey.rooms[idx - 1] if idx else None
+                        if room is None or room.is_shaft or room.kind in HOUSE_NO_WINDOW:
+                            break
+                        # The stair hall takes one (a landing window): skipping it
+                        # as the core left 717 of Odiham's upper walls blank.
+                        one = 1 if room.is_core else HOUSE_ONE_WINDOW.get(room.kind, 1 << 30)
+                        if taken.get(idx, 0) >= one:
+                            break
+                        if (x, y, d) not in blocked and spaced(x, y, d):
+                            add((x, y, d))
+                            taken[idx] = taken.get(idx, 0) + 1
+                            break
+        if house_like and not facade:
             # A house's windows are placed room by room, centred on each
             # outside wall and evenly spread along it, as Knox County's are.
             # Bays laid out for the whole facade put two or three windows
@@ -3735,7 +3811,7 @@ CENTRE_GROUPS["theatre"] = ([("chair", 0, 0, "S"), ("chair", 1, 0, "S"), ("chair
 # Commercial kitchens are fitted with counters wall to wall, like a home's.
 KITCHENS = {"kitchen", "openplan", "breakroom", "restaurantkitchen", "pizzakitchen", "burgerkitchen",
             "dinerkitchen", "chinesekitchen", "sushikitchen", "mexicankitchen", "seafoodkitchen",
-            "cafekitchen", "bakerykitchen", "icecreamkitchen"}
+            "cafekitchen", "bakerykitchen", "icecreamkitchen", "spiffoskitchen"}
 FALLBACK_GROUPS: dict[str, list[list[tuple[str, int, int, str]]]] = {
     "motelroom": [[("double_bed", 0, 0, "W"), ("tv", 3, 0, "E")]],
     "church": [[("table", 1, 0, "W"), ("chair", 0, 2, "S"),
@@ -5096,8 +5172,13 @@ def build_building(width: int, height: int, levels: int = 1,
                    entrances: list[tuple[float, float, dict]] | None = None,
                    profile: object | None = None,
                    mapped: list | None = None,
-                   garage_door: bool = False) -> Building:
+                   garage_door: bool = False,
+                   level_masks: list | None = None) -> Building:
     """Lay out a building of `levels` storeys.
+
+    `level_masks`, when given, is each storey's own footprint (a building
+    whose parts stand at different heights: a two-storey front with a
+    single-storey range behind). The staircase goes in the tallest part.
 
     `retail` puts shops on the ground floor of a block of flats, as on any
     city street; towers step back above SETBACK_FROM_LEVELS. `uses` are what
@@ -5110,15 +5191,37 @@ def build_building(width: int, height: int, levels: int = 1,
     """
     levels = max(1, levels)
     rng = random.Random(seed ^ 0x5745)
+    if level_masks:
+        levels = len(level_masks)
+        mask = level_masks[0]
+    # Stairs and corridors have to reach the top floor, so with storeys of
+    # their own they are placed in the tallest part.
+    # Squares on every storey: the tallest part's, less any arch through the
+    # ground floor (KnoxMap UK, regional_uk.py) - stairs cannot land in it.
+    core_mask = ([[all(lm[y][x] for lm in level_masks) for x in range(len(level_masks[-1][0]))]
+                  for y in range(len(level_masks[-1]))] if level_masks else mask)
+    # KnoxMap UK: no stairs in a house's garage (a mapped room, regional_uk.garage_for):
+    # the core is painted last and took the garage's squares for a hall.
+    garage = {(x, y) for pts, k in (mapped or ()) if k == "garage"
+              for x in range(min(p[0] for p in pts), max(p[0] for p in pts) + 1)
+              for y in range(min(p[1] for p in pts), max(p[1] for p in pts) + 1)}
+    if garage:
+        base = core_mask or [[True] * width for _ in range(height)]
+        core_mask = [[bool(v) and (x, y) not in garage for x, v in enumerate(row)] for y, row in enumerate(base)]
 
     # A block of flats gets a corridor whether or not it is tall enough to
     # need stairs, because the flats have to open onto something. Everything
     # else only needs a shaft, and only once there is a floor above.
     core = None
     corridor = False
-    if kind == "apartment":
-        core = _pick_corridor(width, height, mask, rng)
+    if kind == "apartment" and not (uses and levels >= 2 and len(uses) == 1):
+        core = _pick_corridor(width, height, core_mask, rng)
         corridor = core is not None
+    elif kind == "apartment":
+        # Flats over a single business (a supermarket under its flats, KnoxMap
+        # UK): a staircase, not a corridor the length of the building, or the
+        # corridor runs through the shop floor too and cuts it in two.
+        core = None
     elif kind in NEEDS_CORRIDOR and (
             width * height >= CORRIDOR_WORTH_IT
             * (settings.room_size if settings else Settings().room_size)
@@ -5129,8 +5232,12 @@ def build_building(width: int, height: int, levels: int = 1,
         # ones relabelled, which is what read as corridors all the way down.
         # Only where there are rooms enough to be worth serving - a two-room
         # library with a corridor through it is a third corridor.
-        core = _pick_corridor(width, height, mask, rng)
+        core = _pick_corridor(width, height, core_mask, rng)
     if core is None and levels > 1:
+        core = _pick_core(width, height, core_mask, rng, street)
+    if core is None and level_masks and levels > 1:
+        # No room for stairs in the tallest part: one height for the lot.
+        level_masks = None
         core = _pick_core(width, height, mask, rng, street)
     if levels > 1 and core is None:
         levels = 1          # nowhere to put a staircase, so one floor it is
@@ -5138,11 +5245,11 @@ def build_building(width: int, height: int, levels: int = 1,
     stairs = _stairs_in_core(core) if core is not None and levels > 1 else None
     shaft = shaft_door = None
     if core is not None and levels >= ELEVATOR_FROM_LEVELS and min(width, height) >= ELEVATOR_MIN_SIDE:
-        found = _pick_shaft(core, width, height, mask, stairs)
+        found = _pick_shaft(core, width, height, core_mask, stairs)
         if found:
             shaft, shaft_door = found
-    upper_mask, setback_at = _setback(width, height, mask, levels, core, shaft,
-                                      corridor)
+    upper_mask, setback_at = (None, 0) if level_masks else _setback(
+        width, height, mask, levels, core, shaft, corridor)
     # Shops under flats where the town is dense, and wherever the map puts a
     # shop, a restaurant or a bank in a building that is more than one.
     shops = kind in ("apartment", "civic") and core is not None and (
@@ -5165,8 +5272,12 @@ def build_building(width: int, height: int, levels: int = 1,
     storeys = [
         build_plan(width, height, commercial=commercial or (shops and lvl == 0),
                    seed=_plan_seed(lvl),
-                   kind="retail" if shops and lvl == 0 else kind,
-                   mask=upper_mask if setback_at and lvl >= setback_at else mask,
+                   # One business under the flats is one shop - a sales floor
+                   # and its back rooms (a supermarket under its flats, KnoxMap
+                   # UK) - not a row of shop fronts each repeating it.
+                   kind=(("shop" if len(uses or []) == 1 else "retail") if shops and lvl == 0 else kind),
+                   mask=(level_masks[lvl] if level_masks else
+                         upper_mask if setback_at and lvl >= setback_at else mask),
                    ground=(lvl == 0), settings=settings,
                    core=core, level=lvl, levels=levels, stairs=stairs,
                    corridor=corridor, shaft=shaft, shaft_door=shaft_door,
@@ -5179,6 +5290,9 @@ def build_building(width: int, height: int, levels: int = 1,
     if garage_door and storeys:
         _widen_vehicle_entry(storeys[0], street)
     building = Building(width=width, height=height, storeys=storeys, profile=profile)
+    # Whether the storeys really step: a roof planned for parts at their own
+    # heights only fits if they do.
+    building.stepped = level_masks is not None
     if stairs is not None:
         for lvl in range(levels - 1):
             building.stairs.append(stairs)
@@ -5186,7 +5300,7 @@ def build_building(width: int, height: int, levels: int = 1,
             _clear_for_stairs(storeys[lvl + 1], *stairs)
     # Windows last and for the whole building at once, so they stack in
     # columns instead of each floor scattering its own.
-    _place_windows(building, kind, shop_ground=shops)
+    _place_windows(building, kind, shop_ground=shops, street=street)
     if kind == "mall":
         _place_escalators(building)
     # Last of all, because it is the furnished building that has to be
@@ -5426,7 +5540,9 @@ def build_plan(width: int, height: int, commercial: bool = False,
     if kind == "apartment":
         _apartment_rooms(plan, rng, target, HOTEL_FRONTAGE if hotel else FLAT_FRONTAGE)
     elif shop_floor and kind in ("shop", "restaurant"):
-        _shop_rooms(plan, rng, street)
+        # KnoxMap UK: a Spiffo's keeps its kitchen behind a counter even in a narrow unit
+        from .uses import SPIFFOS
+        _shop_rooms(plan, rng, street, SPIFFOS_MIN_SALES if uses and uses[0] == SPIFFOS else MIN_SALES_DEPTH)
     elif mix_kind == "mall":
         _mall_rooms(plan, rng, target, level)
     elif mix_kind == "garage":

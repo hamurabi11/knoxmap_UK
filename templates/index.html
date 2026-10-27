@@ -36,6 +36,8 @@
   <select id="language" class="language" data-no-translate
           title="The window's language. Copy lang/english.txt, translate it and name it after your language" hidden></select>
   <span id="updateNote" class="update-note" hidden></span>
+  <button type="button" id="ukModeBtn" class="btn btn-small uk-mode-btn" aria-pressed="{{ 'true' if uk else 'false' }}"
+          data-start-on="{{ 1 if uk else 0 }}" title="KnoxMap UK: English towns from UK data">UK mode</button>
 </header>
 
 <main>
@@ -324,6 +326,203 @@
       </details>
     </section>
 
+    <section class="panel" data-card="uk" id="ukCard"{% if not uk %} hidden{% endif %}>
+      <h2>UK mode</h2>
+      <span class="step-note">The KnoxMap UK chain: an area's data in one go, then its map through
+        every UK step, with the settings above. Then Compile and Install below, as for any map.
+        UK maps are 1 metre a tile.</span>
+      <details id="ukDataPanel">
+        <summary>Data <span id="ukDataSummary" class="step-note"></span></summary>
+        <div class="step-note">Without these, an area can still be made from OpenStreetMap and LiDAR
+          alone (choose "OSM and LiDAR only" below); each one adds what it says.</div>
+        <ul id="ukDataList" class="uk-data"></ul>
+        <button id="ukOpenRaw" class="btn btn-small" type="button">Open the data folder</button>
+        <button id="ukOpenInspire" class="btn btn-small" type="button">Open the INSPIRE folder</button>
+        <div class="step-note">Fetched for each area by itself (internet needed):</div>
+        <ul id="ukAutoList" class="uk-data"></ul>
+      </details>
+      <details id="ukSetupPanel" open>
+        <summary>1. Set up an area from the drawn box</summary>
+        <label class="field">Source map name
+          <input type="text" id="ukSourceName" placeholder="e.g. Hook_town"/>
+        </label>
+        <label class="field">Area folder <span class="step-note">optional; the name in lower case</span>
+          <input type="text" id="ukAreaName" placeholder="e.g. hook_core"/>
+        </label>
+        <label class="field">Data
+          <select id="ukLevel">
+            <option value="full">Full: OS roads, UPRN, listings, EPC, FSA, INSPIRE where there are</option>
+            <option value="osm_lidar">OSM and LiDAR only</option>
+          </select>
+        </label>
+        <div class="uk-help-text"><b>Full:</b> uses whichever of the downloads under Data are here:
+          house ages and types (EPC), every address, listed buildings, real road classes, land titles.
+          <b>OSM and LiDAR only:</b> for anywhere, with nothing to download by hand; homes styled by
+          built form, fewer shops and homes per building, no listed buildings (the Data list says
+          what each adds). <i>Full takes a few minutes longer the first time per council.</i></div>
+        <label class="field">Turn (degrees) <span class="step-note">blank: the streets' main direction</span>
+          <input type="number" id="ukRotate" step="0.1"/>
+        </label>
+        <div class="uk-help-text">How far the map is turned so the main streets run along the game's
+          grid (Odiham 69, Alton 41). Blank: worked out from the streets.</div>
+        <details class="uk-help">
+          <summary>What setting up does, and how long it takes</summary>
+          <ul>
+            <li><b>OpenStreetMap download</b> for the box, and the source map drawn from it with the
+              streets' real widths and the settings above. <i>A minute or two.</i></li>
+            <li><b>LiDAR heights</b> (the Environment Agency's DSM and DTM): storeys and roof shapes.
+              <i>A few minutes.</i></li>
+            <li><b>Point cloud</b> for buildings, trees and boundaries. <i>A 5 km tile is about
+              230 MB to download the first time; tiles already downloaded are reused.</i></li>
+            <li><b>Full data only:</b> listed buildings, addresses, food businesses, OS roads and
+              land titles. The EPC certificates are cut out of the national files <i>once per
+              council: several minutes the first time</i>.</li>
+            <li>The house types and ages, from the EPC data (or by built form without it).
+              <i>Under a minute.</i></li>
+          </ul>
+          <div class="step-note">A town centre of 1 km² (Hook) took about 7 minutes with its point
+            cloud already here. Each part already done is skipped next time.</div>
+        </details>
+        <button id="ukSetupBtn" class="btn" type="button">Set up the area</button>
+        <div id="ukAreas" class="step-note"></div>
+      </details>
+      <details id="ukRunPanel" open>
+        <summary>2. Run the UK chain on a map</summary>
+        <label class="field">Map
+          <input type="text" id="ukMapName" list="ukMapList" placeholder="e.g. Hook_town_graph"/>
+          <datalist id="ukMapList"></datalist>
+        </label>
+        <label class="field">Source map <input type="text" id="ukSource"/></label>
+        <label class="field">Area folder <input type="text" id="ukArea" list="ukAreaList"/>
+          <datalist id="ukAreaList"></datalist>
+        </label>
+        <label class="field">Roads
+          <select id="ukRoads">
+            <optgroup label="UK road graph">
+              <option value="graph">vanilla's sixteen directions</option>
+              <option value="cost-front">built-up streets kept straight (cost-front)</option>
+            </optgroup>
+            <optgroup label="KnoxMap">
+              <option value="knoxmap-straight">straight runs and 45° diagonals (KnoxMap's default)</option>
+              <option value="knoxmap-square">square where the buildings are, 45° between</option>
+              <option value="knoxmap-as-mapped">as mapped</option>
+            </optgroup>
+          </select>
+        </label>
+        <div class="uk-help-text"><b>UK road graph:</b> every road routed again on the game's own road
+          shapes, with real widths, pavements, verges, kerbs, markings and signs. <i>The longest step:
+          about 10 minutes for a 1 km² centre, 10-45 minutes for a town like Alton.</i>
+          Cost-front keeps high streets straight where buildings line them; about as long.
+          <b>KnoxMap:</b> the source map's roads straightened KnoxMap's way. <i>Seconds.</i></div>
+        <label class="field">Buildings
+          <select id="ukBuildings">
+            <optgroup label="UK: real outlines from the LiDAR">
+              <option value="lidar:auto">fronts as the roads leave them</option>
+              <option value="lidar:on">squared about their street front</option>
+              <option value="lidar:off">not squared about their front</option>
+            </optgroup>
+            <optgroup label="KnoxMap: OSM outlines fitted to the grid">
+              <option value="knoxmap:smart">smart (KnoxMap's default)</option>
+              <option value="knoxmap:real">real</option>
+              <option value="knoxmap:rectilinear">rectilinear</option>
+              <option value="knoxmap:rectangle">rectangle</option>
+            </optgroup>
+          </select>
+        </label>
+        <div class="uk-help-text"><b>UK:</b> blocks of buildings carried in whole from the LiDAR, split
+          into homes and shops at their addresses, real trees in the gardens. <i>About 1 minute for a
+          1 km² centre, 5 minutes for Alton.</i> "Squared about their street front" lines each house
+          up on its street. <b>KnoxMap:</b> OpenStreetMap's outlines fitted to the grid at Build;
+          shops from OSM's points only, and KnoxMap's own trees. <i>Saves those minutes.</i></div>
+
+        <div class="field-label">Options</div>
+        <label class="uk-opt"><input type="checkbox" id="ukAssets" checked/>
+          <span><b>UK assets</b>
+            <small>Our tile pack (KnoxMapUK_Tiles): UK walls, windows, doors, porches, shop fronts and
+              signs, kerbs, road markings, street furniture. Off: vanilla and Erika's tiles only, so
+              the map works without the mod (no listed buildings then). <i>No extra time either way.</i></small></span></label>
+        <label class="uk-opt"><input type="checkbox" id="ukRooms" checked/>
+          <span><b>Room solver</b>
+            <small>Each house's rooms laid out as a real house's would be (hall, kitchen, bedrooms
+              upstairs). Off: KnoxMap's own room layout. <i>Build goes from about 1 minute to about
+              35 minutes on Alton the first time; solved houses are remembered, so later builds are
+              quicker.</i></small></span></label>
+        <label class="uk-opt"><input type="checkbox" id="ukDormers"/>
+          <span><b>Dormers</b>
+            <small>Dormer windows where the LiDAR shows them on a roof. <i>Under a minute.</i></small></span></label>
+        <label class="uk-opt"><input type="checkbox" id="ukInspire" checked/>
+          <span><b>Land titles for the gardens</b>
+            <small>HM Land Registry's titles shape the garden plots: garages joined to their house,
+              gardens to the title's reach, drives. Needs the full data. <i>Seconds.</i></small></span></label>
+        <label class="uk-opt"><input type="checkbox" id="ukLanes"/>
+          <span><b>Lanes</b> <span class="uk-slow">very slow</span>
+            <small>Driveways painted as paving rather than roads; back lanes only OSM has routed round
+              the buildings. UK road graph only. <i>The road step routes the town again for each lane
+              it cannot fit: Alton took 1¾-2 hours instead of 11 minutes.</i></small></span></label>
+        <label class="uk-opt"><input type="checkbox" id="ukRowsAnyAngle"/>
+          <span><b>Rows at any angle</b>
+            <small>Terraces on an angled street kept as one row, for the turned-buildings work.
+              Experimental; leave off. <i>No extra time.</i></small></span></label>
+        <label class="uk-opt"><input type="checkbox" id="ukCompile"/>
+          <span><b>Compile at the end</b>
+            <small>Turns the map into the game's files after it is built (as the Compile card below
+              does). <i>A minute or two with the Rust compiler; WorldEd takes much longer.</i></small></span></label>
+
+        <label class="field">Streets to measure <span class="step-note">comma-separated; blank: the High Street</span>
+          <input type="text" id="ukStreets"/>
+        </label>
+        <div class="uk-help-text">The streets whose building fronts are measured from the LiDAR to set
+          their width. <i>Seconds each.</i></div>
+        <label class="field">World cell <span class="step-note">x, y; blank: placed automatically</span>
+          <input type="text" id="ukWorldCell" placeholder="e.g. 80, 0"/>
+        </label>
+        <div class="uk-help-text">Where the map sits in the game's world, in 300-tile cells (Odiham 70,
+          Alton 80, Westminster 90). Blank: next to the other installed maps.</div>
+        <label class="field">Compiler
+          <select id="ukBackend">
+            <option value="">default (Rust)</option>
+            <option value="rust">Rust (knoxlots)</option>
+            <option value="worlded">WorldEd</option>
+          </select>
+        </label>
+        <div class="uk-help-text">With UK assets off, use Rust: WorldEd ignores the vanilla ground rules.</div>
+
+        <details class="uk-help">
+          <summary>What the run does, and how long it takes</summary>
+          <div class="step-note">Times for a 1 km² centre (Hook, 800 buildings) / a town like Alton
+            (3 km², 3,300 buildings), with the room solver off.</div>
+          <ol>
+            <li><b>Roads</b>: the road graph, or KnoxMap's. <i>~10 min / 10-45 min; KnoxMap's: seconds.</i></li>
+            <li><b>Buildings from the LiDAR</b>, landmarks' outlines, homes and shops. <i>~1 / ~5 min.</i></li>
+            <li><b>Railway</b>, laid out on the grid. <i>Seconds.</i></li>
+            <li><b>Garden plots and boundaries</b>: walls, fences, hedges. <i>~1 / ~2 min.</i></li>
+            <li><b>Trees</b> from the point cloud, sports pitches, the track. <i>Seconds.</i></li>
+            <li><b>Kerbs, markings, signs and street furniture.</b> <i>~30 s.</i></li>
+            <li><b>House styles, storeys and roofs.</b> <i>~1 min.</i></li>
+            <li><b>Listed buildings</b> (full data, UK assets on). <i>Seconds.</i></li>
+            <li><b>Build</b>: every building furnished. <i>~1 min; ~35 min with the room solver the
+              first time.</i></li>
+            <li><b>Check</b> the building files (and, UK assets off, that no UK tile is left). <i>~30 s.</i></li>
+          </ol>
+          <div class="step-note">Whole run: about 15 minutes for Hook, 15-60 minutes for Alton
+            (2 hours with lanes, add ~35 minutes for the room solver). A step that has not changed is
+            skipped next time, so changing one option re-runs only from that step: dormers alone took
+            2 minutes.</div>
+        </details>
+        <button id="ukRunBtn" class="btn btn-primary" type="button">Run UK pipeline</button>
+        <label class="uk-opt"><input type="checkbox" id="ukForce"/>
+          <span><b>Every step again</b>
+            <small>Normally a step whose code, data and options have not changed is skipped. Tick
+              this to run them all anyway. <i>The whole run's time.</i></small></span></label>
+      </details>
+      <div class="bar"><div id="ukBar" class="bar-fill"></div></div>
+      <div id="ukStatus" class="step-note"></div>
+      <button id="ukStopBtn" class="btn btn-stop" type="button" hidden>Stop</button>
+      <details id="ukLogPanel">
+        <summary>Output</summary>
+        <pre id="ukLog" class="uk-log"></pre>
+      </details>
+    </section>
     <section class="panel" data-card="generate">
       <button id="generateBtn" class="btn btn-primary" disabled>Generate map</button>
       <div id="status"></div>
@@ -597,5 +796,6 @@
 <script src="/static/js/fx.js"></script>
 <script src="/static/js/app.js"></script>
 <script src="/static/js/i18n.js"></script>
+<script src="/static/js/uk.js"></script>
 </body>
 </html>

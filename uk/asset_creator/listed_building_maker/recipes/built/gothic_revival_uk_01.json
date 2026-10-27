@@ -1,0 +1,949 @@
+{
+ "sheet": "gothic_revival_uk_01",
+ "items": {
+  "buttress_shaft": {
+   "kind": "edge",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "gothic_revival_uk_01_0"
+     },
+     "N": {
+      "0,0": "gothic_revival_uk_01_1"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "buttress_top": {
+   "kind": "edge",
+   "layer": "Furniture",
+   "tiles": {
+    "1": {
+     "W": {
+      "-1,0": "gothic_revival_uk_01_2",
+      "0,0": "gothic_revival_uk_01_4"
+     },
+     "N": {
+      "0,-1": "gothic_revival_uk_01_5",
+      "0,0": "gothic_revival_uk_01_7"
+     }
+    },
+    "0": {
+     "W": {
+      "0,0": "gothic_revival_uk_01_3"
+     },
+     "N": {
+      "0,0": "gothic_revival_uk_01_6"
+     }
+    }
+   },
+   "storeys": 2
+  },
+  "parapet_pierced": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "-1,0": "gothic_revival_uk_01_8",
+      "0,0": "gothic_revival_uk_01_9"
+     },
+     "N": {
+      "0,-1": "gothic_revival_uk_01_10",
+      "0,0": "gothic_revival_uk_01_11"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "parapet_quatrefoil": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "-1,0": "gothic_revival_uk_01_12",
+      "0,0": "gothic_revival_uk_01_13"
+     },
+     "N": {
+      "0,-1": "gothic_revival_uk_01_14",
+      "0,0": "gothic_revival_uk_01_15"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "parapet_battlement": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "-1,-1": "gothic_revival_uk_01_16",
+      "-1,0": "gothic_revival_uk_01_17",
+      "0,-1": "gothic_revival_uk_01_18",
+      "0,0": "gothic_revival_uk_01_19"
+     },
+     "N": {
+      "-1,-1": "gothic_revival_uk_01_20",
+      "-1,0": "gothic_revival_uk_01_21",
+      "0,-1": "gothic_revival_uk_01_22",
+      "0,0": "gothic_revival_uk_01_23"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "string_course": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "gothic_revival_uk_01_24"
+     },
+     "N": {
+      "0,0": "gothic_revival_uk_01_25"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "oriel": {
+   "kind": "edge",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "gothic_revival_uk_01_26",
+      "0,1": "gothic_revival_uk_01_27"
+     },
+     "N": {
+      "0,0": "gothic_revival_uk_01_28",
+      "1,0": "gothic_revival_uk_01_29"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "clock_face": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "gothic_revival_uk_01_30",
+      "0,1": "gothic_revival_uk_01_33",
+      "0,2": "gothic_revival_uk_01_36",
+      "0,3": "gothic_revival_uk_01_39",
+      "0,4": "gothic_revival_uk_01_42",
+      "0,5": "gothic_revival_uk_01_45",
+      "0,6": "gothic_revival_uk_01_48",
+      "0,7": "gothic_revival_uk_01_51",
+      "0,8": "gothic_revival_uk_01_54",
+      "0,9": "gothic_revival_uk_01_57"
+     },
+     "N": {
+      "0,0": "gothic_revival_uk_01_60",
+      "1,0": "gothic_revival_uk_01_63",
+      "2,0": "gothic_revival_uk_01_66",
+      "3,0": "gothic_revival_uk_01_69",
+      "4,0": "gothic_revival_uk_01_72",
+      "5,0": "gothic_revival_uk_01_75",
+      "6,0": "gothic_revival_uk_01_78",
+      "7,0": "gothic_revival_uk_01_81",
+      "8,0": "gothic_revival_uk_01_84",
+      "9,0": "gothic_revival_uk_01_87"
+     }
+    },
+    "1": {
+     "W": {
+      "0,0": "gothic_revival_uk_01_31",
+      "0,1": "gothic_revival_uk_01_34",
+      "0,2": "gothic_revival_uk_01_37",
+      "0,3": "gothic_revival_uk_01_40",
+      "0,4": "gothic_revival_uk_01_43",
+      "0,5": "gothic_revival_uk_01_46",
+      "0,6": "gothic_revival_uk_01_49",
+      "0,7": "gothic_revival_uk_01_52",
+      "0,8": "gothic_revival_uk_01_55",
+      "0,9": "gothic_revival_uk_01_58"
+     },
+     "N": {
+      "0,0": "gothic_revival_uk_01_61",
+      "1,0": "gothic_revival_uk_01_64",
+      "2,0": "gothic_revival_uk_01_67",
+      "3,0": "gothic_revival_uk_01_70",
+      "4,0": "gothic_revival_uk_01_73",
+      "5,0": "gothic_revival_uk_01_76",
+      "6,0": "gothic_revival_uk_01_79",
+      "7,0": "gothic_revival_uk_01_82",
+      "8,0": "gothic_revival_uk_01_85",
+      "9,0": "gothic_revival_uk_01_88"
+     }
+    },
+    "2": {
+     "W": {
+      "0,0": "gothic_revival_uk_01_32",
+      "0,1": "gothic_revival_uk_01_35",
+      "0,2": "gothic_revival_uk_01_38",
+      "0,3": "gothic_revival_uk_01_41",
+      "0,4": "gothic_revival_uk_01_44",
+      "0,5": "gothic_revival_uk_01_47",
+      "0,6": "gothic_revival_uk_01_50",
+      "0,7": "gothic_revival_uk_01_53",
+      "0,8": "gothic_revival_uk_01_56",
+      "0,9": "gothic_revival_uk_01_59"
+     },
+     "N": {
+      "0,0": "gothic_revival_uk_01_62",
+      "1,0": "gothic_revival_uk_01_65",
+      "2,0": "gothic_revival_uk_01_68",
+      "3,0": "gothic_revival_uk_01_71",
+      "4,0": "gothic_revival_uk_01_74",
+      "5,0": "gothic_revival_uk_01_77",
+      "6,0": "gothic_revival_uk_01_80",
+      "7,0": "gothic_revival_uk_01_83",
+      "8,0": "gothic_revival_uk_01_86",
+      "9,0": "gothic_revival_uk_01_89"
+     }
+    }
+   },
+   "storeys": 3
+  },
+  "belfry_lancet": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "gothic_revival_uk_01_90"
+     },
+     "N": {
+      "0,0": "gothic_revival_uk_01_91"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "cloister_arch": {
+   "kind": "edge",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "W": {
+      "-1,0": "gothic_revival_uk_01_92",
+      "-1,1": "gothic_revival_uk_01_94",
+      "0,-1": "gothic_revival_uk_01_96",
+      "0,0": "gothic_revival_uk_01_98",
+      "0,1": "gothic_revival_uk_01_100"
+     },
+     "N": {
+      "-1,0": "gothic_revival_uk_01_102",
+      "0,-1": "gothic_revival_uk_01_104",
+      "0,0": "gothic_revival_uk_01_106",
+      "1,-1": "gothic_revival_uk_01_108",
+      "1,0": "gothic_revival_uk_01_110"
+     }
+    },
+    "1": {
+     "W": {
+      "-1,0": "gothic_revival_uk_01_93",
+      "-1,1": "gothic_revival_uk_01_95",
+      "0,-1": "gothic_revival_uk_01_97",
+      "0,0": "gothic_revival_uk_01_99",
+      "0,1": "gothic_revival_uk_01_101"
+     },
+     "N": {
+      "-1,0": "gothic_revival_uk_01_103",
+      "0,-1": "gothic_revival_uk_01_105",
+      "0,0": "gothic_revival_uk_01_107",
+      "1,-1": "gothic_revival_uk_01_109",
+      "1,0": "gothic_revival_uk_01_111"
+     }
+    }
+   },
+   "storeys": 2
+  },
+  "cloister_pier": {
+   "kind": "edge",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "W": {
+      "-1,0": "gothic_revival_uk_01_112",
+      "0,-1": "gothic_revival_uk_01_114",
+      "0,0": "gothic_revival_uk_01_116"
+     },
+     "N": {
+      "-1,0": "gothic_revival_uk_01_118",
+      "0,-1": "gothic_revival_uk_01_120",
+      "0,0": "gothic_revival_uk_01_122"
+     }
+    },
+    "1": {
+     "W": {
+      "-1,0": "gothic_revival_uk_01_113",
+      "0,-1": "gothic_revival_uk_01_115",
+      "0,0": "gothic_revival_uk_01_117"
+     },
+     "N": {
+      "-1,0": "gothic_revival_uk_01_119",
+      "0,-1": "gothic_revival_uk_01_121",
+      "0,0": "gothic_revival_uk_01_123"
+     }
+    }
+   },
+   "storeys": 2
+  },
+  "gothic_pinnacle": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_revival_uk_01_124"
+     }
+    },
+    "1": {
+     "N": {
+      "0,0": "gothic_revival_uk_01_125"
+     }
+    }
+   },
+   "storeys": 2
+  },
+  "finial": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_revival_uk_01_126"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "turret_top": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_revival_uk_01_127",
+      "0,1": "gothic_revival_uk_01_128",
+      "1,0": "gothic_revival_uk_01_131",
+      "1,1": "gothic_revival_uk_01_134"
+     }
+    },
+    "1": {
+     "N": {
+      "0,1": "gothic_revival_uk_01_129",
+      "1,0": "gothic_revival_uk_01_132",
+      "1,1": "gothic_revival_uk_01_135"
+     }
+    },
+    "2": {
+     "N": {
+      "0,1": "gothic_revival_uk_01_130",
+      "1,0": "gothic_revival_uk_01_133",
+      "1,1": "gothic_revival_uk_01_136"
+     }
+    }
+   },
+   "storeys": 3
+  },
+  "vt_turret": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "1": {
+     "N": {
+      "0,1": "gothic_revival_uk_01_137",
+      "0,2": "gothic_revival_uk_01_140",
+      "1,0": "gothic_revival_uk_01_142",
+      "1,2": "gothic_revival_uk_01_150",
+      "2,0": "gothic_revival_uk_01_153",
+      "2,1": "gothic_revival_uk_01_156",
+      "2,2": "gothic_revival_uk_01_160"
+     }
+    },
+    "2": {
+     "N": {
+      "0,1": "gothic_revival_uk_01_138",
+      "0,2": "gothic_revival_uk_01_141",
+      "1,0": "gothic_revival_uk_01_143",
+      "1,1": "gothic_revival_uk_01_145",
+      "1,2": "gothic_revival_uk_01_151",
+      "2,0": "gothic_revival_uk_01_154",
+      "2,1": "gothic_revival_uk_01_157",
+      "2,2": "gothic_revival_uk_01_161"
+     }
+    },
+    "3": {
+     "N": {
+      "0,1": "gothic_revival_uk_01_139",
+      "1,0": "gothic_revival_uk_01_144",
+      "1,1": "gothic_revival_uk_01_146",
+      "1,2": "gothic_revival_uk_01_152",
+      "2,1": "gothic_revival_uk_01_158"
+     }
+    },
+    "4": {
+     "N": {
+      "1,1": "gothic_revival_uk_01_147"
+     }
+    },
+    "5": {
+     "N": {
+      "1,1": "gothic_revival_uk_01_148"
+     }
+    },
+    "0": {
+     "N": {
+      "1,2": "gothic_revival_uk_01_149",
+      "2,1": "gothic_revival_uk_01_155",
+      "2,2": "gothic_revival_uk_01_159"
+     }
+    }
+   },
+   "storeys": 6
+  },
+  "vt_crown": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_revival_uk_01_162",
+      "0,2": "gothic_revival_uk_01_163",
+      "0,3": "gothic_revival_uk_01_164",
+      "0,4": "gothic_revival_uk_01_165",
+      "0,5": "gothic_revival_uk_01_166",
+      "1,1": "gothic_revival_uk_01_168",
+      "1,2": "gothic_revival_uk_01_169",
+      "1,3": "gothic_revival_uk_01_171",
+      "1,4": "gothic_revival_uk_01_173",
+      "1,5": "gothic_revival_uk_01_175",
+      "2,0": "gothic_revival_uk_01_176",
+      "2,1": "gothic_revival_uk_01_177",
+      "2,2": "gothic_revival_uk_01_179",
+      "2,3": "gothic_revival_uk_01_182",
+      "2,4": "gothic_revival_uk_01_189",
+      "2,5": "gothic_revival_uk_01_191",
+      "3,0": "gothic_revival_uk_01_192",
+      "3,1": "gothic_revival_uk_01_193",
+      "3,2": "gothic_revival_uk_01_195",
+      "3,3": "gothic_revival_uk_01_202",
+      "3,4": "gothic_revival_uk_01_209",
+      "3,5": "gothic_revival_uk_01_211",
+      "4,0": "gothic_revival_uk_01_212",
+      "4,1": "gothic_revival_uk_01_213",
+      "4,2": "gothic_revival_uk_01_215",
+      "4,3": "gothic_revival_uk_01_217",
+      "4,4": "gothic_revival_uk_01_219",
+      "4,5": "gothic_revival_uk_01_221",
+      "5,0": "gothic_revival_uk_01_222",
+      "5,1": "gothic_revival_uk_01_224",
+      "5,2": "gothic_revival_uk_01_225",
+      "5,3": "gothic_revival_uk_01_226",
+      "5,4": "gothic_revival_uk_01_227",
+      "5,5": "gothic_revival_uk_01_228"
+     }
+    },
+    "1": {
+     "N": {
+      "0,5": "gothic_revival_uk_01_167",
+      "1,2": "gothic_revival_uk_01_170",
+      "1,3": "gothic_revival_uk_01_172",
+      "1,4": "gothic_revival_uk_01_174",
+      "2,1": "gothic_revival_uk_01_178",
+      "2,2": "gothic_revival_uk_01_180",
+      "2,3": "gothic_revival_uk_01_183",
+      "2,4": "gothic_revival_uk_01_190",
+      "3,1": "gothic_revival_uk_01_194",
+      "3,2": "gothic_revival_uk_01_196",
+      "3,3": "gothic_revival_uk_01_203",
+      "3,4": "gothic_revival_uk_01_210",
+      "4,1": "gothic_revival_uk_01_214",
+      "4,2": "gothic_revival_uk_01_216",
+      "4,3": "gothic_revival_uk_01_218",
+      "4,4": "gothic_revival_uk_01_220",
+      "5,0": "gothic_revival_uk_01_223",
+      "5,5": "gothic_revival_uk_01_229"
+     }
+    },
+    "6": {
+     "N": {
+      "2,2": "gothic_revival_uk_01_181",
+      "2,3": "gothic_revival_uk_01_188",
+      "3,2": "gothic_revival_uk_01_201",
+      "3,3": "gothic_revival_uk_01_208"
+     }
+    },
+    "2": {
+     "N": {
+      "2,3": "gothic_revival_uk_01_184",
+      "3,2": "gothic_revival_uk_01_197",
+      "3,3": "gothic_revival_uk_01_204"
+     }
+    },
+    "3": {
+     "N": {
+      "2,3": "gothic_revival_uk_01_185",
+      "3,2": "gothic_revival_uk_01_198",
+      "3,3": "gothic_revival_uk_01_205"
+     }
+    },
+    "4": {
+     "N": {
+      "2,3": "gothic_revival_uk_01_186",
+      "3,2": "gothic_revival_uk_01_199",
+      "3,3": "gothic_revival_uk_01_206"
+     }
+    },
+    "5": {
+     "N": {
+      "2,3": "gothic_revival_uk_01_187",
+      "3,2": "gothic_revival_uk_01_200",
+      "3,3": "gothic_revival_uk_01_207"
+     }
+    }
+   },
+   "storeys": 7
+  },
+  "elizabeth_spire": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "2": {
+     "N": {
+      "0,10": "gothic_revival_uk_01_230",
+      "0,11": "gothic_revival_uk_01_233",
+      "1,10": "gothic_revival_uk_01_236",
+      "1,11": "gothic_revival_uk_01_239",
+      "3,8": "gothic_revival_uk_01_247",
+      "4,8": "gothic_revival_uk_01_257",
+      "5,8": "gothic_revival_uk_01_271",
+      "6,8": "gothic_revival_uk_01_287",
+      "7,8": "gothic_revival_uk_01_304",
+      "8,3": "gothic_revival_uk_01_313",
+      "8,4": "gothic_revival_uk_01_317",
+      "8,5": "gothic_revival_uk_01_321",
+      "8,6": "gothic_revival_uk_01_325",
+      "8,7": "gothic_revival_uk_01_329",
+      "8,8": "gothic_revival_uk_01_333",
+      "10,0": "gothic_revival_uk_01_351",
+      "10,1": "gothic_revival_uk_01_354",
+      "10,11": "gothic_revival_uk_01_374",
+      "11,0": "gothic_revival_uk_01_377",
+      "11,1": "gothic_revival_uk_01_380",
+      "11,10": "gothic_revival_uk_01_391",
+      "11,11": "gothic_revival_uk_01_394"
+     }
+    },
+    "0": {
+     "N": {
+      "0,11": "gothic_revival_uk_01_231",
+      "1,10": "gothic_revival_uk_01_234",
+      "1,11": "gothic_revival_uk_01_237",
+      "2,10": "gothic_revival_uk_01_242",
+      "2,11": "gothic_revival_uk_01_244",
+      "3,10": "gothic_revival_uk_01_251",
+      "3,11": "gothic_revival_uk_01_253",
+      "4,10": "gothic_revival_uk_01_261",
+      "4,11": "gothic_revival_uk_01_263",
+      "5,10": "gothic_revival_uk_01_275",
+      "5,11": "gothic_revival_uk_01_277",
+      "6,10": "gothic_revival_uk_01_291",
+      "6,11": "gothic_revival_uk_01_293",
+      "7,10": "gothic_revival_uk_01_308",
+      "7,11": "gothic_revival_uk_01_310",
+      "8,10": "gothic_revival_uk_01_337",
+      "8,11": "gothic_revival_uk_01_339",
+      "9,10": "gothic_revival_uk_01_348",
+      "9,11": "gothic_revival_uk_01_350",
+      "10,1": "gothic_revival_uk_01_352",
+      "10,2": "gothic_revival_uk_01_355",
+      "10,3": "gothic_revival_uk_01_357",
+      "10,4": "gothic_revival_uk_01_359",
+      "10,5": "gothic_revival_uk_01_361",
+      "10,6": "gothic_revival_uk_01_363",
+      "10,7": "gothic_revival_uk_01_365",
+      "10,8": "gothic_revival_uk_01_367",
+      "10,9": "gothic_revival_uk_01_369",
+      "10,10": "gothic_revival_uk_01_371",
+      "10,11": "gothic_revival_uk_01_372",
+      "11,0": "gothic_revival_uk_01_375",
+      "11,1": "gothic_revival_uk_01_378",
+      "11,2": "gothic_revival_uk_01_381",
+      "11,3": "gothic_revival_uk_01_382",
+      "11,4": "gothic_revival_uk_01_383",
+      "11,5": "gothic_revival_uk_01_384",
+      "11,6": "gothic_revival_uk_01_385",
+      "11,7": "gothic_revival_uk_01_386",
+      "11,8": "gothic_revival_uk_01_387",
+      "11,9": "gothic_revival_uk_01_388",
+      "11,10": "gothic_revival_uk_01_389",
+      "11,11": "gothic_revival_uk_01_392"
+     }
+    },
+    "1": {
+     "N": {
+      "0,11": "gothic_revival_uk_01_232",
+      "1,10": "gothic_revival_uk_01_235",
+      "1,11": "gothic_revival_uk_01_238",
+      "2,8": "gothic_revival_uk_01_240",
+      "2,9": "gothic_revival_uk_01_241",
+      "2,10": "gothic_revival_uk_01_243",
+      "3,8": "gothic_revival_uk_01_246",
+      "3,9": "gothic_revival_uk_01_250",
+      "3,10": "gothic_revival_uk_01_252",
+      "4,8": "gothic_revival_uk_01_256",
+      "4,9": "gothic_revival_uk_01_260",
+      "4,10": "gothic_revival_uk_01_262",
+      "5,8": "gothic_revival_uk_01_270",
+      "5,9": "gothic_revival_uk_01_274",
+      "5,10": "gothic_revival_uk_01_276",
+      "6,8": "gothic_revival_uk_01_286",
+      "6,9": "gothic_revival_uk_01_290",
+      "6,10": "gothic_revival_uk_01_292",
+      "7,8": "gothic_revival_uk_01_303",
+      "7,9": "gothic_revival_uk_01_307",
+      "7,10": "gothic_revival_uk_01_309",
+      "8,2": "gothic_revival_uk_01_311",
+      "8,3": "gothic_revival_uk_01_312",
+      "8,4": "gothic_revival_uk_01_316",
+      "8,5": "gothic_revival_uk_01_320",
+      "8,6": "gothic_revival_uk_01_324",
+      "8,7": "gothic_revival_uk_01_328",
+      "8,8": "gothic_revival_uk_01_332",
+      "8,9": "gothic_revival_uk_01_336",
+      "8,10": "gothic_revival_uk_01_338",
+      "9,2": "gothic_revival_uk_01_340",
+      "9,3": "gothic_revival_uk_01_341",
+      "9,4": "gothic_revival_uk_01_342",
+      "9,5": "gothic_revival_uk_01_343",
+      "9,6": "gothic_revival_uk_01_344",
+      "9,7": "gothic_revival_uk_01_345",
+      "9,8": "gothic_revival_uk_01_346",
+      "9,9": "gothic_revival_uk_01_347",
+      "9,10": "gothic_revival_uk_01_349",
+      "10,1": "gothic_revival_uk_01_353",
+      "10,2": "gothic_revival_uk_01_356",
+      "10,3": "gothic_revival_uk_01_358",
+      "10,4": "gothic_revival_uk_01_360",
+      "10,5": "gothic_revival_uk_01_362",
+      "10,6": "gothic_revival_uk_01_364",
+      "10,7": "gothic_revival_uk_01_366",
+      "10,8": "gothic_revival_uk_01_368",
+      "10,9": "gothic_revival_uk_01_370",
+      "10,11": "gothic_revival_uk_01_373",
+      "11,0": "gothic_revival_uk_01_376",
+      "11,1": "gothic_revival_uk_01_379",
+      "11,10": "gothic_revival_uk_01_390",
+      "11,11": "gothic_revival_uk_01_393"
+     }
+    },
+    "3": {
+     "N": {
+      "3,7": "gothic_revival_uk_01_245",
+      "3,8": "gothic_revival_uk_01_248",
+      "4,8": "gothic_revival_uk_01_258",
+      "5,8": "gothic_revival_uk_01_272",
+      "6,8": "gothic_revival_uk_01_288",
+      "7,3": "gothic_revival_uk_01_294",
+      "7,8": "gothic_revival_uk_01_305",
+      "8,3": "gothic_revival_uk_01_314",
+      "8,4": "gothic_revival_uk_01_318",
+      "8,5": "gothic_revival_uk_01_322",
+      "8,6": "gothic_revival_uk_01_326",
+      "8,7": "gothic_revival_uk_01_330",
+      "8,8": "gothic_revival_uk_01_334"
+     }
+    },
+    "4": {
+     "N": {
+      "3,8": "gothic_revival_uk_01_249",
+      "4,7": "gothic_revival_uk_01_254",
+      "4,8": "gothic_revival_uk_01_259",
+      "5,7": "gothic_revival_uk_01_268",
+      "5,8": "gothic_revival_uk_01_273",
+      "6,7": "gothic_revival_uk_01_284",
+      "6,8": "gothic_revival_uk_01_289",
+      "7,4": "gothic_revival_uk_01_295",
+      "7,5": "gothic_revival_uk_01_297",
+      "7,6": "gothic_revival_uk_01_299",
+      "7,7": "gothic_revival_uk_01_301",
+      "7,8": "gothic_revival_uk_01_306",
+      "8,3": "gothic_revival_uk_01_315",
+      "8,4": "gothic_revival_uk_01_319",
+      "8,5": "gothic_revival_uk_01_323",
+      "8,6": "gothic_revival_uk_01_327",
+      "8,7": "gothic_revival_uk_01_331",
+      "8,8": "gothic_revival_uk_01_335"
+     }
+    },
+    "5": {
+     "N": {
+      "4,7": "gothic_revival_uk_01_255",
+      "5,6": "gothic_revival_uk_01_265",
+      "5,7": "gothic_revival_uk_01_269",
+      "6,5": "gothic_revival_uk_01_278",
+      "6,6": "gothic_revival_uk_01_281",
+      "6,7": "gothic_revival_uk_01_285",
+      "7,4": "gothic_revival_uk_01_296",
+      "7,5": "gothic_revival_uk_01_298",
+      "7,6": "gothic_revival_uk_01_300",
+      "7,7": "gothic_revival_uk_01_302"
+     }
+    },
+    "7": {
+     "N": {
+      "5,5": "gothic_revival_uk_01_264",
+      "5,6": "gothic_revival_uk_01_267",
+      "6,5": "gothic_revival_uk_01_280",
+      "6,6": "gothic_revival_uk_01_283"
+     }
+    },
+    "6": {
+     "N": {
+      "5,6": "gothic_revival_uk_01_266",
+      "6,5": "gothic_revival_uk_01_279",
+      "6,6": "gothic_revival_uk_01_282"
+     }
+    }
+   },
+   "storeys": 8
+  },
+  "central_fleche": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "4": {
+     "N": {
+      "0,3": "gothic_revival_uk_01_395",
+      "0,5": "gothic_revival_uk_01_399",
+      "0,6": "gothic_revival_uk_01_402",
+      "2,5": "gothic_revival_uk_01_411",
+      "2,8": "gothic_revival_uk_01_420",
+      "3,0": "gothic_revival_uk_01_421",
+      "3,5": "gothic_revival_uk_01_424",
+      "3,6": "gothic_revival_uk_01_430",
+      "3,8": "gothic_revival_uk_01_438",
+      "4,6": "gothic_revival_uk_01_450",
+      "5,0": "gothic_revival_uk_01_459",
+      "5,2": "gothic_revival_uk_01_464",
+      "5,3": "gothic_revival_uk_01_467",
+      "5,5": "gothic_revival_uk_01_475",
+      "5,6": "gothic_revival_uk_01_481",
+      "5,8": "gothic_revival_uk_01_489",
+      "6,0": "gothic_revival_uk_01_492",
+      "6,3": "gothic_revival_uk_01_499",
+      "6,4": "gothic_revival_uk_01_502",
+      "6,5": "gothic_revival_uk_01_506",
+      "6,8": "gothic_revival_uk_01_518",
+      "8,2": "gothic_revival_uk_01_538",
+      "8,3": "gothic_revival_uk_01_543",
+      "8,5": "gothic_revival_uk_01_551",
+      "8,6": "gothic_revival_uk_01_556"
+     }
+    },
+    "2": {
+     "N": {
+      "0,4": "gothic_revival_uk_01_396",
+      "0,5": "gothic_revival_uk_01_397",
+      "0,6": "gothic_revival_uk_01_400",
+      "1,4": "gothic_revival_uk_01_403",
+      "1,5": "gothic_revival_uk_01_404",
+      "1,6": "gothic_revival_uk_01_406",
+      "1,7": "gothic_revival_uk_01_408",
+      "2,5": "gothic_revival_uk_01_409",
+      "2,6": "gothic_revival_uk_01_413",
+      "2,7": "gothic_revival_uk_01_415",
+      "2,8": "gothic_revival_uk_01_418",
+      "3,6": "gothic_revival_uk_01_428",
+      "3,7": "gothic_revival_uk_01_432",
+      "3,8": "gothic_revival_uk_01_436",
+      "4,0": "gothic_revival_uk_01_439",
+      "4,1": "gothic_revival_uk_01_440",
+      "4,7": "gothic_revival_uk_01_452",
+      "4,8": "gothic_revival_uk_01_456",
+      "5,0": "gothic_revival_uk_01_457",
+      "5,1": "gothic_revival_uk_01_460",
+      "5,2": "gothic_revival_uk_01_462",
+      "5,6": "gothic_revival_uk_01_479",
+      "5,7": "gothic_revival_uk_01_483",
+      "5,8": "gothic_revival_uk_01_487",
+      "6,0": "gothic_revival_uk_01_490",
+      "6,1": "gothic_revival_uk_01_493",
+      "6,2": "gothic_revival_uk_01_495",
+      "6,3": "gothic_revival_uk_01_497",
+      "6,5": "gothic_revival_uk_01_504",
+      "6,6": "gothic_revival_uk_01_508",
+      "6,7": "gothic_revival_uk_01_512",
+      "6,8": "gothic_revival_uk_01_516",
+      "7,1": "gothic_revival_uk_01_519",
+      "7,2": "gothic_revival_uk_01_520",
+      "7,3": "gothic_revival_uk_01_521",
+      "7,4": "gothic_revival_uk_01_523",
+      "7,5": "gothic_revival_uk_01_525",
+      "7,6": "gothic_revival_uk_01_529",
+      "7,7": "gothic_revival_uk_01_533",
+      "8,2": "gothic_revival_uk_01_536",
+      "8,3": "gothic_revival_uk_01_541",
+      "8,4": "gothic_revival_uk_01_546",
+      "8,5": "gothic_revival_uk_01_549",
+      "8,6": "gothic_revival_uk_01_554"
+     }
+    },
+    "3": {
+     "N": {
+      "0,5": "gothic_revival_uk_01_398",
+      "0,6": "gothic_revival_uk_01_401",
+      "1,5": "gothic_revival_uk_01_405",
+      "1,6": "gothic_revival_uk_01_407",
+      "2,5": "gothic_revival_uk_01_410",
+      "2,6": "gothic_revival_uk_01_414",
+      "2,8": "gothic_revival_uk_01_419",
+      "3,6": "gothic_revival_uk_01_429",
+      "3,7": "gothic_revival_uk_01_433",
+      "3,8": "gothic_revival_uk_01_437",
+      "4,6": "gothic_revival_uk_01_449",
+      "4,7": "gothic_revival_uk_01_453",
+      "5,0": "gothic_revival_uk_01_458",
+      "5,1": "gothic_revival_uk_01_461",
+      "5,2": "gothic_revival_uk_01_463",
+      "5,3": "gothic_revival_uk_01_466",
+      "5,5": "gothic_revival_uk_01_474",
+      "5,6": "gothic_revival_uk_01_480",
+      "5,7": "gothic_revival_uk_01_484",
+      "5,8": "gothic_revival_uk_01_488",
+      "6,0": "gothic_revival_uk_01_491",
+      "6,1": "gothic_revival_uk_01_494",
+      "6,2": "gothic_revival_uk_01_496",
+      "6,3": "gothic_revival_uk_01_498",
+      "6,4": "gothic_revival_uk_01_501",
+      "6,5": "gothic_revival_uk_01_505",
+      "6,6": "gothic_revival_uk_01_509",
+      "6,7": "gothic_revival_uk_01_513",
+      "6,8": "gothic_revival_uk_01_517",
+      "7,3": "gothic_revival_uk_01_522",
+      "7,4": "gothic_revival_uk_01_524",
+      "7,5": "gothic_revival_uk_01_526",
+      "7,6": "gothic_revival_uk_01_530",
+      "8,2": "gothic_revival_uk_01_537",
+      "8,3": "gothic_revival_uk_01_542",
+      "8,5": "gothic_revival_uk_01_550",
+      "8,6": "gothic_revival_uk_01_555"
+     }
+    },
+    "5": {
+     "N": {
+      "2,5": "gothic_revival_uk_01_412",
+      "3,5": "gothic_revival_uk_01_425",
+      "3,6": "gothic_revival_uk_01_431",
+      "4,5": "gothic_revival_uk_01_446",
+      "4,6": "gothic_revival_uk_01_451",
+      "5,2": "gothic_revival_uk_01_465",
+      "5,3": "gothic_revival_uk_01_468",
+      "5,4": "gothic_revival_uk_01_471",
+      "5,5": "gothic_revival_uk_01_476",
+      "5,6": "gothic_revival_uk_01_482",
+      "6,3": "gothic_revival_uk_01_500",
+      "6,4": "gothic_revival_uk_01_503",
+      "6,5": "gothic_revival_uk_01_507"
+     }
+    },
+    "0": {
+     "N": {
+      "2,8": "gothic_revival_uk_01_416",
+      "3,8": "gothic_revival_uk_01_434",
+      "4,8": "gothic_revival_uk_01_454",
+      "5,8": "gothic_revival_uk_01_485",
+      "6,7": "gothic_revival_uk_01_510",
+      "6,8": "gothic_revival_uk_01_514",
+      "7,6": "gothic_revival_uk_01_527",
+      "7,7": "gothic_revival_uk_01_531",
+      "8,2": "gothic_revival_uk_01_534",
+      "8,3": "gothic_revival_uk_01_539",
+      "8,4": "gothic_revival_uk_01_544",
+      "8,5": "gothic_revival_uk_01_547",
+      "8,6": "gothic_revival_uk_01_552"
+     }
+    },
+    "1": {
+     "N": {
+      "2,8": "gothic_revival_uk_01_417",
+      "3,8": "gothic_revival_uk_01_435",
+      "4,8": "gothic_revival_uk_01_455",
+      "5,8": "gothic_revival_uk_01_486",
+      "6,7": "gothic_revival_uk_01_511",
+      "6,8": "gothic_revival_uk_01_515",
+      "7,6": "gothic_revival_uk_01_528",
+      "7,7": "gothic_revival_uk_01_532",
+      "8,2": "gothic_revival_uk_01_535",
+      "8,3": "gothic_revival_uk_01_540",
+      "8,4": "gothic_revival_uk_01_545",
+      "8,5": "gothic_revival_uk_01_548",
+      "8,6": "gothic_revival_uk_01_553"
+     }
+    },
+    "6": {
+     "N": {
+      "3,4": "gothic_revival_uk_01_422",
+      "3,5": "gothic_revival_uk_01_426",
+      "4,3": "gothic_revival_uk_01_441",
+      "4,5": "gothic_revival_uk_01_447",
+      "5,3": "gothic_revival_uk_01_469",
+      "5,4": "gothic_revival_uk_01_472",
+      "5,5": "gothic_revival_uk_01_477"
+     }
+    },
+    "7": {
+     "N": {
+      "3,4": "gothic_revival_uk_01_423",
+      "3,5": "gothic_revival_uk_01_427",
+      "4,3": "gothic_revival_uk_01_442",
+      "4,4": "gothic_revival_uk_01_443",
+      "4,5": "gothic_revival_uk_01_448",
+      "5,3": "gothic_revival_uk_01_470",
+      "5,4": "gothic_revival_uk_01_473",
+      "5,5": "gothic_revival_uk_01_478"
+     }
+    },
+    "8": {
+     "N": {
+      "4,4": "gothic_revival_uk_01_444"
+     }
+    },
+    "9": {
+     "N": {
+      "4,4": "gothic_revival_uk_01_445"
+     }
+    }
+   },
+   "storeys": 10
+  },
+  "terrace_lamp": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_revival_uk_01_557"
+     }
+    },
+    "1": {
+     "N": {
+      "0,0": "gothic_revival_uk_01_558"
+     }
+    }
+   },
+   "storeys": 2
+  }
+ }
+}

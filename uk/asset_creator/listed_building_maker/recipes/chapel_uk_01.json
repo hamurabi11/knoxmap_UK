@@ -1,0 +1,167 @@
+{
+ "sheet": "chapel_uk_01",
+ "about": "A meeting house's or plain chapel's fittings, first for the Quaker Meeting House, Alton (list entry 1338904, Grade II*).",
+ "evidence": [
+  "List text: 'The gallery, erected in 1690, is of solid oak construction. Stop-chamfered posts support the gallery, and there are sturdy turned balusters to the balustrade. A folding screen is fitted beneath the gallery, with two hinged five-panel sections to either side of double three-panel doors ... The screen is painted on the lobby side, and unpainted within the meeting hall.'",
+  "List text: 'At the north end of the meeting room is the bench or stand for the ministers and elders - the bench is raised on a dais, with tongue and groove dado panelling behind, and a screen to the front ... The hall has two ceiling beams, supported on chamfered timber pilasters.'",
+  "List text: 'the original cottage is entered through a doorway protected by a hood on replacement carved brackets ... The 1832 cottage has a door opening with a matching hood.'",
+  "Photos looked at, never copied (Commons, CC0 and CC BY-SA): the white rendered range under its long clay-tile roof, the big six-over-six sash, the brick and tile-hung wing on Church Street.",
+  "Photos: two small gabled dormers over the cottages; 'Quaker Meeting House' painted in dark letters on the render beside the big sash."
+ ],
+ "items": [
+  {
+   "name": "gallery_screen",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "box": [0.0, 0.05, 0.0, 1.0, 0.0, 2.3],
+     "mat": {"name": "oak_carved", "painted": true, "rgb": [206, 198, 174], "panel": [0.5, 0.46], "motif": "fielded"}
+    },
+    {"box": [-0.04, 0.12, 0.0, 0.12, 0.0, 3.0], "mat": "oak_dark"},
+    {"box": [-0.04, 0.14, 0.0, 1.0, 2.3, 2.46], "mat": "oak_dark"},
+    {
+     "cyl": {"c": [0.04, 0.2], "r": 0.032, "z": [2.46, 2.92]},
+     "mat": "oak",
+     "repeat": {"n": 5, "step": [0, 0.17, 0]}
+    },
+    {"box": [-0.02, 0.1, 0.0, 1.0, 2.92, 3.0], "mat": "oak_dark"}
+   ]
+  },
+  {
+   "name": "gallery_screen_doors",
+   "kind": "edge",
+   "length": 2,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "box": [0.0, 0.05, 0.0, 0.2, 0.0, 2.3],
+     "mat": {"name": "oak_carved", "painted": true, "rgb": [206, 198, 174], "panel": [0.2, 0.46], "motif": "fielded"}
+    },
+    {
+     "box": [0.0, 0.05, 1.8, 2.0, 0.0, 2.3],
+     "mat": {"name": "oak_carved", "painted": true, "rgb": [206, 198, 174], "panel": [0.2, 0.46], "motif": "fielded"}
+    },
+    {
+     "box": [0.0, 0.06, 0.2, 1.0, 0.0, 2.05],
+     "mat": {"name": "oak_carved", "painted": true, "rgb": [214, 206, 182], "panel": [0.8, 0.68], "motif": "fielded"}
+    },
+    {
+     "box": [0.0, 0.06, 1.0, 1.8, 0.0, 2.05],
+     "mat": {"name": "oak_carved", "painted": true, "rgb": [214, 206, 182], "panel": [0.8, 0.68], "motif": "fielded"}
+    },
+    {
+     "box": [0.0, 0.05, 0.2, 1.8, 2.05, 2.3],
+     "mat": {"name": "oak_carved", "painted": true, "rgb": [206, 198, 174], "panel": [0.4, 0.25], "motif": "fielded"}
+    },
+    {"box": [0.04, 0.09, 0.93, 0.97, 1.0, 1.1], "mat": "iron", "repeat": {"n": 2, "step": [0, 0.1, 0]}},
+    {"box": [-0.04, 0.12, 0.0, 0.12, 0.0, 3.0], "mat": "oak_dark"},
+    {"box": [-0.04, 0.14, 0.0, 2.0, 2.3, 2.46], "mat": "oak_dark"},
+    {
+     "cyl": {"c": [0.04, 0.2], "r": 0.032, "z": [2.46, 2.92]},
+     "mat": "oak",
+     "repeat": {"n": 11, "step": [0, 0.17, 0]}
+    },
+    {"box": [-0.02, 0.1, 0.0, 2.0, 2.92, 3.0], "mat": "oak_dark"}
+   ]
+  },
+  {
+   "name": "ministers_stand",
+   "kind": "edge",
+   "length": 3,
+   "layer": "Furniture",
+   "props": [["CustomName", "Ministers' stand"]],
+   "parts": [
+    {"box": [0.0, 1.1, 0.0, 3.0, 0.0, 0.25], "mat": "pine"},
+    {
+     "box": [0.0, 0.04, 0.0, 3.0, 0.25, 1.35],
+     "mat": {"name": "oak_carved", "rgb": [190, 150, 104], "panel": [0.1, 1.1], "motif": "fielded"}
+    },
+    {"box": [0.0, 0.06, 0.0, 3.0, 1.35, 1.42], "mat": "oak_dark"},
+    {"box": [0.12, 0.52, 0.1, 2.9, 0.68, 0.74], "mat": "pine"},
+    {"box": [0.18, 0.46, 0.1, 0.16, 0.25, 0.68], "mat": "pine", "repeat": {"n": 3, "step": [0, 1.37, 0]}},
+    {
+     "box": [1.05, 1.1, 0.0, 3.0, 0.25, 1.2],
+     "mat": {"name": "oak_carved", "rgb": [184, 146, 100], "panel": [0.5, 0.95], "motif": "fielded"}
+    },
+    {"box": [1.02, 1.14, 0.0, 3.0, 1.2, 1.26], "mat": "oak_dark"}
+   ]
+  },
+  {
+   "name": "bench_plain",
+   "kind": "object",
+   "size": [2, 1],
+   "facings": ["W", "E"],
+   "like": {
+    "W": {"0,0": "location_community_church_small_01_61", "0,1": "location_community_church_small_01_60"},
+    "E": {"0,0": "location_community_church_small_01_50", "0,1": "location_community_church_small_01_49"}
+   },
+   "parts": [
+    {"box": [0.05, 1.95, 0.3, 0.68, 0.42, 0.47], "mat": "pine"},
+    {"box": [0.05, 1.95, 0.22, 0.26, 0.47, 0.92], "mat": "pine"},
+    {"box": [0.1, 0.16, 0.24, 0.66, 0.0, 0.42], "mat": "pine", "repeat": {"n": 2, "step": [1.74, 0, 0]}},
+    {"box": [0.1, 0.16, 0.2, 0.28, 0.0, 0.92], "mat": "pine", "repeat": {"n": 2, "step": [1.74, 0, 0]}}
+   ]
+  },
+  {
+   "name": "pilaster_chamfered",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {"box": [0.0, 0.14, 0.42, 0.58, 0.0, 2.9], "mat": "oak_dark"},
+    {"box": [0.0, 0.17, 0.4, 0.6, 1.36, 1.44], "mat": "oak_dark"},
+    {"box": [0.0, 0.2, 0.38, 0.62, 2.82, 3.0], "mat": "oak_dark"}
+   ]
+  },
+  {
+   "name": "door_hood",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {"box": [0.0, 0.42, 0.02, 0.98, 2.24, 2.32], "mat": {"name": "paint", "rgb": [232, 228, 218]}},
+    {"box": [0.0, 0.44, 0.0, 1.0, 2.32, 2.36], "mat": "lead"},
+    {"box": [0.0, 0.36, 0.06, 0.12, 2.12, 2.24], "mat": {"name": "paint", "rgb": [226, 222, 210]}},
+    {"box": [0.0, 0.24, 0.06, 0.12, 2.0, 2.12], "mat": {"name": "paint", "rgb": [226, 222, 210]}},
+    {"box": [0.0, 0.12, 0.06, 0.12, 1.88, 2.0], "mat": {"name": "paint", "rgb": [226, 222, 210]}},
+    {"box": [0.0, 0.36, 0.88, 0.94, 2.12, 2.24], "mat": {"name": "paint", "rgb": [226, 222, 210]}},
+    {"box": [0.0, 0.24, 0.88, 0.94, 2.0, 2.12], "mat": {"name": "paint", "rgb": [226, 222, 210]}},
+    {"box": [0.0, 0.12, 0.88, 0.94, 1.88, 2.0], "mat": {"name": "paint", "rgb": [226, 222, 210]}}
+   ]
+  },
+  {
+   "name": "dormer_small",
+   "kind": "object",
+   "size": [1, 1],
+   "facings": ["S"],
+   "parts": [
+    {"box": [0.2, 0.8, 0.25, 0.95, 0.0, 0.95], "mat": {"name": "plaster", "rgb": [238, 236, 228]}},
+    {"box": [0.28, 0.72, 0.94, 0.97, 0.18, 0.82], "mat": {"name": "paint", "rgb": [236, 236, 232]}},
+    {"box": [0.33, 0.67, 0.955, 0.975, 0.24, 0.76], "mat": {"name": "paint", "rgb": [70, 82, 92]}},
+    {"box": [0.49, 0.51, 0.97, 0.98, 0.24, 0.76], "mat": {"name": "paint", "rgb": [236, 236, 232]}},
+    {"gable": [0.12, 0.88, 0.15, 1.02, 0.95, 1.32], "ridge": "y", "mat": "roof_tile"}
+   ]
+  },
+  {
+   "name": "lettering",
+   "kind": "edge",
+   "length": 1,
+   "layer": "WallOverlay",
+   "parts": [
+    {
+     "panel": {"o": [0.015, 0.15, 2.1], "u": [0, 0.7, 0], "v": [0, 0, -0.6]},
+     "pattern": {
+      "name": "board",
+      "ground": [238, 236, 228],
+      "frame": 0.0,
+      "frame_rgb": [238, 236, 228],
+      "rows": 3,
+      "ink": [60, 60, 62]
+     }
+    }
+   ]
+  }
+ ]
+}

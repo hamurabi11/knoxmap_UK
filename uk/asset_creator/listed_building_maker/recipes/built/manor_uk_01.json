@@ -1,0 +1,135 @@
+{
+ "sheet": "manor_uk_01",
+ "items": {
+  "cornice_modillion": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "manor_uk_01_0"
+     },
+     "N": {
+      "0,0": "manor_uk_01_1"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "break_start": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "manor_uk_01_2"
+     },
+     "N": {
+      "0,0": "manor_uk_01_3"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "break_end": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "manor_uk_01_4"
+     },
+     "N": {
+      "0,0": "manor_uk_01_5"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "brick_head": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "manor_uk_01_6"
+     },
+     "N": {
+      "0,0": "manor_uk_01_7"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "panelling_georgian": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "manor_uk_01_8"
+     },
+     "N": {
+      "0,0": "manor_uk_01_9"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "frieze_doric": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "manor_uk_01_10",
+      "0,1": "manor_uk_01_11"
+     },
+     "N": {
+      "0,0": "manor_uk_01_12",
+      "1,0": "manor_uk_01_13"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "balustrade_georgian": {
+   "kind": "edge",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "W": {
+      "0,0": "manor_uk_01_14"
+     },
+     "N": {
+      "0,0": "manor_uk_01_15"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "stair_arch": {
+   "kind": "edge",
+   "layer": "WallOverlay",
+   "tiles": {
+    "0": {
+     "W": {
+      "-1,0": "manor_uk_01_16",
+      "-1,2": "manor_uk_01_17",
+      "0,0": "manor_uk_01_18",
+      "0,1": "manor_uk_01_19",
+      "0,2": "manor_uk_01_20"
+     },
+     "N": {
+      "0,-1": "manor_uk_01_21",
+      "0,0": "manor_uk_01_22",
+      "1,0": "manor_uk_01_23",
+      "2,-1": "manor_uk_01_24",
+      "2,0": "manor_uk_01_25"
+     }
+    }
+   },
+   "storeys": 1
+  }
+ }
+}

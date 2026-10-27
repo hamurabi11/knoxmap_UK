@@ -137,10 +137,27 @@ def render(map_dir: str, X: int, Y: int, W: int, H: int,
         return None
     if max_level is not None:
         top = min(top, max_level)
+    return draw_squares(squares, W, H, top, scale)
 
+
+def draw_squares(squares: dict, W: int, H: int, top: int,
+                 scale: float = 1.0) -> Image.Image:
+    """Stack tiles {(x, y, z): [tile names]} isometrically, as the game draws
+    them (KnoxMap UK: split from render() so one building's .tbx can be drawn
+    without a compiled map - knoxbuild/rooms_uk pictures)."""
+    import knoxpaths
     tiles_dir = knoxpaths.mapping_tools_dir() / "Tiles" / "2x"
     sheets: dict[str, Image.Image | None] = {}
     cache: dict[str, Image.Image | None] = {}
+    # Each sheet's grid, from the tools' Tilesets.txt: most sprites are
+    # 128x256, but the jumbo trees are 384x512 to 896x1024 a sprite, and cut
+    # on a 128x256 grid they came out as a slice of a crown or nothing.
+    grid: dict[str, tuple[int, int]] = {}
+    tilesets = knoxpaths.mapping_tools_dir() / "config" / "Tilesets.txt"
+    if tilesets.exists():
+        text = tilesets.read_text(encoding="utf-8", errors="replace")
+        for fname, cols_, rows_ in re.findall(r"file\s*=\s*\S*?([^/\s]+)\s+size\s*=\s*(\d+)\s*,\s*(\d+)", text):
+            grid[fname] = (int(cols_), int(rows_))
 
     def image(name: str):
         if name in cache:
@@ -154,10 +171,12 @@ def render(map_dir: str, X: int, Y: int, W: int, H: int,
                 sheets[sheet_name] = Image.open(path).convert("RGBA") if path.exists() else None
             sheet = sheets[sheet_name]
             if sheet is not None:
-                cols = max(1, sheet.width // 128)
-                cx, cy = (idx % cols) * 128, (idx // cols) * 256
-                if cy + 256 <= sheet.height:
-                    img = sheet.crop((cx, cy, cx + 128, cy + 256)).resize((TW, TW * 2), Image.LANCZOS)
+                cols, rows = grid.get(sheet_name, (max(1, sheet.width // 128), max(1, sheet.height // 256)))
+                cw, ch = sheet.width // cols, sheet.height // rows
+                cx, cy = (idx % cols) * cw, (idx // cols) * ch
+                if cy + ch <= sheet.height:
+                    img = sheet.crop((cx, cy, cx + cw, cy + ch)).resize(
+                        (max(1, TW * cw // 128), max(1, TW * 2 * ch // 256)), Image.LANCZOS)
         cache[name] = img
         return img
 
@@ -169,17 +188,30 @@ def render(map_dir: str, X: int, Y: int, W: int, H: int,
     height = (W + H) * quarter + 2 * TW + (top + 1) * level_px
     canvas = Image.new("RGBA", (width, height), (24, 26, 28, 255))
     lift = (top + 1) * level_px
-    # The game draws a storey at a time, bottom up, each back to front.
-    for z in range(0, top + 1):
+    # The game draws a storey at a time, bottom up, its floors first and then
+    # everything standing on them, each back to front. (Floors square by
+    # square with the objects painted a later square's ground over the foot
+    # of anything reaching into it: the angled garden walls, 2026-10-12.)
+    def is_floor(name: str) -> bool:
+        return name.startswith(("blends_", "floors_")) or "_blend_" in name
+
+    for z, floors in ((z, f) for z in range(0, top + 1) for f in (True, False)):
         for s in range(W + H - 1):
             for dx in range(max(0, s - H + 1), min(W, s + 1)):
                 dy = s - dx
                 for name in squares.get((dx, dy, z), ()):
+                    if is_floor(name) != floors:
+                        continue
                     img = image(name)
                     if img is not None:
-                        canvas.alpha_composite(img, ((dx - dy) * half + H * half,
-                                                     (dx + dy) * quarter + lift - z * level_px
-                                                     - TW * 3 // 2))
+                        # A sprite bigger than a tile stands on it: the same
+                        # bottom middle as a normal one.
+                        x = (dx - dy) * half + H * half - (img.width - TW) // 2
+                        y = (dx + dy) * quarter + lift - z * level_px - TW * 3 // 2 - (img.height - TW * 2)
+                        if x < 0 or y < 0:
+                            img = img.crop((max(0, -x), max(0, -y), img.width, img.height))
+                            x, y = max(0, x), max(0, y)
+                        canvas.alpha_composite(img, (x, y))
     return canvas
 
 

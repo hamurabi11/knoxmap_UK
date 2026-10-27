@@ -1,0 +1,707 @@
+{
+ "sheet": "gothic_hall_uk_01",
+ "items": {
+  "hall_roof_w16": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_hall_uk_01_0",
+      "1,0": "gothic_hall_uk_01_1",
+      "2,0": "gothic_hall_uk_01_2",
+      "13,0": "gothic_hall_uk_01_17",
+      "14,0": "gothic_hall_uk_01_19",
+      "15,0": "gothic_hall_uk_01_20"
+     }
+    },
+    "1": {
+     "N": {
+      "2,0": "gothic_hall_uk_01_3",
+      "3,0": "gothic_hall_uk_01_4",
+      "4,0": "gothic_hall_uk_01_5",
+      "11,0": "gothic_hall_uk_01_14",
+      "12,0": "gothic_hall_uk_01_16",
+      "13,0": "gothic_hall_uk_01_18"
+     }
+    },
+    "2": {
+     "N": {
+      "5,0": "gothic_hall_uk_01_6",
+      "6,0": "gothic_hall_uk_01_7",
+      "7,0": "gothic_hall_uk_01_8",
+      "8,0": "gothic_hall_uk_01_10",
+      "9,0": "gothic_hall_uk_01_12",
+      "10,0": "gothic_hall_uk_01_13",
+      "11,0": "gothic_hall_uk_01_15"
+     }
+    },
+    "3": {
+     "N": {
+      "7,0": "gothic_hall_uk_01_9",
+      "8,0": "gothic_hall_uk_01_11"
+     }
+    }
+   },
+   "storeys": 4
+  },
+  "hall_roof_w16_dormer": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_hall_uk_01_21",
+      "1,0": "gothic_hall_uk_01_22",
+      "2,0": "gothic_hall_uk_01_23",
+      "13,0": "gothic_hall_uk_01_38",
+      "14,0": "gothic_hall_uk_01_40",
+      "15,0": "gothic_hall_uk_01_41"
+     }
+    },
+    "1": {
+     "N": {
+      "2,0": "gothic_hall_uk_01_24",
+      "3,0": "gothic_hall_uk_01_25",
+      "4,0": "gothic_hall_uk_01_26",
+      "11,0": "gothic_hall_uk_01_35",
+      "12,0": "gothic_hall_uk_01_37",
+      "13,0": "gothic_hall_uk_01_39"
+     }
+    },
+    "2": {
+     "N": {
+      "5,0": "gothic_hall_uk_01_27",
+      "6,0": "gothic_hall_uk_01_28",
+      "7,0": "gothic_hall_uk_01_29",
+      "8,0": "gothic_hall_uk_01_31",
+      "9,0": "gothic_hall_uk_01_33",
+      "10,0": "gothic_hall_uk_01_34",
+      "11,0": "gothic_hall_uk_01_36"
+     }
+    },
+    "3": {
+     "N": {
+      "7,0": "gothic_hall_uk_01_30",
+      "8,0": "gothic_hall_uk_01_32"
+     }
+    }
+   },
+   "storeys": 4
+  },
+  "hall_gable_w16": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_hall_uk_01_42",
+      "0,1": "gothic_hall_uk_01_43",
+      "1,0": "gothic_hall_uk_01_44",
+      "1,1": "gothic_hall_uk_01_45",
+      "2,0": "gothic_hall_uk_01_46",
+      "2,1": "gothic_hall_uk_01_48",
+      "3,0": "gothic_hall_uk_01_50",
+      "3,1": "gothic_hall_uk_01_52",
+      "4,0": "gothic_hall_uk_01_54",
+      "4,1": "gothic_hall_uk_01_57",
+      "5,0": "gothic_hall_uk_01_60",
+      "5,1": "gothic_hall_uk_01_63",
+      "6,0": "gothic_hall_uk_01_66",
+      "6,1": "gothic_hall_uk_01_70",
+      "7,0": "gothic_hall_uk_01_74",
+      "7,1": "gothic_hall_uk_01_79",
+      "8,0": "gothic_hall_uk_01_83",
+      "8,1": "gothic_hall_uk_01_88",
+      "9,0": "gothic_hall_uk_01_92",
+      "9,1": "gothic_hall_uk_01_96",
+      "10,0": "gothic_hall_uk_01_100",
+      "10,1": "gothic_hall_uk_01_103",
+      "11,0": "gothic_hall_uk_01_106",
+      "11,1": "gothic_hall_uk_01_109",
+      "12,0": "gothic_hall_uk_01_112",
+      "12,1": "gothic_hall_uk_01_114",
+      "13,0": "gothic_hall_uk_01_116",
+      "13,1": "gothic_hall_uk_01_118",
+      "14,0": "gothic_hall_uk_01_120",
+      "14,1": "gothic_hall_uk_01_121",
+      "15,0": "gothic_hall_uk_01_122",
+      "15,1": "gothic_hall_uk_01_123"
+     },
+     "S": {
+      "0,-1": "gothic_hall_uk_01_124",
+      "0,0": "gothic_hall_uk_01_125",
+      "1,-1": "gothic_hall_uk_01_126",
+      "1,0": "gothic_hall_uk_01_127",
+      "2,0": "gothic_hall_uk_01_128",
+      "3,0": "gothic_hall_uk_01_130",
+      "4,0": "gothic_hall_uk_01_132",
+      "5,0": "gothic_hall_uk_01_135",
+      "6,0": "gothic_hall_uk_01_138",
+      "7,0": "gothic_hall_uk_01_142",
+      "8,0": "gothic_hall_uk_01_148",
+      "9,0": "gothic_hall_uk_01_155",
+      "10,0": "gothic_hall_uk_01_160",
+      "11,0": "gothic_hall_uk_01_165",
+      "12,0": "gothic_hall_uk_01_169",
+      "13,-1": "gothic_hall_uk_01_171",
+      "13,0": "gothic_hall_uk_01_173",
+      "14,-1": "gothic_hall_uk_01_175",
+      "14,0": "gothic_hall_uk_01_176",
+      "15,-1": "gothic_hall_uk_01_177",
+      "15,0": "gothic_hall_uk_01_178"
+     }
+    },
+    "1": {
+     "N": {
+      "2,0": "gothic_hall_uk_01_47",
+      "2,1": "gothic_hall_uk_01_49",
+      "3,0": "gothic_hall_uk_01_51",
+      "3,1": "gothic_hall_uk_01_53",
+      "4,0": "gothic_hall_uk_01_55",
+      "4,1": "gothic_hall_uk_01_58",
+      "5,0": "gothic_hall_uk_01_61",
+      "5,1": "gothic_hall_uk_01_64",
+      "6,0": "gothic_hall_uk_01_67",
+      "6,1": "gothic_hall_uk_01_71",
+      "7,0": "gothic_hall_uk_01_75",
+      "7,1": "gothic_hall_uk_01_80",
+      "8,0": "gothic_hall_uk_01_84",
+      "8,1": "gothic_hall_uk_01_89",
+      "9,0": "gothic_hall_uk_01_93",
+      "9,1": "gothic_hall_uk_01_97",
+      "10,0": "gothic_hall_uk_01_101",
+      "10,1": "gothic_hall_uk_01_104",
+      "11,0": "gothic_hall_uk_01_107",
+      "11,1": "gothic_hall_uk_01_110",
+      "12,0": "gothic_hall_uk_01_113",
+      "12,1": "gothic_hall_uk_01_115",
+      "13,0": "gothic_hall_uk_01_117",
+      "13,1": "gothic_hall_uk_01_119"
+     },
+     "S": {
+      "2,0": "gothic_hall_uk_01_129",
+      "3,0": "gothic_hall_uk_01_131",
+      "4,0": "gothic_hall_uk_01_133",
+      "5,0": "gothic_hall_uk_01_136",
+      "6,0": "gothic_hall_uk_01_139",
+      "7,0": "gothic_hall_uk_01_143",
+      "8,0": "gothic_hall_uk_01_149",
+      "9,0": "gothic_hall_uk_01_156",
+      "10,0": "gothic_hall_uk_01_161",
+      "11,-1": "gothic_hall_uk_01_163",
+      "11,0": "gothic_hall_uk_01_166",
+      "12,-1": "gothic_hall_uk_01_168",
+      "12,0": "gothic_hall_uk_01_170",
+      "13,-1": "gothic_hall_uk_01_172",
+      "13,0": "gothic_hall_uk_01_174"
+     }
+    },
+    "2": {
+     "N": {
+      "4,0": "gothic_hall_uk_01_56",
+      "4,1": "gothic_hall_uk_01_59",
+      "5,0": "gothic_hall_uk_01_62",
+      "5,1": "gothic_hall_uk_01_65",
+      "6,0": "gothic_hall_uk_01_68",
+      "6,1": "gothic_hall_uk_01_72",
+      "7,0": "gothic_hall_uk_01_76",
+      "7,1": "gothic_hall_uk_01_81",
+      "8,0": "gothic_hall_uk_01_85",
+      "8,1": "gothic_hall_uk_01_90",
+      "9,0": "gothic_hall_uk_01_94",
+      "9,1": "gothic_hall_uk_01_98",
+      "10,0": "gothic_hall_uk_01_102",
+      "10,1": "gothic_hall_uk_01_105",
+      "11,0": "gothic_hall_uk_01_108",
+      "11,1": "gothic_hall_uk_01_111"
+     },
+     "S": {
+      "4,0": "gothic_hall_uk_01_134",
+      "5,0": "gothic_hall_uk_01_137",
+      "6,0": "gothic_hall_uk_01_140",
+      "7,0": "gothic_hall_uk_01_144",
+      "8,0": "gothic_hall_uk_01_150",
+      "9,-1": "gothic_hall_uk_01_153",
+      "9,0": "gothic_hall_uk_01_157",
+      "10,-1": "gothic_hall_uk_01_159",
+      "10,0": "gothic_hall_uk_01_162",
+      "11,-1": "gothic_hall_uk_01_164",
+      "11,0": "gothic_hall_uk_01_167"
+     }
+    },
+    "3": {
+     "N": {
+      "6,0": "gothic_hall_uk_01_69",
+      "6,1": "gothic_hall_uk_01_73",
+      "7,0": "gothic_hall_uk_01_77",
+      "7,1": "gothic_hall_uk_01_82",
+      "8,0": "gothic_hall_uk_01_86",
+      "8,1": "gothic_hall_uk_01_91",
+      "9,0": "gothic_hall_uk_01_95",
+      "9,1": "gothic_hall_uk_01_99"
+     },
+     "S": {
+      "6,0": "gothic_hall_uk_01_141",
+      "7,0": "gothic_hall_uk_01_145",
+      "8,-1": "gothic_hall_uk_01_147",
+      "8,0": "gothic_hall_uk_01_151",
+      "9,-1": "gothic_hall_uk_01_154",
+      "9,0": "gothic_hall_uk_01_158"
+     }
+    },
+    "4": {
+     "N": {
+      "7,0": "gothic_hall_uk_01_78",
+      "8,0": "gothic_hall_uk_01_87"
+     },
+     "S": {
+      "7,0": "gothic_hall_uk_01_146",
+      "8,0": "gothic_hall_uk_01_152"
+     }
+    }
+   },
+   "storeys": 5
+  },
+  "hall_roof_w18": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_hall_uk_01_179",
+      "1,0": "gothic_hall_uk_01_180",
+      "2,0": "gothic_hall_uk_01_181",
+      "3,0": "gothic_hall_uk_01_182",
+      "14,0": "gothic_hall_uk_01_198",
+      "15,0": "gothic_hall_uk_01_200",
+      "16,0": "gothic_hall_uk_01_201",
+      "17,0": "gothic_hall_uk_01_202"
+     }
+    },
+    "1": {
+     "N": {
+      "3,0": "gothic_hall_uk_01_183",
+      "4,0": "gothic_hall_uk_01_184",
+      "5,0": "gothic_hall_uk_01_185",
+      "6,0": "gothic_hall_uk_01_186",
+      "11,0": "gothic_hall_uk_01_194",
+      "12,0": "gothic_hall_uk_01_196",
+      "13,0": "gothic_hall_uk_01_197",
+      "14,0": "gothic_hall_uk_01_199"
+     }
+    },
+    "2": {
+     "N": {
+      "6,0": "gothic_hall_uk_01_187",
+      "7,0": "gothic_hall_uk_01_188",
+      "8,0": "gothic_hall_uk_01_189",
+      "9,0": "gothic_hall_uk_01_191",
+      "10,0": "gothic_hall_uk_01_193",
+      "11,0": "gothic_hall_uk_01_195"
+     }
+    },
+    "3": {
+     "N": {
+      "8,0": "gothic_hall_uk_01_190",
+      "9,0": "gothic_hall_uk_01_192"
+     }
+    }
+   },
+   "storeys": 4
+  },
+  "hall_roof_w18_dormer": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_hall_uk_01_203",
+      "1,0": "gothic_hall_uk_01_204",
+      "2,0": "gothic_hall_uk_01_205",
+      "3,0": "gothic_hall_uk_01_206",
+      "14,0": "gothic_hall_uk_01_222",
+      "15,0": "gothic_hall_uk_01_224",
+      "16,0": "gothic_hall_uk_01_225",
+      "17,0": "gothic_hall_uk_01_226"
+     }
+    },
+    "1": {
+     "N": {
+      "3,0": "gothic_hall_uk_01_207",
+      "4,0": "gothic_hall_uk_01_208",
+      "5,0": "gothic_hall_uk_01_209",
+      "6,0": "gothic_hall_uk_01_210",
+      "11,0": "gothic_hall_uk_01_218",
+      "12,0": "gothic_hall_uk_01_220",
+      "13,0": "gothic_hall_uk_01_221",
+      "14,0": "gothic_hall_uk_01_223"
+     }
+    },
+    "2": {
+     "N": {
+      "6,0": "gothic_hall_uk_01_211",
+      "7,0": "gothic_hall_uk_01_212",
+      "8,0": "gothic_hall_uk_01_213",
+      "9,0": "gothic_hall_uk_01_215",
+      "10,0": "gothic_hall_uk_01_217",
+      "11,0": "gothic_hall_uk_01_219"
+     }
+    },
+    "3": {
+     "N": {
+      "8,0": "gothic_hall_uk_01_214",
+      "9,0": "gothic_hall_uk_01_216"
+     }
+    }
+   },
+   "storeys": 4
+  },
+  "hall_gable_w18": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,0": "gothic_hall_uk_01_227",
+      "0,1": "gothic_hall_uk_01_228",
+      "1,0": "gothic_hall_uk_01_229",
+      "1,1": "gothic_hall_uk_01_230",
+      "2,0": "gothic_hall_uk_01_231",
+      "2,1": "gothic_hall_uk_01_232",
+      "3,0": "gothic_hall_uk_01_234",
+      "3,1": "gothic_hall_uk_01_236",
+      "4,0": "gothic_hall_uk_01_238",
+      "4,1": "gothic_hall_uk_01_240",
+      "5,0": "gothic_hall_uk_01_242",
+      "5,1": "gothic_hall_uk_01_245",
+      "6,0": "gothic_hall_uk_01_248",
+      "6,1": "gothic_hall_uk_01_251",
+      "7,0": "gothic_hall_uk_01_254",
+      "7,1": "gothic_hall_uk_01_257",
+      "8,0": "gothic_hall_uk_01_260",
+      "8,1": "gothic_hall_uk_01_265",
+      "9,0": "gothic_hall_uk_01_269",
+      "9,1": "gothic_hall_uk_01_274",
+      "10,0": "gothic_hall_uk_01_278",
+      "10,1": "gothic_hall_uk_01_281",
+      "11,0": "gothic_hall_uk_01_284",
+      "11,1": "gothic_hall_uk_01_287",
+      "12,0": "gothic_hall_uk_01_290",
+      "12,1": "gothic_hall_uk_01_293",
+      "13,0": "gothic_hall_uk_01_296",
+      "13,1": "gothic_hall_uk_01_298",
+      "14,0": "gothic_hall_uk_01_300",
+      "14,1": "gothic_hall_uk_01_302",
+      "15,0": "gothic_hall_uk_01_304",
+      "15,1": "gothic_hall_uk_01_306",
+      "16,0": "gothic_hall_uk_01_308",
+      "16,1": "gothic_hall_uk_01_309",
+      "17,0": "gothic_hall_uk_01_310",
+      "17,1": "gothic_hall_uk_01_311"
+     },
+     "S": {
+      "0,-1": "gothic_hall_uk_01_312",
+      "0,0": "gothic_hall_uk_01_313",
+      "1,-1": "gothic_hall_uk_01_314",
+      "1,0": "gothic_hall_uk_01_315",
+      "2,0": "gothic_hall_uk_01_316",
+      "3,0": "gothic_hall_uk_01_318",
+      "4,0": "gothic_hall_uk_01_320",
+      "5,0": "gothic_hall_uk_01_322",
+      "6,0": "gothic_hall_uk_01_325",
+      "7,0": "gothic_hall_uk_01_328",
+      "8,0": "gothic_hall_uk_01_331",
+      "9,0": "gothic_hall_uk_01_338",
+      "10,0": "gothic_hall_uk_01_344",
+      "11,0": "gothic_hall_uk_01_348",
+      "12,0": "gothic_hall_uk_01_353",
+      "13,0": "gothic_hall_uk_01_357",
+      "14,0": "gothic_hall_uk_01_360",
+      "15,-1": "gothic_hall_uk_01_362",
+      "15,0": "gothic_hall_uk_01_364",
+      "16,-1": "gothic_hall_uk_01_366",
+      "16,0": "gothic_hall_uk_01_367",
+      "17,-1": "gothic_hall_uk_01_368",
+      "17,0": "gothic_hall_uk_01_369"
+     }
+    },
+    "1": {
+     "N": {
+      "2,1": "gothic_hall_uk_01_233",
+      "3,0": "gothic_hall_uk_01_235",
+      "3,1": "gothic_hall_uk_01_237",
+      "4,0": "gothic_hall_uk_01_239",
+      "4,1": "gothic_hall_uk_01_241",
+      "5,0": "gothic_hall_uk_01_243",
+      "5,1": "gothic_hall_uk_01_246",
+      "6,0": "gothic_hall_uk_01_249",
+      "6,1": "gothic_hall_uk_01_252",
+      "7,0": "gothic_hall_uk_01_255",
+      "7,1": "gothic_hall_uk_01_258",
+      "8,0": "gothic_hall_uk_01_261",
+      "8,1": "gothic_hall_uk_01_266",
+      "9,0": "gothic_hall_uk_01_270",
+      "9,1": "gothic_hall_uk_01_275",
+      "10,0": "gothic_hall_uk_01_279",
+      "10,1": "gothic_hall_uk_01_282",
+      "11,0": "gothic_hall_uk_01_285",
+      "11,1": "gothic_hall_uk_01_288",
+      "12,0": "gothic_hall_uk_01_291",
+      "12,1": "gothic_hall_uk_01_294",
+      "13,0": "gothic_hall_uk_01_297",
+      "13,1": "gothic_hall_uk_01_299",
+      "14,0": "gothic_hall_uk_01_301",
+      "14,1": "gothic_hall_uk_01_303",
+      "15,0": "gothic_hall_uk_01_305",
+      "15,1": "gothic_hall_uk_01_307"
+     },
+     "S": {
+      "2,0": "gothic_hall_uk_01_317",
+      "3,0": "gothic_hall_uk_01_319",
+      "4,0": "gothic_hall_uk_01_321",
+      "5,0": "gothic_hall_uk_01_323",
+      "6,0": "gothic_hall_uk_01_326",
+      "7,0": "gothic_hall_uk_01_329",
+      "8,0": "gothic_hall_uk_01_332",
+      "9,0": "gothic_hall_uk_01_339",
+      "10,0": "gothic_hall_uk_01_345",
+      "11,0": "gothic_hall_uk_01_349",
+      "12,-1": "gothic_hall_uk_01_351",
+      "12,0": "gothic_hall_uk_01_354",
+      "13,-1": "gothic_hall_uk_01_356",
+      "13,0": "gothic_hall_uk_01_358",
+      "14,-1": "gothic_hall_uk_01_359",
+      "14,0": "gothic_hall_uk_01_361",
+      "15,-1": "gothic_hall_uk_01_363",
+      "15,0": "gothic_hall_uk_01_365"
+     }
+    },
+    "2": {
+     "N": {
+      "5,0": "gothic_hall_uk_01_244",
+      "5,1": "gothic_hall_uk_01_247",
+      "6,0": "gothic_hall_uk_01_250",
+      "6,1": "gothic_hall_uk_01_253",
+      "7,0": "gothic_hall_uk_01_256",
+      "7,1": "gothic_hall_uk_01_259",
+      "8,0": "gothic_hall_uk_01_262",
+      "8,1": "gothic_hall_uk_01_267",
+      "9,0": "gothic_hall_uk_01_271",
+      "9,1": "gothic_hall_uk_01_276",
+      "10,0": "gothic_hall_uk_01_280",
+      "10,1": "gothic_hall_uk_01_283",
+      "11,0": "gothic_hall_uk_01_286",
+      "11,1": "gothic_hall_uk_01_289",
+      "12,0": "gothic_hall_uk_01_292",
+      "12,1": "gothic_hall_uk_01_295"
+     },
+     "S": {
+      "5,0": "gothic_hall_uk_01_324",
+      "6,0": "gothic_hall_uk_01_327",
+      "7,0": "gothic_hall_uk_01_330",
+      "8,0": "gothic_hall_uk_01_333",
+      "9,-1": "gothic_hall_uk_01_336",
+      "9,0": "gothic_hall_uk_01_340",
+      "10,-1": "gothic_hall_uk_01_343",
+      "10,0": "gothic_hall_uk_01_346",
+      "11,-1": "gothic_hall_uk_01_347",
+      "11,0": "gothic_hall_uk_01_350",
+      "12,-1": "gothic_hall_uk_01_352",
+      "12,0": "gothic_hall_uk_01_355"
+     }
+    },
+    "3": {
+     "N": {
+      "8,0": "gothic_hall_uk_01_263",
+      "8,1": "gothic_hall_uk_01_268",
+      "9,0": "gothic_hall_uk_01_272",
+      "9,1": "gothic_hall_uk_01_277"
+     },
+     "S": {
+      "8,0": "gothic_hall_uk_01_334",
+      "9,-1": "gothic_hall_uk_01_337",
+      "9,0": "gothic_hall_uk_01_341"
+     }
+    },
+    "4": {
+     "N": {
+      "8,0": "gothic_hall_uk_01_264",
+      "9,0": "gothic_hall_uk_01_273"
+     },
+     "S": {
+      "8,0": "gothic_hall_uk_01_335",
+      "9,0": "gothic_hall_uk_01_342"
+     }
+    }
+   },
+   "storeys": 5
+  },
+  "central_drum_base": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,2": "gothic_hall_uk_01_370",
+      "0,3": "gothic_hall_uk_01_371",
+      "0,4": "gothic_hall_uk_01_372",
+      "0,5": "gothic_hall_uk_01_373",
+      "0,6": "gothic_hall_uk_01_374",
+      "1,1": "gothic_hall_uk_01_375",
+      "1,2": "gothic_hall_uk_01_376",
+      "1,6": "gothic_hall_uk_01_377",
+      "1,7": "gothic_hall_uk_01_378",
+      "2,0": "gothic_hall_uk_01_379",
+      "2,1": "gothic_hall_uk_01_380",
+      "2,7": "gothic_hall_uk_01_381",
+      "2,8": "gothic_hall_uk_01_382",
+      "3,0": "gothic_hall_uk_01_383",
+      "3,8": "gothic_hall_uk_01_384",
+      "4,0": "gothic_hall_uk_01_385",
+      "4,8": "gothic_hall_uk_01_386",
+      "5,0": "gothic_hall_uk_01_387",
+      "5,8": "gothic_hall_uk_01_388",
+      "6,0": "gothic_hall_uk_01_389",
+      "6,1": "gothic_hall_uk_01_390",
+      "6,7": "gothic_hall_uk_01_391",
+      "6,8": "gothic_hall_uk_01_392",
+      "7,1": "gothic_hall_uk_01_393",
+      "7,2": "gothic_hall_uk_01_394",
+      "7,6": "gothic_hall_uk_01_395",
+      "7,7": "gothic_hall_uk_01_396",
+      "8,2": "gothic_hall_uk_01_397",
+      "8,3": "gothic_hall_uk_01_398",
+      "8,4": "gothic_hall_uk_01_399",
+      "8,5": "gothic_hall_uk_01_400",
+      "8,6": "gothic_hall_uk_01_401"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "central_drum": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,2": "gothic_hall_uk_01_402",
+      "0,3": "gothic_hall_uk_01_403",
+      "0,4": "gothic_hall_uk_01_404",
+      "0,5": "gothic_hall_uk_01_405",
+      "0,6": "gothic_hall_uk_01_406",
+      "1,1": "gothic_hall_uk_01_407",
+      "1,2": "gothic_hall_uk_01_408",
+      "1,6": "gothic_hall_uk_01_409",
+      "1,7": "gothic_hall_uk_01_410",
+      "2,0": "gothic_hall_uk_01_411",
+      "2,1": "gothic_hall_uk_01_412",
+      "2,7": "gothic_hall_uk_01_413",
+      "2,8": "gothic_hall_uk_01_414",
+      "3,0": "gothic_hall_uk_01_415",
+      "3,8": "gothic_hall_uk_01_416",
+      "4,0": "gothic_hall_uk_01_417",
+      "4,8": "gothic_hall_uk_01_418",
+      "5,0": "gothic_hall_uk_01_419",
+      "5,8": "gothic_hall_uk_01_420",
+      "6,0": "gothic_hall_uk_01_421",
+      "6,1": "gothic_hall_uk_01_422",
+      "6,7": "gothic_hall_uk_01_423",
+      "6,8": "gothic_hall_uk_01_424",
+      "7,1": "gothic_hall_uk_01_425",
+      "7,2": "gothic_hall_uk_01_426",
+      "7,6": "gothic_hall_uk_01_427",
+      "7,7": "gothic_hall_uk_01_428",
+      "8,2": "gothic_hall_uk_01_429",
+      "8,3": "gothic_hall_uk_01_430",
+      "8,4": "gothic_hall_uk_01_431",
+      "8,5": "gothic_hall_uk_01_432",
+      "8,6": "gothic_hall_uk_01_433"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "central_drum_tall_lower": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,2": "gothic_hall_uk_01_434",
+      "0,3": "gothic_hall_uk_01_435",
+      "0,4": "gothic_hall_uk_01_436",
+      "0,5": "gothic_hall_uk_01_437",
+      "0,6": "gothic_hall_uk_01_438",
+      "1,1": "gothic_hall_uk_01_439",
+      "1,2": "gothic_hall_uk_01_440",
+      "2,0": "gothic_hall_uk_01_441",
+      "2,1": "gothic_hall_uk_01_442",
+      "2,8": "gothic_hall_uk_01_443",
+      "3,0": "gothic_hall_uk_01_444",
+      "3,8": "gothic_hall_uk_01_445",
+      "4,0": "gothic_hall_uk_01_446",
+      "4,8": "gothic_hall_uk_01_447",
+      "5,0": "gothic_hall_uk_01_448",
+      "5,8": "gothic_hall_uk_01_449",
+      "6,0": "gothic_hall_uk_01_450",
+      "6,7": "gothic_hall_uk_01_451",
+      "6,8": "gothic_hall_uk_01_452",
+      "7,6": "gothic_hall_uk_01_453",
+      "7,7": "gothic_hall_uk_01_454",
+      "8,2": "gothic_hall_uk_01_455",
+      "8,3": "gothic_hall_uk_01_456",
+      "8,4": "gothic_hall_uk_01_457",
+      "8,5": "gothic_hall_uk_01_458",
+      "8,6": "gothic_hall_uk_01_459"
+     }
+    }
+   },
+   "storeys": 1
+  },
+  "central_drum_tall_upper": {
+   "kind": "object",
+   "layer": "Furniture",
+   "tiles": {
+    "0": {
+     "N": {
+      "0,2": "gothic_hall_uk_01_460",
+      "0,3": "gothic_hall_uk_01_461",
+      "0,4": "gothic_hall_uk_01_462",
+      "0,5": "gothic_hall_uk_01_463",
+      "0,6": "gothic_hall_uk_01_464",
+      "1,1": "gothic_hall_uk_01_465",
+      "1,2": "gothic_hall_uk_01_466",
+      "1,6": "gothic_hall_uk_01_467",
+      "1,7": "gothic_hall_uk_01_468",
+      "2,0": "gothic_hall_uk_01_469",
+      "2,1": "gothic_hall_uk_01_470",
+      "2,7": "gothic_hall_uk_01_471",
+      "2,8": "gothic_hall_uk_01_472",
+      "3,0": "gothic_hall_uk_01_473",
+      "3,8": "gothic_hall_uk_01_474",
+      "4,0": "gothic_hall_uk_01_475",
+      "4,8": "gothic_hall_uk_01_476",
+      "5,0": "gothic_hall_uk_01_477",
+      "5,8": "gothic_hall_uk_01_478",
+      "6,0": "gothic_hall_uk_01_479",
+      "6,1": "gothic_hall_uk_01_480",
+      "6,7": "gothic_hall_uk_01_481",
+      "6,8": "gothic_hall_uk_01_482",
+      "7,1": "gothic_hall_uk_01_483",
+      "7,2": "gothic_hall_uk_01_484",
+      "7,6": "gothic_hall_uk_01_485",
+      "7,7": "gothic_hall_uk_01_486",
+      "8,2": "gothic_hall_uk_01_487",
+      "8,3": "gothic_hall_uk_01_488",
+      "8,4": "gothic_hall_uk_01_489",
+      "8,5": "gothic_hall_uk_01_490",
+      "8,6": "gothic_hall_uk_01_491"
+     }
+    }
+   },
+   "storeys": 1
+  }
+ }
+}

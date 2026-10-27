@@ -111,7 +111,7 @@ OFFICE_USE = ("office", "office")
 FRONT_ROOMS = {front for table in (AMENITY_USES, SHOP_USES, HEALTHCARE_USES, LEISURE_USES,
                                    TOURISM_USES) for front, _back in table.values()} \
     - {"library", "theatre", "policeoffice", "daycare", "mechanic", "office"} \
-    | {"italianrestaurant", "chineserestaurant"}
+    | {"italianrestaurant", "chineserestaurant", "spiffo_dining"}
 # The keys of the OSM tags this reads; the overpass query asks for points
 # with any of them (generator/osm.py).
 USE_KEYS = ("amenity", "shop", "healthcare", "leisure", "tourism", "office", "craft")
@@ -120,8 +120,24 @@ FOOD_FRONTS = {"restaurantdining", "italianrestaurant", "chineserestaurant", "ca
                "bar", "bakery"}
 
 
+# KnoxMap UK: the game's own burger chain where the real map has a McDonald's
+# (asset_creator/commercial_kit names.py), or where the regional step put one
+# (regional_uk.uses_with).
+SPIFFOS = ("spiffo_dining", "spiffoskitchen")
+
+
+def _spiffos(tags: dict) -> bool:
+    for k in ("brand", "name"):
+        v = (tags.get(k) or "").strip().lower()
+        if v.startswith(("mcdonald", "spiffo")):
+            return True
+    return False
+
+
 def use_of(tags: dict) -> tuple[str, str] | None:
     """The (front room, back room) one set of OSM tags makes, or None."""
+    if _spiffos(tags):
+        return SPIFFOS
     amenity = (tags.get("amenity") or "").strip().lower()
     cuisine = (tags.get("cuisine") or "").split(";")[0].strip().lower()
     if amenity in ("restaurant", "fast_food", "food_court", "cafe"):

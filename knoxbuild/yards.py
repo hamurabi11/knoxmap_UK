@@ -14,6 +14,8 @@ grass, dark tarmac drives the next, then wooden fences.
 """
 from __future__ import annotations
 
+import json
+import math
 import os
 import random
 import re
@@ -98,6 +100,59 @@ def _outside_doors(tbx_path: str) -> list[tuple[int, int, int, int]]:
     return found
 
 
+def _uk_garage_door(tbx_path: str) -> tuple[int, int] | None:
+    """KnoxMap UK: the outside square in front of the middle of a house's
+    integrated garage door (regional_uk.lay_garage: furniture on the Walls
+    layer from garage_doors_uk_01), or None."""
+    found = _uk_wide_doors(tbx_path, "garage_doors_uk_01")
+    return found[0][0] if found else None
+
+
+def _uk_wide_doors(tbx_path: str, sheet: str) -> list:
+    """KnoxMap UK: each three-square door laid as furniture from `sheet` (regional_uk.lay_garage):
+    (the outside square in front of its middle, the step (dx, dy) out of the building)."""
+    with open(tbx_path, encoding="utf-8") as f:
+        text = f.read()
+    if sheet not in text:
+        return []
+    defs = re.findall(r"<furniture[^>]*>(.*?)</furniture>", text, re.S)
+    ids = [k for k, body in enumerate(defs) if sheet in body]
+    floor = text.split("<floor>", 2)
+    if not ids or len(floor) < 2:
+        return []
+    grid_text = re.search(r"<rooms>(.*?)</rooms>", floor[1], re.S)
+    if not grid_text:
+        return []
+    grid = [[int(v) for v in row.strip().strip(",").split(",")]
+            for row in grid_text.group(1).strip().splitlines() if row.strip()]
+    h, w = len(grid), len(grid[0])
+
+    def inside(x, y):
+        return 0 <= x < w and 0 <= y < h and grid[y][x]
+    out = []
+    for idx in ids:
+        for m in re.finditer(r'type="furniture" FurnitureTiles="%d" orient="([WN])" x="(\d+)" y="(\d+)"' % idx,
+                             floor[1]):
+            d, x, y = m.group(1), int(m.group(2)), int(m.group(3))
+            if d == "W":                            # the door's three squares run south from (x, y)
+                y += 1
+                out.append(((x, y), (1, 0)) if not inside(x, y) else ((x - 1, y), (-1, 0)))
+            else:                                   # ...east from (x, y)
+                x += 1
+                out.append(((x, y), (0, 1)) if not inside(x, y) else ((x, y - 1), (0, -1)))
+    return out
+
+
+# KnoxMap UK: a lorry's way to a loading door (commercial_doors_uk_01: units', garages' and
+# superstores' docks; user 2026-10-26 "a yard to the road where possible"): a hard standing in
+# front of the shutter, then a way to the road this wide
+LOADING_SHEET = "commercial_doors_uk_01"
+YARD_DEEP = 8
+YARD_WIDE = 7
+LORRY_WIDTH = 5
+SLABS = C.PAVING            # paving slabs: a store's apron - a yard is laid over them
+
+
 DOOR_FRONT_DEPTH = 2
 
 
@@ -113,6 +168,32 @@ def door_fronts(out_dir: str, rows: list[dict]) -> set[tuple[int, int]]:
             dx, dy = ox - ix, oy - iy
             for k in range(DOOR_FRONT_DEPTH):
                 out.add((row["tile_x"] + ox + dx * k, row["tile_y"] + oy + dy * k))
+    return out
+
+
+def _fence_squares(out_dir: str, map_name: str) -> set:
+    """KnoxMap UK: every square touching a boundary line a regional step drew
+    on the tile corners (fences.geojson features with `tiles`)."""
+    path = os.path.join(out_dir, f"{map_name}_fences.geojson")
+    out: set = set()
+    if not os.path.exists(path):
+        return out
+    with open(path, encoding="utf-8") as f:
+        feats = json.load(f).get("features", [])
+    for ft in feats:
+        pts = (ft.get("properties") or {}).get("tiles")
+        if not pts:
+            continue
+        pts = json.loads(pts) if isinstance(pts, str) else pts
+        for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+            # Every half square along it, each corner it passes near: a
+            # staircase's every step (rounding to whole steps missed some).
+            n = max(1, int(math.ceil(2 * max(abs(x1 - x0), abs(y1 - y0)))))
+            for k in range(n + 1):
+                fx, fy = x0 + (x1 - x0) * k / n, y0 + (y1 - y0) * k / n
+                for cx in {math.floor(fx), math.ceil(fx)}:
+                    for cy in {math.floor(fy), math.ceil(fy)}:
+                        out.update({(cx, cy), (cx - 1, cy), (cx, cy - 1), (cx - 1, cy - 1)})
     return out
 
 
@@ -161,10 +242,21 @@ def paint_paths(out_dir: str, map_name: str, rows: list[dict], occupied,
         return mask
 
     paved = match(PAVED)
+    sandstone = match((SLABS,))
     road = match((C.DARK_ASPHALT, C.MEDIUM_ASPHALT, C.LIGHT_ASPHALT,
                   C.DARKEST_ASPHALT, C.DARK_POTHOLE, C.LIGHT_POTHOLE))
     crossable = match(CROSSABLE) & ~occupied
+    # KnoxMap UK: a lorry's road is a real one, not the beige gravel of a yard or track bed
+    street = road & ~match((C.LIGHT_ASPHALT,))
     claimed = np.zeros((h, w), dtype=bool)     # painted for some house already
+    # KnoxMap UK: squares holding a yard object (chair, grill...). A later
+    # house's front path was routed over a patio and wiped half a beach chair
+    # (LOG 2026-10-18), so paths go round them and paint leaves them alone.
+    objects = set()
+    # KnoxMap UK: the squares either side of a garden boundary plots2.py drew
+    # (fences.geojson, its lines on the tile corners): a fence takes its square
+    # when the map is compiled, and took half a beach chair (LOG 2026-10-18).
+    fenced = _fence_squares(out_dir, map_name)
 
     def free(x, y):
         return 0 <= x < w and 0 <= y < h and crossable[y, x] and not claimed[y, x]
@@ -172,7 +264,7 @@ def paint_paths(out_dir: str, map_name: str, rows: list[dict], occupied,
     def paint(x, y, colour):
         ground[y, x] = colour
         claimed[y, x] = True
-        if veg is not None:
+        if veg is not None and (x, y) not in objects:
             veg[y, x] = 0
 
     def put(x, y, colour):
@@ -183,6 +275,13 @@ def paint_paths(out_dir: str, map_name: str, rows: list[dict], occupied,
     dressed = 0
     fences = []
     rng = random.Random(0xB17E)
+    from . import regional_uk
+    uk_map = regional_uk.load(out_dir) is not None
+    if uk_map and veg is not None:
+        # No American pillar hydrants on a KnoxMap UK map (user, 2026-10-14):
+        # UK hydrants are under the pavement. Whoever painted them (Generate's
+        # street dressing, the hand-over's redress), they come off here.
+        veg[same_colour(veg, C.HYDRANT)] = C.VEG_NOTHING
     # Reading a thousand freshly written .tbx files is mostly waiting on the
     # disk, so it is done on threads up front; the loop below still runs in
     # order, which keeps the random choices the same.
@@ -192,6 +291,43 @@ def paint_paths(out_dir: str, map_name: str, rows: list[dict], occupied,
         door_lists = dict(zip(house_files, pool.map(
             lambda f: _outside_doors(os.path.join(out_dir, "buildings", f)),
             house_files)))
+    # KnoxMap UK: a landmark (landmark_uk.py) lays its own doors, after the
+    # churchyard's paths were drawn: every outside door gets a path to the
+    # nearest paving or flags (a churchyard's paths are flags), so the paths
+    # and the doors meet (user, 2026-10-19).
+    slabs = paved | match((C.PAVING_STONE,))
+    for row in rows:
+        if not row.get("landmark"):
+            continue
+        for ox, oy, ix, iy in _outside_doors(os.path.join(out_dir, "buildings", row["file"])):
+            sx, sy = row["tile_x"] + ox, row["tile_y"] + oy
+            if not (0 <= sx < w and 0 <= sy < h):
+                continue
+            if slabs[sy, sx] or not crossable[sy, sx]:
+                continue                                  # it opens onto paving already, or onto no ground of ours
+            dx, dy = ox - ix, oy - iy
+            prev = {(sx, sy): None}
+            queue = deque([(sx, sy, 0)])
+            end = None
+            order = [(dx, dy)] + [d for d in ((1, 0), (-1, 0), (0, 1), (0, -1)) if d != (dx, dy)]
+            while queue:
+                x, y, n = queue.popleft()
+                if slabs[y, x] and (x, y) != (sx, sy):
+                    end = (x, y)
+                    break
+                if n >= PATH_MAX_TILES:
+                    continue
+                for ddx, ddy in order:
+                    nx, ny = x + ddx, y + ddy
+                    if 0 <= nx < w and 0 <= ny < h and (nx, ny) not in prev and (nx, ny) not in objects                             and (crossable[ny, nx] or slabs[ny, nx]):
+                        prev[(nx, ny)] = (x, y)
+                        queue.append((nx, ny, n + 1))
+            step = prev.get(end) if end else None
+            while step is not None:
+                paint(step[0], step[1], C.PAVING_STONE)
+                step = prev[step]
+            if end is None and crossable[sy, sx]:
+                paint(sx, sy, C.PAVING_STONE)             # no paving near: a step at least
     for row in rows:
         if row.get("kind") != "house":
             continue
@@ -242,6 +378,7 @@ def paint_paths(out_dir: str, map_name: str, rows: list[dict], occupied,
             for ddx, ddy in order:
                 nx, ny = x + ddx, y + ddy
                 if 0 <= nx < w and 0 <= ny < h and (nx, ny) not in prev \
+                        and (nx, ny) not in objects \
                         and (crossable[ny, nx] or paved[ny, nx]):
                     prev[(nx, ny)] = (x, y)
                     queue.append((nx, ny, n + 1))
@@ -258,8 +395,10 @@ def paint_paths(out_dir: str, map_name: str, rows: list[dict], occupied,
         for k in (-1, 1):
             if free(sx + px * k, sy + py * k):
                 paint(sx + px * k, sy + py * k, C.PAVING_STONE)
-        # The mailbox, beside the path where it reaches the pavement.
-        if walk:
+        # The mailbox, beside the path where it reaches the pavement - not on a
+        # KnoxMap UK map, whose front doors have their letter plates
+        # (regional_uk.front_door) and whose post boxes stand at OSM's.
+        if walk and not uk_map:
             mx, my = walk[0]
             for k in (1, -1):
                 if free(mx + px * k, my + py * k):
@@ -355,17 +494,32 @@ def paint_paths(out_dir: str, map_name: str, rows: list[dict], occupied,
 
             taken = set()
 
+            def placeable(x, y):
+                # KnoxMap UK: never in a doorway - the doorways are cleared of
+                # vegetation last (below), which took half a beach chair.
+                return ((x, y) not in taken and free(x, y) and not (fronts and (x, y) in fronts)
+                        and (x, y) not in fenced)
+
             def place(u, v, colour, ground_colour=None):
                 x, y = at(u, v)
-                if (x, y) in taken or not free(x, y):
+                if not placeable(x, y):
                     return False
                 taken.add((x, y))
                 if ground_colour is not None:
                     paint(x, y, ground_colour)
                 if colour is not None and veg is not None:
                     veg[y, x] = colour
+                    objects.add((x, y))
                 claimed[y, x] = True
                 return True
+
+            def place_pair(a, b):
+                """KnoxMap UK: a two-piece thing (the beach chair) whole or not
+                at all - half of one is an object the game cannot remove."""
+                squares = [at(u, v) for u, v, _c in (a, b)]
+                if len(set(squares)) == 2 and all(placeable(*q) for q in squares):
+                    place(*a)
+                    place(*b)
 
             # Patio: stone outside the back door, three deep; behind the middle
             # of the house if the back door is not on the yard side.
@@ -383,11 +537,14 @@ def paint_paths(out_dir: str, map_name: str, rows: list[dict], occupied,
                         ground, veg, crossable, claimed, (at(u, v),)))
             place(mid - 2, 1, C.GRILL)
             if dy:
-                place(mid, 1, C.TABLE_X0); place(mid + 1, 1, C.TABLE_X1)
+                place_pair((mid, 1, C.TABLE_X0), (mid + 1, 1, C.TABLE_X1))
                 place(mid, 0, C.CHAIR_N); place(mid + 1, 2, C.CHAIR_S)
             else:
-                place(mid, 1, C.TABLE_Y0); place(mid, 2, C.TABLE_Y1)
-                place(mid - 1, 1, C.CHAIR_W); place(mid + 1, 2, C.CHAIR_E)
+                # KnoxMap UK fix: beside the house u runs along map y, so the two
+                # pieces go along u (they went along v - map x - and the game
+                # could not find the object's other piece: LOG 2026-10-18).
+                place_pair((mid, 1, C.TABLE_Y0), (mid + 1, 1, C.TABLE_Y1))
+                place(mid, 0, C.CHAIR_W); place(mid + 1, 2, C.CHAIR_E)
             for x, y in patio_tiles:
                 claimed[y, x] = True
 
@@ -417,20 +574,14 @@ def paint_paths(out_dir: str, map_name: str, rows: list[dict], occupied,
                         veg[y, x] = frame[(col, row)]
         dressed += 1
 
-    for row in rows:
-        if (row.get("building") not in ("garage", "garages")
-                and row.get("kind") != "garage"):
-            continue
-        doors = _outside_doors(os.path.join(out_dir, "buildings", row["file"]))
-        if not doors:
-            continue
-        ox, oy, _ix, _iy = doors[0]
+    def drive_to_road(row, ox, oy, width, to=None):
+        """The shortest way from a building's outside square (ox, oy) to a road (`to`: the
+        squares it may end on, every road by default), `width` wide."""
+        to = road if to is None else to
         start = (row["tile_x"] + ox, row["tile_y"] + oy)
         sx, sy = start
-        if not (0 <= sx < w and 0 <= sy < h) or occupied[sy, sx]:
-            continue
-        if road[sy, sx]:
-            continue
+        if not (0 <= sx < w and 0 <= sy < h) or occupied[sy, sx] or to[sy, sx]:
+            return
 
         traversable = (crossable | paved | road) & ~occupied & ~claimed
         previous = {start: None}
@@ -438,7 +589,7 @@ def paint_paths(out_dir: str, map_name: str, rows: list[dict], occupied,
         end = None
         while queue:
             x, y, distance = queue.popleft()
-            if road[y, x]:
+            if to[y, x]:
                 end = (x, y)
                 break
             if distance >= PATH_MAX_TILES:
@@ -450,7 +601,7 @@ def paint_paths(out_dir: str, map_name: str, rows: list[dict], occupied,
                     previous[(nx, ny)] = (x, y)
                     queue.append((nx, ny, distance + 1))
         if end is None:
-            continue
+            return
 
         route = []
         step = end
@@ -463,20 +614,61 @@ def paint_paths(out_dir: str, map_name: str, rows: list[dict], occupied,
             before = route[max(0, index - 1)]
             after = route[min(len(route) - 1, index + 1)]
             if before[0] != after[0]:
-                across = ((x, y - 1), (x, y), (x, y + 1))
+                across = [(x, y + n) for n in range(-(width // 2), width // 2 + 1)]
             else:
-                across = ((x - 1, y), (x, y), (x + 1, y))
+                across = [(x + n, y) for n in range(-(width // 2), width // 2 + 1)]
             for px, py in across:
                 if (0 <= px < w and 0 <= py < h and not road[py, px]
                         and not occupied[py, px] and not claimed[py, px]
                         and (crossable[py, px] or paved[py, px])):
                     paint(px, py, C.DARK_ASPHALT)
                     painted.append((px, py))
-        if drives is not None and painted:
+        if drives is not None and painted and width == DRIVE_WIDTH:
             near_garage = painted[:min(len(painted), DRIVE_WIDTH * 5)]
             xs, ys = [point[0] for point in near_garage], [point[1] for point in near_garage]
             drives.append((min(xs), min(ys), max(xs) - min(xs) + 1,
                            max(ys) - min(ys) + 1))
+
+
+    def yard(sx, sy, step):
+        """A loading door's hard standing (YARD_WIDE across, YARD_DEEP out, no further than a
+        road), on open ground only. The square its middle ends on, None where it reached a road."""
+        dx, dy = step
+        end = (sx, sy)
+        for m in range(-(YARD_WIDE // 2), YARD_WIDE // 2 + 1):
+            for n in range(YARD_DEEP):          # out from the wall, as far as a road
+                px, py = sx + dx * n + dy * m, sy + dy * n + dx * m
+                if not (0 <= px < w and 0 <= py < h) or street[py, px] or occupied[py, px] or claimed[py, px]:
+                    if m == 0 and 0 <= px < w and 0 <= py < h and street[py, px]:
+                        end = None
+                    break
+                if crossable[py, px] or paved[py, px] or sandstone[py, px] or road[py, px]:
+                    paint(px, py, C.DARK_ASPHALT)
+                    if m == 0 and end is not None:
+                        end = (px, py)
+        return end
+
+    for row in rows:
+        path = os.path.join(out_dir, "buildings", row["file"])
+        if (row.get("building") not in ("garage", "garages")
+                and row.get("kind") != "garage"):
+            # KnoxMap UK: a house's integrated garage gets its drive too
+            door = _uk_garage_door(path) if row.get("kind") in (None, "", "house", "apartment") else None
+            if door is not None:
+                drive_to_road(row, *door, DRIVE_WIDTH)
+                continue
+            # KnoxMap UK: a unit's or a superstore's loading doors: a yard each, a lorry's way
+            # from its far side to the road where there is one
+            for (ox, oy), (dx, dy) in _uk_wide_doors(path, LOADING_SHEET):
+                sx, sy = row["tile_x"] + ox, row["tile_y"] + oy
+                if 0 <= sx < w and 0 <= sy < h and not occupied[sy, sx]:
+                    end = yard(sx, sy, (dx, dy))
+                    if end is not None:         # (a yard on a road is its way out)
+                        drive_to_road(row, end[0] - row["tile_x"], end[1] - row["tile_y"], LORRY_WIDTH, street)
+            continue
+        doors = _outside_doors(path)
+        if doors:
+            drive_to_road(row, doors[0][0], doors[0][1], DRIVE_WIDTH)
 
     if veg is not None and fronts:
         # No tree or bush grows in a doorway.
