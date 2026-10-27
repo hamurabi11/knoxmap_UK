@@ -226,6 +226,7 @@ On adds the buildings OpenStreetMap has not got, from Overture Maps - OSM plus m
 On builds every address as mapped. Off keeps the real roads, rivers, woods and terrain, but leaves out half the houses and grows the rest into proper homes with yards. Named places are always built, at the game’s size. = On builds every address as mapped. Off keeps the real roads, rivers, woods and terrain, but leaves out half the houses and grows the rest into proper homes with yards. Named places are always built, at the game’s size.
 On lays every road in straight runs along the tiles and on 45-degree diagonals. Off draws roads as they are. = On lays every road in straight runs along the tiles and on 45-degree diagonals. Off draws roads as they are.
 On leaves one military rifle on the map: in an army building if there is one, else the police station, else a gun shop, else a house on the edge of town. A real town has no checkpoints for one to spawn in. = On leaves one military rifle on the map: in an army building if there is one, else the police station, else a gun shop, else a house on the edge of town. A real town has no checkpoints for one to spawn in.
+On plans each house of up to four storeys as a whole: a hall from the front door, the stairs against a wall, the kitchen at the back, bedrooms and the bathroom upstairs, every room with its own window. Anything else is built as before. Needs OR-Tools (pip install ortools). The first build is slower, a few seconds a house shape; each shape is remembered after that. = On plans each house of up to four storeys as a whole: a hall from the front door, the stairs against a wall, the kitchen at the back, bedrooms and the bathroom upstairs, every room with its own window. Anything else is built as before. Needs OR-Tools (pip install ortools). The first build is slower, a few seconds a house shape; each shape is remembered after that.
 On turns the map so the main street grid runs along the tiles - no staircase roads. Off keeps north up. = On turns the map so the main street grid runs along the tiles - no staircase roads. Off keeps north up.
 one, or move the maps closer together. = one, or move the maps closer together.
 Only what I draw = Only what I draw
@@ -246,6 +247,7 @@ Pick what to draw, then draw it on the map. It is built exactly as a surveyed on
 Picture laid over the sheet. Draw on top of it; it is not part = Picture laid over the sheet. Draw on top of it; it is not part
 Picture removed. = Picture removed.
 Place it for me = Place it for me
+Planned house rooms = Planned house rooms
 Population = Population
 press Compile to carry on from there. = press Compile to carry on from there.
 Preview = Preview

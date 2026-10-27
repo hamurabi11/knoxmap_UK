@@ -1233,11 +1233,21 @@ def _make_one(job: tuple) -> tuple:
         about = P.measure(text) or {"storeys": 1, "rooms": 0}
         return (about["storeys"], about["rooms"], 0, None, [])
     try:
-        plan = build_building(w, h, levels=levels, commercial=commercial, seed=seed,
-                              kind=kind, mask=mask, settings=settings, street=street,
-                              retail=retail, uses=uses, hotel=hotel, party=party,
-                              entrances=entrances, profile=profile,
-                              mapped=mapped, garage_door=garage_door)
+        # a house planned whole by the room solver (Settings.room_solver), when
+        # it is on and the house fits; anything else is laid out as always
+        from . import room_solver
+        plan = None
+        if room_solver.wanted(settings):
+            try:
+                plan = room_solver.plan_for_job(job)
+            except Exception:  # noqa: BLE001 - that house keeps Build's own layout
+                plan = None
+        if plan is None:
+            plan = build_building(w, h, levels=levels, commercial=commercial, seed=seed,
+                                  kind=kind, mask=mask, settings=settings, street=street,
+                                  retail=retail, uses=uses, hotel=hotel, party=party,
+                                  entrances=entrances, profile=profile,
+                                  mapped=mapped, garage_door=garage_door)
         text = render_tbx(plan, label, style)
     except Exception:  # noqa: BLE001
         import traceback
@@ -1272,11 +1282,14 @@ def _code_fingerprint() -> str:
     h = hashlib.sha1()
     here = os.path.dirname(os.path.abspath(__file__))
     for name in sorted(os.listdir(here)):
-        if name.endswith(".py"):
+        # room_solver.json: the room solver's programmes lay houses out too
+        if name.endswith(".py") or name == "room_solver.json":
             h.update(name.encode())
             with open(os.path.join(here, name), "rb") as f:
                 h.update(f.read())
     h.update(b"erika" if _erika_ready() else b"vanilla")
+    from . import room_solver
+    h.update(os.environ.get(room_solver.ENV, "").encode())     # it overrides the setting
     return h.hexdigest()
 
 
@@ -1325,6 +1338,10 @@ def _make_all(jobs: list[tuple], tick=None) -> list[tuple[int, int, int]]:
                 tick(len(out), len(jobs))
         return out
 
+    # the room solver's houses solved before the pool starts, so each worker
+    # only reads its cache (nothing when the room_solver setting is off)
+    from . import room_solver
+    room_solver.prepare(jobs)
     workers = int(os.environ.get("KNOXBUILD_WORKERS") or
                   max(1, min(12, (os.cpu_count() or 2) - 2)))
     if workers <= 1 or len(jobs) < PARALLEL_FROM:

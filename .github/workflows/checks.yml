@@ -28,6 +28,7 @@ jobs:
         run: |
           grep -v -i pywebview requirements.txt > requirements-ci.txt
           pip install -r requirements-ci.txt
+          pip install ortools     # optional: the room solver's tests run with it
 
       - name: Python parses
         run: python -m compileall -q app.py knoxmap.py knoxmap_setup.py knoxpaths.py generator knoxbuild tools web worlded

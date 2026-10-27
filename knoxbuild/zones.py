@@ -45,7 +45,7 @@ OVERRIDABLE = (
     # --- what is built ---
     "max_levels", "apartment_chance", "apartment_footprint", "true_map",
     "min_size", "max_size", "room_size", "neighbourhood_tiles",
-    "style_oddity", "vanilla_tiles",
+    "style_oddity", "vanilla_tiles", "room_solver",
     # --- who is in it ---
     "spawn_density", "zombies_per_resident", "m2_per_person",
     # --- what is around it ---

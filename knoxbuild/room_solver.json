@@ -1,0 +1,592 @@
+{
+  "_about": "Room shapes and house programmes for room_solver.py. Sizes in squares (1 m). Lookup tables: edit the numbers, not the code.",
+
+  "kinds": {
+    "_about": "side: shortest side of each rectangle; area: [min, max] m2 (the hall and landing: their passage only, not the stairs); target: the size aimed for; aspect: longest side over shortest at most; l: may be an L of two rectangles; grow: may be stretched past its largest size when the house has more floor than its rooms; window: need / want / no; small_window: its window needs only its own square on the wall, not one either side (a small window by a partition); cap: windows at most; from: rooms its door may open from (in the order of preference); build: Build's room kind cupboard: 1-2 squares (under the stairs, the airing cupboard, a built-in wardrobe): every programme may use a few to tidy odd squares. shop_floor: a shop's sales floor (Build names it after the shop's use: _assign_shop_floor); stockroom: behind it; flat_hall: a flat's own hall, its front door off the shared landing. openplan: a small flat's living room with its kitchen in it. flat_zone: a block of flats' first stage - the floor a flat will have (room_solver.solve_flats), then laid out as a flat_unit of its own. store: a block of flats' communal store (bins, bikes, the cleaner's cupboard), filling what no flat can use. Commercial rooms (the \"shops\" table below): use: front / back = the room is named after the business's own use (uses.py: the pizza place's dining room and kitchen) in place of build; frontage: its street wall is the glazed shop front (or a pub's front) with its door in the middle; street_door: its own door from the street in an ordinary wall (a surgery's waiting room).",
+    "hall": {"small_window": true, "side": 1, "area": [0, 8], "target": 0, "aspect": 8, "l": true, "window": "want", "cap": 1, "from": [], "build": "hall"},
+    "landing": {"small_window": true, "side": 1, "area": [0, 8], "target": 0, "aspect": 8, "l": true, "window": "want", "cap": 1, "from": [], "build": "hall"},
+    "living": {"grow": true, "side": 3, "area": [10, 24], "target": 15, "aspect": 2.2, "l": false, "window": "need", "cap": 5, "from": ["hall"], "build": "livingroom"},
+    "through": {"grow": true, "side": 3, "area": [16, 34], "target": 24, "aspect": 3.5, "l": true, "window": "need", "cap": 5, "from": ["hall"], "build": "livingroom"},
+    "dining": {"grow": true, "side": 3, "area": [8, 15], "target": 10, "aspect": 2.0, "l": false, "window": "need", "cap": 3, "from": ["drawing_room", "hall", "kitchen", "kitchen_breakfast", "kitchen_diner", "living", "openplan"], "build": "dining"},
+    "kitchen": {"grow": true, "side": 2, "area": [5, 14], "target": 8, "aspect": 3.0, "l": true, "window": "need", "cap": 2, "from": ["hall", "dining", "through", "living", "breakfast_room"], "build": "kitchen"},
+    "kitchen_diner": {"grow": true, "side": 3, "area": [11, 22], "target": 14, "aspect": 2.5, "l": true, "window": "need", "cap": 3, "from": ["hall", "living"], "build": "kitchen"},
+    "utility": {"small_window": true, "side": 2, "area": [3, 7], "target": 4, "aspect": 3.0, "l": false, "window": "want", "cap": 1, "from": ["kitchen", "kitchen_diner", "kitchen_breakfast"], "build": "laundry"},
+    "wc": {"small_window": true, "side": 2, "area": [4, 5], "target": 4, "aspect": 1.5, "l": false, "window": "want", "cap": 1, "from": ["hall", "landing"], "build": "bathroom"},
+    "bed_double": {"grow": true, "side": 3, "area": [9, 17], "target": 12, "aspect": 2.0, "l": false, "window": "need", "cap": 3, "from": ["landing", "hall"], "build": "bedroom"},
+    "bed_single": {"grow": true, "side": 2, "area": [6, 10], "target": 7, "aspect": 2.2, "l": false, "window": "need", "cap": 2, "from": ["landing", "hall"], "build": "kidsbedroom"},
+    "box": {"side": 2, "area": [4, 7], "target": 5, "aspect": 2.5, "l": false, "window": "need", "cap": 1, "from": ["landing"], "build": "kidsbedroom"},
+    "bathroom": {"small_window": true, "side": 2, "area": [6, 9], "target": 6, "aspect": 2.5, "l": false, "window": "need", "cap": 1, "from": ["landing", "hall"], "build": "bathroom"},
+    "ensuite": {"small_window": true, "side": 2, "area": [4, 6], "target": 4, "aspect": 3.0, "l": false, "window": "want", "cap": 1, "from": ["bed_master", "bed_double"], "build": "bathroom"},
+    "study": {"side": 2, "area": [5, 10], "target": 7, "aspect": 2.2, "l": false, "window": "need", "cap": 2, "from": ["hall", "landing", "living", "drawing_room"], "build": "office"},
+    "airing": {"side": 1, "area": [1, 2], "target": 1, "aspect": 2.0, "l": false, "window": "no", "cap": 0, "from": ["landing"], "build": "closet"},
+    "garage": {"side": 2, "area": [0, 99], "target": 0, "aspect": 9, "l": false, "window": "no", "cap": 0, "from": ["hall", "utility", "kitchen", "kitchen_diner"], "build": "garage"},
+    "drawing_room": {"side": 4, "area": [16, 36], "target": 22, "aspect": 2.0, "l": false, "window": "need", "cap": 5, "from": ["hall"], "build": "livingroom", "grow": true},
+    "sitting_room": {"side": 3, "area": [12, 26], "target": 16, "aspect": 2.0, "l": false, "window": "need", "cap": 4, "from": ["hall", "drawing_room", "living"], "build": "livingroom", "grow": true},
+    "family_room": {"side": 3, "area": [12, 24], "target": 15, "aspect": 2.2, "l": false, "window": "need", "cap": 4, "from": ["hall", "kitchen_breakfast", "kitchen"], "build": "livingroom", "grow": true},
+    "library": {"side": 3, "area": [10, 22], "target": 14, "aspect": 2.2, "l": false, "window": "need", "cap": 3, "from": ["hall", "drawing_room"], "build": "library"},
+    "breakfast_room": {"side": 3, "area": [8, 16], "target": 10, "aspect": 2.0, "l": false, "window": "need", "cap": 3, "from": ["kitchen", "hall"], "build": "dining"},
+    "kitchen_breakfast": {"side": 3, "area": [14, 30], "target": 20, "aspect": 2.5, "l": true, "window": "need", "cap": 3, "from": ["hall", "family_room"], "build": "kitchen", "grow": true},
+    "scullery": {"side": 2, "area": [4, 10], "target": 6, "aspect": 3.0, "l": false, "window": "want", "cap": 1, "from": ["kitchen", "kitchen_breakfast"], "build": "laundry", "small_window": true},
+    "pantry": {"side": 1, "area": [1, 4], "target": 2, "aspect": 3.0, "l": false, "window": "no", "cap": 0, "from": ["kitchen", "kitchen_breakfast", "scullery"], "build": "storage"},
+    "dressing": {"side": 2, "area": [3, 8], "target": 5, "aspect": 2.5, "l": false, "window": "want", "cap": 1, "from": ["bed_master"], "build": "closet", "small_window": true},
+    "bed_master": {"side": 3, "area": [14, 28], "target": 18, "aspect": 2.0, "l": false, "window": "need", "cap": 3, "from": ["landing", "hall"], "build": "bedroom", "grow": true},
+    "cupboard": {"side": 1, "area": [1, 2], "target": 1, "aspect": 2.0, "l": false, "window": "no", "cap": 0, "from": ["hall", "landing", "bed_master", "bed_double", "bed_single", "box", "kitchen", "kitchen_diner", "kitchen_breakfast", "living", "dining", "utility", "scullery"], "build": "closet"},
+    "shop_floor": {"side": 3, "area": [10, 220], "target": 40, "aspect": 5.0, "l": false, "window": "no", "cap": 0, "from": [], "build": "storage", "use": "front", "frontage": true},
+    "stockroom": {"small_window": true, "side": 2, "area": [4, 30], "target": 8, "aspect": 4.0, "l": false, "window": "want", "cap": 1, "from": ["shop_floor"], "build": "storage", "use": "back"},
+    "shop_kitchen": {"grow": true, "small_window": true, "side": 2, "area": [5, 30], "target": 10, "aspect": 3.5, "l": true, "window": "want", "cap": 2, "from": ["shop_floor", "bar_room", "cellar"], "build": "restaurantkitchen", "use": "back"},
+    "back_office": {"small_window": true, "side": 2, "area": [5, 24], "target": 9, "aspect": 3.0, "l": false, "window": "want", "cap": 2, "from": ["shop_floor", "waiting", "back_office", "landing"], "build": "office"},
+    "strongroom": {"side": 2, "area": [3, 9], "target": 4, "aspect": 2.0, "l": false, "window": "no", "cap": 0, "from": ["back_office"], "build": "storage"},
+    "waiting": {"grow": true, "side": 3, "area": [8, 40], "target": 14, "aspect": 3.0, "l": true, "window": "need", "cap": 4, "from": [], "build": "lobby", "street_door": true},
+    "consult": {"side": 3, "area": [8, 16], "target": 10, "aspect": 2.0, "l": false, "window": "need", "cap": 2, "from": ["waiting", "hall"], "build": "medicaloffice", "use": "front"},
+    "store_room": {"grow": true, "small_window": true, "side": 2, "area": [4, 40], "target": 12, "aspect": 4.0, "l": true, "window": "want", "cap": 2, "from": ["landing", "store_room"], "build": "storage"},
+    "break_room": {"small_window": true, "side": 2, "area": [5, 16], "target": 8, "aspect": 3.0, "l": false, "window": "want", "cap": 2, "from": ["landing", "stockroom", "back_office", "shop_kitchen"], "build": "breakroom"},
+    "bar_room": {"grow": true, "side": 3, "area": [12, 120], "target": 35, "aspect": 4.0, "l": true, "window": "want", "cap": 4, "from": [], "build": "bar", "frontage": true},
+    "cellar": {"side": 2, "area": [6, 30], "target": 12, "aspect": 3.5, "l": true, "window": "no", "cap": 0, "from": ["bar_room", "shop_kitchen"], "build": "barstorage", "use": "back"},
+    "function_room": {"grow": true, "side": 3, "area": [15, 120], "target": 40, "aspect": 3.0, "l": true, "window": "need", "cap": 6, "from": ["landing"], "build": "bar"},
+    "flat_hall": {"side": 1, "area": [1, 6], "target": 2, "aspect": 6.0, "l": true, "window": "no", "cap": 0, "from": ["landing"], "build": "hall"},
+    "openplan": {"grow": true, "side": 3, "area": [12, 30], "target": 18, "aspect": 2.5, "l": true, "window": "need", "cap": 3, "from": ["flat_hall", "landing", "hall"], "build": "openplan"},
+    "flat_zone": {"side": 3, "area": [19, 120], "target": 40, "aspect": 3.0, "l": true, "window": "need", "cap": 6, "from": ["hall", "landing"], "build": "hall"},
+    "store": {"side": 1, "area": [1, 40], "target": 4, "aspect": 12.0, "l": true, "window": "no", "cap": 0, "from": ["hall", "landing"], "build": "storage"}
+  },
+
+  "rules": {
+      "_about": "1990 UK rules the code checks. bedrooms_ground: storeys a house must have before its bedrooms all go upstairs. no_door: pairs that never share a door (building regulations: no WC straight off a kitchen). pitch: window spacing on the front and back, and on the ends.",
+      "bedrooms_upstairs_from": 2,
+      "bedroom_kinds": [
+          "bed_double",
+          "bed_single",
+          "box",
+          "bed_master"
+      ],
+      "no_door": [
+          [
+              "bathroom",
+              "kitchen"
+          ],
+          [
+              "wc",
+              "kitchen"
+          ],
+          [
+              "bathroom",
+              "kitchen_diner"
+          ],
+          [
+              "wc",
+              "kitchen_diner"
+          ],
+          [
+              "bed_double",
+              "bed_single"
+          ],
+          [
+              "bed_double",
+              "box"
+          ],
+          [
+              "bed_double",
+              "bed_double"
+          ],
+          [
+              "bathroom",
+              "kitchen_breakfast"
+          ],
+          [
+              "wc",
+              "kitchen_breakfast"
+          ],
+          [
+              "bed_master",
+              "bed_double"
+          ],
+          [
+              "bed_master",
+              "bed_single"
+          ]
+      ],
+      "_behind": "behind: [a, b] = a is further from the street than b (its middle). larger: [a, b] = every a bigger than every b. \"main\" is the main bedroom.",
+      "behind": [
+          [
+              "bathroom",
+              "living"
+          ],
+          [
+              "kitchen",
+              "living"
+          ],
+          [
+              "kitchen",
+              "dining"
+          ],
+          [
+              "kitchen_diner",
+              "living"
+          ],
+          [
+              "dining",
+              "living"
+          ],
+          [
+              "utility",
+              "living"
+          ],
+          [
+              "kitchen",
+              "drawing_room"
+          ],
+          [
+              "kitchen_breakfast",
+              "drawing_room"
+          ],
+          [
+              "kitchen_breakfast",
+              "living"
+          ],
+          [
+              "scullery",
+              "drawing_room"
+          ],
+          [
+              "utility",
+              "drawing_room"
+          ],
+          [
+              "bathroom",
+              "drawing_room"
+          ]
+      ],
+      "behind_wanted": [
+          [
+              "bathroom",
+              "main"
+          ]
+      ],
+      "_prefer_from": "prefer_from: the room a kind would rather open from; a programme room's own prefer wins (the hall to the kitchen in council houses, detached houses and bungalows, not through the lounge; a Victorian kitchen through the back room).",
+      "prefer_from": {
+          "dining": "kitchen",
+          "utility": "kitchen"
+      },
+      "larger": [
+          [
+              "bed_double",
+              "bed_single"
+          ],
+          [
+              "bed_double",
+              "box"
+          ],
+          [
+              "bed_single",
+              "box"
+          ],
+          [
+              "living",
+              "dining"
+          ],
+          [
+              "drawing_room",
+              "sitting_room"
+          ],
+          [
+              "drawing_room",
+              "dining"
+          ],
+          [
+              "bed_master",
+              "bed_double"
+          ],
+          [
+              "bed_master",
+              "bed_single"
+          ]
+      ],
+      "pitch_front": 3,
+      "pitch_side": 5,
+      "_programme": "programme_by_area: Build's pick when the sub-type gives none - two storeys: the first programme whose ground floor is under its m2; one storey: bungalow.",
+      "programme_by_area": [
+          [
+              "starter_80s",
+              45
+          ],
+          [
+              "council",
+              60
+          ],
+          [
+              "semi_interwar",
+              75
+          ],
+          [
+              "detached_80s",
+              110
+          ],
+          [
+              "executive_large",
+              999
+          ]
+      ],
+      "_period": "period_styles: palette styles whose large houses are period ones (and every listed kit style, with __ in its name).",
+      "period_styles": [
+          "red_brick",
+          "old_brick",
+          "cream",
+          "brick",
+          "victorian",
+          "uk_victorian_terrace",
+          "uk_edwardian",
+          "uk_edwardian_tudor",
+          "uk_georgian_town",
+          "uk_vernacular_timber",
+          "uk_interwar_30s",
+          "uk_interwar_tudor"
+      ],
+      "_bath_size": "Every room Build furnishes as a bathroom (bathroom, wc, ensuite) is at least 2 x 2 squares; a bathroom at least 3 x 2 (6 m2) for a bath, toilet, sink and cupboard (user, 2026-10-20).",
+      "_storeys": "programme_by_storeys: three or more storeys - a period style is townhouse_period (period_large over its m2), else townhouse_modern (executive_large over its m2).",
+      "townhouse_large_m2": 110,
+      "_look": "look_programmes: each 1993 look (Building_types subtypes.look_of) to its programme for a two-storey house; null = not for the room solver (flats: Build's own). choose_programme then takes one storey to a bungalow, three or more to a town house, and a ground floor of townhouse_large_m2 or more to a large house. period_looks: looks whose large houses are period ones. habitable: the kinds an EPC counts as habitable rooms.",
+      "look_programmes": {
+          "vic_terrace": "terrace_victorian",
+          "vic_cottage": "terrace_victorian",
+          "edw_terrace": "terrace_victorian",
+          "georgian_townhouse": "terrace_victorian",
+          "edw_semi": "semi_interwar",
+          "iw_semi": "semi_interwar",
+          "iw_council": "council",
+          "pw_council": "council",
+          "e70_council": "council",
+          "e80_social": "council",
+          "pw_system": "council",
+          "e70_terrace": "starter_80s",
+          "e80_terrace": "starter_80s",
+          "iw_detached": "detached_80s",
+          "pw_private": "detached_80s",
+          "e70_house": "detached_80s",
+          "e80_house": "detached_80s",
+          "edw_villa": "detached_80s",
+          "vic_villa": "detached_80s",
+          "georgian_house": "detached_80s",
+          "vern_timber": "detached_80s",
+          "vern_brick": "detached_80s",
+          "vern_flint": "detached_80s",
+          "vern_thatched": "detached_80s",
+          "iw_bungalow": "bungalow",
+          "pw_bungalow": "bungalow",
+          "e70_bungalow": "bungalow",
+          "flats_modern": null,
+          "flats_postwar": null,
+          "flats_period": null,
+          "flats_conversion": null,
+          "outbuilding": null,
+          "non_domestic": null
+      },
+      "period_looks": [
+          "vic_terrace",
+          "vic_cottage",
+          "edw_terrace",
+          "georgian_townhouse",
+          "edw_semi",
+          "edw_villa",
+          "vic_villa",
+          "georgian_house",
+          "vern_timber",
+          "vern_brick",
+          "vern_flint",
+          "vern_thatched",
+          "iw_detached",
+          "iw_semi"
+      ],
+      "habitable": [
+          "living",
+          "through",
+          "dining",
+          "kitchen_diner",
+          "kitchen_breakfast",
+          "bed_master",
+          "bed_double",
+          "bed_single",
+          "box",
+          "study",
+          "drawing_room",
+          "sitting_room",
+          "family_room",
+          "library",
+          "breakfast_room",
+          "openplan"
+      ],
+      "_shops": "Homes over shops: shop_house (one home: a house's rooms above, a maisonette over two floors), shop_flats (a flat a floor), shop_flats2 (two flats a floor), by the building's homes (knox_homes) and storeys. unit on a room: which flat it is in; a room opens only from its own flat (a flat_hall from the landing). Each falls back to fewer homes when its homes do not fit (two flats a floor, then one, then one home over the shop).",
+      "_flats": "A block of flats (shops.py's flats): stage 1 a floor's shared hall or landing and stairs and a zone for each flat (its homes over its storeys, 2-4 a floor), the zones the same on every floor of the same outline; stage 2 each zone a flat_unit. Fewer flats a floor when they do not fit. Each floor its own count: no more flats than its floor gives flat_split_m2 each.",
+      "flat_min_m2": 22,
+      "flats_per_floor_max": 4,
+      "flat_split_m2": 30
+  },
+
+  "weights": {
+      "_about": "Objective costs. stair_room: per m2 of hall or landing passage (keep the rooms with stairs as small as possible). stretch: per m2 a room is stretched past its kind's largest size (so a house with more floor than rooms takes another room before a 47 m2 bedroom). epc_rooms: per habitable room more or fewer than the house's EPCs say it has. window_stack_ground (a programme's own weights): windows over the ground floor's (0 over a shop front). store: per m2 of a block's communal store (so a flat takes the floor when it can).",
+      "stair_room": 20,
+      "size": 1,
+      "wall": 1,
+      "window": 3,
+      "window_stack": 4,
+      "bath_over_kitchen": 14,
+      "behind_wanted": 16,
+      "main_bed_front": 8,
+      "want_window": 3,
+      "garage_door": 4,
+      "optional_room": 20,
+      "prefer_from": 8,
+      "stretch": 4,
+      "epc_rooms": 6,
+      "store": 6
+  },
+
+  "programmes": {
+    "_about": "Each programme is a list of variants tried in order. A variant is one list of rooms per storey (ground first). A room: kind; front / back = squares of that wall it must have; main = the main bedroom (on the front); prefer = the room it would rather open from; optional = there if it fits (each one there is worth weights.optional_room, or its own value), so one variant serves a small house and a big one. area on a room: its own [min, max] m2. root: the room the storey's doors start from, in place of a hall. from: its own list of rooms it may open from. A programme may instead be {\"variants\": [...], \"weights\": {...}, \"kinds\": {kind: {...}}}: its own weights and room sizes (a large house's bigger rooms, a hall and landing that may be corridors). A variant is tried only on a house with as many storeys as it has. flat_unit: one flat, solved in its zone (entry: its hall holds the square its front door opens onto). flats_block: made by room_solver.solve_flats, not listed here.",
+
+    "terrace_victorian": [
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 2}, {"kind": "dining", "optional": true}, {"kind": "kitchen", "back": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "through", "front": 2}, {"kind": "kitchen", "back": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 2}, {"kind": "kitchen_diner", "back": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 1}, {"kind": "dining", "optional": true}, {"kind": "kitchen", "back": 1}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "box", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]]
+    ],
+
+    "semi_interwar": [
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 2}, {"kind": "dining", "optional": true}, {"kind": "kitchen", "back": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bed_double", "optional": true}, {"kind": "box", "front": 1, "optional": true}, {"kind": "bathroom"}, {"kind": "wc", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "through", "front": 2}, {"kind": "kitchen", "back": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 1}, {"kind": "dining", "optional": true}, {"kind": "kitchen", "back": 1}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "box", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]]
+    ],
+
+    "council": [
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 2}, {"kind": "kitchen_diner", "back": 1, "prefer": "hall"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 1}, {"kind": "dining", "optional": true}, {"kind": "kitchen", "back": 1}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "box", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]]
+    ],
+
+    "starter_80s": [
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 2}, {"kind": "kitchen_diner", "back": 1, "prefer": "hall"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 2}, {"kind": "kitchen", "back": 1, "prefer": "hall"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 1}, {"kind": "dining", "optional": true}, {"kind": "kitchen", "back": 1}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "box", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]]
+    ],
+
+    "detached_80s": [
+      [[{"kind": "hall", "front": 1}, {"kind": "wc", "optional": true}, {"kind": "living", "front": 2}, {"kind": "dining", "optional": true}, {"kind": "kitchen", "back": 1, "prefer": "hall"}, {"kind": "utility", "back": 1, "optional": true}, {"kind": "study", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "ensuite", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "study", "value": 10, "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 2}, {"kind": "kitchen_diner", "back": 1, "prefer": "hall"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 1}, {"kind": "dining", "optional": true}, {"kind": "kitchen", "back": 1}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "box", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]]
+    ],
+
+    "bungalow": [
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 2}, {"kind": "dining", "optional": true}, {"kind": "kitchen", "back": 1, "prefer": "hall"}, {"kind": "bed_double", "main": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 2}, {"kind": "kitchen"}, {"kind": "bed_double"}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "living", "front": 1, "root": true}, {"kind": "kitchen", "back": 1, "optional": true, "from": ["living"]}, {"kind": "bed_double", "main": true, "optional": true, "from": ["living", "hall"]}, {"kind": "bed_single", "optional": true, "from": ["living", "hall"]}, {"kind": "bathroom", "from": ["living", "kitchen", "bed_double"]}, {"kind": "kitchen_diner", "optional": true, "from": ["living"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]]
+    ],
+
+    "bungalow_large": {
+      "weights": {"stair_room": 3},
+      "kinds": {"hall": {"area": [0, 30]}, "living": {"area": [14, 34], "target": 22}},
+      "variants": [
+        [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 2}, {"kind": "dining", "optional": true}, {"kind": "kitchen_breakfast", "back": 1, "prefer": "hall"}, {"kind": "utility", "optional": true}, {"kind": "study", "optional": true}, {"kind": "bed_master", "main": true}, {"kind": "ensuite", "optional": true}, {"kind": "bed_double"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "wc", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "sitting_room", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]]
+      ]
+    },
+
+    "period_large": {
+      "weights": {"stair_room": 3},
+      "kinds": {"hall": {"area": [0, 30]}, "landing": {"area": [0, 30]}},
+      "variants": [
+        [[{"kind": "hall", "front": 1}, {"kind": "drawing_room", "front": 2}, {"kind": "dining"}, {"kind": "sitting_room", "optional": true}, {"kind": "library", "optional": true}, {"kind": "kitchen", "back": 1, "prefer": "hall"}, {"kind": "breakfast_room", "optional": true}, {"kind": "scullery", "optional": true}, {"kind": "pantry", "optional": true}, {"kind": "wc", "optional": true}, {"kind": "study", "optional": true}, {"kind": "utility", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "bed_master", "main": true}, {"kind": "dressing", "optional": true}, {"kind": "ensuite", "optional": true}, {"kind": "bed_double"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "wc", "optional": true}, {"kind": "airing", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "box", "optional": true}, {"kind": "bathroom", "optional": true, "value": 12}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "hall", "front": 1}, {"kind": "drawing_room", "front": 2}, {"kind": "dining", "optional": true}, {"kind": "sitting_room", "optional": true}, {"kind": "kitchen", "back": 1}, {"kind": "scullery", "optional": true}, {"kind": "bathroom", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "hall", "front": 1}, {"kind": "drawing_room", "front": 2}, {"kind": "dining"}, {"kind": "sitting_room", "optional": true}, {"kind": "library", "optional": true}, {"kind": "kitchen", "back": 1, "prefer": "hall"}, {"kind": "breakfast_room", "optional": true}, {"kind": "scullery", "optional": true}, {"kind": "pantry", "optional": true}, {"kind": "wc", "optional": true}, {"kind": "study", "optional": true}, {"kind": "utility", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "bed_master", "main": true}, {"kind": "dressing", "optional": true}, {"kind": "ensuite", "optional": true}, {"kind": "bed_double"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "wc", "optional": true}, {"kind": "airing", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "box", "optional": true}, {"kind": "bathroom", "optional": true, "value": 12}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "box", "optional": true}, {"kind": "bathroom", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]]
+      ]
+    },
+
+    "executive_large": {
+      "weights": {"stair_room": 3},
+      "kinds": {"hall": {"area": [0, 30]}, "landing": {"area": [0, 30]}, "living": {"area": [14, 34], "target": 22}},
+      "variants": [
+        [[{"kind": "hall", "front": 1}, {"kind": "wc", "optional": true}, {"kind": "living", "front": 2}, {"kind": "dining"}, {"kind": "family_room", "optional": true}, {"kind": "study", "optional": true}, {"kind": "kitchen_breakfast", "back": 1, "prefer": "hall"}, {"kind": "utility", "optional": true}, {"kind": "sitting_room", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "bed_master", "main": true}, {"kind": "ensuite", "optional": true}, {"kind": "bed_double"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "airing", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "box", "optional": true}, {"kind": "bathroom", "optional": true, "value": 12}, {"kind": "study", "optional": true, "value": 10}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 2}, {"kind": "dining", "optional": true}, {"kind": "kitchen_breakfast", "back": 1}, {"kind": "bathroom", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "hall", "front": 1}, {"kind": "wc", "optional": true}, {"kind": "living", "front": 2}, {"kind": "dining"}, {"kind": "family_room", "optional": true}, {"kind": "study", "optional": true}, {"kind": "kitchen_breakfast", "back": 1, "prefer": "hall"}, {"kind": "utility", "optional": true}, {"kind": "sitting_room", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "bed_master", "main": true}, {"kind": "ensuite", "optional": true}, {"kind": "bed_double"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "airing", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "box", "optional": true}, {"kind": "bathroom", "optional": true, "value": 12}, {"kind": "study", "optional": true, "value": 10}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "box", "optional": true}, {"kind": "bathroom", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]]
+      ]
+    },
+
+    "townhouse_period": [
+      [[{"kind": "hall", "front": 1}, {"kind": "dining", "front": 2}, {"kind": "kitchen", "back": 1}, {"kind": "wc", "optional": true}, {"kind": "scullery", "optional": true}, {"kind": "breakfast_room", "optional": true}, {"kind": "pantry", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "drawing_room", "front": 2, "from": ["landing"]}, {"kind": "study", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bathroom", "optional": true}, {"kind": "sitting_room", "optional": true, "from": ["landing", "drawing_room"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "bed_double", "optional": true}, {"kind": "box", "optional": true}, {"kind": "study", "optional": true, "from": ["landing"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "dining", "front": 2}, {"kind": "kitchen", "back": 1}, {"kind": "wc", "optional": true}, {"kind": "scullery", "optional": true}, {"kind": "breakfast_room", "optional": true}, {"kind": "pantry", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "drawing_room", "front": 2, "from": ["landing"]}, {"kind": "study", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bathroom", "optional": true}, {"kind": "sitting_room", "optional": true, "from": ["landing", "drawing_room"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "box", "optional": true}, {"kind": "study", "optional": true, "from": ["landing"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "box", "optional": true}, {"kind": "bathroom", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "study", "optional": true, "from": ["landing"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "living", "front": 2}, {"kind": "kitchen_diner", "back": 1}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "box", "optional": true}, {"kind": "bathroom", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]]
+    ],
+
+    "townhouse_modern": [
+      [[{"kind": "hall", "front": 1}, {"kind": "wc", "optional": true}, {"kind": "utility", "optional": true, "back": 1, "from": ["hall", "family_room"]}, {"kind": "family_room", "optional": true, "back": 1}, {"kind": "study", "optional": true}, {"kind": "sitting_room", "optional": true, "front": 1, "from": ["hall", "family_room"]}, {"kind": "dining", "optional": true, "from": ["hall", "family_room", "sitting_room"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "living", "front": 2, "from": ["landing"]}, {"kind": "kitchen_diner", "from": ["landing", "living"]}, {"kind": "dining", "optional": true, "from": ["living", "landing", "kitchen_diner"]}, {"kind": "study", "optional": true, "from": ["landing", "living"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "bed_double", "optional": true}, {"kind": "study", "optional": true, "from": ["landing"]}, {"kind": "bed_double", "optional": true}, {"kind": "box", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "wc", "optional": true}, {"kind": "utility", "optional": true, "back": 1, "from": ["hall", "family_room"]}, {"kind": "family_room", "optional": true, "back": 1}, {"kind": "study", "optional": true}, {"kind": "sitting_room", "optional": true, "front": 1, "from": ["hall", "family_room"]}, {"kind": "dining", "optional": true, "from": ["hall", "family_room", "sitting_room"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "living", "front": 2, "from": ["landing"]}, {"kind": "kitchen_diner", "from": ["landing", "living"]}, {"kind": "dining", "optional": true, "from": ["living", "landing", "kitchen_diner"]}, {"kind": "study", "optional": true, "from": ["landing", "living"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "main": true}, {"kind": "bed_single", "optional": true}, {"kind": "bathroom"}, {"kind": "bed_double", "optional": true}, {"kind": "study", "optional": true, "from": ["landing"]}, {"kind": "bed_double", "optional": true}, {"kind": "box", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "box", "optional": true}, {"kind": "bathroom", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "study", "optional": true, "from": ["landing"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+      [[{"kind": "hall", "front": 1}, {"kind": "wc", "optional": true}, {"kind": "study", "optional": true}, {"kind": "utility", "optional": true, "from": ["hall", "family_room"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "living", "front": 1, "from": ["landing"]}, {"kind": "kitchen", "from": ["landing", "living"]}, {"kind": "cupboard", "optional": true, "value": 1}],
+       [{"kind": "landing"}, {"kind": "bed_single"}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}]]
+    ],
+
+    "shop_house": {
+      "weights": {"window_stack_ground": 0},
+      "variants": [
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "living", "front": 1, "from": ["landing"]}, {"kind": "kitchen", "from": ["landing", "living"]}, {"kind": "bathroom"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "living", "front": 1, "from": ["landing"]}, {"kind": "kitchen", "from": ["landing", "living"]}, {"kind": "dining", "from": ["living", "kitchen", "landing"], "optional": true}, {"kind": "wc", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "bed_double"}, {"kind": "bed_single", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "living", "from": ["landing"]}, {"kind": "kitchen", "from": ["landing", "living"], "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}]]
+      ]
+    },
+
+    "shop_flats": {
+      "weights": {"window_stack_ground": 0},
+      "variants": [
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "living", "unit": 1, "from": ["flat_hall"]}, {"kind": "kitchen", "unit": 1, "from": ["flat_hall", "living"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "living"]}, {"kind": "bed_single", "unit": 1, "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}, {"kind": "cupboard", "optional": true, "value": 1, "from": ["landing"]}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "living", "unit": 1, "from": ["flat_hall"]}, {"kind": "kitchen", "unit": 1, "from": ["flat_hall", "living"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "living"]}, {"kind": "bed_single", "unit": 1, "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}, {"kind": "cupboard", "optional": true, "value": 1, "from": ["landing"]}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 2}, {"kind": "living", "unit": 2, "from": ["flat_hall"]}, {"kind": "kitchen", "unit": 2, "from": ["flat_hall", "living"]}, {"kind": "bathroom", "unit": 2, "from": ["flat_hall"]}, {"kind": "bed_double", "unit": 2, "from": ["flat_hall", "living"]}, {"kind": "bed_single", "unit": 2, "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 2}, {"kind": "cupboard", "optional": true, "value": 1, "from": ["landing"]}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "living", "unit": 1, "from": ["flat_hall"]}, {"kind": "kitchen", "unit": 1, "from": ["flat_hall", "living"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "living"]}, {"kind": "bed_single", "unit": 1, "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}, {"kind": "cupboard", "optional": true, "value": 1, "from": ["landing"]}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 2}, {"kind": "living", "unit": 2, "from": ["flat_hall"]}, {"kind": "kitchen", "unit": 2, "from": ["flat_hall", "living"]}, {"kind": "bathroom", "unit": 2, "from": ["flat_hall"]}, {"kind": "bed_double", "unit": 2, "from": ["flat_hall", "living"]}, {"kind": "bed_single", "unit": 2, "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 2}, {"kind": "cupboard", "optional": true, "value": 1, "from": ["landing"]}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 3}, {"kind": "living", "unit": 3, "from": ["flat_hall"]}, {"kind": "kitchen", "unit": 3, "from": ["flat_hall", "living"]}, {"kind": "bathroom", "unit": 3, "from": ["flat_hall"]}, {"kind": "bed_double", "unit": 3, "from": ["flat_hall", "living"]}, {"kind": "bed_single", "unit": 3, "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 3}, {"kind": "cupboard", "optional": true, "value": 1, "from": ["landing"]}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "openplan", "unit": 1, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "openplan", "unit": 1, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 2}, {"kind": "openplan", "unit": 2, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 2, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 2, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 2}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "openplan", "unit": 1, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 2}, {"kind": "openplan", "unit": 2, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 2, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 2, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 2}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 3}, {"kind": "openplan", "unit": 3, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 3, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 3, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 3}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "living", "front": 1, "from": ["landing"]}, {"kind": "kitchen", "from": ["landing", "living"]}, {"kind": "bathroom"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "living", "front": 1, "from": ["landing"]}, {"kind": "kitchen", "from": ["landing", "living"]}, {"kind": "dining", "from": ["living", "kitchen", "landing"], "optional": true}, {"kind": "wc", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "bed_double"}, {"kind": "bed_single", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "living", "from": ["landing"]}, {"kind": "kitchen", "from": ["landing", "living"], "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}]]
+      ]
+    },
+
+    "shop_flats2": {
+      "weights": {"window_stack_ground": 0},
+      "variants": [
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "openplan", "unit": 1, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}, {"kind": "flat_hall", "unit": 2}, {"kind": "openplan", "unit": 2, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 2, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 2, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 2}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "openplan", "unit": 1, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}, {"kind": "flat_hall", "unit": 2}, {"kind": "openplan", "unit": 2, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 2, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 2, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 2}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 3}, {"kind": "openplan", "unit": 3, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 3, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 3, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 3}, {"kind": "flat_hall", "unit": 4}, {"kind": "openplan", "unit": 4, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 4, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 4, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 4}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "openplan", "unit": 1, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}, {"kind": "flat_hall", "unit": 2}, {"kind": "openplan", "unit": 2, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 2, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 2, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 2}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 3}, {"kind": "openplan", "unit": 3, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 3, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 3, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 3}, {"kind": "flat_hall", "unit": 4}, {"kind": "openplan", "unit": 4, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 4, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 4, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 4}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 5}, {"kind": "openplan", "unit": 5, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 5, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 5, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 5}, {"kind": "flat_hall", "unit": 6}, {"kind": "openplan", "unit": 6, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 6, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 6, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 6}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "living", "unit": 1, "from": ["flat_hall"]}, {"kind": "kitchen", "unit": 1, "from": ["flat_hall", "living"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "living"]}, {"kind": "bed_single", "unit": 1, "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}, {"kind": "cupboard", "optional": true, "value": 1, "from": ["landing"]}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "living", "unit": 1, "from": ["flat_hall"]}, {"kind": "kitchen", "unit": 1, "from": ["flat_hall", "living"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "living"]}, {"kind": "bed_single", "unit": 1, "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}, {"kind": "cupboard", "optional": true, "value": 1, "from": ["landing"]}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 2}, {"kind": "living", "unit": 2, "from": ["flat_hall"]}, {"kind": "kitchen", "unit": 2, "from": ["flat_hall", "living"]}, {"kind": "bathroom", "unit": 2, "from": ["flat_hall"]}, {"kind": "bed_double", "unit": 2, "from": ["flat_hall", "living"]}, {"kind": "bed_single", "unit": 2, "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 2}, {"kind": "cupboard", "optional": true, "value": 1, "from": ["landing"]}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "living", "unit": 1, "from": ["flat_hall"]}, {"kind": "kitchen", "unit": 1, "from": ["flat_hall", "living"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "living"]}, {"kind": "bed_single", "unit": 1, "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}, {"kind": "cupboard", "optional": true, "value": 1, "from": ["landing"]}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 2}, {"kind": "living", "unit": 2, "from": ["flat_hall"]}, {"kind": "kitchen", "unit": 2, "from": ["flat_hall", "living"]}, {"kind": "bathroom", "unit": 2, "from": ["flat_hall"]}, {"kind": "bed_double", "unit": 2, "from": ["flat_hall", "living"]}, {"kind": "bed_single", "unit": 2, "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 2}, {"kind": "cupboard", "optional": true, "value": 1, "from": ["landing"]}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 3}, {"kind": "living", "unit": 3, "from": ["flat_hall"]}, {"kind": "kitchen", "unit": 3, "from": ["flat_hall", "living"]}, {"kind": "bathroom", "unit": 3, "from": ["flat_hall"]}, {"kind": "bed_double", "unit": 3, "from": ["flat_hall", "living"]}, {"kind": "bed_single", "unit": 3, "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 3}, {"kind": "cupboard", "optional": true, "value": 1, "from": ["landing"]}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "openplan", "unit": 1, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "openplan", "unit": 1, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 2}, {"kind": "openplan", "unit": 2, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 2, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 2, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 2}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 1}, {"kind": "openplan", "unit": 1, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 1, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 1, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 1}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 2}, {"kind": "openplan", "unit": 2, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 2, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 2, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 2}],
+         [{"kind": "landing"}, {"kind": "flat_hall", "unit": 3}, {"kind": "openplan", "unit": 3, "from": ["flat_hall"]}, {"kind": "bathroom", "unit": 3, "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "unit": 3, "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1, "unit": 3}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "living", "front": 1, "from": ["landing"]}, {"kind": "kitchen", "from": ["landing", "living"]}, {"kind": "bathroom"}, {"kind": "bed_double", "optional": true}, {"kind": "bed_single", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "living", "front": 1, "from": ["landing"]}, {"kind": "kitchen", "from": ["landing", "living"]}, {"kind": "dining", "from": ["living", "kitchen", "landing"], "optional": true}, {"kind": "wc", "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "bed_double"}, {"kind": "bed_single", "optional": true}, {"kind": "bed_double", "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "back": 1, "optional": true}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "hall", "front": 1}, {"kind": "cupboard", "optional": true, "value": 1}],
+         [{"kind": "landing"}, {"kind": "living", "from": ["landing"]}, {"kind": "kitchen", "from": ["landing", "living"], "optional": true}, {"kind": "bathroom"}, {"kind": "cupboard", "optional": true, "value": 1}]]
+      ]
+    },
+
+    "flat_unit": {
+      "weights": {"stair_room": 6},
+      "kinds": {"bathroom": {"window": "want"}, "openplan": {"small_window": true}},
+      "variants": [
+        [[{"kind": "flat_hall", "root": true, "entry": true}, {"kind": "living", "from": ["flat_hall"]}, {"kind": "kitchen", "from": ["flat_hall", "living"]}, {"kind": "dining", "from": ["flat_hall", "living", "kitchen"], "optional": true}, {"kind": "bathroom", "from": ["flat_hall"]}, {"kind": "wc", "from": ["flat_hall"], "optional": true}, {"kind": "bed_double", "from": ["flat_hall", "living"]}, {"kind": "bed_double", "from": ["flat_hall", "living"]}, {"kind": "bed_single", "from": ["flat_hall", "living"]}, {"kind": "study", "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "flat_hall", "root": true, "entry": true}, {"kind": "living", "from": ["flat_hall"]}, {"kind": "kitchen", "from": ["flat_hall", "living"]}, {"kind": "bathroom", "from": ["flat_hall"]}, {"kind": "bed_double", "from": ["flat_hall", "living"]}, {"kind": "bed_single", "from": ["flat_hall", "living"]}, {"kind": "dining", "from": ["flat_hall", "living", "kitchen"], "optional": true}, {"kind": "study", "from": ["flat_hall", "living"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "flat_hall", "root": true, "entry": true}, {"kind": "living", "from": ["flat_hall"]}, {"kind": "kitchen", "from": ["flat_hall", "living"]}, {"kind": "bathroom", "from": ["flat_hall"]}, {"kind": "bed_double", "from": ["flat_hall", "living"]}, {"kind": "cupboard", "optional": true, "value": 1}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "flat_hall", "root": true, "entry": true}, {"kind": "openplan", "from": ["flat_hall"]}, {"kind": "bathroom", "from": ["flat_hall", "openplan"]}, {"kind": "bed_double", "from": ["flat_hall", "openplan"]}, {"kind": "bed_single", "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "bed_double", "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "study", "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "dining", "from": ["openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}]],
+        [[{"kind": "flat_hall", "root": true, "entry": true}, {"kind": "openplan", "from": ["flat_hall"]}, {"kind": "bathroom", "from": ["flat_hall", "openplan"]}, {"kind": "bed_single", "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "bed_double", "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "study", "from": ["flat_hall", "openplan"], "optional": true}, {"kind": "dining", "from": ["openplan"], "optional": true}, {"kind": "cupboard", "optional": true, "value": 1}]]
+      ]
+    },
+
+    "flats_block": {
+      "variants": [
+      ]
+    }
+  },
+
+  "shops": {
+    "_about": "Commercial ground floors. A business's use (uses.py: front room, back room) falls in a class by its front room (classes; anything else is retail), and the class gives its ground floor (grounds). A programme named base@class is the base programme with its ground floor's shop rooms swapped for the class's (shop_house@food: a takeaway with a home over it); shop_only@class is a business with no homes: its ground floor, a stair hall behind the shop when it has an upper floor (stair_from: the rooms it opens from; no street door of its own), and the class's upper floors (uppers by class, else store: store rooms and a break room). stair_hall: that hall (at the back of the shop). rear: k on a room = k squares of the back wall (else a side wall) wanted, at weights.rear (a unit with party walls all round has no back wall; back: k would make it impossible); rear_need: needed where the building has such a wall (a pub cellar's drop door). upper_extra: added to each floor of homes over a business that is not a plain shop (the business's own store rooms; else a big floor's flat is stretched). A pub has a gents and a ladies (licensed premises), and may have a snug or games room off a bar. Its last three cupboards (value 0: no reward for being there) fill the corners a turned building's stepped outline leaves, too narrow for a bar (the White Horse, Alton: without them no layout in the time). A programme room's own use (false: none) wins over its kind's (a pub's kitchen stays a kitchen). Pubs: pub_uk.py.",
+    "classes": {"restaurantdining": "food", "italianrestaurant": "food", "chineserestaurant": "food", "cafe": "food", "icecream": "food", "spiffo_dining": "food",
+                "bank": "bank", "medicaloffice": "surgery", "dentist": "surgery", "office": "office", "bar": "pub",
+                "lobby|office": "guest"},
+    "weights": {"window_stack_ground": 0, "rear": 12},
+    "stair_hall": {"kind": "hall", "root": false, "rear": 1},
+    "upper_extra": [{"kind": "store_room", "optional": true}, {"kind": "store_room", "optional": true}],
+    "stair_from": ["stockroom", "shop_kitchen", "back_office", "cellar", "shop_floor", "waiting", "bar_room"],
+    "grounds": {
+      "retail": [{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "stockroom", "rear": 1, "area": [4, 18]}, {"kind": "wc", "from": ["shop_floor", "stockroom"], "optional": true}, {"kind": "cupboard", "from": ["shop_floor", "stockroom"], "optional": true, "value": 1}],
+      "food": [{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "shop_kitchen", "rear": 2}, {"kind": "wc", "from": ["shop_floor"], "optional": true}, {"kind": "wc", "from": ["shop_floor", "shop_kitchen"], "optional": true}, {"kind": "stockroom", "from": ["shop_kitchen", "shop_floor"], "optional": true}, {"kind": "cupboard", "from": ["shop_floor", "shop_kitchen"], "optional": true, "value": 1}],
+      "bank": [{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "back_office", "from": ["shop_floor"]}, {"kind": "back_office", "optional": true}, {"kind": "strongroom", "optional": true}, {"kind": "wc", "from": ["back_office", "shop_floor"], "optional": true}, {"kind": "break_room", "from": ["back_office"], "optional": true}, {"kind": "cupboard", "from": ["shop_floor", "back_office"], "optional": true, "value": 1}],
+      "surgery": [{"kind": "waiting", "front": 3, "root": true, "area": [8, 24]}, {"kind": "consult"}, {"kind": "consult", "optional": true}, {"kind": "consult", "optional": true}, {"kind": "consult", "optional": true}, {"kind": "back_office", "from": ["waiting"], "optional": true}, {"kind": "back_office", "from": ["waiting", "back_office"], "optional": true}, {"kind": "store_room", "from": ["waiting", "back_office"], "optional": true}, {"kind": "wc", "from": ["waiting"]}, {"kind": "cupboard", "from": ["waiting", "back_office"], "optional": true, "value": 1}],
+      "office": [{"kind": "shop_floor", "front": 3, "root": true}, {"kind": "back_office", "from": ["shop_floor"]}, {"kind": "back_office", "optional": true}, {"kind": "wc", "from": ["back_office", "shop_floor"], "optional": true}, {"kind": "break_room", "from": ["back_office", "shop_floor"], "optional": true}, {"kind": "cupboard", "from": ["shop_floor", "back_office"], "optional": true, "value": 1}],
+      "pub": [{"kind": "bar_room", "front": 3, "root": true}, {"kind": "bar_room", "front": 3, "root": true, "optional": true, "value": 24}, {"kind": "cellar", "rear": 2, "rear_need": true}, {"kind": "wc", "from": ["bar_room"], "rear": 2}, {"kind": "wc", "from": ["bar_room"], "rear": 2}, {"kind": "bar_room", "from": ["bar_room"], "optional": true}, {"kind": "shop_kitchen", "from": ["bar_room", "cellar"], "optional": true, "use": false, "rear": 2, "area": [5, 14]}, {"kind": "cupboard", "from": ["bar_room", "cellar"], "optional": true, "value": 1}, {"kind": "cupboard", "from": ["bar_room", "cellar"], "optional": true, "value": 0}, {"kind": "cupboard", "from": ["bar_room", "cellar"], "optional": true, "value": 0}, {"kind": "cupboard", "from": ["bar_room", "cellar"], "optional": true, "value": 0}]
+    },
+    "converted": {
+      "_about": "Option C: an office, surgery or guest house in a building whose look is a house's (rules.look_programmes, or a period house cut into flats: looks) is laid out as the house it is (choose_programme), then its rooms are renamed by its class (rename: a house kind to a game room, or front / back = the use's own: a dentist's consulting rooms). With homes over the business only the ground floor is renamed, except where all_floors (a guest house: the owners' bedroom stays theirs). No glazed shop front and no fascia (a solicitor's in a Georgian house).",
+      "looks": ["flats_period", "flats_conversion"],
+      "all_floors": ["guest"],
+      "rename": {
+        "office": {"living": "lobby", "through": "lobby", "drawing_room": "office", "sitting_room": "office", "family_room": "office", "library": "office", "study": "office", "dining": "office", "breakfast_room": "office", "bed_master": "office", "bed_double": "office", "bed_single": "office", "box": "officestorage", "kitchen": "breakroom", "kitchen_diner": "breakroom", "kitchen_breakfast": "breakroom", "utility": "storage", "scullery": "storage", "pantry": "storage", "dressing": "storage"},
+        "surgery": {"living": "lobby", "through": "lobby", "drawing_room": "front", "sitting_room": "front", "family_room": "front", "library": "front", "dining": "front", "breakfast_room": "front", "bed_master": "front", "bed_double": "front", "bed_single": "front", "study": "office", "box": "officestorage", "kitchen": "breakroom", "kitchen_diner": "breakroom", "kitchen_breakfast": "breakroom", "utility": "storage", "scullery": "storage", "pantry": "storage", "dressing": "storage"},
+        "guest": {"bed_double": "motelroom", "bed_single": "motelroom", "box": "motelroom"}
+      }
+    },
+    "uppers": {
+      "store": [{"kind": "landing"}, {"kind": "store_room"}, {"kind": "store_room", "optional": true}, {"kind": "store_room", "optional": true}, {"kind": "break_room", "optional": true}, {"kind": "wc", "optional": true}, {"kind": "cupboard", "from": ["landing", "store_room", "break_room"], "optional": true, "value": 1}, {"kind": "cupboard", "from": ["landing", "store_room", "break_room"], "optional": true, "value": 1}],
+      "pub": [{"kind": "landing"}, {"kind": "function_room"}, {"kind": "store_room", "optional": true}, {"kind": "wc", "optional": true}, {"kind": "wc", "optional": true}, {"kind": "cupboard", "from": ["landing", "function_room", "store_room"], "optional": true, "value": 1}]
+    }
+  }
+}

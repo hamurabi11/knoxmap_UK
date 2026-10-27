@@ -205,6 +205,11 @@ def _setup_report() -> dict:
                 "OpenStreetMap has not got. Install DuckDB into the Python inside "
                 "KnoxMap's own .venv folder: python -m pip install duckdb. Worth it "
                 "where your town is half missing from OSM; nothing else needs it."},
+        {"id": "room_solver", "ok": _ortools_ready(),
+         "label": "OR-Tools (optional)",
+         "fix": "Needed only for Planned house rooms, which lays each house out whole "
+                "with a constraint solver. Install it into the Python inside KnoxMap's "
+                "own .venv folder: python -m pip install ortools. Nothing else needs it."},
         {"id": "erikas_tiles", "ok": knoxpaths.erikas_tiles_ready(),
          "label": "Erika's Tiles (optional)",
          "fix": f"Subscribe to it on the Steam Workshop and run {setup} again for glass shop "
@@ -329,6 +334,15 @@ def _overture_ready() -> bool:
         from generator import overture
         return overture.available()
     except Exception:  # noqa: BLE001 - a broken optional extra is just absent
+        return False
+
+
+def _ortools_ready() -> bool:
+    """Whether the room solver (Settings.room_solver) can run here."""
+    import importlib.util
+    try:
+        return importlib.util.find_spec("ortools") is not None
+    except (ImportError, ValueError):
         return False
 
 

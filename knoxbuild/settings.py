@@ -103,6 +103,11 @@ class Settings:
     # Target room area in tiles before splitting. Knox County's rooms are 16 m2
     # at the median; 56 made them twice that, big bare halls.
     room_size: int = 24
+    # 1 lays each house out as a whole with a constraint solver (OR-Tools
+    # CP-SAT, knoxbuild/room_solver.py): hall, stairs, kitchen at the back,
+    # bedrooms upstairs, each room its own windows. Slower on a first build
+    # (layouts are cached by footprint); without OR-Tools it does nothing.
+    room_solver: int = 0
     # How far a neighbourhood reaches before the materials change, and how
     # often one building breaks from its block anyway.
     neighbourhood_tiles: int = 110
@@ -211,6 +216,7 @@ LIMITS = {
     "max_levels": (1, 30),
     "vanilla_tiles": (0, 1),
     "room_size": (16, 400),
+    "room_solver": (0, 1),
     "building_alignment": (0, 3),
     "square_buildings": (0, 45),
     "neighbourhood_tiles": (20, 2000),
