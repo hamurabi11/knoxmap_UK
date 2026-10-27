@@ -3460,6 +3460,116 @@ def check_mapstate(check, out: str) -> None:
           "building again clears the compile and install it made stale")
 
 
+def check_install_folder(check, out: str, work: str, client) -> None:
+    """Installing into a chosen folder, the space check, and taking a map out
+    again - which must never delete a folder that is not a KnoxMap mod."""
+    import knoxpaths
+    from knoxbuild import mapstate
+    from tools import make_map_mod
+    from web import common as webcommon
+
+    zroot = Path(work) / "zomboid_choice"
+    was_env, was_cfg = os.environ.get("ZOMBOID_DIR"), knoxpaths.CONFIG_PATH
+    was_free, was_output = make_map_mod.free_bytes, webcommon.OUTPUT_DIR
+    knoxpaths.CONFIG_PATH = Path(work) / "choice_config.json"
+    os.environ.pop("ZOMBOID_DIR", None)
+    webcommon.OUTPUT_DIR = Path(out).parent
+    try:
+        r = client.post("/api/zomboid-folder", json={"folder": str(zroot)})
+        got = client.get("/api/zomboid-folder").get_json()
+        check(r.status_code == 200 and (zroot / "mods").is_dir() and got["chosen"]
+              and Path(got["mods"]) == zroot / "mods"
+              and knoxpaths.zomboid_user_dir() == zroot,
+              "the Zomboid folder chosen in the app is made and used")
+        blocker = Path(work) / "not_a_folder"
+        blocker.write_text("x")
+        r = client.post("/api/zomboid-folder", json={"folder": str(blocker / "sub")})
+        check(r.status_code == 400 and knoxpaths.zomboid_user_dir() == zroot,
+              "and one that cannot be made is refused, the old choice kept")
+        client.post("/api/zomboid-folder", json={"folder": ""})
+        check(not client.get("/api/zomboid-folder").get_json()["chosen"],
+              "an empty one goes back to the default")
+        client.post("/api/zomboid-folder", json={"folder": str(zroot)})
+
+        make_map_mod.free_bytes = lambda path: 1 << 20       # 1 MB free
+        r = client.post("/api/install", json={"mapName": "selftest"})
+        check(r.status_code == 400 and "Not enough room" in (r.get_json() or {}).get("error", "")
+              and not any((zroot / "mods").iterdir()),
+              "an install that will not fit is refused before anything is written")
+        make_map_mod.free_bytes = was_free
+
+        # The selftest map has no compiled cells to package, so the installed
+        # mod is laid down by hand, as package() writes it.
+        check(Path(make_map_mod.default_mods_dir()) == zroot / "mods",
+              "installs go into the chosen folder")
+        mod = zroot / "mods" / "SelftestMod"
+        (mod / "common").mkdir(parents=True)
+        (mod / "mod.info").write_text(
+            "name=Selftest\ndescription=Selftest, generated from real-world map data "
+            "with KnoxMap by euclid80tr.\n")
+        mapstate.record_install(out, str(mod), "SelftestMod")
+        check(mapstate.installed(out) is not None, "an installed map is recorded")
+        r = client.post("/api/uninstall", json={"mapName": "selftest"})
+        check(r.status_code == 200 and not mod.exists() and mapstate.installed(out) is None
+              and (zroot / "mods").is_dir(),
+              "uninstalling removes the mod folder and forgets it")
+        check(client.post("/api/uninstall", json={"mapName": "selftest"}).status_code == 404,
+              "and a map that is not installed has nothing to remove")
+
+        # A record that points at someone else's folder: refused, nothing deleted.
+        theirs = zroot / "mods" / "SomeoneElsesMod"
+        theirs.mkdir()
+        (theirs / "mod.info").write_text("name=Theirs\ndescription=a different mod\n")
+        (theirs / "keep.txt").write_text("keep")
+        mapstate.record_install(out, str(theirs), "SomeoneElsesMod")
+        r = client.post("/api/uninstall", json={"mapName": "selftest"})
+        check(r.status_code == 400 and (theirs / "keep.txt").exists(),
+              "a folder that is not a KnoxMap mod is left alone, whatever the record says")
+        elsewhere = Path(work) / "elsewhere" / "SelftestMod"
+        elsewhere.mkdir(parents=True)
+        (elsewhere / "mod.info").write_text(
+            "description=generated from real-world map data with KnoxMap\n")
+        mapstate.record_install(out, str(elsewhere), "SelftestMod")
+        r = client.post("/api/uninstall", json={"mapName": "selftest"})
+        check(r.status_code == 400 and elsewhere.exists(),
+              "and so is a KnoxMap-looking folder that is not inside a mods folder")
+    finally:
+        make_map_mod.free_bytes = was_free
+        webcommon.OUTPUT_DIR = was_output
+        knoxpaths.CONFIG_PATH = was_cfg
+        if was_env is not None:
+            os.environ["ZOMBOID_DIR"] = was_env
+        mapstate.forget_install(out)
+
+
+def check_build_audits(check, out: str) -> None:
+    """The things the fixes from the field reports put right, checked on what
+    the build just wrote: no glass walls inside, no fence lost to a lamp, no
+    roof over open ground, no staircase with a wall across it."""
+    from knoxbuild import buildtiles, catalog
+    from tools import tbx_stats
+
+    glass = catalog.GLASS_WALL_TILES
+    walls = catalog._all_interior_walls()
+    check(walls and not any(t in glass for e in walls for t in e["tiles"].values()),
+          f"no room is walled in glass storefront panes ({len(walls)} interior wall styles)")
+
+    check(buildtiles._structure("fencing_01_3") and buildtiles._structure("walls_exterior_house_01_0")
+          and buildtiles._yields("lighting_outdoor_01_0") and not buildtiles._yields("fencing_01_3"),
+          "a fence or wall is structure, and a lamp is what gives way to it")
+
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        tbx_stats.main(["tbx_stats", os.path.join(out, "buildings")])
+    stats = {k.strip(): v.strip() for k, v in
+             (line.split(":", 1) for line in buf.getvalue().splitlines() if ":" in line)}
+    over = int(stats["roof tiles over open ground"].split(" of ")[0])
+    blocked = int(stats["flights with a wall across"].split(" of ")[0])
+    check(int(stats["buildings"]) > 0 and over == 0,
+          f"no roof hangs over open ground ({stats['buildings']} buildings)")
+    check(blocked == 0, "and no staircase has a wall across it")
+
+
 def check_straight_roads(check) -> None:
     """Knox County roads: every road in grid or 45-degree runs, roads that met
     still meeting, and the buildings beside them moved with them."""
@@ -4076,6 +4186,8 @@ def main(argv: list[str]) -> int:
         check_missing_drive(check)
         check_straight_roads(check)
         check_mapstate(check, out)
+        check_install_folder(check, out, work, client)
+        check_build_audits(check, out)
         check_no_size_wall(check, work)
         check_overpass_retry(check)
         check_overpass_blank(check)

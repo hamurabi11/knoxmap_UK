@@ -1094,6 +1094,38 @@ document.getElementById('steamSave').addEventListener('click', async () => {
   }
 });
 
+// ---- Zomboid folder --------------------------------------------------------------
+
+function showZomboidFolder(data) {
+  const field = document.getElementById('zomboidFolder');
+  if (document.activeElement !== field) field.value = data.chosen ? data.folder : '';
+  document.getElementById('zomboidNote').className = 'hint';
+  document.getElementById('zomboidNote').textContent = `Maps go into ${data.mods}`;
+}
+
+document.getElementById('zomboidFolderBox').addEventListener('toggle', async e => {
+  if (!e.target.open) return;
+  try {
+    showZomboidFolder(await (await fetch('/api/zomboid-folder')).json());
+  } catch (_) { /* optional */ }
+});
+
+document.getElementById('zomboidSave').addEventListener('click', async () => {
+  try {
+    const res = await fetch('/api/zomboid-folder', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ folder: document.getElementById('zomboidFolder').value }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw apiError(data, res);
+    showZomboidFolder(data);
+    checkSetup();
+    loadMaps();
+  } catch (err) {
+    note('zomboidNote', err.message, 'bad');
+  }
+});
+
 const settingsReady = loadSettings().then(() => true).catch(() => {
   document.getElementById('advanced-body').textContent =
     'Could not load the settings list.';
@@ -1134,12 +1166,48 @@ async function loadMaps() {
         : `made with ${m.madeWith}`;
       li.append(tag);
     }
+    const install = document.createElement('span');
+    if (!m.installed) {
+      install.className = 'size';
+      install.textContent = 'not installed';
+    } else {
+      install.className = m.installed.upToDate ? 'size' : 'old';
+      install.textContent = m.installed.upToDate ? 'installed' : 'installed before last compile';
+      install.title = m.installed.modRoot;
+    }
+    li.append(install);
     const open = document.createElement('button');
     open.type = 'button';
     open.textContent = 'Open';
     open.addEventListener('click', () => openMap(m.mapName));
     li.append(open);
+    if (m.installed) {
+      const remove = document.createElement('button');
+      remove.type = 'button';
+      remove.textContent = 'Uninstall';
+      remove.addEventListener('click', () => uninstallMap(m.mapName));
+      li.append(remove);
+    }
     list.append(li);
+  }
+}
+
+async function uninstallMap(mapName) {
+  // Only the copy in the game's mods folder goes; the map's own files stay, and
+  // so do the player's saves.
+  if (!window.confirm(`Remove ${mapName} from the game's mods folder? Its files in `
+      + 'KnoxMap stay, and your saves are not touched.')) return;
+  try {
+    const res = await fetch('/api/uninstall', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ mapName }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw apiError(data, res);
+    fx.toast('ok', 'Removed from the game', mapName, 6000);
+    loadMaps();
+  } catch (err) {
+    fx.toast('bad', 'Could not remove that map', err.message, 8000);
   }
 }
 
@@ -2038,6 +2106,7 @@ document.getElementById('installBtn').addEventListener('click', async () => {
          + 'already playing, right-click the ground and pick "Reset loot" for '
          + 'fresh loot in a building.' + lifts, 'ok');
     document.getElementById('publishCard').hidden = false;
+    loadMaps();
   } catch (err) {
     note('installNote', err.message, 'bad');
     btn.disabled = false;

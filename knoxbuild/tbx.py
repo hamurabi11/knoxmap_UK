@@ -58,6 +58,12 @@ def _peak_depth(across: int) -> str:
     return _PEAK_DEPTHS.get(across, "Three")
 
 
+# A one-storey part of a two-storey house is pitched too (it was always flat); only a strip
+# narrower than NARROW_PEAK_MIN stays flat. Set PITCH_LOWER_ROOFS = False for the old roofs.
+PITCH_LOWER_ROOFS = True
+NARROW_PEAK_MIN = 2
+
+
 def _roof_pieces(rects, peaked: bool, roof30: bool = True):
     """(RoofType, Depth, caps, (x, y, w, h)) for each roof over a footprint.
 
@@ -76,11 +82,12 @@ def _roof_pieces(rects, peaked: bool, roof30: bool = True):
     single = len(rects) == 1
     for rx, ry, rw, rh, caps in rects:
         across = min(rw, rh)
-        if not peaked or across < PEAK_MIN_TILES:
+        if not peaked or across < NARROW_PEAK_MIN:
             out.append(("FlatTop", "Three", dict(_NO_CAPS), (rx, ry, rw, rh)))
             continue
         along_x = rw >= rh
-        if not roof30 or across > PEAK30_MAX_ACROSS + 2:
+        # a narrow wing (2-3 across) takes a low 45-degree roof rather than a flat one
+        if not roof30 or across > PEAK30_MAX_ACROSS + 2 or across < PEAK_MIN_TILES:
             cap = dict(_NO_CAPS)
             if along_x:
                 cap["cappedW"], cap["cappedE"] = caps["cappedW"], caps["cappedE"]
@@ -527,8 +534,12 @@ def render_tbx(plan: Plan | Building, name: str,
         out.append(f" <room{_attrs(room_attrs)}/>")
 
     attic: list[str] = []
+    # pitched roofs over a lower storey's exposed part stand on the floor above that storey,
+    # as the top storey's stand on the roof floor
+    above_roofs: dict[int, list[str]] = {}
     for level, storey in enumerate(storeys):
         out.append(" <floor>")
+        out.extend(above_roofs.pop(level, []))
 
         for x, y, direction in storey.doors:
             # In the shop glass: a glass door, framed by the glass wall itself.
@@ -615,7 +626,7 @@ def render_tbx(plan: Plan | Building, name: str,
         if any(any(row) for row in exposed):
             rects = roof_rects(exposed)
             for roof_type, depth, cap, (rx, ry, rw, rh) in _roof_pieces(
-                    rects, peaked and above is None, roof30):
+                    rects, peaked and (above is None or PITCH_LOWER_ROOFS), roof30):
                 roof_attrs = [
                     ("type", "roof"),
                     ("width", rw),
@@ -637,7 +648,12 @@ def render_tbx(plan: Plan | Building, name: str,
                 # with its ceiling, which is right; a pitched roof there rose
                 # through the top storey, its gable ends covering the upstairs
                 # walls. Pitched roofs go on the roof floor above instead.
-                (attic if roof_type != "FlatTop" else out).append(line)
+                if roof_type == "FlatTop":
+                    out.append(line)
+                elif above is None:
+                    attic.append(line)
+                else:
+                    above_roofs.setdefault(level + 1, []).append(line)
 
         # Match BuildingWriter byte for byte: a comma follows every value
         # except the very last one, and each row ends with a newline.

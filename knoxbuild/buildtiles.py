@@ -213,6 +213,9 @@ def level_layers(b: Building, z: int) -> dict[tuple[int, int], list[tuple[str, s
         for o in b.floors[z - 1].objects:
             if o.get("type") == "stairs":
                 holes.update(_stair_squares(o))
+    # <object type="hole" x= y=/>: a square of this floor left open - no floor, and no
+    # ceiling from the room below (the opening a ladder climbs through, a loft's open side).
+    holes.update((int(o["x"]), int(o["y"])) for o in floor.objects if o.get("type") == "hole")
 
     wall_furniture: dict[tuple[int, int], list[tuple[str, str]]] = {}
     for o in floor.objects:
@@ -273,6 +276,23 @@ def level_layers(b: Building, z: int) -> dict[tuple[int, int], list[tuple[str, s
 
     openings = {(o["type"], o["x"], o["y"], o.get("dir", "N")): o
                 for o in floor.objects if o.get("type") in ("door", "window")}
+    opening_dir = {(int(o["x"]), int(o["y"]), "North" if o.get("dir", "N") == "N" else "West"): o
+                   for o in openings.values()}
+
+    def opening_wall(x, y, dname):
+        """The wall tiles of edge dname of square (x, y), with its door or window variant."""
+        o = opening_dir.get((x, y, dname))
+        if o is None:
+            return wall_tiles(x, y, dname)
+        if o["type"] == "door":
+            return wall_tiles(x, y, dname + "Door")
+        v = _window_variant(_entry(b, o.get("Tile", b.attrs.get("Window", 0))).get(dname, ""))
+        variant = f"{dname}Window{v}" if v else dname + "Window"
+        if room(x, y) > 0:
+            return wall_tiles(x, y, variant, fallback=dname + "Window")
+        k = variant if ext.get(variant) else dname + "Window"
+        return [ext.get(k, "")] + ([trim.get(k, ""), grime.get(k, "")] if ground else [])
+
     for o in openings.values():
         kind = o["type"]
         x, y, d = int(o["x"]), int(o["y"]), o.get("dir", "N")
@@ -283,7 +303,10 @@ def level_layers(b: Building, z: int) -> dict[tuple[int, int], list[tuple[str, s
         def preserve_corner(tiles):
             if kind_at[(x, y)] != "NorthWest":
                 return tiles
-            other = wall_tiles(x, y, "West" if d == "N" else "North")
+            # The square's other wall keeps its own opening (a door on the west edge and a
+            # window on the north edge of one corner square): its Door/Window variant, not
+            # the solid wall, or the second opening would wall the first one up.
+            other = opening_wall(x, y, "West" if d == "N" else "North")
             if r == 0 and len(tiles) == 3 and len(other) == 3:
                 return other[:2] + tiles + other[2:]
             return other + tiles
@@ -423,11 +446,30 @@ WALL_REPLACES = {"walls": {"walls", "walls_west", "walls_north"},
                  "walls_north": {"walls", "walls_north"}}
 
 
+# Walls, fences, gates, railings and hedges are structure: a later lot's piece on the same
+# square outside its rooms (a house's outdoor wall lamp, a tree, a bush, flowers) must not
+# take their place - the fence or wall stays and the prop goes. Doors are never touched.
+STRUCTURE_PREFIXES = ("fencing_", "fixtures_doors_fences", "walls_", "fixtures_railings")
+HEDGE_TILES = {f"vegetation_ornamental_01_{n}" for n in (0, 1, 2, 4, 5, 6)} | \
+              {f"vegetation_ornamental_01_{n:03d}" for n in (0, 1, 2, 4, 5, 6)}
+YIELDING_PREFIXES = ("lighting_outdoor", "e_", "f_bushes", "vegetation_", "d_generic", "d_plants")
+
+
+def _structure(tile: str) -> bool:
+    return tile.startswith(STRUCTURE_PREFIXES) or tile in HEDGE_TILES
+
+
+def _yields(tile: str) -> bool:
+    return tile.startswith(YIELDING_PREFIXES) and not _structure(tile)
+
+
 def compose_lots(lots) -> dict[tuple[int, int, int], list[str]]:
     """Compose (building, x, y, base level) placements in project order.
 
     Rooms replace earlier lot squares. Outside rooms, only populated layers replace
-    matching earlier layers; empty squares preserve the underlying lot.
+    matching earlier layers; empty squares preserve the underlying lot - except that an
+    earlier wall, fence, gate, railing or hedge is never replaced by a later lot's piece,
+    and a square holding one drops the lamps, trees, bushes and flowers on it.
     """
     world = {}
     for b, tx, ty, base in lots:
@@ -445,5 +487,13 @@ def compose_lots(lots) -> dict[tuple[int, int, int], list[str]]:
                     if "floor" in channels:     # a floor tile (a flat roof is one) takes the square
                         old = []
                     replaced = set().union(*(WALL_REPLACES.get(c, {c}) for c in channels)) if channels else set()
-                    world[pos] = [(layer, tile) for layer, tile in old if layer not in replaced] + new
-    return {pos: [tile for _, tile in items] for pos, items in world.items() if items}
+                    keep = [(layer, tile) for layer, tile in old if layer not in replaced or _structure(tile)]
+                    world[pos] = keep + [item for item in new if item not in keep]
+    out = {}
+    for pos, items in world.items():
+        tiles = [tile for _, tile in items]
+        if any(_structure(t) for t in tiles):
+            tiles = [t for t in tiles if not _yields(t)]
+        if tiles:
+            out[pos] = tiles
+    return out

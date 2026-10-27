@@ -218,8 +218,10 @@ second without rebuilding, then compile again so the game sees the change.
   download, so trying different settings is quick.
 - **A map is only as good as OpenStreetMap's data for that place.** Well-mapped
   city centres come out best; rural areas often lack buildings entirely.
-- **Where maps go.** Installed maps are copied into `%USERPROFILE%\Zomboid\mods`.
-  Project files stay in KnoxMap's `output\` folder.
+- **Where maps go.** Installed maps are copied into `%USERPROFILE%\Zomboid\mods`
+  unless you choose another Zomboid folder, in Setup or under **Where maps are
+  installed** in the app. Then launch the game with `-cachedir=<that folder>` so
+  it sees them. Project files stay in KnoxMap's `output\` folder.
 - **KnoxMap updates itself.** When a new version is released, it downloads in
   the background and the top of the window says **Restart to update**; closing
   and opening KnoxMap installs it too. Your maps, logs and settings are kept.

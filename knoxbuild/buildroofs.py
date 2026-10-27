@@ -193,6 +193,10 @@ def upper_layers(entry, attrs: dict, width: int, height: int, room_defs: list[di
                 out.update(flat_squares(entry, attrs, o))
             elif o.get("type") == "roof":
                 out.update(band_squares(entry, attrs, o))
+    if z < len(floors):                      # open squares of this level: no ceiling, no flat roof
+        for o in floors[z].objects:
+            if o.get("type") == "hole":
+                out.pop((int(o["x"]), int(o["y"])), None)
     pitched: dict[tuple[int, int], list[str]] = {}
     if z < len(floors):
         for o in floors[z].objects:

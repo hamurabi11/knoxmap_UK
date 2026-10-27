@@ -11564,8 +11564,13 @@ def _interior_walls() -> list[dict]:
 # partitions (WallWTrans/WallNTrans in the game's tile definitions, no north-west
 # corner, no door or window piece at +10/+11), which came out as half walls and
 # missing walls. Found by Zombaxx.
+#
+# walls_commercial_01 at 32 is not here either: those are glass storefront panes
+# (MaterialType Glass, GrimeType FullWindow, WindowW/WindowN in the tile
+# definitions) - a room given them as its interior wall came out walled in glass
+# (a garage, a bedroom...). Found by Zombaxx.
 GAME_WALL_STYLES = [
-    ("walls_commercial_01", 32), ("walls_commercial_03", 16),
+    ("walls_commercial_03", 16),
     ("walls_interior_house_01", 0), ("walls_interior_house_01", 16),
     ("walls_interior_house_01", 32), ("walls_interior_house_01", 48),
     ("walls_interior_house_02", 0), ("walls_interior_house_02", 16),
@@ -11589,11 +11594,23 @@ def _wall_style(sheet: str, base: int) -> dict:
     return entry
 
 
+# Wall sheets whose plain wall tiles are glass panes, not walls: never an interior
+# wall style (a guard for GAME_WALL_STYLES and the house styles alike).
+GLASS_WALL_TILES = {f"walls_commercial_01_{n:03d}" for n in range(32, 48)}
+
+
+def _is_glass_wall(entry: dict) -> bool:
+    tiles = entry.get("tiles", {})
+    return any(tiles.get(k) in GLASS_WALL_TILES for k in ("West", "North", "NorthWest", "SouthEast"))
+
+
 def _all_interior_walls() -> list[dict]:
-    out = _interior_walls()
+    out = [e for e in _interior_walls() if not _is_glass_wall(e)]
     seen = {e["tiles"]["West"] for e in out}
     for sheet, base in GAME_WALL_STYLES:
         entry = _wall_style(sheet, base)
+        if _is_glass_wall(entry):
+            continue
         if entry["tiles"]["West"] not in seen:
             seen.add(entry["tiles"]["West"])
             out.append(entry)

@@ -83,6 +83,39 @@ def stamp(map_dir: str, stage: str, version: str | None = None) -> None:
         pass          # a map whose stamp cannot be written still works
 
 
+def record_install(map_dir: str, mod_root: str, mod_id: str) -> None:
+    """Remember which mod folder this map was installed into, so the window can
+    show it, check it is current and take it out again."""
+    state = read(map_dir)
+    state["installed"] = {"modRoot": mod_root, "modId": mod_id,
+                          "at": time.strftime("%Y-%m-%dT%H:%M:%S")}
+    try:
+        knoxfiles.write(_path(map_dir), state, indent=2)
+    except OSError:
+        pass
+
+
+def installed(map_dir: str) -> dict | None:
+    """Where this map is installed, or None when it is not - or when that mod
+    folder has since been deleted or moved by hand."""
+    rec = read(map_dir).get("installed")
+    if not isinstance(rec, dict) or not rec.get("modRoot"):
+        return None
+    if not os.path.isfile(os.path.join(str(rec["modRoot"]), "mod.info")):
+        return None
+    return rec
+
+
+def forget_install(map_dir: str) -> None:
+    state = read(map_dir)
+    if state.pop("installed", None) is None:
+        return
+    try:
+        knoxfiles.write(_path(map_dir), state, indent=2)
+    except OSError:
+        pass
+
+
 def done(map_dir: str) -> dict:
     """What has been done to this map, from its files where there is no stamp:
     maps made before stamps existed still have to be recognised."""

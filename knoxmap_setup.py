@@ -433,9 +433,30 @@ def add_erikas_tiles(tools: Path, tilesets: Path, two_x: Path) -> None:
 
 # ---- 5. where the game keeps mods ---------------------------------------------------
 
+def choose_zomboid_folder() -> Path:
+    """Show the Zomboid folder maps are installed into (its mods folder) and
+    let the player pick another. Kept as it was when nobody can answer."""
+    zomboid = knoxpaths.zomboid_user_dir()
+    say(f"      Maps are installed into {zomboid / 'mods'}")
+    if os.environ.get("KNOXMAP_UNATTENDED") == "1":
+        return zomboid
+    while True:
+        answer = _ask("      Use a different Zomboid folder? Type it, or press Enter to keep\n"
+                      "      this one: ").strip().strip('"')
+        if not answer:
+            return zomboid
+        chosen = Path(answer).expanduser()
+        try:
+            (chosen / "mods").mkdir(parents=True, exist_ok=True)
+        except OSError as e:
+            say(f"      Cannot use {chosen}: {e} - try again.")
+            continue
+        return chosen
+
+
 def finish(tools: Path, game: Path | None, cli_ok: bool) -> None:
     step(5, "Saving settings")
-    zomboid = knoxpaths.zomboid_user_dir()
+    zomboid = choose_zomboid_folder()
     knoxpaths.save_config({"mapping_tools": tools, "pz_install": game,
                            "zomboid_dir": zomboid})
     say(f"      maps will be installed into {zomboid / 'mods'}")
