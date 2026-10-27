@@ -25,7 +25,6 @@ import shutil
 import subprocess
 import sys
 import tempfile
-import urllib.request
 import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # src: ukpaths
@@ -44,8 +43,14 @@ def mods_dir() -> str:
 
 
 def fetch(url: str, path: str) -> None:
-    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=600) as r, open(path, "wb") as f:
-        shutil.copyfileobj(r, f, 1 << 20)
+    # requests (KnoxMap's own): its certificate bundle, where Windows' store lacks the one
+    # GitHub's download server needs (urllib failed on it, 2026-10-27)
+    import requests
+    with requests.get(url, headers=UA, stream=True, timeout=(15, 600)) as r:
+        r.raise_for_status()
+        with open(path, "wb") as f:
+            for block in r.iter_content(1 << 20):
+                f.write(block)
 
 
 def main() -> int:
