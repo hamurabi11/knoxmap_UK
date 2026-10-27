@@ -1,5 +1,8 @@
 # KnoxMap UK
 
+> This is the KnoxMap UK fork's readme. KnoxMap's own readme, for everything else
+> the app does, is [README.md](../README.md).
+
 A fork of [KnoxMap](https://github.com/spytheeuclidean-a11y/knoxmap) for English
 towns. KnoxMap turns real places into Project Zomboid maps. This fork adds a **UK
 mode**: real road widths, buildings carried in from LiDAR, house types and ages from
@@ -51,7 +54,7 @@ more, saved where the Data section says:
 Historic England's listed buildings, Food Standards Agency ratings and the council
 lookup (postcodes.io) are fetched automatically at the Full level. The land-title
 zips go in `uk/data/raw/inspire` (or set `KNOXMAP_INSPIRE_DIR`).
-`uk/SOURCES.md` lists every source, its licence and the attribution it needs. Maps
+[`uk/SOURCES.md`](../uk/SOURCES.md) lists every source, its licence and the attribution it needs. Maps
 made from these sources carry those obligations, so credit them when you share a map:
 OS, HM Land Registry, Historic England, the Environment Agency, MHCLG (EPC) and
 OpenStreetMap contributors.
