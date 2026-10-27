@@ -156,6 +156,8 @@ def _map_summary(map_dir: Path) -> dict:
         pass
     needs = mapstate.needs(str(map_dir))
     stages = mapstate.done(str(map_dir))
+    inst = mapstate.installed(str(map_dir))
+    compiled_at = (stages.get("compile") or {}).get("at")
     return {
         "mapName": map_dir.name,
         "width": info.get("width_tiles", 0),
@@ -179,6 +181,13 @@ def _map_summary(map_dir: Path) -> dict:
         "stages": {k: v.get("version") for k, v in stages.items()},
         "needs": needs,
         "needsLabels": [mapstate.LABELS[s] for s in needs],
+        # Where it is installed, and whether that copy came after the last
+        # compile - an install from before a recompile is out of date.
+        "installed": None if inst is None else {
+            "modRoot": inst["modRoot"],
+            "at": inst.get("at"),
+            "upToDate": not compiled_at or (inst.get("at") or "") >= compiled_at,
+        },
         "files": {
             "landscape": f"/output/{map_dir.name}/{map_dir.name}.bmp",
             "vegetation": f"/output/{map_dir.name}/{map_dir.name}_veg.bmp",

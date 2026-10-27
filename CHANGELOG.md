@@ -1,5 +1,50 @@
 # Changelog
 
+## 1.7.6.3
+
+- **Choose where maps are installed, and take them out again**
+  (`web/system.py`, `knoxmap_setup.py`, `knoxbuild/mapstate.py`,
+  `tools/make_map_mod.py`). The Zomboid folder maps go into can be set in the
+  app (Zomboid folder) and in Setup, not only through `ZOMBOID_DIR`. A map can
+  be uninstalled from the list; only a folder KnoxMap installed itself, marked
+  in its `mod.info`, is ever removed. Installing checks the free space first
+  and refuses, with the size it needs, rather than stopping half way. The map
+  list says which maps are installed.
+
+
+- **Rooms are no longer walled in glass** (`knoxbuild/catalog.py`). One of the
+  game's wall sets used as an interior wall style is a row of glass storefront
+  panes, so a garage or bedroom could come out as a glass box. It, and any
+  other glass set, is left out of the interior wall styles. Houses may get
+  different interior wall colours after a rebuild. Reported by Zombaxx.
+
+
+- **A door is not walled up by a window on the same corner square**
+  (`knoxbuild/buildtiles.py`). Where a door and a window shared a corner
+  square, the window's wall overwrote the door's, leaving a solid wall across
+  the doorway. Both openings keep their own wall now. Reported by Zombaxx.
+
+
+- **A lamp, tree or bush no longer wipes out a fence or wall**
+  (`knoxbuild/buildtiles.py`). A later lot's outdoor lamp or plant on the
+  same square replaced the fence or wall of an earlier one and left a gap.
+  The fence or wall stays and the prop goes. Doors are not touched. Reported
+  by Zombaxx.
+
+
+- **Squares of a floor can be left open** (`knoxbuild/buildtiles.py`,
+  `knoxbuild/buildroofs.py`). A `.tbx` floor may hold `<object type="hole"
+  x= y=/>`: that square gets no floor and no ceiling from the room below, for
+  a ladder opening or the open side of a loft. Nothing changes for a file
+  without one. Reported by Zombaxx.
+
+
+- **Lower storeys and narrow wings get pitched roofs** (`knoxbuild/tbx.py`).
+  A one-storey garage or wing beside a taller house, and any wing two or three
+  squares across, had a flat roof. They take a pitched roof in the house's
+  style now. `PITCH_LOWER_ROOFS = False` in `tbx.py` brings the flat roofs
+  back. Reported by Zombaxx.
+
 ## 1.7.6.2
 
 - **The front door is on the street** (`knoxbuild/layout.py`). The room a

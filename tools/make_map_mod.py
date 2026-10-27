@@ -702,6 +702,20 @@ def _clear_folder(folder: str, tries: int = 4) -> None:
         f"Zomboid, and anything else showing that folder, then install again.")
 
 
+def install_size(project_dir: str, lots_dir: str | None = None) -> int:
+    """Bytes of the cells and extras package() would copy into the mod."""
+    cells, extras = collect(project_dir, lots_dir or os.path.join(project_dir, "lots"))
+    return sum(os.path.getsize(f) for f in cells + extras)
+
+
+def free_bytes(path: str) -> int:
+    """Free space on the drive `path` is on, or on the nearest folder above it
+    that exists yet - the mods folder may not have been made."""
+    while not os.path.exists(path) and os.path.dirname(path) != path:
+        path = os.path.dirname(path)
+    return shutil.disk_usage(path).free
+
+
 def package(project_dir: str, name: str, mod_id: str,
             lots_dir: str | None = None, mods_dir: str | None = None,
             description: str = "") -> tuple[str, int, list[str]]:

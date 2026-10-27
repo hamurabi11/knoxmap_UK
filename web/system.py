@@ -24,6 +24,9 @@ from web.mapfiles import _load_settings
 
 bp = Blueprint("system", __name__)
 
+# Room to keep free on the drive after an install, beyond the map's own files.
+INSTALL_MARGIN_BYTES = 100 * 2**20
+
 
 @bp.route("/api/client-error", methods=["POST"])
 def api_client_error():
@@ -284,6 +287,26 @@ def api_steam_libraries():
                     "game": str(knoxpaths.pz_install_dir() or "")})
 
 
+@bp.route("/api/zomboid-folder", methods=["GET", "POST"])
+def api_zomboid_folder():
+    """The Zomboid folder maps are installed into (its mods folder). An empty
+    folder in a POST goes back to the default, ~/Zomboid."""
+    import knoxpaths
+
+    if request.method == "POST":
+        folder = str(_json_body().get("folder") or "").strip().strip('"')
+        if folder:
+            try:
+                (Path(folder).expanduser() / "mods").mkdir(parents=True, exist_ok=True)
+            except OSError as e:
+                return jsonify({"error": f"Cannot use {folder}: {e}"}), 400
+        knoxpaths.update_config({"zomboid_dir": folder})
+        log.info("zomboid folder chosen: %s", folder or "(default)")
+    return jsonify({"folder": str(knoxpaths.zomboid_user_dir()),
+                    "mods": str(knoxpaths.zomboid_user_dir() / "mods"),
+                    "chosen": bool(knoxpaths.load_config().get("zomboid_dir"))})
+
+
 def _has_road_rules(tools) -> bool:
     if not tools:
         return False
@@ -372,6 +395,17 @@ def api_install():
              else map_dir.name).strip()[:80]
     mod_id = SAFE_NAME.sub("_", raw_id if isinstance(raw_id, str) and raw_id.strip()
                            else map_dir.name).strip("_")[:60] or map_dir.name[:60]
+    # The mod takes about as much room as the cells it copies. Say so before
+    # the copy starts, rather than fail part-way with the drive full. An old
+    # copy being replaced is not counted: that is the conservative side.
+    mods_dir = make_map_mod.default_mods_dir()
+    need = make_map_mod.install_size(str(map_dir))
+    free = make_map_mod.free_bytes(mods_dir)
+    if free < need + INSTALL_MARGIN_BYTES:
+        return jsonify({"error": f"Not enough room in {mods_dir} for this map: it needs about "
+                                 f"{need // 2**20} MB and {free // 2**20} MB is free. Choose a "
+                                 "folder with more room under Where maps are installed, or free "
+                                 "some space."}), 400
     try:
         mod_root, n_cells, extras = make_map_mod.package(
             str(map_dir), title, mod_id)
@@ -380,9 +414,42 @@ def api_install():
     except Exception as exc:
         return failed(f"Install failed: {exc}", 500, exc)
     mapstate.stamp(str(map_dir), "install")
+    mapstate.record_install(str(map_dir), str(mod_root), mod_id)
     log.info("install %s: %d cells as %s, extras %s", map_dir.name, n_cells, mod_id, extras)
     return jsonify({"modRoot": str(mod_root), "cells": n_cells,
                     "extras": extras, "modId": mod_id, "title": title})
+
+
+@bp.route("/api/uninstall", methods=["POST"])
+def api_uninstall():
+    """Take an installed map out of the game's mods folder. Only the mod folder
+    KnoxMap installed this map into is removed; the map's own files and the
+    player's saves are left alone."""
+    from tools import make_map_mod
+
+    map_dir = _map_dir(_json_body().get("mapName", ""))
+    if map_dir is None:
+        return jsonify({"error": "Unknown map."}), 404
+    rec = mapstate.installed(str(map_dir))
+    if rec is None:
+        return jsonify({"error": "This map is not installed."}), 404
+    mod_root = Path(rec["modRoot"]).resolve()
+    # Checked again here, not just trusted from the record: a folder that is
+    # not a KnoxMap mod is never deleted, whatever the record says.
+    try:
+        info = (mod_root / "mod.info").read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        info = ""
+    if mod_root.parent.name != "mods" or "generated from real-world map data with KnoxMap" not in info:
+        return jsonify({"error": f"{mod_root} does not look like a KnoxMap map, so it was "
+                                 "left alone."}), 400
+    try:
+        make_map_mod._clear_folder(str(mod_root))
+    except RuntimeError as exc:
+        return failed(str(exc), 500, exc)
+    mapstate.forget_install(str(map_dir))
+    log.info("uninstall %s: removed %s", map_dir.name, mod_root)
+    return jsonify({"removed": str(mod_root)})
 
 
 @bp.route("/api/workshop-check")
