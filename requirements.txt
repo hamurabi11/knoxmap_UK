@@ -5,3 +5,8 @@ pyproj>=3.6
 shapely>=2.0
 numpy>=1.26
 pywebview>=6.0
+# KnoxMap UK (uk/): the pipeline (scipy), the point cloud (laspy), the room solver (ortools; Build
+# falls back to its own room layouts without it)
+scipy>=1.11
+laspy[lazrs]>=2.5
+ortools>=9.8
