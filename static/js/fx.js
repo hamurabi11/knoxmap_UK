@@ -111,6 +111,10 @@ const fx = (() => {
         $('#gen-stage').textContent = 'Downloading map data';
         $('#gen-detail').textContent = total > 1 ? `Part ${done + 1} of ${total}` : '';
         $('#gen-bar').style.width = `${Math.max(6, Math.round(8 + 62 * done / total))}%`;
+      } else if (p.stage === 'roads') {
+        $('#gen-stage').textContent = 'Routing the roads';
+        $('#gen-detail').textContent = `${(p.done || 0).toLocaleString()} of ${(p.total || 0).toLocaleString()} stretches`;
+        $('#gen-bar').style.width = `${Math.round(70 + 12 * (p.done || 0) / Math.max(1, p.total || 1))}%`;
       } else if (p.stage === 'render') {
         $('#gen-stage').textContent = 'Drawing the terrain';
         $('#gen-detail').textContent = `${(p.features || 0).toLocaleString()} features`;

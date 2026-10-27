@@ -269,8 +269,9 @@ def generate():
             osm_cache=osm_cache_name,
             osm_bbox=osm_bbox,
             shape=shape,
-            straight_roads=bool(settings.straight_roads),
+            straight_roads=int(settings.straight_roads),
             should_stop=_stopper(map_name),
+            progress=lambda done, total: _set_progress(map_name, stage="roads", done=done, total=total),
         )
     except knoxstop.Stopped:
         return _stopped(map_name, "generate")

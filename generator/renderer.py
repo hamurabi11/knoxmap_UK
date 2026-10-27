@@ -96,6 +96,11 @@ class RenderResult:
     cells_y: int
 
 
+# The Road layout setting (straight_roads) past Knox County's straight runs (1):
+# routed on vanilla's lattice (roadgraph/modes.py).
+ROAD_LAYOUTS = {2: "graph", 3: "cost"}
+
+
 def render(features: Iterable[OSMFeature], south: float, west: float,
            north: float, east: float, meters_per_tile: float,
            output_dir: str, map_name: str,
@@ -106,16 +111,30 @@ def render(features: Iterable[OSMFeature], south: float, west: float,
            osm_cache: str | None = None,
            osm_bbox: tuple[float, float, float, float] | None = None,
            shape: dict | None = None,
-           straight_roads: bool = True,
-           should_stop=None) -> RenderResult:
+           straight_roads: int = 1,
+           should_stop=None, progress=None) -> RenderResult:
     proj = Projector.build(south, west, north, east, meters_per_tile, rotation)
     # Read more than once below - the buildings pass goes back over the
     # address points - so never leave this as a generator.
     features = list(features)
-    if straight_roads:
+    road_layout = int(straight_roads or 0)
+    if road_layout == 1:
         # Every road in straight runs at 45-degree steps (octilinear.py).
         from .octilinear import straighten_roads
         straighten_roads(features, proj, classify, _is_polygon)
+    elif road_layout >= 2:
+        # Routed on vanilla's lattice (roadgraph/route.py), and saved: Build and
+        # the paper map read the roads back rather than routing them again.
+        from .octilinear import apply_road_graph, graph_path
+        from .roadgraph.route import route
+
+        def tick(done, total):
+            knoxstop.check(should_stop, "the roads")
+            if progress:
+                progress(done, total)
+        graph = route(features, proj, ROAD_LAYOUTS[road_layout], shape, tick=tick)
+        knoxfiles.write(graph_path(output_dir, map_name), graph)
+        apply_road_graph(features, graph, proj)
     # A drawn polygon, circle or real outline rather than a rectangle: the map
     # still covers its bounding box in whole cells, but only what lies inside
     # the shape is built.
@@ -339,7 +358,7 @@ def render(features: Iterable[OSMFeature], south: float, west: float,
         "bbox": {"south": south, "west": west, "north": north, "east": east},
         "rotation": rotation,
         "osm_cache": osm_cache,
-        "straight_roads": bool(straight_roads),
+        "straight_roads": road_layout,
         "osm_bbox": list(osm_bbox) if osm_bbox else None,
         "shape": shape,
         "meters_per_tile": meters_per_tile,

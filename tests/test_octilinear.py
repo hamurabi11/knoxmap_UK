@@ -16,7 +16,7 @@ class OctilinearRoadDefaults(unittest.TestCase):
         # this moved every time the renderer gained a knob, and said nothing
         # about straight roads when it did.
         straight = inspect.signature(renderer.render).parameters["straight_roads"]
-        self.assertIs(straight.default, True)
+        self.assertEqual(straight.default, 1)
 
     def test_curves_become_straight_runs_and_keep_shared_junctions(self):
         projection = SimpleNamespace(

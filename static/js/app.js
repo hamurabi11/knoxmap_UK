@@ -451,7 +451,7 @@ const SETTING_LABELS = {
   min_size:            ['Smallest building', 'Buildings narrower than this many tiles are left out.'],
   align_streets:       ['Straighten streets', 'On turns the map so the main street grid runs along the tiles - no staircase roads. Off keeps north up.'],
   rotate_degrees:      ['Turn the map', 'Degrees to turn the whole area before it is built, on top of Straighten streets. Use it when the automatic angle picks the wrong grid.'],
-  straight_roads:      ['Knox County roads', 'On lays every road in straight runs along the tiles and on 45-degree diagonals. Off draws roads as they are.'],
+  straight_roads:      ['Road layout', 'As mapped draws roads as they are. Knox County straight lays every road in straight runs along the tiles and on 45-degree diagonals. Vanilla curves routes them the way the game’s own B42 map draws its streets: along the tiles, 45 degrees and the 2:1 slopes, with its curves and street shapes. Built-up streets square keeps streets lined with buildings on the grid, as the buildings are, and off them. The vanilla choices take a few minutes on a town.'],
   max_size:            ['Largest building', 'Footprints above this are skipped.'],
   apartment_footprint: ['Flats above', 'An untagged footprint this big reads as flats.'],
   apartment_chance:    ['Flats chance', 'How often such a footprint really becomes flats.'],
@@ -1549,6 +1549,9 @@ function startProgress(mapName) {
         // for the handful that cover this box. Saying so beats a dead bar.
         status.textContent = 'Looking up the buildings OpenStreetMap has not got '
                            + '— this takes a few minutes the first time…';
+      } else if (p.stage === 'roads') {
+        status.textContent = `Routing the roads — ${(p.done || 0).toLocaleString()} of `
+                           + `${(p.total || 0).toLocaleString()} stretches…`;
       } else if (p.stage === 'render') {
         status.textContent = `Rendering ${p.features.toLocaleString()} features `
                            + 'into bitmaps…';

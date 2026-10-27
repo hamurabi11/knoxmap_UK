@@ -1068,10 +1068,10 @@ def _points_of_use(out_dir: str, info: dict, map_name: str, proj) -> dict:
     # pumps: "0 pumps at 0 stations, 0 canopies and 0 points".
     feats = feats + _drawn_features(out_dir, map_name)
     if info.get("straight_roads") and feats:
-        # Where the renderer moved them to, with the roads straightened.
-        from generator.octilinear import straighten_roads
+        # Where the renderer moved them to, with the roads straightened or routed.
+        from generator.octilinear import replay
         from generator.renderer import _is_polygon, classify
-        straighten_roads(feats, proj, classify, _is_polygon)
+        replay(feats, proj, classify, _is_polygon, info, out_dir, map_name)
     for feat in feats:
         if feat.kind != "node" or not (
             any(k in feat.tags for k in USE_KEYS) or "entrance" in feat.tags):

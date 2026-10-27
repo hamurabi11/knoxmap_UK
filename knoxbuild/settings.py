@@ -42,8 +42,11 @@ class Settings:
     # where the automatic answer is wrong, or where there are two grids and
     # the mapper wants to pick which one wins.
     rotate_degrees: float = 0.0
-    # Lay every road in straight runs along the tiles and on 45-degree
-    # diagonals, like Knox County's (1), or draw them as mapped (0).
+    # How the roads are laid: as mapped (0); in straight runs along the tiles
+    # and on 45-degree diagonals, like Knox County's (1); routed in vanilla
+    # B42's sixteen directions with its own street shapes and curves (2); or
+    # that, with built-up streets kept on the grid and off the buildings (3).
+    # 2 and 3 take minutes on a town (generator/roadgraph).
     straight_roads: int = 1
 
     # --- terrain ---------------------------------------------------------
@@ -200,7 +203,7 @@ LIMITS = {
     "align_streets": (0, 1),
     # Past 45 either way it is the same grid again, a quarter turn round.
     "rotate_degrees": (-45.0, 45.0),
-    "straight_roads": (0, 1),
+    "straight_roads": (0, 3),
     "max_size": (8, 250),
     "apartment_footprint": (16, 4000),
     "apartment_chance": (0.0, 1.0),

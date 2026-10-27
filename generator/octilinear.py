@@ -19,10 +19,18 @@ anything is painted:
    so houses still front their street instead of standing in it.
 
 What is left is a town that reads like the real one, laid out like the game's.
+
+The setting's other two choices route the roads instead (generator/roadgraph:
+vanilla's sixteen directions and its own street shapes). The renderer saves
+the result as <map>_roadgraph.json and every later step that needs the roads
+where the renderer drew them reads that file back (replay) rather than
+working them out again.
 """
 from __future__ import annotations
 
+import json
 import math
+import os
 
 import numpy as np
 
@@ -353,10 +361,8 @@ def straighten_roads(features: list, proj, classify, is_polygon) -> int:
             f.geometry = [proj.to_latlon(x, y) for x, y in path]
 
     # --- everything else moves with the roads near it ---------------------
-    gw, gh = proj.width // FIELD_CELL + 2, proj.height // FIELD_CELL + 2
-    weight = np.zeros((gh, gw))
-    shift = np.zeros((gh, gw, 2))
     disp = moved - p0
+    samples = []
     for held, verts, px in zip(rigid, road_vertices, road_px):
         if held:
             continue
@@ -365,11 +371,23 @@ def straighten_roads(features: list, proj, classify, is_polygon) -> int:
             pa, pb = p0[a], p0[b]
             steps = max(1, int(np.hypot(*(pb - pa)) / FIELD_CELL))
             for t in np.linspace(0.0, 1.0, steps + 1):
-                q = pa + (pb - pa) * t
-                cx, cy = int(q[0] // FIELD_CELL), int(q[1] // FIELD_CELL)
-                if 0 <= cx < gw and 0 <= cy < gh:
-                    weight[cy, cx] += 1.0
-                    shift[cy, cx] += disp[a] * (1 - t) + disp[b] * t
+                samples.append((pa + (pb - pa) * t, disp[a] * (1 - t) + disp[b] * t))
+    _carry(features, roads, displacement(samples, proj))
+    return len(roads)
+
+
+def displacement(samples, proj):
+    """move(lat, lon) -> (lat, lon): the town's move at a point, from `samples`
+    [(point before, its move)] in tiles along the roads - their moves blended
+    over BLEND_TILES, fading out far from any road."""
+    gw, gh = proj.width // FIELD_CELL + 2, proj.height // FIELD_CELL + 2
+    weight = np.zeros((gh, gw))
+    shift = np.zeros((gh, gw, 2))
+    for q, d in samples:
+        cx, cy = int(q[0] // FIELD_CELL), int(q[1] // FIELD_CELL)
+        if 0 <= cx < gw and 0 <= cy < gh:
+            weight[cy, cx] += 1.0
+            shift[cy, cx] += d
     radius = max(1, BLEND_TILES // FIELD_CELL)
     w_blur = _blur(weight, radius)
     field_x = _blur(shift[..., 0], radius) / (w_blur + 1e-3)
@@ -384,7 +402,11 @@ def straighten_roads(features: list, proj, classify, is_polygon) -> int:
         cx = min(gw - 1, max(0, int(x // FIELD_CELL)))
         cy = min(gh - 1, max(0, int(y // FIELD_CELL)))
         return proj.to_latlon(x + field_x[cy, cx], y + field_y[cy, cx])
+    return move
 
+
+def _carry(features: list, roads: list, move) -> None:
+    """Everything in `features` but the roads moved by `move`, in place."""
     road_ids = {id(f) for f in roads}
     for f in features:
         if id(f) in road_ids:
@@ -396,4 +418,55 @@ def straighten_roads(features: list, proj, classify, is_polygon) -> int:
                             for role, ring in f.role_geoms]
             if f.geometry and isinstance(f.geometry[0][0], (list, tuple)):
                 f.geometry = [ring for _role, ring in f.role_geoms]
+
+
+def apply_road_graph(features: list, graph: dict, proj) -> int:
+    """The roads as generator/roadgraph routed them, in place of straightening:
+    graph {"ways": {osm id: {"geometry": [[lat, lon], ...], "tags": {...}}},
+    "drop": [osm id, ...], "shift": [[lat, lon, lat, lon], ...]}. Each routed
+    way takes its new line (and any tags given); a dropped way (a lane folded
+    into the road beside it, the second half of a dual carriageway) goes;
+    "shift" - points along the roads, where they were and where they went -
+    moves everything else with the roads near it, as straightening does.
+    Returns how many roads were redrawn."""
+    ways = {int(k): v for k, v in graph.get("ways", {}).items()}
+    drop = set(graph.get("drop", []))
+    kept, roads = [], []
+    for f in features:
+        if f.kind == "way" and f.osm_id in drop:
+            continue
+        g = ways.get(f.osm_id) if f.kind == "way" else None
+        if g:
+            f.geometry = [tuple(p) for p in g["geometry"]]
+            f.tags = {**f.tags, **g.get("tags", {})}
+            roads.append(f)
+        kept.append(f)
+    features[:] = kept
+    samples = []
+    for la0, lo0, la1, lo1 in graph.get("shift", []):
+        p0, p1 = np.array(proj.to_px(la0, lo0)), np.array(proj.to_px(la1, lo1))
+        samples.append((p0, p1 - p0))
+    if samples:
+        _carry(features, roads, displacement(samples, proj))
     return len(roads)
+
+
+def graph_path(map_dir: str, map_name: str) -> str:
+    return os.path.join(map_dir, f"{map_name}_roadgraph.json")
+
+
+def replay(features: list, proj, classify, is_polygon, info: dict, map_dir: str, map_name: str) -> int:
+    """The roads put where the renderer drew them, for a step after Generate (Build,
+    the paper map): straightened again (straight_roads 1, which comes out the same
+    every time), or the map's saved road graph read back (2 and 3: routing again would
+    take minutes). Returns how many roads were redrawn."""
+    mode = int(info.get("straight_roads") or 0)
+    if mode == 1:
+        return straighten_roads(features, proj, classify, is_polygon)
+    if mode >= 2:
+        path = graph_path(map_dir, map_name)
+        if not os.path.exists(path):
+            raise RuntimeError(f"{os.path.basename(path)} is missing: generate the map again")
+        with open(path, encoding="utf-8") as fh:
+            return apply_road_graph(features, json.load(fh), proj)
+    return 0

@@ -122,9 +122,9 @@ def write(out_dir: str, map_name: str, proj, info: dict,
               f"generate the map again to put the streets back")
     if info.get("straight_roads"):
         # The streets as the map drew them, not as they are.
-        from generator.octilinear import straighten_roads
+        from generator.octilinear import replay
         from generator.renderer import classify
-        straighten_roads(feats, proj, classify, _is_polygon)
+        replay(feats, proj, classify, _is_polygon, info, out_dir, map_name)
     clip = shape_px(info.get("shape"), proj)
     streets: dict[str, list[tuple[LineString, float]]] = {}
     for feat in feats:

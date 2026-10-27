@@ -139,7 +139,7 @@ def run_case(name: str, work: Path) -> dict:
                         SOUTH + SIZE_M * LAT_PER_M, WEST + SIZE_M * LON_PER_M,
                         meters_per_tile=1.0, output_dir=str(folder), map_name=name,
                         spawn_density=settings.spawn_density,
-                        tree_density=settings.tree_density, straight_roads=bool(settings.straight_roads))
+                        tree_density=settings.tree_density, straight_roads=int(settings.straight_roads))
         if name == "coast":
             with Image.open(folder / f"{name}.bmp") as image:
                 pixels = (image.get_flattened_data() if hasattr(image, "get_flattened_data")
